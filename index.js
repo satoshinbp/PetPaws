@@ -9,7 +9,18 @@ const db = mysql.createConnection({
   database: 'PetPaws'
 })
 
-// app.post('')
+app.post('/create', (req, res) => {
+  const name = req.body.name;
+
+  db.query('INSERT INTO users (name) VALUES (?)',
+    [name], (err, result) => {
+      if (err) {
+        console.log(err)
+      } else {
+        res.send('Success')
+      }
+    })
+})
 
 app.listen(3001, () => {
   console.log("connect")
