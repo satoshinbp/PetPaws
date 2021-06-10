@@ -1,13 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { Auth0Provider } from '@auth0/auth0-react';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 ReactDOM.render(
-  <React.StrictMode>
+  <Auth0Provider
+    domain = "loveandfight.us.auth0.com"
+    clientId = "50wgR9CayzeTBoff9l6I5IgsyC0CGjR9"
+    redirectUri={window.location.origin}
+  >
     <App />
-  </React.StrictMode>,
+  </Auth0Provider>,
   document.getElementById('root')
 );
 
