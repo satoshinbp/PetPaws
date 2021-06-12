@@ -5,7 +5,7 @@ client/node_modules
 /node_modules
 /.pnp
 .pnp.js
-
+/client/src/auth_config.json
 # testing
 /coverage
 
