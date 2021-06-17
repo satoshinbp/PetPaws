@@ -6,8 +6,8 @@ import reportWebVitals from './reportWebVitals'
 
 ReactDOM.render(
   <Auth0Provider
-    domain="loveandfight.us.auth0.com"
-    clientId="50wgR9CayzeTBoff9l6I5IgsyC0CGjR9"
+    domain = {process.env.REACT_APP_AUTH_DOMAIN}
+    clientId= {process.env.REACT_APP_AUTH_CLIENTID}
     redirectUri={window.location.origin}
   >
     <App />
