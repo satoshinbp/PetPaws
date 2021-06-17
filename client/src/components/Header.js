@@ -55,11 +55,11 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header>
+    <header style={{ background: "yellow" }}>
       Logo
-      <Link to="/calory">Calories Calculator</Link>
-      <Link to="/search-shops">Finding Pet shops/Viets</Link>
-      <Link to="/contact">Contact Us</Link>
+      <Link to="/calory" style={{ padding: "0 1rem" }}>Calories Calculator</Link>
+      <Link to="/search-shops" style={{ padding: "0 1rem" }}>Finding Pet shops/Viets</Link>
+      <Link to="/contact" style={{ padding: "0 1rem" }}>Contact Us</Link>
       { isLoading && <div>Loading...</div> }
       { error && <div>Oops... { error.message }</div>}
       {isAuthenticated ? (
