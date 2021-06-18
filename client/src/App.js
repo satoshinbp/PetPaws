@@ -4,6 +4,8 @@ import { useAuth0 } from '@auth0/auth0-react';
 import Home from './pages/Home';
 import Nutrition from './pages/Nutrition';
 import PetProfile from './pages/PetProfile';
+import Contact from './pages/Contact';
+import FindingPetStores from './pages/FindingPetStores';
 
 function App() {
   const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
@@ -18,6 +20,8 @@ function App() {
         <Route exact path="/" component={Home} />
         <Route path="/nutrition" component={Nutrition} />
         <Route path="/pet_profile" component={PetProfile} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/finding_stores" component={FindingPetStores} />
       </Switch>
     </Router>
   );
