@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
 import Home from './pages/Home';
-import Nutrition from './pages/Nutrition';
+import Calorie from './pages/Calorie';
 import PetProfile from './pages/PetProfile';
 
 function App() {
@@ -16,7 +16,7 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/" component={Home} />
-        <Route path="/nutrition" component={Nutrition} />
+        <Route path="/calorie" component={Calorie} />
         <Route path="/pet_profile" component={PetProfile} />
       </Switch>
     </Router>
