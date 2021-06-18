@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -5,7 +6,7 @@ import Home from './pages/Home';
 import Calorie from './pages/Calorie';
 import PetProfile from './pages/PetProfile';
 import Contact from './pages/Contact';
-import FindingPetStores from './pages/FindingPetStores';
+import FindingPetStores from './pages/FindingPetStores
 
 function App() {
   const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
