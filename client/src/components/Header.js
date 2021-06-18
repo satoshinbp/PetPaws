@@ -57,7 +57,7 @@ export default function Header() {
       Logo
       {/* ////////Following design will be in styles directory//// */ }
       <Link to="/calorie" style={{ padding: "0 1rem" }}>Calorie Calculator</Link>
-      <Link to="finding_stores" style={{ padding: "0 1rem" }}>Finding Pet stores/Vets</Link>
+      <Link to="finding_stores" style={{ padding: "0 1rem" }}>Finding Pet Stores/Vets</Link>
       <Link to="/contact" style={{ padding: "0 1rem" }}>Contact Us</Link>
       { isLoading && <div>Loading...</div> }
       { error && <div>Oops... { error.message }</div>}
