@@ -4,6 +4,7 @@ import Members from '../components/Members';
 function Home() {
   return (
     <>
+
       <h2
         style={{
           border: '1px solid black',
