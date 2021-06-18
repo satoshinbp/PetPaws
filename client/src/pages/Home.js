@@ -1,5 +1,6 @@
 import React from 'react';
 import Members from '../components/Members';
+import Dashboard from './Dashboard'
 
 function Home() {
   return (
@@ -21,6 +22,7 @@ function Home() {
         <li>Finding Pet Store and Vets</li>
       </ul>
       <Members />
+      <Dashboard />
     </>
   );
 }
