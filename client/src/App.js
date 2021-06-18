@@ -11,12 +11,15 @@ import CreateMeal from './pages/CreateMeal'
 import CreateWalk from './pages/CreateWalk'
 import MealForm from './components/tracker/MealForm'
 import WalkForm from './components/tracker/WalkForm'
+import Contact from './pages/Contact'
+import FindingPetStores from './pages/FindingPetStores'
 
 function App() {
-  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } = useAuth0()
+  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
+    useAuth0();
 
-  if (isLoading) return <div>Loading...</div>
-  if (error) return <div>Oops... {error.message}</div>
+  if (isLoading) return <div>Loading...</div>;
+  if (error) return <div>Oops... {error.message}</div>;
 
   const Routes = () => (
     <Router>
@@ -31,28 +34,32 @@ function App() {
         <Route path="/createwalk" component={CreateWalk} />
         <Route path="/MealForm" component={MealForm} />
         <Route path="/WalkForm" component={WalkForm} />
+        <Route path="/contact" component={Contact} />
+        <Route path="/finding_stores" component={FindingPetStores} />
       </Switch>
     </Router>
-  )
+  );
 
   if (isAuthenticated) {
     return (
       <>
         <div>
           Hello {user.name}{' '}
-          <button onClick={() => logout({ returnTo: window.location.origin })}>Log out</button>
+          <button onClick={() => logout({ returnTo: window.location.origin })}>
+            Log out
+          </button>
         </div>
         <Routes />
       </>
-    )
+    );
   } else {
     return (
       <>
         <button onClick={loginWithRedirect}>Log in</button>
         <Routes />
       </>
-    )
+    );
   }
 }
 
-export default App
+export default App;
