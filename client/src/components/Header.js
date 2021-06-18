@@ -10,6 +10,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
 import { makeStyles } from '@material-ui/core/styles';
 
+///////////////////////These design will be in styles directory/////////////////////
 const useStyles = makeStyles((theme) => ({
   root: {
     display: 'flex',
@@ -33,7 +34,6 @@ export default function Header() {
     if (anchorRef.current && anchorRef.current.contains(event.target)) {
       return;
     }
-
     setOpen(false);
   };
 
@@ -44,20 +44,19 @@ export default function Header() {
     }
   }
 
-  // return focus to the button when we transitioned from !open -> open
-  const prevOpen = React.useRef(open);
-  React.useEffect(() => {
+  const prevOpen = useRef(open);
+  useEffect(() => {
     if (prevOpen.current === true && open === false) {
       anchorRef.current.focus();
     }
-
     prevOpen.current = open;
   }, [open]);
 
   return (
     <header style={{ background: "yellow" }}>
       Logo
-      <Link to="/calory" style={{ padding: "0 1rem" }}>Calorie Calculator</Link>
+      {/* ////////Following design will be in styles directory//// */ }
+      <Link to="/calorie" style={{ padding: "0 1rem" }}>Calorie Calculator</Link>
       <Link to="/search-shops" style={{ padding: "0 1rem" }}>Finding Pet shops/Vets</Link>
       <Link to="/contact" style={{ padding: "0 1rem" }}>Contact Us</Link>
       { isLoading && <div>Loading...</div> }
@@ -83,7 +82,7 @@ export default function Header() {
                     <Paper>
                       <ClickAwayListener onClickAway={handleClose}>
                         <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                          <MenuItem onClick={handleClose}>Profile</MenuItem>
+                          <MenuItem onClick={handleClose}><Link to="/pet_profile" style={{ padding: "0 1rem" }}>Pet Profile</Link></MenuItem>
                           <MenuItem onClick={handleClose}>My account</MenuItem>
                           <MenuItem onClick={() =>logout({ returnTo: window.location.origin })}>Logout</MenuItem>
                         </MenuList>
@@ -95,7 +94,7 @@ export default function Header() {
             </div>
         </div>)
         :
-        (<button onClick={loginWithRedirect}>Log in</button>)
+        (<Button onClick={loginWithRedirect}>Log in</Button>)
       }
     </header>
   )
