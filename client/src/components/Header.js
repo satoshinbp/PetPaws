@@ -59,8 +59,8 @@ export default function Header() {
       <Link to="/calorie" style={{ padding: '0 1rem' }}>
         Calorie Calculator
       </Link>
-      <Link to="/search-shops" style={{ padding: '0 1rem' }}>
-        Finding Pet shops/Vets
+      <Link to="/finding_stores" style={{ padding: '0 1rem' }}>
+        Finding Pet Stores/Vets
       </Link>
       <Link to="/contact" style={{ padding: '0 1rem' }}>
         Contact Us
