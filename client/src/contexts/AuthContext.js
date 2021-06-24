@@ -1,5 +1,5 @@
 import React, { useContext, useState, useEffect } from "react";
-import { db, auth, FirebaseTimestamp } from "../firebase/index";
+import { auth, FirebaseTimestamp } from "../firebase/index";
 
 const AuthContext = React.createContext();
 
@@ -31,7 +31,7 @@ export function AuthProvider({ children }) {
             created_at: timestamp,
             updated_at: timestamp,
           };
-          db.collection("users").doc(uid).set(userInitialData);
+          // db.collection("users").doc(uid).set(userInitialData);
         }
       });
   }
