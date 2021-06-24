@@ -36,13 +36,9 @@ app.post('/api/insert', (req, res) => {
 
   const sqlInsert =
     'INSERT INTO team_members (name, role, image_url, linkedin_url, github_url, behance_url) VALUES (?,?,?,?,?,?)';
-  db.query(
-    sqlInsert,
-    [name, role, image_url, linkedin_url, github_url, behance_url],
-    (err, result) => {
-      console.log(err);
-    }
-  );
+  db.query(sqlInsert, [name, role, image_url, linkedin_url, github_url, behance_url], (err, result) => {
+    console.log(err);
+  });
 });
 
 //Delete members
