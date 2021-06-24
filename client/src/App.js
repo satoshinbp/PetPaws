@@ -1,5 +1,5 @@
 import React from 'react';
-import Header from './components/Header'
+import Header from './components/Header';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Home from './pages/Home';
 import Calorie from './pages/Calorie';
@@ -13,16 +13,15 @@ import WalkSummary from './pages/WalkSummary.js';
 import CreateMeal from './pages/CreateMeal';
 import CreateWalk from './pages/CreateWalk';
 
-
 function App() {
   return (
     <Router>
       <Auth0Provider
-        domain = {process.env.REACT_APP_AUTH_DOMAIN}
-        clientId= {process.env.REACT_APP_AUTH_CLIENTID}
+        domain={process.env.REACT_APP_AUTH_DOMAIN}
+        clientId={process.env.REACT_APP_AUTH_CLIENTID}
         redirectUri={window.location.origin}
       >
-        <Header/>
+        <Header />
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/calorie" component={Calorie} />
@@ -36,8 +35,8 @@ function App() {
           <Route path="/createwalk" component={CreateWalk} />
         </Switch>
       </Auth0Provider>
-    </Router>  
-  )
+    </Router>
+  );
 }
 
 export default App;

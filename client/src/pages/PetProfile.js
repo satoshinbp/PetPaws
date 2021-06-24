@@ -1,10 +1,10 @@
-import React from 'react'
+import React from 'react';
 
 export default function PetProfile() {
   return (
     <div>
       <h1>Pet Profile</h1>
-      Picture  Pet Type
+      Picture Pet Type
       <form action="">
         <label htmlFor="petName">Pet Name</label>
         <input type="text" />
@@ -29,8 +29,7 @@ export default function PetProfile() {
 
         <input type="submit" value="Save" />
       </form>
-          
       <p>Add new pet</p>
     </div>
-  )
+  );
 }
