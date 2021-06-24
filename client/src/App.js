@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Header from './components/Header'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -7,14 +6,12 @@ import Calorie from './pages/Calorie';
 import PetProfile from './pages/PetProfile';
 import Contact from './pages/Contact';
 import FindingPetStores from './pages/FindingPetStores';
-import { Auth0Provider } from '@auth0/auth0-react'
-import Dashboard from './pages/Dashboard'
-import MealSummary from './pages/MealSummary'
-import WalkSummary from './pages/WalkSummary.js'
-import CreateMeal from './pages/CreateMeal'
-import CreateWalk from './pages/CreateWalk'
-import MealForm from './components/tracker/MealForm'
-import WalkForm from './components/tracker/WalkForm'
+import { Auth0Provider } from '@auth0/auth0-react';
+import Dashboard from './pages/Dashboard';
+import MealSummary from './pages/MealSummary';
+import WalkSummary from './pages/WalkSummary.js';
+import CreateMeal from './pages/CreateMeal';
+import CreateWalk from './pages/CreateWalk';
 
 
 function App() {
@@ -32,13 +29,11 @@ function App() {
           <Route path="/pet_profile" component={PetProfile} />
           <Route path="/contact" component={Contact} />
           <Route path="/finding_stores" component={FindingPetStores} />
-          <Route exact path="/dashboard" component={Dashboard} />
+          <Route path="/dashboard" component={Dashboard} />
         <Route path="/mealsummary" component={MealSummary} />
         <Route path="/walksummary" component={WalkSummary} />
         <Route path="/createmeal" component={CreateMeal} />
         <Route path="/createwalk" component={CreateWalk} />
-        <Route path="/MealForm" component={MealForm} />
-        <Route path="/WalkForm" component={WalkForm} />
         </Switch>
       </Auth0Provider>
     </Router>  

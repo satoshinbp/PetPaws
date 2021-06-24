@@ -21,9 +21,7 @@ const WalkForm = ({ onAdd }) => {
         const today = new Date().toDateInputValue();
         setDate(today)
           
-        /*return () => {
-            cleanup
-        }*/
+
     }, [])
 
 
@@ -65,7 +63,7 @@ const WalkForm = ({ onAdd }) => {
                            name="activity-date" 
                            defaultValue={date}
                            required
-                           nChange={(e) => setDate(e.target.value)}
+                           onChange={(e) => setDate(e.target.value)}
                     />
                     <br /><br />
                     {/* START TIME */}

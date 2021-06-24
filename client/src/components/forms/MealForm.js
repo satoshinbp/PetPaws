@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 const MealForm = ({ onAdd }) => {
     const [name, setName] = useState(''); 
     const [date, setDate] = useState(''); // only date
-    const [type, setType] = useState(''); // option "wet" "dry" "treat"
+    const [type, setType] = useState('Wet'); // option "wet" "dry" "treat"
     const [time, setTime] = useState(''); // time of meal
     const [amount, setAmount] = useState('');
     const [calorie, setCalorie] = useState('');
@@ -14,18 +14,15 @@ const MealForm = ({ onAdd }) => {
 
     useEffect(() => {
         Date.prototype.toDateInputValue = (function() {
-            var local = new Date(this);
+            let local = new Date(this);
             local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
             return local.toJSON().slice(0,10);
         });
     
         const today = new Date().toDateInputValue();
         setDate(today)
-        setType('Wet')
+
           
-        /*return () => {
-            cleanup
-        }*/
     }, [])
 
 
@@ -69,7 +66,7 @@ const MealForm = ({ onAdd }) => {
                            name="meal-date" 
                            defaultValue={date}
                            required
-                           nChange={(e) => setDate(e.target.value)}
+                           onChange={(e) => setDate(e.target.value)}
                     />
                     <br /><br />
                     {/* TIME */}
