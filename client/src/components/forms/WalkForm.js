@@ -3,27 +3,10 @@ import { Link } from 'react-router-dom';
 
 const WalkForm = ({ onAdd }) => {
     const [name, setName] = useState(''); 
-    const [date, setDate] = useState(''); // only date
+    const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
     const [start, setStart] = useState(''); // option "wet" "dry" "treat"
     const [end, setEnd] = useState(''); // time of meal
     const [distance, setDistance] = useState('');
- 
-
-
-
-    useEffect(() => {
-        Date.prototype.toDateInputValue = (function() {
-            var local = new Date(this);
-            local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-            return local.toJSON().slice(0,10);
-        });
-    
-        const today = new Date().toDateInputValue();
-        setDate(today)
-          
-
-    }, [])
-
 
     const onSubmit = (e) => {
         e.preventDefault()

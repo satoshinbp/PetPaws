@@ -3,28 +3,12 @@ import { Link } from 'react-router-dom';
 
 const MealForm = ({ onAdd }) => {
     const [name, setName] = useState(''); 
-    const [date, setDate] = useState(''); // only date
+    const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
     const [type, setType] = useState('Wet'); // option "wet" "dry" "treat"
     const [time, setTime] = useState(''); // time of meal
     const [amount, setAmount] = useState('');
     const [calorie, setCalorie] = useState('');
     const [note, setNote] = useState('');
-
-
-
-    useEffect(() => {
-        Date.prototype.toDateInputValue = (function() {
-            let local = new Date(this);
-            local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
-            return local.toJSON().slice(0,10);
-        });
-    
-        const today = new Date().toDateInputValue();
-        setDate(today)
-
-          
-    }, [])
-
 
     const onSubmit = (e) => {
         e.preventDefault()
