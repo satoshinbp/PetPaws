@@ -41,9 +41,17 @@ export default function Calorie() {
         <label htmlFor="breed">Breed:</label>
         <select name="breed">
           {petType === 'dog' ? (
-            dogBreeds.map((breed) => <option value={breed}>{breed}</option>)
+            dogBreeds.map((breed) => (
+              <option value={breed} key={breed}>
+                {breed}
+              </option>
+            ))
           ) : petType === 'cat' ? (
-            catBreeds.map((breed) => <option value={breed}>{breed}</option>)
+            catBreeds.map((breed) => (
+              <option value={breed} key={breed}>
+                {breed}
+              </option>
+            ))
           ) : (
             <option>Please select pet type</option>
           )}
