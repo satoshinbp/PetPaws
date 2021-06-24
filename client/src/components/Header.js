@@ -54,7 +54,7 @@ export default function Header() {
 
   return (
     <header style={{ background: 'yellow' }}>
-      Logo
+      <Link to="/">Home</Link>
       {/* ////////Following design will be in styles directory//// */}
       <Link to="/calorie" style={{ padding: '0 1rem' }}>
         Calorie Calculator
