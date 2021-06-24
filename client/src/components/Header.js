@@ -1,6 +1,6 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import { useAuth0 } from '@auth0/auth0-react'
+import React, { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { useAuth0 } from '@auth0/auth0-react';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
-  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } = useAuth0()
+  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } = useAuth0();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
@@ -53,50 +53,59 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header style={{ background: "yellow" }}>
+    <header style={{ background: 'yellow' }}>
       Logo
-      {/* ////////Following design will be in styles directory//// */ }
-      <Link to="/calorie" style={{ padding: "0 1rem" }}>Calorie Calculator</Link>
-      <Link to="finding_stores" style={{ padding: "0 1rem" }}>Finding Pet Stores/Vets</Link>
-      <Link to="/contact" style={{ padding: "0 1rem" }}>Contact Us</Link>
-      { isLoading && <div>Loading...</div> }
-      { error && <div>Oops... { error.message }</div>}
+      {/* ////////Following design will be in styles directory//// */}
+      <Link to="/calorie" style={{ padding: '0 1rem' }}>
+        Calorie Calculator
+      </Link>
+      <Link to="finding_stores" style={{ padding: '0 1rem' }}>
+        Finding Pet Stores/Vets
+      </Link>
+      <Link to="/contact" style={{ padding: '0 1rem' }}>
+        Contact Us
+      </Link>
+      {isLoading && <div>Loading...</div>}
+      {error && <div>Oops... {error.message}</div>}
       {isAuthenticated ? (
         <div>
           {user.name}{' '}
           <div className={classes.root}>
-              <Button
-                ref={anchorRef}
-                aria-controls={open ? 'menu-list-grow' : undefined}
-                aria-haspopup="true"
-                onClick={handleToggle}
-              >
-                Icon
-              </Button>
-              <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-                {({ TransitionProps, placement }) => (
-                  <Grow
-                    {...TransitionProps}
-                    style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
-                  >
-                    <Paper>
-                      <ClickAwayListener onClickAway={handleClose}>
-                        <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                          <MenuItem onClick={handleClose}><Link to="/pet_profile" style={{ padding: "0 1rem" }}>Pet Profile</Link></MenuItem>
-                          <MenuItem onClick={handleClose}>My account</MenuItem>
-                          <MenuItem onClick={() =>logout({ returnTo: window.location.origin })}>Logout</MenuItem>
-                        </MenuList>
-                      </ClickAwayListener>
-                    </Paper>
-                  </Grow>
-                )}
-              </Popper>
-            </div>
-        </div>)
-        :
-        (<Button onClick={loginWithRedirect}>Log in</Button>)
-      }
+            <Button
+              ref={anchorRef}
+              aria-controls={open ? 'menu-list-grow' : undefined}
+              aria-haspopup="true"
+              onClick={handleToggle}
+            >
+              Icon
+            </Button>
+            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+              {({ TransitionProps, placement }) => (
+                <Grow
+                  {...TransitionProps}
+                  style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                >
+                  <Paper>
+                    <ClickAwayListener onClickAway={handleClose}>
+                      <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                        <MenuItem onClick={handleClose}>
+                          <Link to="/pet_profile" style={{ padding: '0 1rem' }}>
+                            Pet Profile
+                          </Link>
+                        </MenuItem>
+                        <MenuItem onClick={handleClose}>My account</MenuItem>
+                        <MenuItem onClick={() => logout({ returnTo: window.location.origin })}>Logout</MenuItem>
+                      </MenuList>
+                    </ClickAwayListener>
+                  </Paper>
+                </Grow>
+              )}
+            </Popper>
+          </div>
+        </div>
+      ) : (
+        <Button onClick={loginWithRedirect}>Log in</Button>
+      )}
     </header>
-  )
+  );
 }
-
