@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import WalkForm from '../components/tracker/WalkForm';
+import WalkForm from '../components/forms/WalkForm';
 
 
 

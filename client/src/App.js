@@ -30,10 +30,10 @@ function App() {
           <Route path="/contact" component={Contact} />
           <Route path="/finding_stores" component={FindingPetStores} />
           <Route path="/dashboard" component={Dashboard} />
-        <Route path="/mealsummary" component={MealSummary} />
-        <Route path="/walksummary" component={WalkSummary} />
-        <Route path="/createmeal" component={CreateMeal} />
-        <Route path="/createwalk" component={CreateWalk} />
+          <Route path="/mealsummary" component={MealSummary} />
+          <Route path="/walksummary" component={WalkSummary} />
+          <Route path="/createmeal" component={CreateMeal} />
+          <Route path="/createwalk" component={CreateWalk} />
         </Switch>
       </Auth0Provider>
     </Router>  

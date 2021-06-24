@@ -22,7 +22,6 @@ function Home() {
         <li>Finding Pet Store and Vets</li>
       </ul>
       <Members />
-      <Dashboard />
     </>
   );
 }
