@@ -71,94 +71,26 @@ export default function Members() {
         cumque similique.
       </p>
 
-      {memberList.map((member) => (
-        <div>
-          <img src={member.image_url} alt="member portrait" />
-          <div>{member.name}</div>
-          <div>{member.role}</div>
-        </div>
-      ))}
-
       {/* The following part is for testing purpose only. To be removed. */}
-      {/* <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <label>Name:</label>
-        <input
-          type="text"
-          name="name"
-          onChange={(e) => {
-            setName(e.target.value);
-          }}
-        />
-        <label>Role:</label>
-        <input
-          type="text"
-          name="role"
-          onChange={(e) => {
-            setRole(e.target.value);
-          }}
-        />
-        <label>Image:</label>
-        <input
-          type="text"
-          name="image_url"
-          onChange={(e) => {
-            setImage(e.target.value);
-          }}
-        />
-        <label>Linkedin:</label>
-        <input
-          type="text"
-          name="linkedin_url"
-          onChange={(e) => {
-            setLinkedin(e.target.value);
-          }}
-        />
-        <label>Github:</label>
-        <input
-          type="text"
-          name="github_url"
-          onChange={(e) => {
-            setGithub(e.target.value);
-          }}
-        />
-        <label>Behance:</label>
-        <input
-          type="text"
-          name="behance_url"
-          onChange={(e) => {
-            setBehance(e.target.value);
-          }}
-        />
-        <button onClick={submitProfile}>Add</button>
-
-        {memberList.map((val) => {
-          return (
-            <div className="card" key={val.id}>
-              <h1>{val.name} </h1>
-              <p>{val.role}</p>
+      {memberList
+        ? memberList.map((val) => (
+            <div key={val.id}>
               <p>{val.image_url}</p>
-              <p>{val.linkedin_url}</p>
-              <p>{val.github_url}</p>
-              <p>{val.behance_url}</p>
-              <button onClick={() => deleteProfile(val.id)}>Delete</button>
-              <input
-                type="text"
-                id="updateInput"
-                onChange={(e) => {
-                  setNewRole(e.target.value);
-                }}
-              />
-              <button
-                onClick={() => {
-                  updateProfile(val.id);
-                }}
-              >
-                Update
-              </button>
+              <p>{val.name} </p>
+              <p>{val.role}</p>
+              {/* <p>{val.linkedin_url}</p>
+                <p>{val.github_url}</p>
+                <p>{val.behance_url}</p>
+                <button onClick={() => deleteProfile(val.id)}>Delete</button>
+                <input
+                  type="text"
+                  id="updateInput"
+                  onChange={(e) => setNewRole(e.target.value)}
+                />
+                <button onClick={() => pdateProfile(val.id)}>Update</button> */}
             </div>
-          );
-        })}
-      </div> */}
+          ))
+        : 'Loading...'}
     </div>
   );
 }
