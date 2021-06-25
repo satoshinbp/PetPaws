@@ -26,7 +26,7 @@ function App() {
         <Switch>
           <PrivateRoute exact path="/calorie" component={Calorie} />
           <GuestRoute exact path="/" component={Home} />
-          <Route path="/calorieguest" component={CalorieGuest} />
+          <GuestRoute path="/calorieguest" component={CalorieGuest} />
           <PrivateRoute path="/pet_profile" component={PetProfile} />
           <Route path="/contact" component={Contact} />
           <Route path="/finding_stores" component={FindingPetStores} />
