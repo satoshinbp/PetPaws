@@ -103,33 +103,34 @@ function Members() {
         />
         <button onClick={submitProfile}>Add</button>
 
-        {memberList.map((val) => {
-          return (
-            <div className="card" key={val.id}>
-              <h1>{val.name} </h1>
-              <p>{val.role}</p>
-              <p>{val.image_url}</p>
-              <p>{val.linkedin_url}</p>
-              <p>{val.github_url}</p>
-              <p>{val.behance_url}</p>
-              <button onClick={() => deleteProfile(val.id)}>Delete</button>
-              <input
-                type="text"
-                id="updateInput"
-                onChange={(e) => {
-                  setNewRole(e.target.value);
-                }}
-              />
-              <button
-                onClick={() => {
-                  updateProfile(val.id);
-                }}
-              >
-                Update
-              </button>
-            </div>
-          );
-        })}
+        {memberList &&
+          memberList.map((val) => {
+            return (
+              <div className="card" key={val.id}>
+                <h1>{val.name} </h1>
+                <p>{val.role}</p>
+                <p>{val.image_url}</p>
+                <p>{val.linkedin_url}</p>
+                <p>{val.github_url}</p>
+                <p>{val.behance_url}</p>
+                <button onClick={() => deleteProfile(val.id)}>Delete</button>
+                <input
+                  type="text"
+                  id="updateInput"
+                  onChange={(e) => {
+                    setNewRole(e.target.value);
+                  }}
+                />
+                <button
+                  onClick={() => {
+                    updateProfile(val.id);
+                  }}
+                >
+                  Update
+                </button>
+              </div>
+            );
+          })}
       </div>
     </div>
   );
