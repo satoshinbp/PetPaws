@@ -8,6 +8,7 @@ import PetProfile from './pages/PetProfile';
 import Contact from './pages/Contact';
 import FindingPetStores from './pages/FindingPetStores';
 import { Auth0Provider } from '@auth0/auth0-react';
+import './styles/styles.css';
 import Dashboard from './pages/Dashboard';
 import MealSummary from './pages/MealSummary';
 import WalkSummary from './pages/WalkSummary.js';
