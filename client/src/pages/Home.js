@@ -1,15 +1,15 @@
-import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
-import { useAuth } from "../contexts/AuthContext";
-import { Link, useHistory } from "react-router-dom";
-import Members from "../components/Members";
+import React, { useRef, useState } from 'react';
+import { Form, Button, Card, Alert } from 'react-bootstrap';
+import { useAuth } from '../contexts/AuthContext';
+import { Link, useHistory } from 'react-router-dom';
+import Members from '../components/Members';
 
 function Home() {
   const nameRef = useRef();
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login } = useAuth();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
@@ -17,12 +17,12 @@ function Home() {
     e.preventDefault();
 
     try {
-      setError("");
+      setError('');
       setLoading(true);
       await login(emailRef.current.value, passwordRef.current.value);
-      history.push("/carorie");
+      history.push('/carorie');
     } catch {
-      setError("Failed to Sign in");
+      setError('Failed to Sign in');
     }
     setLoading(false);
   }
@@ -53,9 +53,9 @@ function Home() {
       </div>
       <h2
         style={{
-          border: "1px solid black",
-          borderRadius: "5px",
-          backgroundColor: "#F0F0F0",
+          border: '1px solid black',
+          borderRadius: '5px',
+          backgroundColor: '#F0F0F0',
         }}
       >
         Welcome to Pet Paws

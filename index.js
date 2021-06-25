@@ -1,10 +1,10 @@
-const express = require("express");
-const bodyParser = require("body-parser");
-const cors = require("cors");
+const express = require('express');
+const bodyParser = require('body-parser');
+const cors = require('cors');
 const app = express();
-const mysql = require("mysql");
-const jwt = require("jsonwebtoken");
-require("dotenv").config();
+const mysql = require('mysql');
+const jwt = require('jsonwebtoken');
+require('dotenv').config();
 
 const db = mysql.createPool({
   host: process.env.DB_HOST,
@@ -14,22 +14,17 @@ const db = mysql.createPool({
   port: 3306,
 });
 
-app.post("/login", (req, res) => {
+app.post('/login', (req, res) => {
   const user = {
     id: 1,
-    name: "test user",
+    name: 'test user',
   };
-  jwt.sign(
-    { user: user },
-    process.env.JWT_SECRET_KEY,
-    { expiresIn: "1h" },
-    (err, token) => {
-      res.json({ token });
-    }
-  );
+  jwt.sign({ user: user }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' }, (err, token) => {
+    res.json({ token });
+  });
 });
 
-app.post("/post", verifyToken, (req, res) => {
+app.post('/post', verifyToken, (req, res) => {
   jwt.verify(req.token, process.env.JWT_SECRET_KEY, (err, authData) => {
     if (err) {
       res.sendStatus(403);
@@ -40,10 +35,10 @@ app.post("/post", verifyToken, (req, res) => {
 });
 
 function verifyToken(req, res, next) {
-  const bearerHeader = req.headers["authorization"];
-  if (typeof bearerHeader !== "undefined") {
+  const bearerHeader = req.headers['authorization'];
+  if (typeof bearerHeader !== 'undefined') {
     // Bearerの後ろのスペース以降がトークンになる為splitして取得
-    const bearer = bearerHeader.split(" ");
+    const bearer = bearerHeader.split(' ');
     // トークンを保持して次の処理に進む
     const bearerToken = bearer[1];
     req.token = bearerToken;
@@ -53,7 +48,7 @@ function verifyToken(req, res, next) {
     res.sendStatus(403);
   }
 }
-app.get("/", (req, res) => {
+app.get('/', (req, res) => {
   res.json({
     message: `test`,
   });
@@ -63,11 +58,11 @@ app.get("/", (req, res) => {
 app.use(function (err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
-  res.locals.error = req.app.get("env") === "development" ? err : {};
+  res.locals.error = req.app.get('env') === 'development' ? err : {};
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.render('error');
 });
 
 // to connect backend and frontend
@@ -76,8 +71,8 @@ app.use(express.json()); //middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
 // Display member list
-app.get("/api/get", (req, res) => {
-  const sqlSelect = "SELECT * FROM team_members ";
+app.get('/api/get', (req, res) => {
+  const sqlSelect = 'SELECT * FROM team_members ';
   db.query(sqlSelect, (err, result) => {
     console.log(err);
     console.log(`aa${result}`);
@@ -86,7 +81,7 @@ app.get("/api/get", (req, res) => {
 });
 
 //Insert new members
-app.post("/api/insert", (req, res) => {
+app.post('/api/insert', (req, res) => {
   const name = req.body.name;
   const role = req.body.role;
   const image_url = req.body.image_url;
@@ -95,20 +90,16 @@ app.post("/api/insert", (req, res) => {
   const behance_url = req.body.behance_url;
 
   const sqlInsert =
-    "INSERT INTO team_members (name, role, image_url, linkedin_url, github_url, behance_url) VALUES (?,?,?,?,?,?)";
-  db.query(
-    sqlInsert,
-    [name, role, image_url, linkedin_url, github_url, behance_url],
-    (err, result) => {
-      console.log(err);
-    }
-  );
+    'INSERT INTO team_members (name, role, image_url, linkedin_url, github_url, behance_url) VALUES (?,?,?,?,?,?)';
+  db.query(sqlInsert, [name, role, image_url, linkedin_url, github_url, behance_url], (err, result) => {
+    console.log(err);
+  });
 });
 
 //Delete members
-app.delete("/api/delete/:id", (req, res) => {
+app.delete('/api/delete/:id', (req, res) => {
   const id = req.params.id;
-  const sqlDelete = "DELETE FROM team_members WHERE id = ?";
+  const sqlDelete = 'DELETE FROM team_members WHERE id = ?';
 
   db.query(sqlDelete, id, (err, result) => {
     if (err) console.log(err);
@@ -116,10 +107,10 @@ app.delete("/api/delete/:id", (req, res) => {
 });
 
 //Update members profile
-app.put("/api/update", (req, res) => {
+app.put('/api/update', (req, res) => {
   const id = req.body.id;
   const role = req.body.role;
-  const sqlUpdate = "UPDATE team_members SET role = ? WHERE id = ?";
+  const sqlUpdate = 'UPDATE team_members SET role = ? WHERE id = ?';
 
   db.query(sqlUpdate, [role, id], (err, result) => {
     if (err) console.log(err);
@@ -128,5 +119,5 @@ app.put("/api/update", (req, res) => {
 
 //run server on port 3001
 app.listen(3001, () => {
-  console.log("running on port 3001");
+  console.log('running on port 3001');
 });
