@@ -11,6 +11,7 @@ import PetProfile from './pages/PetProfile';
 import Contact from './pages/Contact';
 import FindingPetStores from './pages/FindingPetStores';
 import Signup from './pages/Signup';
+import Login from './pages/Login';
 import CalorieGuest from './pages/CalorieGuest';
 import Dashboard from './pages/Dashboard';
 import MealSummary from './pages/MealSummary';
@@ -31,6 +32,7 @@ function App() {
           <Route path="/contact" component={Contact} />
           <Route path="/finding_stores" component={FindingPetStores} />
           <GuestRoute path="/signup" component={Signup} />
+          <GuestRoute path="/login" component={Login} />
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/mealsummary" component={MealSummary} />
           <PrivateRoute path="/walksummary" component={WalkSummary} />
