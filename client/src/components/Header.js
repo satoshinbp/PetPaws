@@ -21,8 +21,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
-  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } =
-    useAuth0();
+  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } = useAuth0();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
@@ -80,41 +79,22 @@ export default function Header() {
             >
               Icon
             </Button>
-            <Popper
-              open={open}
-              anchorEl={anchorRef.current}
-              role={undefined}
-              transition
-              disablePortal
-            >
+            <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
               {({ TransitionProps, placement }) => (
                 <Grow
                   {...TransitionProps}
-                  style={{
-                    transformOrigin:
-                      placement === 'bottom' ? 'center top' : 'center bottom',
-                  }}
+                  style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
                 >
                   <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
-                      <MenuList
-                        autoFocusItem={open}
-                        id="menu-list-grow"
-                        onKeyDown={handleListKeyDown}
-                      >
+                      <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
                         <MenuItem onClick={handleClose}>
                           <Link to="/pet_profile" style={{ padding: '0 1rem' }}>
                             Pet Profile
                           </Link>
                         </MenuItem>
                         <MenuItem onClick={handleClose}>My account</MenuItem>
-                        <MenuItem
-                          onClick={() =>
-                            logout({ returnTo: window.location.origin })
-                          }
-                        >
-                          Logout
-                        </MenuItem>
+                        <MenuItem onClick={() => logout({ returnTo: window.location.origin })}>Logout</MenuItem>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>
