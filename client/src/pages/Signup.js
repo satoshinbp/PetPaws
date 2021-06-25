@@ -1,7 +1,7 @@
-import React, { useRef, useState } from "react";
-import { Form, Button, Card, Alert } from "react-bootstrap";
-import { Link, useHistory } from "react-router-dom";
-import { useAuth } from "../contexts/AuthContext";
+import React, { useRef, useState } from 'react';
+import { Form, Button, Card, Alert } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 
 export default function Signup() {
   const nameRef = useRef();
@@ -9,7 +9,7 @@ export default function Signup() {
   const passwordRef = useRef();
   const passwordConfirmRef = useRef();
   const { signup } = useAuth();
-  const [error, setError] = useState("");
+  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const history = useHistory();
 
@@ -17,15 +17,15 @@ export default function Signup() {
     e.preventDefault();
 
     if (passwordRef.current.value !== passwordConfirmRef.current.value) {
-      return setError("passwords do not match");
+      return setError('passwords do not match');
     }
     try {
-      setError("");
+      setError('');
       setLoading(true);
       await signup(emailRef.current.value, passwordRef.current.value);
-      history.push("/calorie");
+      history.push('/dashboard');
     } catch {
-      setError("Failed to sign in");
+      setError('Failed to sign in');
     }
     setLoading(false);
   }
