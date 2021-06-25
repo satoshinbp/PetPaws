@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
@@ -65,7 +64,7 @@ export default function Header() {
         Logo
       </Link>
       {/* ////////Following design will be in styles directory//// */}
-      <Link to="/calorie" style={{ padding: '0 1rem' }}>
+      <Link to={currentUser ? '/calorie' : '/calorieguest'} style={{ padding: '0 1rem' }}>
         Calorie Calculator
       </Link>
       <Link to="/finding_stores" style={{ padding: '0 1rem' }}>
@@ -78,14 +77,14 @@ export default function Header() {
         <div>
           {}{' '}
           <div className={classes.root}>
-            <Button
+            <button
               ref={anchorRef}
               aria-controls={open ? 'menu-list-grow' : undefined}
               aria-haspopup="true"
               onClick={handleToggle}
             >
               Icon
-            </Button>
+            </button>
             <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
               {({ TransitionProps, placement }) => (
                 <Grow
@@ -113,11 +112,14 @@ export default function Header() {
           </div>
         </div>
       ) : (
-        <Button>
+        <>
+          <Link to="/login" style={{ padding: '0 1rem' }}>
+            Sign In
+          </Link>
           <Link to="/signup" style={{ padding: '0 1rem' }}>
             Sign Up
           </Link>
-        </Button>
+        </>
       )}
     </header>
   );
