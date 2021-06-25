@@ -75,7 +75,7 @@ export default function Members() {
       {memberList
         ? memberList.map((val) => (
             <div key={val.id}>
-              <p>{val.image_url}</p>
+              <img src={val.image_url} alt="member portrait" />
               <p>{val.name} </p>
               <p>{val.role}</p>
               {/* <p>{val.linkedin_url}</p>
