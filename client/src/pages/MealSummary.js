@@ -19,4 +19,4 @@ const MealSummary = () => {
     )
 }
 
-export default MealSummary
+export default MealSummary;

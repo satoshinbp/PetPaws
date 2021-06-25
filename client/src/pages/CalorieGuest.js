@@ -23,12 +23,12 @@ export default function Calorie() {
 
   return (
     <>
-      <h3>Upgrade to Premium</h3>
+      <h3>Welcome to Pet Paws</h3>
       <p>
         We recommend the best nutrition plan for your furry friend, monitor their daily routeine, and locate the best
         vets and pet stores for your convenience.
       </p>
-      <button>Get Premium</button>
+      <button>Create free account</button>
 
       <h2>Calorie Calculator</h2>
       <form>
@@ -69,12 +69,11 @@ export default function Calorie() {
         <button type="submit">calculate</button>
       </form>
 
-      <h3>Warning!</h3>
+      <h3>The calculation is done!</h3>
       <h4>Your pet is overweight</h4>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facilis temporibus totam in ab culpa perferendis
-        unde recusandae! Consectetur obcaecati neque rem ut alias eos vero et ipsa aliquid molestias?
-      </p>
+      <p>Emter your email so we could send you the results!</p>
+
+      <button>Send</button>
     </>
   );
 }
