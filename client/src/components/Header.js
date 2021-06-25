@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link } from 'react-router-dom';
-import { useAuth0 } from '@auth0/auth0-react';
+import { Link, useHistory } from 'react-router-dom';
+import { useAuth } from '../contexts/AuthContext';
 import Button from '@material-ui/core/Button';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
@@ -21,10 +21,11 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export default function Header() {
-  const { isLoading, isAuthenticated, error, user, loginWithRedirect, logout } = useAuth0();
   const classes = useStyles();
   const [open, setOpen] = useState(false);
   const anchorRef = useRef(null);
+  const { currentUser, logout } = useAuth();
+  const history = useHistory();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -52,24 +53,30 @@ export default function Header() {
     prevOpen.current = open;
   }, [open]);
 
+  const handleLogout = () => {
+    logout()
+      .then(() => history.push('/'))
+      .catch((err) => console.log('Failed to log out: ', err));
+  };
+
   return (
     <header style={{ background: 'yellow' }}>
-      Logo
+      <Link to="/" style={{ padding: '0 1rem' }}>
+        Logo
+      </Link>
       {/* ////////Following design will be in styles directory//// */}
       <Link to="/calorie" style={{ padding: '0 1rem' }}>
         Calorie Calculator
       </Link>
       <Link to="/finding_stores" style={{ padding: '0 1rem' }}>
-        Finding Pet Stores/Vets
+        Finding Pet shops/Vets
       </Link>
       <Link to="/contact" style={{ padding: '0 1rem' }}>
         Contact Us
       </Link>
-      {isLoading && <div>Loading...</div>}
-      {error && <div>Oops... {error.message}</div>}
-      {isAuthenticated ? (
+      {currentUser ? (
         <div>
-          {user.name}{' '}
+          {}{' '}
           <div className={classes.root}>
             <Button
               ref={anchorRef}
@@ -83,7 +90,9 @@ export default function Header() {
               {({ TransitionProps, placement }) => (
                 <Grow
                   {...TransitionProps}
-                  style={{ transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom' }}
+                  style={{
+                    transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',
+                  }}
                 >
                   <Paper>
                     <ClickAwayListener onClickAway={handleClose}>
@@ -94,7 +103,7 @@ export default function Header() {
                           </Link>
                         </MenuItem>
                         <MenuItem onClick={handleClose}>My account</MenuItem>
-                        <MenuItem onClick={() => logout({ returnTo: window.location.origin })}>Logout</MenuItem>
+                        <MenuItem onClick={handleLogout}>Logout</MenuItem>
                       </MenuList>
                     </ClickAwayListener>
                   </Paper>
@@ -104,7 +113,11 @@ export default function Header() {
           </div>
         </div>
       ) : (
-        <Button onClick={loginWithRedirect}>Log in</Button>
+        <Button>
+          <Link to="/signup" style={{ padding: '0 1rem' }}>
+            Sign Up
+          </Link>
+        </Button>
       )}
     </header>
   );
