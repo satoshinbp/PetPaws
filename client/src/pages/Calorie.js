@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Calculator from '../components/Calculator';
 
 export default function Calorie() {
+  const [message, setMessage] = useState('');
+
   return (
     <>
       <h3>Upgrade to Premium</h3>
@@ -11,14 +13,9 @@ export default function Calorie() {
       </p>
       <button>Get Premium</button>
 
-      <Calculator />
+      <Calculator setMessage={setMessage} />
 
-      <h3>Warning!</h3>
-      <h4>Your pet is overweight</h4>
-      <p>
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam facilis temporibus totam in ab culpa perferendis
-        unde recusandae! Consectetur obcaecati neque rem ut alias eos vero et ipsa aliquid molestias?
-      </p>
+      {message && <h3>{message}</h3>}
     </>
   );
 }

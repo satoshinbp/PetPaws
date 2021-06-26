@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Calculator from '../components/Calculator';
 
 export default function Calorie() {
+  const [message, setMessage] = useState('');
+
   return (
     <>
       <h3>Welcome to Pet Paws</h3>
@@ -11,13 +13,17 @@ export default function Calorie() {
       </p>
       <button>Create free account</button>
 
-      <Calculator />
+      <Calculator setMessage={setMessage} />
 
-      <h3>The calculation is done!</h3>
-      <h4>Your pet is overweight</h4>
-      <p>Emter your email so we could send you the results!</p>
+      {message && (
+        <>
+          <h3>The calculation is done!</h3>
+          <h4>Your pet is overweight</h4>
+          <p>Emter your email so we could send you the results!</p>
 
-      <button>Send</button>
+          <button>Send</button>
+        </>
+      )}
     </>
   );
 }
