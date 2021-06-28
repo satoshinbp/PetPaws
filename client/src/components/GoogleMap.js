@@ -88,11 +88,7 @@ function Map(props) {
         <div
           onClick={getCurrentLocation}
           disabled={disabled}
-          className={
-            disabled
-              ? 'icon-btn--get-current-location--disabled'
-              : 'icon-btn--get-current-location'
-          }
+          className={disabled ? 'icon-btn--get-current-location--disabled' : 'icon-btn--get-current-location'}
         >
           {/* <img src={getCurrentLocationIcon} alt="" /> */}
         </div>
@@ -114,6 +110,7 @@ function Map(props) {
             //   scaledSize: new window.google.maps.Size(48, 48),
             //   labelOrigin: new window.google.maps.Point(24, 16),
             // }}
+            key={shop.id}
           />
         ))}
         {selected ? (
