@@ -1,55 +1,39 @@
 import React, { useState, useEffect } from 'react';
+import Axios from 'axios';
 import Map from '../components/GoogleMap';
 
 export default function FindingPetStores() {
   const [shops, setShops] = useState([]);
 
-  const locations = [
-    {
-      id: 1,
-      address: '1889 Cornwall Ave, Vancouver, BC V6J 1C6',
-      category: 'vet',
-      geocode: { latitude: 49.27462, longitude: -123.14759 },
-      name: 'Cypress St. Animal Hospital Vancouver',
-    },
-    {
-      id: 2,
-      address: '665 Market Hill, Vancouver, BC V5Z 4B5',
-      category: 'vet',
-      geocode: { latitude: 49.26775, longitude: -123.115939 },
-      name: 'Market Hill Animal Hospital',
-    },
-    {
-      id: 3,
-      address: '595 Burrard St, Vancouver, BC V7X 1L4',
-      category: 'store',
-      geocode: { latitude: 49.2874, longitude: -123.11985 },
-      name: 'Fetch Raw Food Company',
-    },
-    {
-      id: 4,
-      address: '1171 Thurlow St, Vancouver, BC V6E 1X3',
-      category: 'store',
-      geocode: { latitude: 49.25975, longitude: -123.03173 },
-      name: 'Bones Pet Stores',
-    },
-    {
-      id: 5,
-      address: '2860 Bentall St, Vancouver, BC V5M 4H4',
-      category: 'store',
-      geocode: { latitude: 49.28236, longitude: -123.13007 },
-      name: 'Pet Smart',
-    },
-  ];
-
   useEffect(() => {
-    setShops(locations);
+    Axios.get('http://localhost:3001/stores/get')
+      .then((response) => {
+        setShops(response.data);
+        console.log(response.data);
+        // console.log(response.data[0].is_vet);
+      })
+      .catch((err) => {
+        // Below dammy data to be removed once database gets ready
+        setShops([
+          { name: 'Canada pet store', address: '7575 alberta st Vancouver BC' },
+          { name: 'Vancouver vet', address: '2524 ontario st Vancouver BC' },
+        ]);
+      });
   }, []);
 
   const onChangeSelect = (e) => {
-    setShops(
-      locations.filter((location) => location.category == e.target.value)
-    );
+    Axios.get('http://localhost:3001/stores/get')
+      .then((response) => {
+        setShops(response.data.filter((shop) => shop.is_vet == e.target.value));
+        console.log(response.data);
+      })
+      .catch((err) => {
+        // Below dammy data to be removed once database gets ready
+        setShops([
+          { name: 'Canada pet store', address: '7575 alberta st Vancouver BC' },
+          { name: 'Vancouver vet', address: '2524 ontario st Vancouver BC' },
+        ]);
+      });
   };
 
   return (
@@ -71,8 +55,8 @@ export default function FindingPetStores() {
         <div>
           <label htmlFor="">Pet Stores/Vets</label>
           <select name="name" id="name" onChange={(e) => onChangeSelect(e)}>
-            <option value="store">Pet store</option>
-            <option value="vet">Vet</option>
+            <option value={0}>Pet store</option>
+            <option value={1}>Vet</option>
           </select>
         </div>
         <br />
