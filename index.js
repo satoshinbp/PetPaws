@@ -2,56 +2,36 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-const mysql = require('mysql');
-const jwt = require('jsonwebtoken');
 require('dotenv').config();
+const db = require('./config/connection');
+const admin = require('firebase-admin');
 
-const db = mysql.createPool({
-  host: process.env.DB_HOST,
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_DATABASE_NAME,
-  port: 3306,
+db.connect();
+
+const cert = {
+  projectId: process.env.FIREBASE_PROJECT_ID,
+  clientEmail: process.env.FIREBASE_CLIENT_EMAIL,
+  privateKey: process.env.FIREBASE_PRIVATE_KEY.replace(/\\n/g, '\n'),
+};
+
+admin.initializeApp({
+  credential: admin.credential.cert(cert),
 });
 
-app.post('/login', (req, res) => {
-  const user = {
-    id: 1,
-    name: 'test user',
-  };
-  jwt.sign({ user: user }, process.env.JWT_SECRET_KEY, { expiresIn: '1h' }, (err, token) => {
-    res.json({ token });
-  });
-});
+// to connect backend and frontend
+app.use(cors());
 
-app.post('/post', verifyToken, (req, res) => {
-  jwt.verify(req.token, process.env.JWT_SECRET_KEY, (err, authData) => {
-    if (err) {
-      res.sendStatus(403);
-    } else {
-      res.json(authData);
-    }
-  });
-});
-
-function verifyToken(req, res, next) {
-  const bearerHeader = req.headers['authorization'];
-  if (typeof bearerHeader !== 'undefined') {
-    // Bearerの後ろのスペース以降がトークンになる為splitして取得
-    const bearer = bearerHeader.split(' ');
-    // トークンを保持して次の処理に進む
-    const bearerToken = bearer[1];
-    req.token = bearerToken;
-    next();
-  } else {
-    // トークンが存在しない場合にはエラー
-    res.sendStatus(403);
-  }
-}
-app.get('/', (req, res) => {
-  res.json({
-    message: `test`,
-  });
+app.get('/api/auth', (req, res) => {
+  admin
+    .auth()
+    .verifyIdToken(req.headers['authorization'])
+    .then((decodedToken) => {
+      res.json({ uid: decodedToken.uid });
+    })
+    .catch((err) => {
+      console.error(err);
+      return res.status(401).send(err);
+    });
 });
 
 // error handler
@@ -65,8 +45,6 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-// to connect backend and frontend
-app.use(cors());
 app.use(express.json()); //middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
@@ -74,8 +52,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/api/get', (req, res) => {
   const sqlSelect = 'SELECT * FROM petpaws.team_members ';
   db.query(sqlSelect, (err, result) => {
-    console.log(err);
-    console.log(`aa${result}`);
     res.send(result);
   });
 });
@@ -93,6 +69,20 @@ app.post('/api/insert', (req, res) => {
     'INSERT INTO team_members (name, role, image_url, linkedin_url, github_url, behance_url) VALUES (?,?,?,?,?,?)';
   db.query(sqlInsert, [name, role, image_url, linkedin_url, github_url, behance_url], (err, result) => {
     console.log(err);
+  });
+});
+
+app.post('/api/user', (req, res) => {
+  const name = req.body.name;
+  const uid = req.body.uid;
+  const email = req.body.email;
+  const sqlInsert = 'INSERT INTO users (name, uid, email) VALUES (?,?,?)';
+  db.query(sqlInsert, [name, uid, email], (err, result) => {
+    if (err) {
+      throw err;
+    } else {
+      res.status(200).send(result);
+    }
   });
 });
 
