@@ -9,9 +9,9 @@ setName('')
  
 */
 const meals = [
-    {"id":1,"date":"2021-01-27","time":"2:41 AM","type":"Wet","amount":11,"calorie":189,"note":null},
-    {"id":2,"date":"2020-12-30","time":"2:51 AM","type":"Treat","amount":100,"calorie":184,"note":null},
-    {"id":3,"date":"2020-10-03","time":"10:16 PM","type":"Treat","amount":88,"calorie":153,"note":null},
+    {"id":1,"date":"2021-06-27","time":"2:41 AM","type":"Wet","amount":11,"calorie":189,"note":null},
+    {"id":2,"date":"2021-06-29","time":"2:51 AM","type":"Treat","amount":100,"calorie":184,"note":null},
+    {"id":3,"date":"2021-06-24","time":"10:16 PM","type":"Treat","amount":88,"calorie":153,"note":null},
     {"id":4,"date":"2021-01-11","time":"1:52 AM","type":"Treat","amount":51,"calorie":4,"note":"Vivamus metus arcu, adipiscing molestie, hendrerit at, vulputate vitae, nisl."},
     {"id":5,"date":"2020-06-29","time":"8:03 AM","type":"Treat","amount":4,"calorie":116,"note":null},
     {"id":6,"date":"2020-11-27","time":"1:02 AM","type":"Dry","amount":84,"calorie":158,"note":null},

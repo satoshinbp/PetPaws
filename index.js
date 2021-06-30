@@ -80,6 +80,15 @@ app.get('/api/get', (req, res) => {
   });
 });
 
+app.get('/api/meal', (req, res) => {
+  const sqlSelect = 'SELECT meals.id, uid, date, time, type, calorie FROM meals INNER JOIN mealTest ON meals.user_id = mealTest.id' ;
+  db.query(sqlSelect, (err, result) => {
+    console.log(err);
+    console.log(`aa${result}`);
+    res.send(result);
+  });
+});
+
 //Insert new members
 app.post('/api/insert', (req, res) => {
   const name = req.body.name;

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import meals from './mealData';
+import Axios from 'axios';
 import {
     ResponsiveContainer,
     ComposedChart,
@@ -12,22 +12,34 @@ import {
     BarChart,
     Area
 } from "recharts";
+import firebase from 'firebase/app'
 
 const MealBar = () => {
-    const [foodCal, setFoodCal] = useState([]);
+    const [data, setData] = useState([])
+    const [graphData, setGraphData] = useState([]);
     const [avgCal, setAvgCal] = useState([]);
-    const [weekData, setWeekData] = useState([]);
     let newMeal = [];
-    let week = [];
+    let allFoodData = []
+    const fetchDate = (dayAgo) => {
+        const date = new Date(new Date().setDate(new Date().getDate()-dayAgo)).toISOString().slice(0, 10)
+        return date
+    }
+    let week = []; // for makeAvgCalArray() AND noDataDates
 
-    const getFoodCal = () => {
+    // get dates for a week
+    for(let i = 1; i < 8; i++) { 
+        if (week.length < 7) {
+            week.push(fetchDate(i))
+        }
+    }
+
+    /*const getFoodCal = () => {
         for(let i = 0; i < 7; i++) { 
-            const getDate = new Date(new Date().setDate(new Date().getDate()-i)).toISOString().slice(0, 10)
+            const date = fetchDate(i)
             for(let y = 0; y < meals.length; y++) { 
                  // code to match firebase user token with DB will be needed
                 // this needs to be modified a bit when DB is ready
-                if(getDate == meals[y].date) {
-                    console.log(meals[y])
+                if(date == meals[y].date) {
                     if(meals[y].type === 'Wet' || meals[y].type === 'Dry') {
                         const foodType = 'meal';
                         newMeal.push(
@@ -36,6 +48,7 @@ const MealBar = () => {
                             meal: meals[y].calorie,
                             treat: null}
                         );  
+                        
                     } else {
                         const foodType = 'treat'
                         newMeal.push(
@@ -43,14 +56,44 @@ const MealBar = () => {
                             type: foodType,
                             meal: null,
                             treat: meals[y].calorie}
-                        );  
+                        ); 
+                        
                     }; 
                 };
             };
         };
-    };
+    };*/
 
-    // sum up calories from meal and treat respectively if there are duplicated dates.
+    // GET ALL FOOD DATA FOR A WEEK
+    const getFoodData = (meals) => {
+        for(let i = 0; i < 7; i++) { 
+            const date = fetchDate(i)
+            for(let y = 0; y < meals.length; y++) { 
+                const mealDate = meals[y].date.slice(0, 10)
+                if(date === mealDate) {
+                    if(meals[y].type === 'Wet' || meals[y].type === 'Dry') {
+                        const foodType = 'meal';
+                        allFoodData.push(
+                            {date: mealDate,
+                            type: foodType,
+                            meal: meals[y].calorie,
+                            treat: 0}
+                        );  
+                    } else {
+                        const foodType = 'treat'
+                        allFoodData.push(
+                            {date: mealDate,
+                            type: foodType,
+                            meal: 0,
+                            treat: meals[y].calorie}
+                        ); 
+                    } 
+                }
+            }
+        }
+    }
+
+    // SUM UP CALORIE FOR MEAL AND TREAT RESPECTIVELY PER DAY
     const sumUpCalorie = (meals) => {
         let temp = {};
             let obj = null;
@@ -64,146 +107,133 @@ const MealBar = () => {
                    temp[obj.date].treat += obj.treat;
                }
             }
-            let result = [];
+            let dayCalorie = [];
             for (let prop in temp)
-                result.push(temp[prop]);
-            return result
+                dayCalorie.push(temp[prop]);
+            return dayCalorie
     }
 
+    // CALCULATE AVERAGE CALORIE PER DAY
+    // INSERT AVERAGE CALORIE ANYWAY,
+    // EVEN IF THERE WAS NO INPUT (FOR PURPOSE OF GRAPH)
+    const getAvgCal = (meals) => {
 
-    const getAvgCalrie = (meals) => {
-        let sum = 0;
-        let calContainer = []; 
-        for(let i = 0; i < 7; i++) { 
-            const getDate = new Date(new Date().setDate(new Date().getDate()-i)).toISOString().slice(0, 10)
-            week.push(getDate)
+        const avgCalc = () => {
+            let sum = 0;
+
+            // get totall calorie of a week
+            for (let i = 0; i < meals.length; i++) {
+                let sumCalorie = meals[i].meal + meals[i].treat
+                sum = sum +  sumCalorie
+            }
+
+            // get average calorie of a day
+            const averageCalorie = Math.round(sum / meals.length)
+            setAvgCal(averageCalorie)
+            return averageCalorie
         }
-
-        for (let i = 0; i < meals.length; i++) {
-            let sumCalorie = meals[i].meal + meals[i].treat
-            sum = sum +  sumCalorie
-        }
-
-        const averageCalorie = Math.round(sum / meals.length)
-
-        for(let i = 0; i < 7; i++) {
-            calContainer.push({
-                date: week[i], calorie: averageCalorie
-            })
-        }
-        setAvgCal(calContainer);
-
-
-        console.log(week)
-
-        const insertAvgCal = () => {
-            const noDataDate = 7 - meals.length
-            let graphArray = meals
-            /*for(let i = 0; i < noDateDate; i++) {
-                graphArray.push({date: })
-            }*/
-        }
-
-        insertAvgCal()
-
-        /*let week = []
-        for(let i = 0; i < 7; i++) { 
-            const getDate = new Date(new Date().setDate(new Date().getDate()-i)).toISOString().slice(0, 10)
-            week.push(getDate)
-        }*/
-        var props = ['date', 'date'];
-
-        var result = week.filter(function(o1){
-            // filter out (!) items in result2
-            return !meals.some(function(o2){
-                if (o1 === o2.date) {
-                    return o2
-                }         // working
-            });
-        })/*.map(function(o){
-            console.log(o)
-            // use reduce to make objects with only the required properties
-            // and map to apply this to the filtered array as a whole
-            return {...result, meal}
-        });*/
+        avgCalc()
+        
+        
         const makeArrayForGraph = () => {
-            let graphData = []
+
+            let graphDataArray = []
+
+            // get dates when there was no input in a day
+            const noDataDates = week.filter((o1) => {
+                // filter out (!) items in noDataDates2
+                return !meals.some((o2) => {
+                    if (o1 === o2.date) {
+                        return o2
+                    }     
+                });
+            })
+
             meals.forEach(meal => 
-                graphData.push({
+                graphDataArray.push({
                     date: meal.date,
                     meal: meal.meal,
                     treat: meal.treat,
-                    avgCal: averageCalorie
+                    avgCal: avgCalc()
                 })
             )
-            result.forEach(date => 
-                graphData.push({
+            noDataDates.forEach(date => 
+                graphDataArray.push({
                     date: date,
                     meal: 0,
                     treat: 0,
-                    avgCal: averageCalorie
+                    avgCal: avgCalc()
                 })
             )
-            console.log(graphData)
-            setFoodCal(graphData)
+            setGraphData(graphDataArray)
 
         }
+        
         makeArrayForGraph()
-
-
-        //
-        /*var result1 = [
-    {id:1, name:'Sandra', type:'user', username:'sandra'},
-    {id:2, name:'John', type:'admin', username:'johnny2'},
-    {id:3, name:'Peter', type:'user', username:'pete'},
-    {id:4, name:'Bobby', type:'user', username:'be_bob'}
-];
-
-var result2 = [
-    {id:2, name:'John', email:'johnny@example.com'},
-    {id:4, name:'Bobby', email:'bobby@example.com'}
-];
-
-var props = ['id', 'name'];
-
-var result = result1.filter(function(o1){
-    // filter out (!) items in result2
-    return !result2.some(function(o2){
-        return o1.id === o2.id;          // assumes unique id
-    });
-}).map(function(o){
-    console.log(o)
-    // use reduce to make objects with only the required properties
-    // and map to apply this to the filtered array as a whole
-    return props.reduce(function(newo, name){
-        newo[name] = o[name];
-        return newo;
-    }, {});
-});
-
-console.log(result)*/
 
         
     };
 
 
+
     useEffect(() => {
 
+        const getUid = async () => {
+            const uid = await firebase.auth().currentUser.uid
+            await Axios.get('http://localhost:3001/api/meal')
+            .then((response) => {
+                let weekData = []
+                for(let i = 0; i < response.data.length; i++) {
+                    if(response.data[i].uid == uid) {
+                        weekData.push(response.data[i])
+                    } 
+                }
+                getFoodData(weekData)
+            }).then(() => {
+              return sumUpCalorie(allFoodData)
+            }).then((meals) => {
+              getAvgCal(meals)
+            })
+            .catch((err) => {
+              console.log(err)
+            });
 
-        //getFoodCal();
-        getFoodCal()
+        }
+
+        getUid()
+        /*.then((response) => {
+            const res = []
+            for(let i = 0; i < response.data.length; i++) {
+                if(uid == response.data[i].uid) {
+                    res.push(response.data[i])
+                }
+            }
+            setData(res)
+            getFoodData(res)              
+        })
+        .then(() => {
+            return sumUpCalorie(allFoodData)
+        }).then((meals) => {
+          getAvgCal(meals)
+        })
+        .catch((err) => {
+          console.log(err)
+        });*/
 
 
-        // this will get properly conneted with async when DB is ready
-        //sumUpCalorie(newMeal)
-        getAvgCalrie(sumUpCalorie(newMeal))
-        /*newMeal = []
-        getFoodCal()
-        getAvgCalrie(sumUpCalorie(newMeal));
-        console.log(getAvgCalrie(sumUpCalorie(newMeal)))*/
-        
 
-
+         /*Axios.get('http://localhost:3001/api/meal')
+            .then((response) => {
+              getFoodData(response.data)
+            }).then(() => {
+              return sumUpCalorie(allFoodData)
+            }).then((meals) => {
+              getAvgCal(meals)
+            })
+            .catch((err) => {
+              console.log(err)
+            });*/
+ 
 
     }, [])
 
@@ -215,13 +245,18 @@ console.log(result)*/
     return (
 
         <div style={{height: '260px'}}> {/* MUST set height to display chart */}
-            {foodCal.map((meal) => (
-                <p>{meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}</p>
+            {/*testCal.map((item) => (
+                <p>{item.date}</p>
+            ))*/}
+            <p>{avgCal}</p>
+            {graphData.map((meal) => (
+                <p key={meal.date}>{meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}</p>
             ))}
+
 
             <ResponsiveContainer>
             <ComposedChart //グラフ全体のサイズや位置、データを指定。場合によってmarginで上下左右の位置を指定する必要あり。
-                data={foodCal} //ここにArray型のデータを指定
+                data={graphData} //ここにArray型のデータを指定
                 margin={{left: 0 }}  // to get rid of extra space          
             >
 
@@ -266,7 +301,7 @@ console.log(result)*/
             <BarChart
 				width={500}
 				height={300}
-				data={foodCal}
+				data={graphData}
                 margin={{left: 0 }}  // to get rid of extra space 
 			>
                 <CartesianGrid stroke="#f5f5f5" />
