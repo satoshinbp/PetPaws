@@ -1,5 +1,6 @@
-import React, { useContext, useState, useEffect } from "react";
-import { auth, FirebaseTimestamp } from "../firebase/index";
+import Axios from 'axios';
+import React, { useContext, useState, useEffect } from 'react';
+import { auth } from '../firebase/index';
 
 const AuthContext = React.createContext();
 
@@ -11,46 +12,66 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
 
-  function signup(email, password, name) {
-    return auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((result) => {
-        const user = result.user;
-        if (user) {
-          user.updateProfile({
-            displayName: name,
+  const signup = (email, password, name) => {
+    return auth.createUserWithEmailAndPassword(email, password).then((result) => {
+      const user = result.user;
+      if (user) {
+        user.updateProfile({
+          displayName: name,
+        });
+        const uid = user.uid;
+        const userInitialData = {
+          uid,
+          name,
+          email,
+        };
+        user
+          .getIdToken()
+          .then((idToken) => {
+            Axios.get('http://localhost:3001/api/auth', {
+              headers: {
+                Authorization: idToken,
+              },
+            }).then(() => {
+              Axios.post('http://localhost:3001/api/user', userInitialData);
+            });
+          })
+          .catch((error) => {
+            console.error(error);
           });
-          const uid = user.uid;
-          const timestamp = FirebaseTimestamp.now();
-          const userInitialData = {
-            uid: uid,
-            name: name,
-            age: "",
-            gender: "",
-            favDrink: "",
-            created_at: timestamp,
-            updated_at: timestamp,
-          };
-          // db.collection("users").doc(uid).set(userInitialData);
-        }
-      });
-  }
+      }
+    });
+  };
 
-  function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password);
-  }
+  const login = (email, password) => {
+    return auth.signInWithEmailAndPassword(email, password).then((result) => {
+      const user = result.user;
+      user
+        .getIdToken()
+        .then((idToken) => {
+          Axios.get('http://localhost:3001/api/auth', {
+            headers: {
+              Authorization: idToken,
+            },
+          });
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    });
+  };
 
-  function logout() {
+  const logout = () => {
     return auth.signOut();
-  }
+  };
 
-  function updateEmail(email) {
+  const updateEmail = (email) => {
     return currentUser.updateEmail(email);
-  }
+  };
 
-  function updatePassword(password) {
+  const updatePassword = (password) => {
     return currentUser.updatePassword(password);
-  }
+  };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -70,9 +91,5 @@ export function AuthProvider({ children }) {
     updatePassword,
   };
 
-  return (
-    <AuthContext.Provider value={value}>
-      {!loading && children}
-    </AuthContext.Provider>
-  );
+  return <AuthContext.Provider value={value}>{!loading && children}</AuthContext.Provider>;
 }
