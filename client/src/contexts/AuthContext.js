@@ -25,7 +25,7 @@ export function AuthProvider({ children }) {
           name,
           email,
         };
-        auth.currentUser
+        user
           .getIdToken()
           .then((idToken) => {
             Axios.get('http://localhost:3001/api/auth', {
