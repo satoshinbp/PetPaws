@@ -12,7 +12,7 @@ export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState();
   const [loading, setLoading] = useState(true);
 
-  function signup(email, password, name) {
+  const signup = (email, password, name) => {
     return auth.createUserWithEmailAndPassword(email, password).then((result) => {
       const user = result.user;
       if (user) {
@@ -21,12 +21,12 @@ export function AuthProvider({ children }) {
         });
         const uid = user.uid;
         const userInitialData = {
-          uid: uid,
-          name: name,
-          email: email,
+          uid,
+          name,
+          email,
         };
         auth.currentUser
-          .getIdToken(true)
+          .getIdToken()
           .then((idToken) => {
             Axios.get('http://localhost:3001/api/auth', {
               headers: {
@@ -41,12 +41,13 @@ export function AuthProvider({ children }) {
           });
       }
     });
-  }
+  };
 
-  function login(email, password) {
-    return auth.signInWithEmailAndPassword(email, password).then(() => {
-      auth.currentUser
-        .getIdToken(true)
+  const login = (email, password) => {
+    return auth.signInWithEmailAndPassword(email, password).then((result) => {
+      const user = result.user;
+      user
+        .getIdToken()
         .then((idToken) => {
           Axios.get('http://localhost:3001/api/auth', {
             headers: {
@@ -58,19 +59,19 @@ export function AuthProvider({ children }) {
           console.error(error);
         });
     });
-  }
+  };
 
-  function logout() {
+  const logout = () => {
     return auth.signOut();
-  }
+  };
 
-  function updateEmail(email) {
+  const updateEmail = (email) => {
     return currentUser.updateEmail(email);
-  }
+  };
 
-  function updatePassword(password) {
+  const updatePassword = (password) => {
     return currentUser.updatePassword(password);
-  }
+  };
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
