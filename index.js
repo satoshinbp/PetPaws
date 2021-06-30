@@ -74,8 +74,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/api/get', (req, res) => {
   const sqlSelect = 'SELECT * FROM petpaws.team_members ';
   db.query(sqlSelect, (err, result) => {
-    console.log(err);
-    console.log(`aa${result}`);
     res.send(result);
   });
 });
@@ -124,6 +122,17 @@ app.get('/stores/get', (req, res) => {
   db.query(sqlSelect, (err, result) => {
     console.log(err);
     console.log(`aa${result}`);
+    res.send(result);
+  });
+});
+
+/* PET */
+app.get('/api/pet/get/:uid', (req, res) => {
+  const uid = req.params.uid;
+  const sqlSelect = 'SELECT * FROM petpaws.pets WHERE uid = ?';
+
+  db.query(sqlSelect, [uid], (err, result) => {
+    if (err) throw err;
     res.send(result);
   });
 });

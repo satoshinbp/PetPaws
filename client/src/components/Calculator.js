@@ -3,17 +3,19 @@ import Axios from 'axios';
 
 export default function Calculator(props) {
   const { setMessage } = props;
-  const [petType, setPetType] = useState(0); // 0: dog, 1: cat
+
+  console.log(props.petProfile);
+
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
+  const [isDog, setIsDog] = useState(props.petProfile ? props.petProfile.is_dog : 1); // 0: cat, 1: dog
   const [breedAdultAge, setBreedAdultAge] = useState(0);
-  const [age, setAge] = useState(0);
   const [years, setYears] = useState(0);
   const [months, setMonths] = useState(0);
-  const [weight, setWeight] = useState(0);
-  const [signalment, setSignalment] = useState(0); // 0: intact, 1: neutered
-  const [activityLevel, setActivityLevel] = useState(0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
-  const [bodyCondition, setBodyCondition] = useState(0); // 0: ideal, 1: underweight, 2: overweight
+  const [weight, setWeight] = useState(props.petProfile ? props.petProfile.weight : 0);
+  const [isSpayed, setIsSpayed] = useState(props.petProfile ? props.petProfile.is_spayed : 0); // 0: intact, 1: spayed/neutered
+  const [activityLevel, setActivityLevel] = useState(props.petProfile ? props.petProfile.activityLevel : 0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
+  const [bodyCondition, setBodyCondition] = useState(props.petProfile ? props.petProfile.bodyCondition : 0); // 0: ideal, 1: underweight, 2: overweight
 
   useEffect(() => {
     Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
@@ -32,14 +34,14 @@ export default function Calculator(props) {
     });
   }, []);
 
-  useEffect(() => setBreedAdultAge(''), [petType]);
+  useEffect(() => setBreedAdultAge(''), [isDog]);
 
-  const changePetType = (e) => setPetType(parseInt(e.target.value));
+  const changePetType = (e) => setIsDog(parseInt(e.target.value));
   const changeBreed = (e) => setBreedAdultAge(parseInt(e.target.value));
   const changeYears = (e) => setYears(e.target.value);
   const changeMonths = (e) => setMonths(e.target.value);
   const changeWeight = (e) => setWeight(e.target.value);
-  const changeSignalment = (e) => setSignalment(parseInt(e.target.value));
+  const changeIsSpayed = (e) => setIsSpayed(parseInt(e.target.value));
   const changeActivityLevel = (e) => setActivityLevel(parseInt(e.target.value));
   const changeBodyCondition = (e) => setBodyCondition(parseInt(e.target.value));
 
@@ -54,7 +56,7 @@ export default function Calculator(props) {
     e.preventDefault();
 
     const RER = 70 * Math.pow(weight, 0.75);
-    const signalmentFactor = signalmentFactors[petType][signalment];
+    const signalmentFactor = signalmentFactors[isDog][isSpayed];
     const activityLevelFactor = activityLevelFactors[activityLevel];
     const bodyConditionFactor = bodyConditionFactors[bodyCondition];
     const ageFactor = years * 12 + months < 4 ? 3 : years * 12 + months < breedAdultAge ? 2 : 1;
@@ -63,6 +65,7 @@ export default function Calculator(props) {
 
     console.log(breedAdultAge);
     console.log(RER, signalmentFactor, activityLevelFactor, bodyConditionFactor, ageFactor);
+
     setMessage(`${MER.toFixed(0)} kcal/day`);
   };
 
@@ -73,15 +76,15 @@ export default function Calculator(props) {
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <div>
           <h3>Pet type:</h3>
-          <input type="radio" name="petType" value={0} checked={!petType} onChange={changePetType} />
+          <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
           <label htmlFor="dog">Dog</label>
-          <input type="radio" name="petType" value={1} checked={petType} onChange={changePetType} />
+          <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
           <label htmlFor="cat">Cat</label>
         </div>
         <div>
           <label htmlFor="breed">Breed:</label>
           <select name="breed" onChange={changeBreed}>
-            {!petType ? (
+            {!isDog ? (
               <>
                 <option>Select breed</option>
                 {dogBreeds.map((breed) => (
@@ -120,10 +123,10 @@ export default function Calculator(props) {
         </div>
 
         <div>
-          <label htmlFor="signalment">Signalment:</label>
-          <select name="signalment" onChange={changeSignalment}>
+          <label htmlFor="isSpayed">Signalment:</label>
+          <select name="isSpayed" onChange={changeIsSpayed}>
             <option value={0}>Intact</option>
-            <option value={1}>Neutered</option>
+            <option value={1}>Spayed/Neutered</option>
           </select>
         </div>
 
