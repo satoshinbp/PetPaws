@@ -73,7 +73,8 @@ function Map(props) {
     }
   }, [shops, bounds]);
 
-  const url = 'https://maps.google.com/mapfiles/ms/icons/green-dot.png';
+  const url_green = 'https://maps.google.com/mapfiles/ms/icons/green-dot.png';
+  const url_orange = 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png';
 
   // if (isLoading) return <Loading />;
 
@@ -87,19 +88,11 @@ function Map(props) {
         onLoad={handleLoad}
         onBoundsChanged={handleBoundsChange}
       >
-        <div
-          onClick={getCurrentLocation}
-          disabled={disabled}
-          className={disabled ? 'icon-btn--get-current-location--disabled' : 'icon-btn--get-current-location'}
-        >
-          {/* <img src={getCurrentLocationIcon} alt="" /> */}
-        </div>
-
         {shopsOnMap.map((shop) => (
           <Marker
             key={shop.id}
             icon={{
-              url: url,
+              url: shop.is_vet === 1 ? url_green : url_orange,
               scaledSize: new window.google.maps.Size(48, 48),
               labelOrigin: new window.google.maps.Point(24, 16),
             }}

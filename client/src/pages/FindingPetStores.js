@@ -24,8 +24,12 @@ export default function FindingPetStores() {
   const onChangeSelect = (e) => {
     Axios.get('http://localhost:3001/stores/get')
       .then((response) => {
-        setShops(response.data.filter((shop) => shop.is_vet == e.target.value));
-        console.log(response.data);
+        if (Number(e.target.value) === 2) {
+          setShops(response.data);
+        } else {
+          setShops(response.data.filter((shop) => shop.is_vet === Number(e.target.value)));
+          // console.log(response.data);
+        }
       })
       .catch((err) => {
         // Below dammy data to be removed once database gets ready
@@ -55,6 +59,7 @@ export default function FindingPetStores() {
         <div>
           <label htmlFor="">Pet Stores/Vets</label>
           <select name="name" id="name" onChange={(e) => onChangeSelect(e)}>
+            <option value={2}>Both</option>
             <option value={0}>Pet store</option>
             <option value={1}>Vet</option>
           </select>
