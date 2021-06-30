@@ -72,7 +72,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Display member list
 app.get('/api/get', (req, res) => {
-  const sqlSelect = 'SELECT * FROM team_members ';
+  const sqlSelect = 'SELECT * FROM petpaws.team_members ';
   db.query(sqlSelect, (err, result) => {
     console.log(err);
     console.log(`aa${result}`);
@@ -114,6 +114,17 @@ app.put('/api/update', (req, res) => {
 
   db.query(sqlUpdate, [role, id], (err, result) => {
     if (err) console.log(err);
+  });
+});
+
+// finding store function
+// Display store list
+app.get('/stores/get', (req, res) => {
+  const sqlSelect = 'SELECT * FROM petpaws.stores ';
+  db.query(sqlSelect, (err, result) => {
+    console.log(err);
+    console.log(`aa${result}`);
+    res.send(result);
   });
 });
 
