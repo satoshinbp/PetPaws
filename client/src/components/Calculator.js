@@ -6,14 +6,14 @@ export default function Calculator(props) {
 
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
-  const [isDog, setIsDog] = useState(props.profile ? props.profile.is_dog : 1); // 0: cat, 1: dog
-  const [breedName, setBreedName] = useState(props.profile ? props.profile.breed : '');
+  const [isDog, setIsDog] = useState(props.profile?.is_dog || 0); // 0: cat, 1: dog
+  const [breedName, setBreedName] = useState(props.profile?.breed || '');
   const [years, setYears] = useState(0);
   const [months, setMonths] = useState(0);
-  const [weight, setWeight] = useState(props.profile ? props.profile.weight : 0);
-  const [isSpayed, setIsSpayed] = useState(props.profile ? props.profile.is_spayed : 0); // 0: intact, 1: spayed/neutered
-  const [activityLevel, setActivityLevel] = useState(props.profile ? props.profile.activityLevel : 0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
-  const [bodyCondition, setBodyCondition] = useState(props.profile ? props.profile.bodyCondition : 0); // 0: ideal, 1: underweight, 2: overweight
+  const [weight, setWeight] = useState(props.profile?.weight || 0);
+  const [isSpayed, setIsSpayed] = useState(props.profile?.is_spayed || 0); // 0: intact, 1: spayed/neutered
+  const [activityLevel, setActivityLevel] = useState(props.profile?.activity_level || 0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
+  const [bodyCondition, setBodyCondition] = useState(props.profile?.body_condition || 0); // 0: underweight, 1: ideal, 2: overweight
 
   useEffect(() => {
     Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
@@ -82,7 +82,7 @@ export default function Calculator(props) {
     [1.8, 1.6],
   ];
   const activityLevelFactors = [1, 1.2, 1.4, 1.6];
-  const bodyConditionFactors = [1, 1.2, 0.8];
+  const bodyConditionFactors = [1.2, 1, 0.8];
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -109,10 +109,10 @@ export default function Calculator(props) {
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <div>
           <h3>Pet type:</h3>
-          <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
-          <label htmlFor="dog">Dog</label>
           <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
           <label htmlFor="cat">Cat</label>
+          <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
+          <label htmlFor="dog">Dog</label>
         </div>
         <div>
           <label htmlFor="breed">Breed:</label>
@@ -188,10 +188,10 @@ export default function Calculator(props) {
           <label htmlFor="bodyCondition">Body Condition:</label>
           <select name="bodyCondition" onChange={changeBodyCondition}>
             <option value={0} selected={bodyCondition === 0}>
-              Ideal
+              Underweight
             </option>
             <option value={1} selected={bodyCondition === 1}>
-              Underweight
+              Ideal
             </option>
             <option value={2} selected={bodyCondition === 2}>
               Overweight
