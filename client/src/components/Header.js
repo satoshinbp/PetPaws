@@ -50,8 +50,15 @@ export default function Header() {
     <header style={{ display: 'flex', justifyContent: 'space-between' }}>
       {/* Styling to be removed */}
       <Link to="/">Logo</Link>
+      {currentUser && (
+        <>
+          <Link to="/mealsummary">Meals Tracker</Link>
+          <Link to="/walksummary">Walks Tracker</Link>
+        </>
+      )}
       <Link to={currentUser ? '/calorie' : '/calorieguest'}>Calorie Calculator</Link>
       <Link to="/finding_stores">Finding Pet Stores/Vets</Link>
+      <Link to="/contact">Contact Us</Link>
       {currentUser ? (
         <>
           <button
@@ -87,7 +94,6 @@ export default function Header() {
         </>
       ) : (
         <>
-          <Link to="/contact">Contact Us</Link>
           <Link to="/signin">Sign In</Link>
           <Link to="/signup">Sign Up</Link>
         </>
