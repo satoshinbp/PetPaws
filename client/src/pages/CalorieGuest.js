@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import Calculator from '../components/Calculator';
 
 export default function Calorie() {
-  const [message, setMessage] = useState('');
+  const [result, setResult] = useState('');
 
   return (
     <>
@@ -13,9 +13,9 @@ export default function Calorie() {
       </p>
       <button>Create free account</button>
 
-      <Calculator setMessage={setMessage} />
+      <Calculator setResult={setResult} />
 
-      {message && (
+      {result && (
         <>
           <h3>The calculation is done!</h3>
           <h4>Your pet is overweight</h4>

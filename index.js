@@ -118,6 +118,17 @@ app.get('/stores/get', (req, res) => {
   });
 });
 
+/* PET */
+app.get('/api/pet/get/:uid', (req, res) => {
+  const uid = req.params.uid;
+  const sqlSelect = 'SELECT * FROM petpaws.pets WHERE uid = ?';
+
+  db.query(sqlSelect, [uid], (err, result) => {
+    if (err) throw err;
+    res.send(result);
+  });
+});
+
 //run server on port 3001
 app.listen(3001, () => {
   console.log('running on port 3001');
