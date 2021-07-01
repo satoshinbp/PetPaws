@@ -57,7 +57,7 @@ export default function FindingPetStores() {
       <form>
         <h3>Lets find the best Vets and Pet stores</h3>
         <div>
-          <label htmlFor="">Pet Stores/Vets</label>
+          <label htmlFor="">Find location</label>
           <select name="name" id="name" onChange={(e) => onChangeSelect(e)}>
             <option value={2}>Both</option>
             <option value={0}>Pet store</option>

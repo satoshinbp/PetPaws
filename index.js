@@ -5,6 +5,7 @@ const app = express();
 require('dotenv').config();
 const db = require('./config/connection');
 const admin = require('firebase-admin');
+require('./routes/memberRoutes')(app);
 
 db.connect();
 
@@ -48,64 +49,64 @@ app.use(function (err, req, res, next) {
 app.use(express.json()); //middleware
 app.use(bodyParser.urlencoded({ extended: true }));
 
-// Display member list
-app.get('/api/get', (req, res) => {
-  const sqlSelect = 'SELECT * FROM petpaws.team_members ';
-  db.query(sqlSelect, (err, result) => {
-    res.send(result);
-  });
-});
+// // Display member list
+// app.get('/api/get', (req, res) => {
+//   const sqlSelect = 'SELECT * FROM petpaws.team_members ';
+//   db.query(sqlSelect, (err, result) => {
+//     res.send(result);
+//   });
+// });
 
-//Insert new members
-app.post('/api/insert', (req, res) => {
-  const name = req.body.name;
-  const role = req.body.role;
-  const image_url = req.body.image_url;
-  const linkedin_url = req.body.linkedin_url;
-  const github_url = req.body.github_url;
-  const behance_url = req.body.behance_url;
+// //Insert new members
+// app.post('/api/insert', (req, res) => {
+//   const name = req.body.name;
+//   const role = req.body.role;
+//   const image_url = req.body.image_url;
+//   const linkedin_url = req.body.linkedin_url;
+//   const github_url = req.body.github_url;
+//   const behance_url = req.body.behance_url;
 
-  const sqlInsert =
-    'INSERT INTO team_members (name, role, image_url, linkedin_url, github_url, behance_url) VALUES (?,?,?,?,?,?)';
-  db.query(sqlInsert, [name, role, image_url, linkedin_url, github_url, behance_url], (err, result) => {
-    console.log(err);
-  });
-});
+//   const sqlInsert =
+//     'INSERT INTO team_members (name, role, image_url, linkedin_url, github_url, behance_url) VALUES (?,?,?,?,?,?)';
+//   db.query(sqlInsert, [name, role, image_url, linkedin_url, github_url, behance_url], (err, result) => {
+//     console.log(err);
+//   });
+// });
 
-app.post('/api/user', (req, res) => {
-  const name = req.body.name;
-  const uid = req.body.uid;
-  const email = req.body.email;
-  const sqlInsert = 'INSERT INTO users (name, uid, email) VALUES (?,?,?)';
-  db.query(sqlInsert, [name, uid, email], (err, result) => {
-    if (err) {
-      throw err;
-    } else {
-      res.status(200).send(result);
-    }
-  });
-});
+// app.post('/api/user', (req, res) => {
+//   const name = req.body.name;
+//   const uid = req.body.uid;
+//   const email = req.body.email;
+//   const sqlInsert = 'INSERT INTO users (name, uid, email) VALUES (?,?,?)';
+//   db.query(sqlInsert, [name, uid, email], (err, result) => {
+//     if (err) {
+//       throw err;
+//     } else {
+//       res.status(200).send(result);
+//     }
+//   });
+// });
 
-//Delete members
-app.delete('/api/delete/:id', (req, res) => {
-  const id = req.params.id;
-  const sqlDelete = 'DELETE FROM team_members WHERE id = ?';
+// //Delete members
+// app.delete('/api/delete/:id', (req, res) => {
+//   const id = req.params.id;
+//   const sqlDelete = 'DELETE FROM team_members WHERE id = ?';
 
-  db.query(sqlDelete, id, (err, result) => {
-    if (err) console.log(err);
-  });
-});
+//   db.query(sqlDelete, id, (err, result) => {
+//     if (err) console.log(err);
+//   });
+// });
 
-//Update members profile
-app.put('/api/update', (req, res) => {
-  const id = req.body.id;
-  const role = req.body.role;
-  const sqlUpdate = 'UPDATE team_members SET role = ? WHERE id = ?';
+// //Update members profile
+// app.put('/api/update', (req, res) => {
+//   const id = req.body.id;
+//   const role = req.body.role;
+//   const sqlUpdate = 'UPDATE team_members SET role = ? WHERE id = ?';
 
-  db.query(sqlUpdate, [role, id], (err, result) => {
-    if (err) console.log(err);
-  });
-});
+//   db.query(sqlUpdate, [role, id], (err, result) => {
+//     if (err) console.log(err);
+//   });
+// });
 
 // finding store function
 // Display store list
