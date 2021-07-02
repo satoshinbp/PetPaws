@@ -3,7 +3,7 @@ import Axios from 'axios';
 
 // Commented out parts are for testing purpose only. To be removed.
 
-export default function Members() {
+export default function Team() {
   // const [name, setName] = useState('');
   // const [role, setRole] = useState('');
   // const [image, setImage] = useState('');
@@ -14,20 +14,21 @@ export default function Members() {
   const [memberList, setMemberList] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://localhost:3001/api/get')
+    Axios.get('http://localhost:3001/api/team/get')
       .then((response) => {
+        console.log(response);
         setMemberList(response.data);
       })
       .catch((err) => {
         // Below dammy data to be removed once database gets ready
         setMemberList([
-          { name: 'Noriaki Nishiyama', role: 'Project Manager' },
-          { name: 'Shinya Sato', role: 'Lead Developer' },
-          { name: 'Yoshiki Sakai', role: 'Developer' },
-          { name: 'Azusa Nakahashi', role: 'Developer' },
-          { name: 'Mahsa Shafiei', role: 'Designer' },
-          { name: 'Adele Nosova', role: 'Designer' },
-          { name: 'Golmher Jozifard', role: 'Designer' },
+          { id: 1, name: 'Noriaki Nishiyama', role: 'Project Manager' },
+          { id: 2, name: 'Shinya Sato', role: 'Lead Developer' },
+          { id: 3, name: 'Yoshiki Sakai', role: 'Developer' },
+          { id: 4, name: 'Azusa Nakahashi', role: 'Developer' },
+          { id: 5, name: 'Mahsa Shafiei', role: 'Designer' },
+          { id: 6, name: 'Adele Nosova', role: 'Designer' },
+          { id: 7, name: 'Golmher Jozifard', role: 'Designer' },
         ]);
       });
   }, []);

@@ -7,7 +7,6 @@ import {
     CartesianGrid,
     Tooltip,
     Legend,
-    BarChart,
     Area
 } from "recharts";
 

@@ -10,7 +10,7 @@ import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
-  height: '250px',
+  height: '550px',
   marginTop: '1rem',
   borderRadius: '5px',
 };
@@ -65,13 +65,16 @@ function Map(props) {
     if (bounds) {
       const newShopsOnMap = shops.filter((shop) =>
         bounds.contains({
-          lat: shop.geocode.latitude,
-          lng: shop.geocode.longitude,
+          lat: shop.latitude,
+          lng: shop.longitude,
         })
       );
       setShopsOnMap(newShopsOnMap);
     }
   }, [shops, bounds]);
+
+  const url_green = 'https://maps.google.com/mapfiles/ms/icons/green-dot.png';
+  const url_orange = 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png';
 
   // if (isLoading) return <Loading />;
 
@@ -85,28 +88,17 @@ function Map(props) {
         onLoad={handleLoad}
         onBoundsChanged={handleBoundsChange}
       >
-        <div
-          onClick={getCurrentLocation}
-          disabled={disabled}
-          className={
-            disabled
-              ? 'icon-btn--get-current-location--disabled'
-              : 'icon-btn--get-current-location'
-          }
-        >
-          {/* <img src={getCurrentLocationIcon} alt="" /> */}
-        </div>
-
         {shopsOnMap.map((shop) => (
           <Marker
-            position={{
-              lat: shop.geocode.latitude,
-              lng: shop.geocode.longitude,
+            key={shop.id}
+            icon={{
+              url: shop.is_vet === 1 ? url_green : url_orange,
+              scaledSize: new window.google.maps.Size(48, 48),
+              labelOrigin: new window.google.maps.Point(24, 16),
             }}
-            label={{
-              text: shop.id.toString(),
-              color: 'black',
-              fontSize: '16px',
+            position={{
+              lat: shop.latitude,
+              lng: shop.longitude,
             }}
             onClick={() => setSelected(shop)}
             // icon={{
@@ -114,21 +106,26 @@ function Map(props) {
             //   scaledSize: new window.google.maps.Size(48, 48),
             //   labelOrigin: new window.google.maps.Point(24, 16),
             // }}
+            key={shop.id}
           />
         ))}
         {selected ? (
           <InfoWindow
             position={{
-              lat: selected.geocode.latitude,
-              lng: selected.geocode.longitude,
+              lat: selected.latitude,
+              lng: selected.longitude,
             }}
             onCloseClick={() => {
               setSelected(null);
             }}
           >
             <div className="info-window">
-              <p className="shop-name">{selected.name}</p>
-              <p className="shop-address">{selected.address}</p>
+              <h3 className="shop-name">{selected.name}</h3>
+              <h4 className="shop-address">{selected.address}</h4>
+              <h4 className="shop-phone">{selected.phone_number}</h4>
+              <h4 className="shop-hours">
+                Open: {selected.open} ~ {selected.close}
+              </h4>
             </div>
           </InfoWindow>
         ) : null}

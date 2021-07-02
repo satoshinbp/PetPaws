@@ -17,9 +17,7 @@ const MealSummary = () => {
         }
         return tempWeek
     }
-    const [startDay, setStartDay] = useState(0)
-    const [endDay, setEndDay] = useState(7)
-    const [week, setWeek] = useState(getWeek(startDay,endDay))
+    const [week, setWeek] = useState(getWeek(0,7))
     const [data, setData] = useState([]) // all data from api
     const [weekData, setWeekData] = useState([])
     const [graphData, setGraphData] = useState([]);
@@ -171,38 +169,6 @@ const MealSummary = () => {
         }
 
         getUid()
-        /*.then((response) => {
-            const res = []
-            for(let i = 0; i < response.data.length; i++) {
-                if(uid == response.data[i].uid) {
-                    res.push(response.data[i])
-                }
-            }
-            setData(res)
-            getFoodData(res)              
-        })
-        .then(() => {
-            return sumUpCalorie(allFoodData)
-        }).then((meals) => {
-          getAvgCal(meals)
-        })
-        .catch((err) => {
-          console.log(err)
-        });*/
-
-
-
-         /*Axios.get('http://localhost:3001/api/meal')
-            .then((response) => {
-              getFoodData(response.data)
-            }).then(() => {
-              return sumUpCalorie(allFoodData)
-            }).then((meals) => {
-              getAvgCal(meals)
-            })
-            .catch((err) => {
-              console.log(err)
-            });*/
  
 
     }, [avgCal])
@@ -211,7 +177,7 @@ const MealSummary = () => {
 
         const setNewGraph = () => {
             let pastWeek;
-            if(firstTime == false) {
+            if(firstTime === false) {
                 console.log(count)
                 if(count !== 0) {
                     const start = (count) * 7 

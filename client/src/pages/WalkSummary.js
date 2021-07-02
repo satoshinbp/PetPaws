@@ -16,9 +16,7 @@ const WalkSummary = () => {
         }
         return tempWeek
     }
-    const [startDay, setStartDay] = useState(0)
-    const [endDay, setEndDay] = useState(7)
-    const [week, setWeek] = useState(getWeek(startDay,endDay))
+    const [week, setWeek] = useState(getWeek(0,7))
     const [data, setData] = useState([])
     const [weekData, setWeekData] = useState([])
     const [graphData, setGraphData] = useState([]);
@@ -30,37 +28,6 @@ const WalkSummary = () => {
     const [sumDateData, setSumDateData] = useState([]) // combile meal and treat
     const [count, setCount] = useState(0);
     const [firstTime, setFirstTime] = useState(true)
-
-    /*const getFoodCal = () => {
-        for(let i = 0; i < 7; i++) { 
-            const date = fetchDate(i)
-            for(let y = 0; y < meals.length; y++) { 
-                 // code to match firebase user token with DB will be needed
-                // this needs to be modified a bit when DB is ready
-                if(date == meals[y].date) {
-                    if(meals[y].type === 'Wet' || meals[y].type === 'Dry') {
-                        const foodType = 'meal';
-                        newMeal.push(
-                            {date: meals[y].date,
-                            type: foodType,
-                            meal: meals[y].calorie,
-                            treat: null}
-                        );  
-                        
-                    } else {
-                        const foodType = 'treat'
-                        newMeal.push(
-                            {date: meals[y].date,
-                            type: foodType,
-                            meal: null,
-                            treat: meals[y].calorie}
-                        ); 
-                        
-                    }; 
-                };
-            };
-        };
-    };*/
 
     // GET ALL FOOD DATA FOR A WEEK
     const getWalkData = (walk) => {
@@ -190,38 +157,6 @@ const WalkSummary = () => {
         }
 
         getUid()
-        /*.then((response) => {
-            const res = []
-            for(let i = 0; i < response.data.length; i++) {
-                if(uid == response.data[i].uid) {
-                    res.push(response.data[i])
-                }
-            }
-            setData(res)
-            getWalkData(res)              
-        })
-        .then(() => {
-            return sumUpTime(allWalkData)
-        }).then((meals) => {
-          getAvgWalk(meals)
-        })
-        .catch((err) => {
-          console.log(err)
-        });*/
-
-
-
-         /*Axios.get('http://localhost:3001/api/meal')
-            .then((response) => {
-              getWalkData(response.data)
-            }).then(() => {
-              return sumUpTime(allWalkData)
-            }).then((meals) => {
-              getAvgWalk(meals)
-            })
-            .catch((err) => {
-              console.log(err)
-            });*/
  
 
     }, [avgMin])
@@ -268,7 +203,7 @@ const WalkSummary = () => {
         const setNewGraph = () => {
             console.log(firstTime)
             let pastWeek;
-            if(firstTime == false) {
+            if(firstTime === false) {
                 if(count !== 0) {
                     const start = (count) * 7 
                     const end = start + 7
