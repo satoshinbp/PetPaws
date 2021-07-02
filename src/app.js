@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 require('dotenv').config();
-const db = require('../config/connection');
+const db = require('./config/connection');
 const admin = require('firebase-admin');
 
 // to connect backend and frontend
