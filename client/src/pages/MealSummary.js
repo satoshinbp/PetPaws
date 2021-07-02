@@ -9,65 +9,34 @@ import MealDayChart from '../components/charts/MealDayChart';
   
 
 const MealSummary = () => {
-    const [data, setData] = useState([])
+
+    const getWeek = (startDay, endDay) => {
+        let tempWeek = []
+        for(let i = startDay; i < endDay; i++) { 
+            tempWeek.push(new Date(new Date().setDate(new Date().getDate()-i)).toISOString().slice(0, 10)) 
+        }
+        return tempWeek
+    }
+    const [startDay, setStartDay] = useState(0)
+    const [endDay, setEndDay] = useState(7)
+    const [week, setWeek] = useState(getWeek(startDay,endDay))
+    const [data, setData] = useState([]) // all data from api
     const [weekData, setWeekData] = useState([])
     const [graphData, setGraphData] = useState([]);
     const [avgCal, setAvgCal] = useState([]);
-    const [test, setTest] = useState([])
-    let newMeal = [];
     let allFoodData = []
-    const fetchDate = (dayAgo) => {
-        return new Date(new Date().setDate(new Date().getDate()-dayAgo)).toISOString().slice(0, 10)
-        
-    }
-    let week = []; // for makeAvgCalArray() AND noDataDates
-
-    // get dates for a week
-    for(let i = 0; i < 7; i++) { 
-        if (week.length < 7) {
-            week.push(fetchDate(i))
-        }
-    }
     /* for daily calorie graph   */
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
     const [dateData, setDateData] = useState([]) // each input on the date
     const [sumDateData, setSumDateData] = useState([]) // combile meal and treat
+    const [count, setCount] = useState(0);
+    const [firstTime, setFirstTime] = useState(true)
 
-    /*const getFoodCal = () => {
-        for(let i = 0; i < 7; i++) { 
-            const date = fetchDate(i)
-            for(let y = 0; y < meals.length; y++) { 
-                 // code to match firebase user token with DB will be needed
-                // this needs to be modified a bit when DB is ready
-                if(date == meals[y].date) {
-                    if(meals[y].type === 'Wet' || meals[y].type === 'Dry') {
-                        const foodType = 'meal';
-                        newMeal.push(
-                            {date: meals[y].date,
-                            type: foodType,
-                            meal: meals[y].calorie,
-                            treat: null}
-                        );  
-                        
-                    } else {
-                        const foodType = 'treat'
-                        newMeal.push(
-                            {date: meals[y].date,
-                            type: foodType,
-                            meal: null,
-                            treat: meals[y].calorie}
-                        ); 
-                        
-                    }; 
-                };
-            };
-        };
-    };*/
 
     // GET ALL FOOD DATA FOR A WEEK
     const getFoodData = (meals) => {
         for(let i = 0; i < 7; i++) { 
-            const date = fetchDate(i)
+            const date = week[i]
             for(let y = 0; y < meals.length; y++) { 
                 const mealDate = meals[y].date.slice(0, 10)
                 if(date === mealDate) {
@@ -90,7 +59,7 @@ const MealSummary = () => {
                     } 
                 }
             }
-        }
+        }setWeekData(allFoodData);
     }
 
     // SUM UP CALORIE FOR MEAL AND TREAT RESPECTIVELY PER DAY
@@ -151,7 +120,7 @@ const MealSummary = () => {
                 date: meal.date,
                 meal: meal.meal,
                 treat: meal.treat,
-                avgCal: averageCalorie
+                avgCal: avgCal
             })
         )
         noDataDates.forEach(date => 
@@ -159,7 +128,7 @@ const MealSummary = () => {
                 date: date,
                 meal: 0,
                 treat: 0,
-                avgCal: averageCalorie
+                avgCal: avgCal
             })
         )
 
@@ -176,7 +145,6 @@ const MealSummary = () => {
 
 
     useEffect(() => {
-
         const getUid = async () => {
             const uid = await firebase.auth().currentUser.uid
             await Axios.get('http://localhost:3001/api/meal')
@@ -188,16 +156,17 @@ const MealSummary = () => {
                     } 
                 }
                 setData(userData)
-                getFoodData(userData)
             }).then(() => {
-                setWeekData(allFoodData)
+                getFoodData(data)
+            }).then(() => {
               return sumUpCalorie(allFoodData)
             }).then((meals) => {
-              getAvgCal(meals)
+                getAvgCal(meals)
             })
             .catch((err) => {
               console.log(err)
             });
+
 
         }
 
@@ -236,7 +205,66 @@ const MealSummary = () => {
             });*/
  
 
-    }, [])
+    }, [avgCal])
+
+    useEffect(() => {
+
+        const setNewGraph = () => {
+            let pastWeek;
+            if(firstTime == false) {
+                console.log(count)
+                if(count !== 0) {
+                    const start = (count) * 7 
+                    const end = start + 7
+                    setWeek(getWeek(start,end))
+                    pastWeek = getWeek(start,end)
+                } else if(count === 0) {
+                    setWeek(getWeek(0,7))
+                    pastWeek = getWeek(0,7)
+                }
+
+
+                for(let i = 0; i < 7; i++) { 
+                    const date = pastWeek[i]
+                    
+                    for(let y = 0; y < data.length; y++) { 
+                        const mealDate = data[y].date.slice(0, 10)
+                        if(date === mealDate) {
+                            if(data[y].type === 'Wet' || data[y].type === 'Dry') {
+                                const foodType = 'meal';
+                                allFoodData.push(
+                                    {date: mealDate,
+                                    type: foodType,
+                                    meal: data[y].calorie,
+                                    treat: 0}
+                                );  
+                            } else {
+                                const foodType = 'treat'
+                                allFoodData.push(
+                                    {date: mealDate,
+                                    type: foodType,
+                                    meal: 0,
+                                    treat: data[y].calorie}
+                                ); 
+                            } 
+                        }
+                    }
+
+                }
+                setWeekData(allFoodData);
+
+                getAvgCal(sumUpCalorie(allFoodData)) 
+            }
+                
+
+                
+        }
+
+
+        setNewGraph()
+
+    }, [count])
+
 
     useEffect(() => {
         let allFood = []
@@ -244,7 +272,6 @@ const MealSummary = () => {
         for(let i = 0; i < data.length; i++) {
             const dataDate = data[i].date.slice(0, 10)
             if(date === dataDate) {
-                //setDateData((meal) => ({...meal, date: data[i].data}))
                 allFood.push({
                     date: dataDate,
                     time: data[i].time.slice(0, 5),
@@ -261,9 +288,7 @@ const MealSummary = () => {
             totallCal = totallCal +  meal.calorie
         })
 
-            console.log(totallCal)
-
-        if(allFood.length > 1) {
+        if(allFood.length >= 1) {
             setSumDateData([{
                 date: allFood[0].date,
                 calorie: totallCal
@@ -272,6 +297,7 @@ const MealSummary = () => {
 
     }, [date])
 
+    
 
     
 
@@ -279,8 +305,31 @@ const MealSummary = () => {
         <div>
             <h2>Meal Tracker</h2>
             <Link to="/createmeal">Add Meal</Link>
-            <MealDayChart dateData={dateData} sumDateData={sumDateData} date={date} onChange={(e) => {setDate(e.target.value)}}/>
-            <MealWeekChart graphData={graphData} test={weekData}/>
+            <MealDayChart 
+                dateData={dateData} 
+                sumDateData={sumDateData} 
+                date={date} onChange={(e) => {setDate(e.target.value)}}
+            />
+            <button onClick={() => {
+                setFirstTime(false)
+                setCount(count+1)
+            }}>
+                ＜
+            </button>
+            <button onClick={() => {
+                setCount(count-1)
+            }}>
+                ＞
+            </button>
+            {graphData.length > 0  ? (
+                <p>{graphData[6].date} to {graphData[0].date}</p>
+            ):(
+                ''
+            )}
+            <MealWeekChart 
+                graphData={graphData} 
+                test={weekData}
+            />
 
             
         </div>

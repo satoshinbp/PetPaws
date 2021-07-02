@@ -12,12 +12,17 @@ const MealDayChart = ({dateData, sumDateData, date, onChange}) => {
     return (
         <div style={{border: "1px solid"}}>{/* temporary styling */}
             <h2>Meal Day Chart</h2>
-            {dateData.map((meal) => ( 
-                <p>Date:&nbsp;{meal.date}&nbsp;&nbsp;&nbsp;
-                   Type:&nbsp;{meal.type}&nbsp;&nbsp;&nbsp;
-                   Calorie:&nbsp;{meal.calorie}
-                </p>
-            ))}
+            {(dateData.length > 0) ? (
+                dateData.map((meal) => ( 
+                    <p>Date:&nbsp;{meal.date}&nbsp;&nbsp;&nbsp;
+                       Type:&nbsp;{meal.type}&nbsp;&nbsp;&nbsp;
+                       Calorie:&nbsp;{meal.calorie}
+                    </p>
+                ))
+            ) : (
+                <p>No meal is added</p>
+            )}
+
             <input
                 type="date"
                 id="date"
@@ -33,13 +38,13 @@ const MealDayChart = ({dateData, sumDateData, date, onChange}) => {
              <div style={{height: '150px'}}>{/* height is necessary to display graph */}
                 <ResponsiveContainer>
                     <ComposedChart
-                        layout="vertical" // vertical bar chart
-                        data={sumDateData}   // data array
-                        margin={{ top: 20, right: 20, bottom: 0, left: 25 }}  //marginを指定
+                        layout="vertical"
+                        data={sumDateData} 
+                        margin={{ top: 20, right: 20, bottom: 0, left: 25 }} 
                     >
                     <XAxis 
                         type="number"
-                        domain={[0, 'dataMax']} // range of values in the graph
+                        domain={[0, 'dataMax']} 
                         dataKey="calorie"
                     />
                     <YAxis 
@@ -58,7 +63,7 @@ const MealDayChart = ({dateData, sumDateData, date, onChange}) => {
             </ResponsiveContainer>
             </div>
             ) : (
-                <p>No data is found</p>
+                ''
             )}
             
             

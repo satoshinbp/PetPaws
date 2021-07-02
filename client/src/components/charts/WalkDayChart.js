@@ -1,27 +1,31 @@
-import {
+/*import {
     ResponsiveContainer,
     ComposedChart,
     Bar,
     XAxis,
     YAxis,
     Tooltip,
-} from "recharts";
+} from "recharts";*/
 
 const WalkDayChart = ({dateData, sumDateData, date, onChange}) => {
 
     return (
         <div style={{border: "1px solid"}}>{/* temporary styling */}
-            <h2>Meal Day Chart</h2>
-            {dateData.map((meal) => ( 
-                <p>Date:&nbsp;{meal.date}&nbsp;&nbsp;&nbsp;
-                   Type:&nbsp;{meal.type}&nbsp;&nbsp;&nbsp;
-                   Calorie:&nbsp;{meal.calorie}
-                </p>
-            ))}
+            <h2>Walk Day Chart</h2>
+            {dateData.length > 0 ? (
+                dateData.map((meal) => ( 
+                    <p key={meal.id}>Date:&nbsp;{meal.date}&nbsp;&nbsp;&nbsp;
+                    Duratinon:&nbsp;{meal.minute} min&nbsp;&nbsp;&nbsp;
+                    Distance:&nbsp;{meal.distance ? (meal.distance + 'km'): ('no data')}
+                    </p>
+                ))
+            ) : (
+                <p>No activity is added</p>
+            )}
             <input
                 type="date"
-                id="date"
-                name="meal-date"
+                id="walk-date"
+                name="walk-date"
                 defaultValue={date}
                 required
                 onChange={onChange}
@@ -29,24 +33,24 @@ const WalkDayChart = ({dateData, sumDateData, date, onChange}) => {
             
 
 
-            {((sumDateData[0]) && date === sumDateData[0].date) ? (
-             <div style={{height: '150px'}}>{/* height is necessary to display graph */}
+            {/*((sumDateData[0]) && date === sumDateData[0].date) ? (
+             <div style={{height: '150px'}} >
                 <ResponsiveContainer>
                     <ComposedChart
-                        layout="vertical" // vertical bar chart
-                        data={sumDateData}   // data array
-                        margin={{ top: 20, right: 20, bottom: 0, left: 25 }}  //marginを指定
+                        layout="vertical" 
+                        data={sumDateData} 
+                        margin={{ top: 20, right: 20, bottom: 0, left: 25 }}
                     >
                     <XAxis 
                         type="number"
-                        domain={[0, 'dataMax']} // range of values in the graph
+                        domain={[0, 'dataMax']}
                         dataKey="calorie"
                     />
                     <YAxis 
                         type="category"
                         dataKey="date"
                     />
-                    <Tooltip /> {/* values shown when hovered */}
+                    <Tooltip />
                     <Bar
                         dataKey="calorie"
                         barSize={20}
@@ -59,7 +63,7 @@ const WalkDayChart = ({dateData, sumDateData, date, onChange}) => {
             </div>
             ) : (
                 <p>No data is found</p>
-            )}
+            )*/}
             
             
         </div>

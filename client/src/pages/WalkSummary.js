@@ -9,30 +9,27 @@ import WalkDayChart from '../components/charts/WalkDayChart';
   
 
 const WalkSummary = () => {
+    const getWeek = (startDay, endDay) => {
+        let tempWeek = []
+        for(let i = startDay; i < endDay; i++) { 
+            tempWeek.push(new Date(new Date().setDate(new Date().getDate()-i)).toISOString().slice(0, 10)) 
+        }
+        return tempWeek
+    }
+    const [startDay, setStartDay] = useState(0)
+    const [endDay, setEndDay] = useState(7)
+    const [week, setWeek] = useState(getWeek(startDay,endDay))
     const [data, setData] = useState([])
     const [weekData, setWeekData] = useState([])
     const [graphData, setGraphData] = useState([]);
     const [avgMin, setAvgMin] = useState([]);
-    const [test, setTest] = useState([])
-    let newMeal = [];
-    let allFoodData = []
     let allWalkData = []
-    const fetchDate = (dayAgo) => {
-        return new Date(new Date().setDate(new Date().getDate()-dayAgo)).toISOString().slice(0, 10)
-        
-    }
-    let week = []; // for makeAvgCalArray() AND noDataDates
-
-    // get dates for a week
-    for(let i = 0; i < 7; i++) { 
-        if (week.length < 7) {
-            week.push(fetchDate(i))
-        }
-    }
     /* for daily calorie graph   */
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
     const [dateData, setDateData] = useState([]) // each input on the date
     const [sumDateData, setSumDateData] = useState([]) // combile meal and treat
+    const [count, setCount] = useState(0);
+    const [firstTime, setFirstTime] = useState(true)
 
     /*const getFoodCal = () => {
         for(let i = 0; i < 7; i++) { 
@@ -68,7 +65,7 @@ const WalkSummary = () => {
     // GET ALL FOOD DATA FOR A WEEK
     const getWalkData = (walk) => {
         for(let i = 0; i < 7; i++) { 
-            const date = fetchDate(i)
+            const date = week[i]
             for(let y = 0; y < walk.length; y++) { 
                 const mealDate = walk[y].date.slice(0, 10)
                 if(date === mealDate) {
@@ -105,7 +102,6 @@ const WalkSummary = () => {
                     minute: temp[prop].minute,
                     distance: (Math.round(temp[prop].distance * 10) / 10)
                 });
-                console.log(sumWalk)
             return sumWalk
     }
 
@@ -138,13 +134,12 @@ const WalkSummary = () => {
                 }     
             });
         })
-        console.log(walks)
         walks.forEach(walk => 
             graphDataArray.push({
                 date: walk.date,
                 minute: walk.minute,
                 distance: walk.distance,
-                avgMin: averageTime,
+                avgMin: avgMin,
             })
         )
         noDataDates.forEach(walk => 
@@ -152,15 +147,13 @@ const WalkSummary = () => {
                 date: walk,
                 minute: 0,
                 distance: 0,
-                avgMin: averageTime,
+                avgMin: avgMin,
             })
         )
 
         graphDataArray.sort(function(a, b){
             return new Date(b.date) - new Date(a.date);
         });
-
-        console.log(graphDataArray)
 
         setGraphData(graphDataArray)
 
@@ -183,9 +176,8 @@ const WalkSummary = () => {
                     } 
                 }
                 setData(userData)
-                getWalkData(userData)
+                getWalkData(data)
             }).then(() => {
-                console.log(allWalkData)
                 setWeekData(allWalkData)
               return sumUpTime(allWalkData)
             }).then((meals) => {
@@ -209,7 +201,7 @@ const WalkSummary = () => {
             getWalkData(res)              
         })
         .then(() => {
-            return sumUpTime(allFoodData)
+            return sumUpTime(allWalkData)
         }).then((meals) => {
           getAvgWalk(meals)
         })
@@ -223,7 +215,7 @@ const WalkSummary = () => {
             .then((response) => {
               getWalkData(response.data)
             }).then(() => {
-              return sumUpTime(allFoodData)
+              return sumUpTime(allWalkData)
             }).then((meals) => {
               getAvgWalk(meals)
             })
@@ -232,52 +224,125 @@ const WalkSummary = () => {
             });*/
  
 
-    }, [])
+    }, [avgMin])
 
     useEffect(() => {
-        let allFood = []
+        let allWalk = []
 
         for(let i = 0; i < data.length; i++) {
             const dataDate = data[i].date.slice(0, 10)
             if(date === dataDate) {
                 //setDateData((meal) => ({...meal, date: data[i].data}))
-                allFood.push({
+                allWalk.push({
+                    id: data[i].id,
                     date: dataDate,
-                    time: data[i].time.slice(0, 5),
-                    calorie: data[i].calorie,
-                    type: data[i].type,
+                    minute: data[i].minute,
+                    distance: data[i].distance,
+                    name: data[i].name,
                 })
             }
         }
-        setDateData(allFood)
-        let totallCal = 0
+        setDateData(allWalk)
 
-        allFood.forEach((meal) => {
+         // might use this code later
+        /*let totallCal = 0
+
+        allWalk.forEach((meal) => {
             console.log(meal.calorie)
             totallCal = totallCal +  meal.calorie
         })
 
             console.log(totallCal)
 
-        if(allFood.length > 1) {
+        if(allWalk.length >= 1) {
             setSumDateData([{
-                date: allFood[0].date,
+                date: allWalk[0].date,
                 calorie: totallCal
             }])
-        }
+        }*/
 
     }, [date])
+
+    useEffect(() => {
+
+        const setNewGraph = () => {
+            console.log(firstTime)
+            let pastWeek;
+            if(firstTime == false) {
+                if(count !== 0) {
+                    const start = (count) * 7 
+                    const end = start + 7
+                    setWeek(getWeek(start,end))
+                    pastWeek = getWeek(start, end)
+                } else if(count === 0) {
+                    setWeek(getWeek(0,7))
+                    pastWeek = getWeek(0,7)
+                }
+
+
+                for(let i = 0; i < 7; i++) { 
+                    const date = pastWeek[i]
+                    
+                    for(let y = 0; y < data.length; y++) { 
+                        const mealDate = data[y].date.slice(0, 10)
+                        if(date === mealDate) {
+                            allWalkData.push({
+                                date: mealDate,
+                                minute: data[y].minute,
+                                distance: data[y].distance,
+                                name: data[y].name
+                            })
+                            
+                        }
+                    }
+
+                }
+                setWeekData(allWalkData);
+
+                getAvgWalk(sumUpTime(allWalkData)) 
+            }
+                
+
+                
+        }
+
+
+        setNewGraph()
+
+    }, [count])
 
 
     
 
     return (
         <div>
-            <h2>Meal Tracker</h2>
+            <h2>Activity Tracker</h2>
             <Link to="/createwalk">Add Activity</Link>
-            {/*<WalkDayChart dateData={dateData} sumDateData={sumDateData} date={date} onChange={(e) => {setDate(e.target.value)}}/>*/}
-            <p>walk</p>
-            <WalkWeekChart graphData={graphData} test={weekData}/>
+            {<WalkDayChart 
+                dateData={dateData} 
+                sumDateData={sumDateData} date={date} 
+                onChange={(e) => {setDate(e.target.value)}}
+            />}
+            <button onClick={() => {
+                setFirstTime(false)
+                setCount(count+1)
+            }}>
+                ＜
+            </button>
+            <button onClick={() => {
+                setCount(count-1)
+            }}>
+                ＞
+            </button>
+            {graphData.length > 0  ? (
+                <p>{graphData[6].date} to {graphData[0].date}</p>
+            ):(
+                ''
+            )}
+            <WalkWeekChart 
+                graphData={graphData} 
+                test={weekData}
+            />
 
             
         </div>
