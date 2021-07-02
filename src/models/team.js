@@ -1,7 +1,7 @@
-const db = require('../config/connection');
+const db = require('../../config/connection');
 
 // constructor
-const Member = function (member) {
+const Team = function (member) {
   this.id = member.id;
   this.name = member.name;
   this.role = member.role;
@@ -11,7 +11,7 @@ const Member = function (member) {
   this.behance_url = member.behance_url;
 };
 
-Member.getAll = (result) => {
+Team.getAll = (result) => {
   db.query('SELECT * FROM petpaws.team_members', (err, res) => {
     if (err) {
       console.log('error: ', err);
@@ -24,4 +24,4 @@ Member.getAll = (result) => {
   });
 };
 
-module.exports = Member;
+module.exports = Team;

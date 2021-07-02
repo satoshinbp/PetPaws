@@ -3,9 +3,13 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 require('dotenv').config();
-const db = require('./config/connection');
+const db = require('../config/connection');
 const admin = require('firebase-admin');
-require('./routes/memberRoutes')(app);
+
+// to connect backend and frontend
+app.use(cors());
+
+require('./routes/team')(app);
 
 db.connect();
 
@@ -18,9 +22,6 @@ const cert = {
 admin.initializeApp({
   credential: admin.credential.cert(cert),
 });
-
-// to connect backend and frontend
-app.use(cors());
 
 app.get('/api/auth', (req, res) => {
   admin
@@ -130,7 +131,4 @@ app.get('/api/pet/get/:uid', (req, res) => {
   });
 });
 
-//run server on port 3001
-app.listen(3001, () => {
-  console.log('running on port 3001');
-});
+module.exports = app;

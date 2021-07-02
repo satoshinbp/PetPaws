@@ -1,7 +1,7 @@
-const Member = require('../models/memberModels');
+const Team = require('../models/team');
 
 exports.findAll = (req, res) => {
-  Member.getAll((err, data) => {
+  Team.getAll((err, data) => {
     if (err)
       res.status(500).send({
         message: err.message || 'Some error occurred while retrieving customers.',

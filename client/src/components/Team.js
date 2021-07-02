@@ -3,7 +3,7 @@ import Axios from 'axios';
 
 // Commented out parts are for testing purpose only. To be removed.
 
-export default function Members() {
+export default function Team() {
   // const [name, setName] = useState('');
   // const [role, setRole] = useState('');
   // const [image, setImage] = useState('');
@@ -14,8 +14,9 @@ export default function Members() {
   const [memberList, setMemberList] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://localhost:3001/api/get')
+    Axios.get('http://localhost:3001/api/team/get')
       .then((response) => {
+        console.log(response);
         setMemberList(response.data);
       })
       .catch((err) => {
