@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parser');
+// const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
 require('dotenv').config();
@@ -12,7 +12,8 @@ app.use(cors());
 require('./routes/team')(app);
 require('./routes/store')(app);
 require('./routes/pet')(app);
-// require('./routes/user')(app);
+require('./routes/user')(app);
+require('./routes/auth')(app);
 
 db.connect();
 
@@ -26,18 +27,18 @@ admin.initializeApp({
   credential: admin.credential.cert(cert),
 });
 
-app.get('/api/auth', (req, res) => {
-  admin
-    .auth()
-    .verifyIdToken(req.headers['authorization'])
-    .then((decodedToken) => {
-      res.json({ uid: decodedToken.uid });
-    })
-    .catch((err) => {
-      console.error(err);
-      return res.status(401).send(err);
-    });
-});
+// app.get('/api/auth', (req, res) => {
+//   admin
+//     .auth()
+//     .verifyIdToken(req.headers['authorization'])
+//     .then((decodedToken) => {
+//       res.json({ uid: decodedToken.uid });
+//     })
+//     .catch((err) => {
+//       console.error(err);
+//       return res.status(401).send(err);
+//     });
+// });
 
 // error handler
 app.use(function (err, req, res, next) {
@@ -50,8 +51,8 @@ app.use(function (err, req, res, next) {
   res.render('error');
 });
 
-app.use(express.json()); //middleware
-app.use(bodyParser.urlencoded({ extended: true }));
+// app.use(express.json()); //middleware
+// app.use(bodyParser.urlencoded({ extended: true }));
 
 // // Display member list
 // app.get('/api/get', (req, res) => {
@@ -77,19 +78,19 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   });
 // });
 
-app.post('/api/user', (req, res) => {
-  const name = req.body.name;
-  const uid = req.body.uid;
-  const email = req.body.email;
-  const sqlInsert = 'INSERT INTO users (name, uid, email) VALUES (?,?,?)';
-  db.query(sqlInsert, [name, uid, email], (err, result) => {
-    if (err) {
-      throw err;
-    } else {
-      res.status(200).send(result);
-    }
-  });
-});
+// app.post('/api/user', (req, res) => {
+//   const name = req.body.name;
+//   const uid = req.body.uid;
+//   const email = req.body.email;
+//   const sqlInsert = 'INSERT INTO users (name, uid, email) VALUES (?,?,?)';
+//   db.query(sqlInsert, [name, uid, email], (err, result) => {
+//     if (err) {
+//       throw err;
+//     } else {
+//       res.status(200).send(result);
+//     }
+//   });
+// });
 
 // app.post('/api/user', (req, res) => {
 //   const name = req.body.name;
