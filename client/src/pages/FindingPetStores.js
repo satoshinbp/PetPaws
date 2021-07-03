@@ -6,7 +6,7 @@ export default function FindingPetStores() {
   const [shops, setShops] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://localhost:3001/stores/get')
+    Axios.get('http://localhost:3001/api/store/get')
       .then((response) => {
         setShops(response.data);
         console.log(response.data);
@@ -22,7 +22,7 @@ export default function FindingPetStores() {
   }, []);
 
   const onChangeSelect = (e) => {
-    Axios.get('http://localhost:3001/stores/get')
+    Axios.get('http://localhost:3001/api/store/get')
       .then((response) => {
         if (Number(e.target.value) === 2) {
           setShops(response.data);

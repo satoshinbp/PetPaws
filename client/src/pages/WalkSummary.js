@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
-import firebase from 'firebase/app'
+import { useAuth } from '../contexts/AuthContext';
 import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkDayChart from '../components/charts/WalkDayChart';
 
@@ -25,9 +25,10 @@ const WalkSummary = () => {
     /* for daily calorie graph   */
     const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
     const [dateData, setDateData] = useState([]) // each input on the date
-    const [sumDateData, setSumDateData] = useState([]) // combile meal and treat
+    const [sumDateData, setSumDateData] = useState(null) // combile meal and treat
     const [count, setCount] = useState(0);
     const [firstTime, setFirstTime] = useState(true)
+    const { currentUser } = useAuth();
 
     // GET ALL FOOD DATA FOR A WEEK
     const getWalkData = (walk) => {
@@ -133,26 +134,20 @@ const WalkSummary = () => {
     useEffect(() => {
 
         const getUid = async () => {
-            const uid = await firebase.auth().currentUser.uid
+            const uid = currentUser.uid;
             await Axios.get('http://localhost:3001/api/activity')
             .then((response) => {
                 let userData = []
-                for(let i = 0; i < response.data.length; i++) {
-                    if(response.data[i].uid === uid) {
-                        userData.push(response.data[i])
-                    } 
-                }
+                response.data.filter((meal) => meal.uid === uid).forEach((meal) => userData.push(meal));
                 setData(userData)
                 getWalkData(data)
-            }).then(() => {
                 setWeekData(allWalkData)
-              return sumUpTime(allWalkData)
-            }).then((meals) => {
-              getAvgWalk(meals)
-            })
-            .catch((err) => {
+                const meals = sumUpTime(allWalkData)
+                getAvgWalk(meals)
+            }).catch((err) => {
               console.log(err)
             });
+            
 
         }
 
@@ -201,9 +196,8 @@ const WalkSummary = () => {
     useEffect(() => {
 
         const setNewGraph = () => {
-            console.log(firstTime)
             let pastWeek;
-            if(firstTime === false) {
+            if(!firstTime) {
                 if(count !== 0) {
                     const start = (count) * 7 
                     const end = start + 7

@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import {
     ResponsiveContainer,
     ComposedChart,
@@ -7,7 +8,39 @@ import {
     Tooltip,
 } from "recharts";
 
-const MealDayChart = ({dateData, sumDateData, date, onChange}) => {
+const MealDayChart = ({data}) => {
+
+    const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
+    const [dateData, setDateData] = useState([]) // each input on the date
+    const [sumDateData, setSumDateData] = useState(null) // combile meal and treat
+
+
+    useEffect(() => {
+        let allFood = []
+
+        for(let i = 0; i < data.length; i++) {
+            const dataDate = data[i].date.slice(0, 10)
+            if(date === dataDate) {
+                allFood.push({
+                    date: dataDate,
+                    time: data[i].time.slice(0, 5),
+                    calorie: data[i].calorie,
+                    type: data[i].type,
+                })
+            }
+        }
+        setDateData(allFood)
+
+        if (allFood.length > 0) {
+            let totallCal = 0;
+            allFood.forEach((meal) => {
+              console.log(meal.calorie);
+              totallCal = totallCal + meal.calorie;
+            });
+            setSumDateData({ date: allFood[0].date, calorie: totallCal });
+        }
+
+    }, [date])
 
     return (
         <div style={{border: "1px solid"}}>{/* temporary styling */}
@@ -29,17 +62,17 @@ const MealDayChart = ({dateData, sumDateData, date, onChange}) => {
                 name="meal-date"
                 defaultValue={date}
                 required
-                onChange={onChange}
+                onChange={(e) => setDate(e.target.value)}
             />
             
 
 
-            {((sumDateData[0]) && date === sumDateData[0].date) ? (
+            {date === sumDateData?.date &&  (
              <div style={{height: '150px'}}>{/* height is necessary to display graph */}
                 <ResponsiveContainer>
                     <ComposedChart
                         layout="vertical"
-                        data={sumDateData} 
+                        data={[sumDateData]} 
                         margin={{ top: 20, right: 20, bottom: 0, left: 25 }} 
                     >
                     <XAxis 
@@ -62,8 +95,6 @@ const MealDayChart = ({dateData, sumDateData, date, onChange}) => {
                 </ComposedChart>
             </ResponsiveContainer>
             </div>
-            ) : (
-                ''
             )}
             
             
