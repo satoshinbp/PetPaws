@@ -17,7 +17,6 @@ const MealDayChart = ({data}) => {
 
     useEffect(() => {
         let allFood = []
-
         for(let i = 0; i < data.length; i++) {
             const dataDate = data[i].date.slice(0, 10)
             if(date === dataDate) {

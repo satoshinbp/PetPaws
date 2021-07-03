@@ -60,13 +60,11 @@ const MealWeekChart = ({}) => {
                 }
             }
         }
-        console.log(allFoodData)
         setWeekData(allFoodData);
     }
 
     // SUM UP CALORIE FOR MEAL AND TREAT RESPECTIVELY PER DAY
     const sumUpCalorie = (meals) => {
-        console.log(allFoodData)
         let temp = {};
             let obj = null;
             for(let j=0; j < meals.length; j++) {
@@ -165,38 +163,6 @@ const MealWeekChart = ({}) => {
         
 
         getUid()
-        /*.then((response) => {
-            const res = []
-            for(let i = 0; i < response.data.length; i++) {
-                if(uid == response.data[i].uid) {
-                    res.push(response.data[i])
-                }
-            }
-            setData(res)
-            getFoodData(res)              
-        })
-        .then(() => {
-            return sumUpCalorie(allFoodData)
-        }).then((meals) => {
-          getAvgCal(meals)
-        })
-        .catch((err) => {
-          console.log(err)
-        });*/
-
-
-
-         /*Axios.get('http://localhost:3001/api/meal')
-            .then((response) => {
-              getFoodData(response.data)
-            }).then(() => {
-              return sumUpCalorie(allFoodData)
-            }).then((meals) => {
-              getAvgCal(meals)
-            })
-            .catch((err) => {
-              console.log(err)
-            });*/
  
 
     }, [avgCal])

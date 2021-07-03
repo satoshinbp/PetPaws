@@ -176,7 +176,6 @@ const WalkSummary = () => {
 
          // might use this code later
         /*let totallCal = 0
-
         allWalk.forEach((meal) => {
             console.log(meal.calorie)
             totallCal = totallCal +  meal.calorie
