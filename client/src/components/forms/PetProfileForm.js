@@ -4,7 +4,7 @@ export default function petProfileForm(props) {
   return (
     <>
       {/* This styling is temporary, to be removed */}
-      <form onSubmit={() => props.handleSubmit()} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+      <form onSubmit={(e) => props.handleSubmit(e)} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <div>
           <h3>Pet type:</h3>
           <input
@@ -26,7 +26,7 @@ export default function petProfileForm(props) {
         </div>
         <div className="">
           <label htmlFor="name">Pet Name:</label>
-          <input type="text" required />
+          <input type="text" required onChange={(e) => props.changeName(e.target.value)} />
         </div>
         <div>
           <label htmlFor="breed">Breed:</label>

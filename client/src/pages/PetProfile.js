@@ -1,11 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import PetProfileForm from '../components/forms/PetProfileForm';
+import { useAuth } from '../contexts//AuthContext';
 
 export default function PetProfile(props) {
+  const { currentUser } = useAuth();
+
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
   const [isDog, setIsDog] = useState(1); // 0: cat, 1: dog
+
+  const [name, setName] = useState('');
   const [breedName, setBreedName] = useState('');
   const [birthday, setBirthday] = useState('');
 
@@ -28,10 +33,31 @@ export default function PetProfile(props) {
     });
   }, []);
 
-  const handleSubmit = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const petData = {
+      isDog,
+      name,
+      breedName,
+      birthday,
+      gender,
+      weight,
+      height,
+      isSpayed,
+      activityLevel,
+      bodyCondition,
+      uid: currentUser.uid,
+    };
+    console.log(petData);
+    // Axios.post('http://localhost:3001/api/pet', petData);
+  };
 
   const changePetType = (value) => {
     setIsDog(parseInt(value));
+  };
+
+  const changeName = (value) => {
+    setName(value);
   };
 
   const changeBreed = (value) => {
@@ -82,6 +108,7 @@ export default function PetProfile(props) {
         activityLevel={activityLevel}
         bodyCondition={bodyCondition}
         changePetType={changePetType}
+        changeName={changeName}
         changeBreed={changeBreed}
         changeGender={changeGender}
         changeBirthday={changeBirthday}
@@ -90,6 +117,7 @@ export default function PetProfile(props) {
         changeIsSpayed={changeIsSpayed}
         changeActivityLevel={changeActivityLevel}
         changeBodyCondition={changeBodyCondition}
+        handleSubmit={handleSubmit}
       />
     </>
   );
