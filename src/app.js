@@ -10,6 +10,9 @@ const admin = require('firebase-admin');
 app.use(cors());
 
 require('./routes/team')(app);
+require('./routes/store')(app);
+require('./routes/pet')(app);
+// require('./routes/user')(app);
 
 db.connect();
 
@@ -74,6 +77,20 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   });
 // });
 
+app.post('/api/user', (req, res) => {
+  const name = req.body.name;
+  const uid = req.body.uid;
+  const email = req.body.email;
+  const sqlInsert = 'INSERT INTO users (name, uid, email) VALUES (?,?,?)';
+  db.query(sqlInsert, [name, uid, email], (err, result) => {
+    if (err) {
+      throw err;
+    } else {
+      res.status(200).send(result);
+    }
+  });
+});
+
 // app.post('/api/user', (req, res) => {
 //   const name = req.body.name;
 //   const uid = req.body.uid;
@@ -111,24 +128,25 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // finding store function
 // Display store list
-app.get('/stores/get', (req, res) => {
-  const sqlSelect = 'SELECT * FROM petpaws.stores ';
-  db.query(sqlSelect, (err, result) => {
-    console.log(err);
-    console.log(`aa${result}`);
-    res.send(result);
-  });
-});
+// app.get('/api/store/get', (req, res) => {
+//   const sqlSelect = 'SELECT * FROM petpaws.stores ';
+//   db.query(sqlSelect, (err, result) => {
+//     console.log(err);
+//     console.log(`aa${result}`);
+//     res.send(result);
+//   });
+// });
 
 /* PET */
-app.get('/api/pet/get/:uid', (req, res) => {
-  const uid = req.params.uid;
-  const sqlSelect = 'SELECT * FROM petpaws.pets WHERE uid = ?';
 
-  db.query(sqlSelect, [uid], (err, result) => {
-    if (err) throw err;
-    res.send(result);
-  });
-});
+// app.get('/api/pet/get/:user_id', (req, res) => {
+//   const userID = req.params.user_id;
+//   const sqlSelect = 'SELECT * FROM petpaws.pets WHERE user_id = ?';
+
+//   db.query(sqlSelect, [userID], (err, result) => {
+//     if (err) throw err;
+//     res.send(result);
+//   });
+// });
 
 module.exports = app;
