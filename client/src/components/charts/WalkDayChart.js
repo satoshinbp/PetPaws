@@ -1,11 +1,4 @@
-/*import {
-    ResponsiveContainer,
-    ComposedChart,
-    Bar,
-    XAxis,
-    YAxis,
-    Tooltip,
-} from "recharts";*/
+
 
 const WalkDayChart = ({dateData, sumDateData, date, onChange}) => {
 
