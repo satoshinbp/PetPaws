@@ -149,5 +149,41 @@ app.use(function (err, req, res, next) {
 //     res.send(result);
 //   });
 // });
+app.get('/api/meal', (req, res) => {
+  const sqlSelect = 'SELECT meals.id, uid, date, time, type, calorie FROM meals INNER JOIN mealTest ON meals.user_id = mealTest.id' ;
+  db.query(sqlSelect, (err, result) => {
+    console.log(err);
+    console.log(result);
+    res.send(result);
+  });
+});
+
+app.get('/api/activity', (req, res) => {
+  const sqlSelect = 'SELECT activities.id, uid, activities.name, date, minute, distance FROM activities INNER JOIN mealTest ON activities.user_id = mealTest.id' ;
+  db.query(sqlSelect, (err, result) => {
+    console.log(err);
+    console.log(`aa${result}`);
+    res.send(result);
+  });
+});
+
+
+app.get('/api/meal', (req, res) => {
+  const sqlSelect = 'SELECT meals.id, uid, date, time, type, calorie FROM meals INNER JOIN mealTest ON meals.user_id = mealTest.id' ;
+  db.query(sqlSelect, (err, result) => {
+    console.log(err);
+    console.log(result);
+    res.send(result);
+  });
+});
+
+app.get('/api/activity', (req, res) => {
+  const sqlSelect = 'SELECT activities.id, uid, activities.name, date, minute, distance FROM activities INNER JOIN mealTest ON activities.user_id = mealTest.id' ;
+  db.query(sqlSelect, (err, result) => {
+    console.log(err);
+    console.log(`aa${result}`);
+    res.send(result);
+  });
+});
 
 module.exports = app;
