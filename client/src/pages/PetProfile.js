@@ -35,21 +35,25 @@ export default function PetProfile(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const petData = {
-      isDog,
-      name,
-      breedName,
-      birthday,
-      gender,
-      weight,
-      height,
-      isSpayed,
-      activityLevel,
-      bodyCondition,
-      uid: currentUser.uid,
-    };
-    console.log(petData);
-    // Axios.post('http://localhost:3001/api/pet', petData);
+    Axios.get('http://localhost:3001/api/user', { params: { uid: currentUser.uid } }).then((res) => {
+      console.log('res', res);
+      const petData = {
+        isDog,
+        name,
+        breedName,
+        birthday,
+        gender,
+        weight,
+        height,
+        isSpayed,
+        activityLevel,
+        bodyCondition,
+        user_id: res.data[0].id,
+      };
+      console.log('PEETTTTT', petData);
+
+      Axios.post('http://localhost:3001/api/pet', petData);
+    });
   };
 
   const changePetType = (value) => {
