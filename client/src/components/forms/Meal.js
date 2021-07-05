@@ -26,7 +26,7 @@ export default function MealForm() {
     // setMeals([...meals, data]);
   };
 
-  const onSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     addMeal({ name, date, type, time, amount, calorie });
@@ -43,7 +43,7 @@ export default function MealForm() {
     <div>
       <h2>Add New Meal</h2>
       {/* Styling to be removed */}
-      <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
         <div>
           <label htmlFor="name">Meal Name</label>
           <input

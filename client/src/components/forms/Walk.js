@@ -1,34 +1,47 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
 export default function WalkForm({ onAdd }) {
   const [name, setName] = useState('');
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-  const [start, setStart] = useState(''); // option "wet" "dry" "treat"
-  const [end, setEnd] = useState(''); // time of meal
-  const [distance, setDistance] = useState('');
+  const [duration, setDuration] = useState(0);
+  const [distance, setDistance] = useState(0);
 
-  const onSubmit = (e) => {
+  const addWalk = async (walk) => {
+    console.log(walk); // Test purpose, to be removed
+
+    /* The fllowing part is to connect to database, to be completed once api is ready */
+
+    // const res = await fetch('http://localhost:5000/meals', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-type': 'application/json',
+    //   },
+    //   body: JSON.stringify(walk),
+    // });
+
+    // const data = await res.json();
+
+    // setWalks([...walks, data]);
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log(`${name} ${date} ${start} ${end} ${distance} `);
-
-    onAdd({ name, date, start, end, distance });
+    addWalk({ name, date, duration, distance });
 
     setName('');
-    setDate('');
-    setStart('');
-    setEnd('');
-    setDistance('');
+    setDate(new Date().toISOString().slice(0, 10));
+    setDuration(0);
+    setDistance(0);
   };
 
   return (
     <div>
       <h2>Add New Activity</h2>
       {/* Styling to be removed */}
-      <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Activity Name</label>
           <input
             type="text"
             name="name"
@@ -40,7 +53,7 @@ export default function WalkForm({ onAdd }) {
         </div>
 
         <div>
-          <label htmlFor="date">Date: </label>
+          <label htmlFor="date">Date</label>
           <input
             type="date"
             id="date"
@@ -52,34 +65,24 @@ export default function WalkForm({ onAdd }) {
         </div>
 
         <div>
-          <label htmlFor="time">Start Time: </label>
+          <label htmlFor="duration">Duration</label>
           <input
-            type="time"
-            id="start-time"
-            name="start-time"
-            value={start}
+            type="number"
+            id="duration"
+            name="duration"
+            value={duration}
             required
-            onChange={(e) => setStart(e.target.value)}
+            onChange={(e) => setDuration(e.target.value)}
           />
-        </div>
-
-        <div>
-          <label htmlFor="time">End Time: </label>
-          <input
-            type="time"
-            id="end-time"
-            name="end-time"
-            value={end}
-            required
-            onChange={(e) => setEnd(e.target.value)}
-          />
+          minutes
         </div>
 
         <div>
           <label htmlFor="amount">Distance(m): </label>
           <input
             type="number"
-            id="amount"
+            id="distance"
+            name="distance"
             value={distance}
             min="0"
             max="50000"
@@ -92,7 +95,6 @@ export default function WalkForm({ onAdd }) {
           <button type="submit">Create</button>
         </div>
       </form>
-      <Link to="/">Go Back</Link>
     </div>
   );
 }
