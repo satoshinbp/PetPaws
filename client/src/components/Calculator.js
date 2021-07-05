@@ -116,12 +116,12 @@ export default function Calculator(props) {
         </div>
         <div>
           <label htmlFor="breed">Breed:</label>
-          <select name="breed" onChange={changeBreed} required>
+          <select name="breed" value={breedName} onChange={changeBreed} required>
             <option value="">Select breed</option>
             {isDog ? (
               <>
                 {dogBreeds.map((breed) => (
-                  <option value={breed.name} key={breed.name} selected={breed.name === breedName}>
+                  <option value={breed.name} key={breed.name}>
                     {breed.name}
                   </option>
                 ))}
@@ -129,7 +129,7 @@ export default function Calculator(props) {
             ) : (
               <>
                 {catBreeds.map((breed) => (
-                  <option value={breed.name} key={breed.name} selected={breed.name === breedName}>
+                  <option value={breed.name} key={breed.name}>
                     {breed.name}
                   </option>
                 ))}
@@ -156,46 +156,28 @@ export default function Calculator(props) {
 
         <div>
           <label htmlFor="isSpayed">Signalment:</label>
-          <select name="isSpayed" onChange={changeIsSpayed}>
-            <option value={0} selected={isSpayed === 0}>
-              Intact
-            </option>
-            <option value={1} selected={isSpayed === 1}>
-              Spayed/Neutered
-            </option>
+          <select name="isSpayed" value={isSpayed} onChange={changeIsSpayed}>
+            <option value={0}>Intact</option>
+            <option value={1}>Spayed/Neutered</option>
           </select>
         </div>
 
         <div>
           <label htmlFor="activityLevel">Activity Level:</label>
-          <select name="activityLevel" onChange={changeActivityLevel}>
-            <option value={0} selected={activityLevel === 0}>
-              Inactive
-            </option>
-            <option value={1} selected={activityLevel === 1}>
-              Somewhat Active
-            </option>
-            <option value={2} selected={activityLevel === 2}>
-              Active
-            </option>
-            <option value={3} selected={activityLevel === 3}>
-              Very Active
-            </option>
+          <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
+            <option value={0}>Inactive</option>
+            <option value={1}>Somewhat Active</option>
+            <option value={2}>Active</option>
+            <option value={3}>Very Active</option>
           </select>
         </div>
 
         <div>
           <label htmlFor="bodyCondition">Body Condition:</label>
-          <select name="bodyCondition" onChange={changeBodyCondition}>
-            <option value={0} selected={bodyCondition === 0}>
-              Underweight
-            </option>
-            <option value={1} selected={bodyCondition === 1}>
-              Ideal
-            </option>
-            <option value={2} selected={bodyCondition === 2}>
-              Overweight
-            </option>
+          <select name="bodyCondition" value={activityLevel} onChange={changeBodyCondition}>
+            <option value={0}>Underweight</option>
+            <option value={1}>Ideal</option>
+            <option value={2}>Overweight</option>
           </select>
         </div>
 
