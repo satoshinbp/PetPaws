@@ -22,7 +22,7 @@ export default function CreateWalk() {
 
   return (
     <div>
-      <h2 style={{ border: '1px solid black', borderRadius: '5px', backgroundColor: '#F0F0F0' }}>Create an activity</h2>
+      <h2>Create an activity</h2>
       <WalkForm onAdd={addWalk} />
     </div>
   );

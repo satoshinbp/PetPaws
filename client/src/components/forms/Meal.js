@@ -43,14 +43,13 @@ export default function MealForm() {
     <div>
       <h2>Add New Meal</h2>
       {/* Styling to be removed */}
-      <form className="meal-form" onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+      <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
         <div>
           <label htmlFor="name">Meal Name</label>
           <input
             type="text"
             name="name"
             id="meal-name"
-            placeholder="Add a Meal Name"
             value={name}
             required
             onChange={(e) => setName(e.target.value)}
