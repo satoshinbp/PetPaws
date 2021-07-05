@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export function MealForm() {
+export default function MealForm() {
   const [name, setName] = useState('');
   const [type, setType] = useState('Wet'); // Options: "Wet", "Dry", "Treat"
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
