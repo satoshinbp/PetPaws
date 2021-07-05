@@ -25,10 +25,10 @@ export default function WalkForm({ onAdd }) {
   return (
     <div>
       <h2>Add New Activity</h2>
-      <form className="meal-form" onSubmit={onSubmit}>
-        <div className="form-control">
-          {/* MEAL NAME */}
-          <label htmlFor="name">Name: </label>
+      {/* Styling to be removed */}
+      <form onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+        <div>
+          <label htmlFor="name">Name</label>
           <input
             type="text"
             name="name"
@@ -37,9 +37,9 @@ export default function WalkForm({ onAdd }) {
             required
             onChange={(e) => setName(e.target.value)}
           />
-          <br />
-          <br />
-          {/* DATE */}
+        </div>
+
+        <div>
           <label htmlFor="date">Date: </label>
           <input
             type="date"
@@ -49,9 +49,9 @@ export default function WalkForm({ onAdd }) {
             required
             onChange={(e) => setDate(e.target.value)}
           />
-          <br />
-          <br />
-          {/* START TIME */}
+        </div>
+
+        <div>
           <label htmlFor="time">Start Time: </label>
           <input
             type="time"
@@ -61,9 +61,9 @@ export default function WalkForm({ onAdd }) {
             required
             onChange={(e) => setStart(e.target.value)}
           />
-          <br />
-          <br />
-          {/* END TIME */}
+        </div>
+
+        <div>
           <label htmlFor="time">End Time: </label>
           <input
             type="time"
@@ -73,9 +73,9 @@ export default function WalkForm({ onAdd }) {
             required
             onChange={(e) => setEnd(e.target.value)}
           />
-          <br />
-          <br />
-          {/* Distance */}
+        </div>
+
+        <div>
           <label htmlFor="amount">Distance(m): </label>
           <input
             type="number"
@@ -85,12 +85,11 @@ export default function WalkForm({ onAdd }) {
             max="50000"
             onChange={(e) => setDistance(e.target.value)}
           />
-          <br />
-          <br />
-          {/* SUBMIT */}
-          <input type="submit" value="Add" />
-          <br />
-          <br />
+        </div>
+
+        <div>
+          <button>Cancel</button>
+          <button type="submit">Create</button>
         </div>
       </form>
       <Link to="/">Go Back</Link>
