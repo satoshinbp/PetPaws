@@ -1,37 +1,51 @@
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 
-const MealForm = ({ onAdd }) => {
+const MealForm = () => {
   const [name, setName] = useState('');
+  const [type, setType] = useState('Wet'); // Options: "Wet", "Dry", "Treat"
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-  const [type, setType] = useState('Wet'); // option "wet" "dry" "treat"
-  const [time, setTime] = useState(''); // time of meal
-  const [amount, setAmount] = useState('');
-  const [calorie, setCalorie] = useState('');
-  const [note, setNote] = useState('');
+  const [time, setTime] = useState('00:00');
+  const [amount, setAmount] = useState(0);
+  const [calorie, setCalorie] = useState(0);
+
+  const addMeal = async (meal) => {
+    console.log(meal); // Test purpose, to be removed
+
+    /* The fllowing part is to connect to database, to be completed once api is ready */
+
+    // const res = await fetch('http://localhost:5000/meals', {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-type': 'application/json',
+    //   },
+    //   body: JSON.stringify(meal),
+    // });
+
+    // const data = await res.json();
+
+    // setMeals([...meals, data]);
+  };
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log(name + date + type + time + amount + calorie + note);
 
-    onAdd({ name, date, type, time, amount, calorie, note });
+    addMeal({ name, date, type, time, amount, calorie });
 
     setName('');
-    setDate('');
-    setType('');
-    setTime('');
-    setAmount('');
-    setCalorie('');
-    setNote('');
+    setType('Wet');
+    setDate(new Date().toISOString().slice(0, 10));
+    setTime('00:00');
+    setAmount(0);
+    setCalorie(0);
   };
 
   return (
     <div>
       <h2>Add New Meal</h2>
-      <form className="meal-form" onSubmit={onSubmit}>
-        <div className="form-control">
-          {/* MEAL NAME */}
-          <label htmlFor="name">Name: </label>
+      {/* Styling to be removed */}
+      <form className="meal-form" onSubmit={onSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+        <div>
+          <label htmlFor="name">Meal Name</label>
           <input
             type="text"
             name="name"
@@ -41,22 +55,31 @@ const MealForm = ({ onAdd }) => {
             required
             onChange={(e) => setName(e.target.value)}
           />
-          <br />
-          <br />
-          {/* DATE */}
-          <label htmlFor="date">Date: </label>
+        </div>
+
+        <div>
+          <label htmlFor="type">Meal Type</label>
+          <select id="type" name="meal-type" value={type} onChange={(e) => setType(e.target.value)}>
+            <option value="Wet">Wet</option>
+            <option value="Dry">Dry</option>
+            <option value="Treat">Treat</option>
+          </select>
+        </div>
+
+        <div>
+          <label htmlFor="date">Date</label>
           <input
             type="date"
             id="date"
             name="meal-date"
-            defaultValue={date}
+            value={date}
             required
             onChange={(e) => setDate(e.target.value)}
           />
-          <br />
-          <br />
-          {/* TIME */}
-          <label htmlFor="time">Time: </label>
+        </div>
+
+        <div>
+          <label htmlFor="time">Time</label>
           <input
             type="time"
             id="time"
@@ -65,22 +88,14 @@ const MealForm = ({ onAdd }) => {
             required
             onChange={(e) => setTime(e.target.value)}
           />
-          <br />
-          <br />
-          {/* MEAL TYPE */}
-          <label htmlFor="type">Meal Type: </label>
-          <select id="type" name="meal-type" value={type} onChange={(e) => setType(e.target.value)}>
-            <option value="Wet">Wet</option>
-            <option value="Dry">Dry</option>
-            <option value="Treat">Treat</option>
-          </select>
-          <br />
-          <br />
-          {/* AMOUNT */}
-          <label htmlFor="amount">Amount(g): </label>
+        </div>
+
+        <div>
+          <label htmlFor="amount">Amount</label>
           <input
             type="number"
             id="amount"
+            name="amount"
             value={amount}
             step="0.1"
             min="0"
@@ -88,39 +103,29 @@ const MealForm = ({ onAdd }) => {
             required
             onChange={(e) => setAmount(e.target.value)}
           />
-          <br />
-          <br />
-          {/* CALORIE */}
-          <label htmlFor="calorie">Calorie(kcal): </label>
+          g
+        </div>
+
+        <div>
+          <label htmlFor="calorie">Calories</label>
           <input
             type="number"
             id="calorie"
+            name="calorie"
             value={calorie}
             min="0"
             max="2000"
             required
             onChange={(e) => setCalorie(e.target.value)}
           />
-          <br />
-          <br />
-          {/* NOTE(OPTIONAL) */}
-          <label htmlFor="note">Note: </label>
-          <textarea
-            name="note"
-            id="meal-note"
-            placeholder="Add a Note Here"
-            value={note}
-            onChange={(e) => setNote(e.target.value)}
-          />
-          <br />
-          <br />
-          {/* SUBMIT */}
-          <input type="submit" value="Add" />
-          <br />
-          <br />
+          kCal / 100g
+        </div>
+
+        <div>
+          <button>Cancel</button>
+          <button type="submit">Create</button>
         </div>
       </form>
-      <Link to="/">Home</Link>
     </div>
   );
 };
