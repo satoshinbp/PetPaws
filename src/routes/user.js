@@ -1,7 +1,6 @@
 const userController = require('../controller/user');
 const express = require('express');
-
-var jsonParser = express.json();
+const jsonParser = express.json();
 
 module.exports = (app) => {
   app.get('/api/user', jsonParser, userController.find);
