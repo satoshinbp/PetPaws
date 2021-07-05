@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import WalkForm from '../components/forms/Walk';
 
-export const CreateWalk = () => {
+export default function CreateWalk() {
   const [walks, setWalks] = useState('');
   const addWalk = async (meal) => {
     console.log('clicked Add buttom');
@@ -26,6 +26,4 @@ export const CreateWalk = () => {
       <WalkForm onAdd={addWalk} />
     </div>
   );
-};
-
-export default CreateWalk;
+}

@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const WalkForm = ({ onAdd }) => {
+export default function WalkForm({ onAdd }) {
   const [name, setName] = useState('');
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [start, setStart] = useState(''); // option "wet" "dry" "treat"
@@ -96,6 +96,4 @@ const WalkForm = ({ onAdd }) => {
       <Link to="/">Go Back</Link>
     </div>
   );
-};
-
-export default WalkForm;
+}
