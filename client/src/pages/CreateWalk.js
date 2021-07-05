@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import WalkForm from '../components/forms/WalkForm';
+import WalkForm from '../components/forms/Walk';
 
 export const CreateWalk = () => {
   const [walks, setWalks] = useState('');
