@@ -74,11 +74,11 @@ export default function WalkForm({ onAdd }) {
             required
             onChange={(e) => setDuration(e.target.value)}
           />
-          minutes
+          min
         </div>
 
         <div>
-          <label htmlFor="amount">Distance(m): </label>
+          <label htmlFor="amount">Distance</label>
           <input
             type="number"
             id="distance"
@@ -88,6 +88,7 @@ export default function WalkForm({ onAdd }) {
             max="50000"
             onChange={(e) => setDistance(e.target.value)}
           />
+          m
         </div>
 
         <div>
