@@ -1,31 +1,15 @@
-import { useState } from 'react';
 import MealForm from '../components/forms/MealForm';
 
-export const CreateMeal = () => {
-  //const [meals, setMeals] = useState('');
-  const addMeal = async (meal) => {
-    console.log('clicked Submit Button');
-    /* // when connect with database
-        const res = await fetch('http://localhost:5000/meals', {
-            method: 'POST',
-            headers: {
-                'Content-type' : 'application/json',
-            },
-            body: JSON.stringify(meal),
-        })
-    
-        const data = await res.json()
-    
-        setMeals([...meals, data])
-        */
-  };
-
+export default function CreateMeal() {
   return (
     <div>
-      <h2 style={{ border: '1px solid black', borderRadius: '5px', backgroundColor: '#F0F0F0' }}>Add a Meal</h2>
-      <MealForm onAdd={addMeal} />
+      <h2>Add a Meal</h2>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Deleniti iusto maiores libero officia deserunt quia,
+        assumenda laboriosam quas vitae eveniet veniam perferendis fuga officiis, vel autem similique molestias sint
+        quisquam?
+      </p>
+      <MealForm />
     </div>
   );
-};
-
-export default CreateMeal;
+}
