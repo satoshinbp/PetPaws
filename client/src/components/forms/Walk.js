@@ -1,6 +1,6 @@
 import { useState } from 'react';
 
-export default function WalkForm({ onAdd }) {
+export default function WalkForm() {
   const [name, setName] = useState('');
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [duration, setDuration] = useState(0);
