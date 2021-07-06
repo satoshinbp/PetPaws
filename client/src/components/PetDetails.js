@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
 
-export default function PetDetails() {
+export default function PetDetails(props) {
   const [petDetail, setPetDetail] = useState([]);
   const { currentUser } = useAuth();
 
@@ -29,27 +29,6 @@ export default function PetDetails() {
   //       });
   //   });
   // }, []);
-
-  useEffect(() => {
-    Axios.get('http://localhost:3001/api/user', { params: { uid: currentUser.uid } }).then((response) => {
-      // console.log(response);
-
-      const fetchPets = async () => {
-        const params = { params: { user_id: response.id } };
-        const res = await fetch(`http://localhost:3001/api/pet/get/${response.data[0].id}`, params);
-        const data = await res.json();
-        // console.log(data);
-        return data;
-      };
-
-      const getPets = async () => {
-        const fetchedPets = await fetchPets();
-        console.log(fetchedPets);
-        setPetDetail(fetchedPets);
-      };
-      getPets();
-    });
-  }, []);
 
   // return (
   //   <div>
