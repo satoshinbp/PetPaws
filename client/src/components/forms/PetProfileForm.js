@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 
 export default function petProfileForm(props) {
+  const today = new Date();
+
   return (
     <>
       {/* This styling is temporary, to be removed */}
@@ -26,7 +28,7 @@ export default function petProfileForm(props) {
         </div>
         <div className="">
           <label htmlFor="name">Pet Name:</label>
-          <input type="text" required onChange={(e) => props.changeName(e.target.value)} />
+          <input type="text" value={props.name} required onChange={(e) => props.changeName(e.target.value)} />
         </div>
         <div>
           <label htmlFor="breed">Breed:</label>
@@ -65,7 +67,14 @@ export default function petProfileForm(props) {
           <input
             type="date"
             name="birthday"
-            value={props.birthday}
+            max={
+              today.getFullYear() +
+              '-' +
+              (today.getMonth() + 1 < 10 ? '0' + (today.getMonth() + 1) : today.getMonth() + 1) +
+              '-' +
+              (today.getDate() < 10 ? '0' + today.getDate() : today.getDate())
+            }
+            value={props.birthday.substr(0, 10)}
             onChange={(e) => props.changeBirthday(e.target.value)}
           />
         </div>
@@ -79,7 +88,7 @@ export default function petProfileForm(props) {
             min={0}
             step={0.1}
             onChange={(e) => props.changeWeight(e.target.value)}
-          />
+          />{' '}
           kg
         </div>
 
@@ -92,8 +101,8 @@ export default function petProfileForm(props) {
             min={0}
             step={0.1}
             onChange={(e) => props.changeHeight(e.target.value)}
-          />
-          kg
+          />{' '}
+          Cm
         </div>
 
         <div>

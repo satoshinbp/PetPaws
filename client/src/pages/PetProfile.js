@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import PetProfileForm from '../components/forms/PetProfileForm';
 import { useAuth } from '../contexts//AuthContext';
+import { useHistory } from 'react-router-dom';
 
 export default function PetProfile(props) {
   const { currentUser } = useAuth();
@@ -20,6 +21,7 @@ export default function PetProfile(props) {
   const [isSpayed, setIsSpayed] = useState(0); // 0: intact, 1: spayed/neutered
   const [activityLevel, setActivityLevel] = useState(0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
   const [bodyCondition, setBodyCondition] = useState(0); // 0: underweight, 1: ideal, 2: overweight
+  const history = useHistory();
 
   useEffect(() => {
     Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
@@ -31,12 +33,32 @@ export default function PetProfile(props) {
       const breeds = res.data.map((breed) => ({ name: breed.name }));
       setCatBreeds(breeds);
     });
+
+    Axios.get('http://localhost:3001/api/user', { params: { uid: currentUser.uid } }).then((response) => {
+      Axios.get(`http://localhost:3001/api/pet/get/${response.data[0].id}`, {
+        params: { user_id: response.data[0].id },
+      })
+        .then((response) => {
+          setIsDog(response.data.is_dog);
+          setName(response.data.name);
+          setBreedName(response.data.breed);
+          setBirthday(response.data.birthday);
+          setGender(response.data.gender);
+          setWeight(response.data.weight);
+          setHeight(response.data.height);
+          setIsSpayed(response.data.spayed);
+          setActivityLevel(response.data.activityLevel);
+          setBodyCondition(response.data.bodyCondition);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    });
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
     Axios.get('http://localhost:3001/api/user', { params: { uid: currentUser.uid } }).then((res) => {
-      console.log('res', res);
       const petData = {
         isDog,
         name,
@@ -50,9 +72,9 @@ export default function PetProfile(props) {
         bodyCondition,
         user_id: res.data[0].id,
       };
-      console.log('PEETTTTT', petData);
-
-      Axios.post('http://localhost:3001/api/pet', petData);
+      Axios.post('http://localhost:3001/api/pet', petData).then(() => {
+        history.push('/');
+      });
     });
   };
 
@@ -103,6 +125,7 @@ export default function PetProfile(props) {
         dogBreeds={dogBreeds}
         catBreeds={catBreeds}
         isDog={isDog}
+        name={name}
         breedName={breedName}
         birthday={birthday}
         gender={gender}

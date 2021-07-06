@@ -3,9 +3,8 @@ const db = require('../config/connection');
 // constructor
 const Pet = {};
 
-Pet.findById = (user_id, result) => {
-  User.find(uid);
-  db.query(`SELECT * FROM petpaws.pets WHERE user_id = ${user_id}`, (err, res) => {
+Pet.findById = (req, result) => {
+  db.query(`SELECT * FROM petpaws.pets WHERE user_id = ${req}`, (err, res) => {
     if (err) {
       console.log('error: ', err);
       result(null, err);
@@ -33,20 +32,6 @@ Pet.create = (req, result) => {
   const activity_level = req.activityLevel;
   const body_condition = req.bodyCondition;
   const user_id = req.user_id;
-
-  console.log('hairetu', [
-    is_dog,
-    name,
-    breed,
-    birthday,
-    gender,
-    weight,
-    height,
-    is_spayed,
-    activity_level,
-    body_condition,
-    user_id,
-  ]);
 
   const sql = `INSERT INTO petpaws.pets (is_dog, name, breed, birthday, gender, weight, height, is_spayed, activity_level, body_condition, user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);`;
 
