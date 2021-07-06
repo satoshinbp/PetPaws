@@ -13,7 +13,7 @@ export default function Calorie() {
       .then((res) => {
         const user_id = res.data[0].id;
 
-        Axios.get(`http://localhost:3001/api/pet/get/${user_id}`)
+        Axios.get(`http://localhost:3001/api/pet/get?user_id=${user_id}`)
           .then((res) => {
             setProfile(res.data);
           })
