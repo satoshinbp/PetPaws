@@ -23,6 +23,8 @@ export default function Calculator(props) {
       setIsSpayed(props.profile.is_spayed);
       setActivityLevel(props.profile.activity_level);
       setBodyCondition(props.profile.body_condition);
+
+      // Age (years, months) shall be calculated as per props.birthday. To be implemented.
     }
   }, [props]);
 
