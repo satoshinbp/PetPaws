@@ -8,12 +8,26 @@ export default function Calculator(props) {
   const [catBreeds, setCatBreeds] = useState([]);
   const [isDog, setIsDog] = useState(0); // 0: cat, 1: dog
   const [breedName, setBreedName] = useState('');
-  const [years, setYears] = useState(0);
-  const [months, setMonths] = useState(0);
+  const [ageYears, setAgeYears] = useState(0);
+  const [ageMonths, setAgeMonths] = useState(0);
   const [weight, setWeight] = useState(0);
   const [isSpayed, setIsSpayed] = useState(0); // 0: intact, 1: spayed/neutered
   const [activityLevel, setActivityLevel] = useState(0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
   const [bodyCondition, setBodyCondition] = useState(0); // 0: underweight, 1: ideal, 2: overweight
+
+  const calcAgeFromBirthday = (dateBirthStr) => {
+    const dateNow = new Date();
+    const dateBirth = new Date(dateBirthStr);
+
+    const timeTillNow = dateNow.getTime() - dateBirth.getTime();
+    const daysTillNow = timeTillNow / (1000 * 3600 * 24);
+
+    const daysPerMonth = 365 / 12;
+    const ageY = Math.floor(daysTillNow / 365);
+    const ageM = Math.floor((daysTillNow - 365 * ageY) / daysPerMonth);
+
+    return { ageY, ageM };
+  };
 
   useEffect(() => {
     if (props.profile) {
@@ -23,6 +37,11 @@ export default function Calculator(props) {
       setIsSpayed(props.profile.is_spayed);
       setActivityLevel(props.profile.activity_level);
       setBodyCondition(props.profile.body_condition);
+
+      const { ageY, ageM } = calcAgeFromBirthday(props.profile.birthday);
+
+      setAgeYears(ageY);
+      setAgeMonths(ageM);
     }
   }, [props]);
 
@@ -50,8 +69,8 @@ export default function Calculator(props) {
       const ageInYears = (Date.now() - birthday.getTime()) / 1000 / 60 / 60 / 24 / 365;
       const ageYears = Math.floor(ageInYears);
       const ageMonths = Math.floor((ageInYears - ageYears) * 12);
-      setYears(ageYears);
-      setMonths(ageMonths);
+      setAgeYears(ageYears);
+      setAgeMonths(ageMonths);
     }
   }, []);
 
@@ -64,11 +83,11 @@ export default function Calculator(props) {
     setResult('');
   };
   const changeYears = (e) => {
-    setYears(e.target.value);
+    setAgeYears(e.target.value);
     setResult('');
   };
   const changeMonths = (e) => {
-    setMonths(e.target.value);
+    setAgeMonths(e.target.value);
     setResult('');
   };
   const changeWeight = (e) => {
@@ -106,7 +125,7 @@ export default function Calculator(props) {
     const signalmentFactor = signalmentFactors[isDog][isSpayed];
     const activityLevelFactor = activityLevelFactors[activityLevel];
     const bodyConditionFactor = bodyConditionFactors[bodyCondition];
-    const ageFactor = years * 12 + months < 4 ? 3 : years * 12 + months < breedAdultAge ? 2 : 1;
+    const ageFactor = ageYears * 12 + ageMonths < 4 ? 3 : ageYears * 12 + ageMonths < breedAdultAge ? 2 : 1;
 
     const MER = RER * signalmentFactor * activityLevelFactor * bodyConditionFactor * ageFactor;
 
@@ -152,10 +171,10 @@ export default function Calculator(props) {
         <div>
           <label>
             Age:
-            <input type="number" name="years" value={years} min={0} step={1} onChange={changeYears} />
-            years
-            <input type="number" name="months" value={months} min={0} max={11} step={1} onChange={changeMonths} />
-            months
+            <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
+            Years
+            <input type="number" name="ageMonths" value={ageMonths} min={0} max={11} step={1} onChange={changeMonths} />
+            Months
           </label>
         </div>
 
