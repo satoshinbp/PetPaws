@@ -33,16 +33,17 @@ const Dashboard = () => {
       <div>
         {petDetail ? (
           <div key={petDetail.id}>
-            <p>{petDetail.name} </p>
-            <p>{petDetail.breed}</p>
+            <p>Pet Name: {petDetail.name} </p>
+            <p>Breed: {petDetail.breed}</p>
+            <p>Weight: {petDetail.weight}kg</p>
+            <p>Height: {petDetail.height}cm</p>
           </div>
         ) : (
           'Loading...'
         )}
       </div>
-      {/* <PetDetails /> */}
       <h3>In Last 7 Days</h3>
-      {/* <Link to="/mealsummary" /> */}
+      {/* <LatestSummary /> */}
       <h3>Nutrition Summary</h3>
       <Link to="/mealsummary">Discover More</Link>
       <br></br>
