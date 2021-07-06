@@ -6,14 +6,25 @@ export default function Calculator(props) {
 
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
-  const [isDog, setIsDog] = useState(props.profile?.is_dog || 0); // 0: cat, 1: dog
-  const [breedName, setBreedName] = useState(props.profile?.breed || '');
+  const [isDog, setIsDog] = useState(0); // 0: cat, 1: dog
+  const [breedName, setBreedName] = useState('');
   const [years, setYears] = useState(0);
   const [months, setMonths] = useState(0);
-  const [weight, setWeight] = useState(props.profile?.weight || 0);
-  const [isSpayed, setIsSpayed] = useState(props.profile?.is_spayed || 0); // 0: intact, 1: spayed/neutered
-  const [activityLevel, setActivityLevel] = useState(props.profile?.activity_level || 0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
-  const [bodyCondition, setBodyCondition] = useState(props.profile?.body_condition || 0); // 0: underweight, 1: ideal, 2: overweight
+  const [weight, setWeight] = useState(0);
+  const [isSpayed, setIsSpayed] = useState(0); // 0: intact, 1: spayed/neutered
+  const [activityLevel, setActivityLevel] = useState(0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
+  const [bodyCondition, setBodyCondition] = useState(0); // 0: underweight, 1: ideal, 2: overweight
+
+  useEffect(() => {
+    if (props.profile) {
+      setIsDog(props.profile.is_dog);
+      setBreedName(props.profile.breed);
+      setWeight(props.profile.weight);
+      setIsSpayed(props.profile.is_spayed);
+      setActivityLevel(props.profile.activity_level);
+      setBodyCondition(props.profile.body_condition);
+    }
+  }, [props]);
 
   useEffect(() => {
     Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
@@ -174,7 +185,7 @@ export default function Calculator(props) {
 
         <div>
           <label htmlFor="bodyCondition">Body Condition:</label>
-          <select name="bodyCondition" value={activityLevel} onChange={changeBodyCondition}>
+          <select name="bodyCondition" value={bodyCondition} onChange={changeBodyCondition}>
             <option value={0}>Underweight</option>
             <option value={1}>Ideal</option>
             <option value={2}>Overweight</option>
