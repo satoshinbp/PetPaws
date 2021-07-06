@@ -3,18 +3,14 @@ const db = require('../config/connection');
 // constructor
 const Pet = {};
 
-Pet.findById = (user_id, result) => {
-  db.query(`SELECT * FROM petpaws.pets WHERE user_id = ${user_id}`, (err, res) => {
+Pet.findByUserId = (user_id, result) => {
+  db.query(`SELECT * FROM petpaws.pets WHERE user_id = ${user_id}`, (err, data) => {
     if (err) {
-      console.log('error: ', err);
-      result(null, err);
-      return;
-    }
-
-    if (res.length) {
-      // console.log('found pet: ', res[0]);
-      result(null, res[0]);
-      return;
+      result(err, null);
+    } else if (!data.length) {
+      result(new Error('Could not find a pet'), null);
+    } else {
+      result(null, data);
     }
   });
 };
