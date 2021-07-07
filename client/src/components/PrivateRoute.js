@@ -20,7 +20,6 @@ export default function PrivateRoute({ component: Component, ...rest }) {
           .then((res) => {
             const fetchedPetProfile = res.data;
             setPetProfile(fetchedPetProfile);
-            console.log(fetchedPetProfile);
             const { ageY, ageM } = calculateAgeFromBirthday(fetchedPetProfile.birthday);
             calculateRecommendedCalorie({
               isDog: fetchedPetProfile.is_dog,
