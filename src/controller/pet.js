@@ -1,11 +1,13 @@
 const Pet = require('../models/pet');
 
-exports.findOne = (req, res) => {
-  Pet.findById(req.params.user_id, (err, data) => {
+exports.findAll = (req, res) => {
+  const user_id = req.query.user_id;
+
+  Pet.findByUserId(user_id, (err, data) => {
     if (err) {
       throw err;
     } else {
-      res.status(200).send(data);
+      res.status(200).send(data[0]); // Currently user can register only one pet
     }
   });
 };

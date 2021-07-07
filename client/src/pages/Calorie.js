@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
 import Calculator from '../components/Calculator';
 
 export default function Calorie() {
+  const { currentUser } = useAuth();
   const [result, setResult] = useState('');
-  // const [profile, setProfile] = useState(null);
-  const [profile, setProfile] = useState({
-    is_dog: 1,
-    breed: 'Shiba Inu',
-    weight: 10,
-    is_spayed: 1,
-    birthday: '2020-01-01',
-    activityLevel: 1,
-    bodyCondition: 1,
-  }); // This is dammy date, to be removed once API is valid
+  const [profile, setProfile] = useState(null);
 
   useEffect(() => {
-    Axios.get(`http://localhost:3001/api/pet/get`) // This is API not valid yet
+    Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
       .then((res) => {
-        setProfile(res.data);
+        const user_id = res.data[0].id;
+
+        Axios.get(`http://localhost:3001/api/pet/get?user_id=${user_id}`)
+          .then((res) => {
+            setProfile(res.data);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
       })
       .catch((err) => {
         console.log(err);

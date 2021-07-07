@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import PetDetails from '../components/PetDetails';
 import Axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
 
@@ -9,21 +8,20 @@ const Dashboard = () => {
   const { currentUser } = useAuth();
 
   useEffect(() => {
-    Axios.get('http://localhost:3001/api/user', { params: { uid: currentUser.uid } }).then((response) => {
-      const fetchPets = async () => {
-        const params = { params: { user_id: response.id } };
-        const res = await fetch(`http://localhost:3001/api/pet/get/${response.data[0].id}`, params);
-        const data = await res.json();
-        return data;
-      };
-
-      const getPets = async () => {
-        const fetchedPets = await fetchPets();
-        console.log('fetchedPets', fetchedPets);
-        setPetDetail(fetchedPets);
-      };
-      getPets();
-    });
+    const fetchUser = async () => {
+      const res = await Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`);
+      return res.data[0];
+    };
+    const fetchPets = async () => {
+      const user = await fetchUser();
+      const res = await Axios(`http://localhost:3001/api/pet/get?user_id=${user.id}`);
+      return res.data;
+    };
+    const getPets = async () => {
+      const fetchedPets = await fetchPets();
+      setPetDetail(fetchedPets);
+    };
+    getPets();
   }, []);
 
   return (

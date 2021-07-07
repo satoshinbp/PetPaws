@@ -3,15 +3,16 @@ const db = require('../config/connection');
 // constructor
 const User = {};
 
-User.find = (req, res) => {
-  const sql = `SELECT * FROM petpaws.users WHERE uid=?`;
-  db.query(sql, req, (err, data) => {
+User.find = (uid, result) => {
+  const sql = `SELECT * FROM petpaws.users WHERE uid = ?`;
+
+  db.query(sql, [uid], (err, data) => {
     if (err) {
-      throw err;
-    } else if (data.length === 1) {
-      res(null, data);
+      result(err, null);
+    } else if (data.length !== 1) {
+      result(new Error('Could not find a user'), null);
     } else {
-      res.status(404).send('Could not find a user');
+      result(null, data);
     }
   });
 };
