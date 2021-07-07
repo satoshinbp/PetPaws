@@ -38,7 +38,6 @@ export default function Calculator(props) {
       setIsSpayed(props.profile.is_spayed);
       setActivityLevel(props.profile.activity_level);
       setBodyCondition(props.profile.body_condition);
-      console.log(props.profile.birthday);
 
       const { ageY, ageM } = calculateAgeFromBirthday(props.profile.birthday);
 
