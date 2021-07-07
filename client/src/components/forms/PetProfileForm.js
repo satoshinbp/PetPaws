@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 
 export default function petProfileForm(props) {
   const today = new Date();
@@ -102,7 +102,7 @@ export default function petProfileForm(props) {
             step={0.1}
             onChange={(e) => props.changeHeight(e.target.value)}
           />{' '}
-          Cm
+          cm
         </div>
 
         <div>
