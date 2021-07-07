@@ -18,6 +18,18 @@ User.find = (req, res) => {
     if (data.length === 1) {
       res(null, data);
     }
+
+    //Error happened when signup with below... keep it
+    // User.find = (uid, result) => {
+    //   const sql = `SELECT * FROM petpaws.users WHERE uid = ?`;
+
+    //   db.query(sql, [uid], (err, data) => {
+    //     if (err) {
+    //       result(err, null);
+    //     } else if (data.length !== 1) {
+    //       result(new Error('Could not find a user'), null);
+    //     } else {
+    //       result(null, data);
   });
 };
 

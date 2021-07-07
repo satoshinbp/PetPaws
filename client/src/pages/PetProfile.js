@@ -34,31 +34,33 @@ export default function PetProfile(props) {
       setCatBreeds(breeds);
     });
 
-    Axios.get('http://localhost:3001/api/user', { params: { uid: currentUser.uid } }).then((response) => {
-      Axios.get(`http://localhost:3001/api/pet/get/${response.data[0].id}`, {
-        params: { user_id: response.data[0].id },
-      })
-        .then((response) => {
-          setIsDog(response.data.is_dog);
-          setName(response.data.name);
-          setBreedName(response.data.breed);
-          setBirthday(response.data.birthday);
-          setGender(response.data.gender);
-          setWeight(response.data.weight);
-          setHeight(response.data.height);
-          setIsSpayed(response.data.spayed);
-          setActivityLevel(response.data.activityLevel);
-          setBodyCondition(response.data.bodyCondition);
+    Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`, { params: { uid: currentUser.uid } }).then(
+      (response) => {
+        Axios.get(`http://localhost:3001/api/pet/get/${response.data[0].id}`, {
+          params: { user_id: response.data[0].id },
         })
-        .catch((err) => {
-          console.log(err);
-        });
-    });
+          .then((response) => {
+            setIsDog(response.data.is_dog);
+            setName(response.data.name);
+            setBreedName(response.data.breed);
+            setBirthday(response.data.birthday);
+            setGender(response.data.gender);
+            setWeight(response.data.weight);
+            setHeight(response.data.height);
+            setIsSpayed(response.data.spayed);
+            setActivityLevel(response.data.activityLevel);
+            setBodyCondition(response.data.bodyCondition);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    );
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.get('http://localhost:3001/api/user', { params: { uid: currentUser.uid } }).then((res) => {
+    Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`, { params: { uid: currentUser.uid } }).then((res) => {
       const petData = {
         isDog,
         name,

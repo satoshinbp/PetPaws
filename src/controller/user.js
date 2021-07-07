@@ -16,7 +16,7 @@ exports.create = (req, res) => {
 };
 
 exports.find = (req, res) => {
-  const uid = req.query.uid;
+  const uid = req.params.uid;
   User.find(uid, (err, data) => {
     if (err) {
       throw err;
