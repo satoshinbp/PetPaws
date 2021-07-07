@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
+import LatestMealSummary from '../components/charts/LatestCalorieSummary';
+import LatestWalkSummary from '../components/charts/LatestWalkSummary';
 
 const Dashboard = () => {
   const [petDetail, setPetDetail] = useState('');
@@ -41,7 +43,8 @@ const Dashboard = () => {
         )}
       </div>
       <h3>In Last 7 Days</h3>
-      {/* <LatestSummary /> */}
+      <LatestMealSummary />
+      <LatestWalkSummary />
       <h3>Nutrition Summary</h3>
       <Link to="/mealsummary">Discover More</Link>
       <br></br>
