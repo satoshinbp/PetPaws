@@ -16,7 +16,6 @@ Pet.findByUserId = (user_id, result) => {
 };
 
 Pet.create = (req, result) => {
-  console.log('petModel petData unko', req);
   const is_dog = req.isDog;
   const name = req.name;
   const breed = req.breedName;

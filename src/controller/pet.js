@@ -13,7 +13,6 @@ exports.findAll = (req, res) => {
 };
 
 exports.petCreate = (req, res) => {
-  console.log('pet cont saisyo', req.body);
   Pet.create(req.body, (err, data) => {
     res.send(data);
   });

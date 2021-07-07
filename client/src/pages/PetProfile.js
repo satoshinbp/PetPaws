@@ -6,15 +6,12 @@ import { useHistory } from 'react-router-dom';
 
 export default function PetProfile(props) {
   const { currentUser } = useAuth();
-
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
   const [isDog, setIsDog] = useState(1); // 0: cat, 1: dog
-
   const [name, setName] = useState('');
   const [breedName, setBreedName] = useState('');
   const [birthday, setBirthday] = useState('');
-
   const [gender, setGender] = useState(0);
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
