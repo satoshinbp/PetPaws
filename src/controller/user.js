@@ -2,7 +2,6 @@ const db = require('../config/connection');
 const User = require('../models/user');
 
 exports.create = (req, res) => {
-  // console.log(req.body);
   const name = req.body.name;
   const uid = req.body.uid;
   const email = req.body.email;
@@ -18,7 +17,6 @@ exports.create = (req, res) => {
 
 exports.find = (req, res) => {
   const uid = req.params.uid;
-
   User.find(uid, (err, data) => {
     if (err) {
       throw err;
