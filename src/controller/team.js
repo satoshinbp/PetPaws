@@ -1,3 +1,5 @@
+const db = require('../config/connection');
+
 exports.findAll = (req, res) => {
   const sqlQuery = 'SELECT * FROM petpaws.team_members';
   db.query(sqlQuery, (err, data) => {

@@ -27,7 +27,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
       .then((res) => {
         const user_id = res.data[0].id;
 
-        Axios.get(`http://localhost:3001/api/pet/get?user_id=${user_id}`)
+        Axios.get(`http://localhost:3001/api/pet?user_id=${user_id}`)
           .then((res) => {
             if (res.data.length === 0) return;
 

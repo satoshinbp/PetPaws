@@ -1,8 +1,11 @@
+const db = require('../config/connection');
+
 exports.findAll = (req, res) => {
   const user_id = req.query.user_id;
 
-  const sqlQuery = `SELECT * FROM petpaws.pets WHERE user_id = ${user_id}`;
-  db.query(sqlQuery, (err, data) => {
+  const sqlQuery = 'SELECT * FROM petpaws.pets WHERE user_id = ?';
+  console.log('hi');
+  db.query(sqlQuery, [user_id], (err, data) => {
     if (err) {
       throw err;
     } else {
@@ -25,7 +28,6 @@ exports.create = (req, res) => {
   const user_id = req.user_id;
 
   const sqlQuery = `INSERT INTO petpaws.pets (is_dog, name, breed, birthday, gender, weight, height, is_spayed, activity_level, body_condition, user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);`;
-
   db.query(
     sqlQuery,
     [is_dog, name, breed, birthday, gender, weight, height, is_spayed, activity_level, body_condition, user_id],
