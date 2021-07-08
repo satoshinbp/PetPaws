@@ -4,7 +4,6 @@ exports.findAll = (req, res) => {
   const user_id = req.query.user_id;
 
   const sqlQuery = 'SELECT * FROM petpaws.pets WHERE user_id = ?';
-  console.log('hi');
   db.query(sqlQuery, [user_id], (err, data) => {
     if (err) {
       throw err;
