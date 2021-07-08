@@ -167,7 +167,7 @@ const MealWeekChart = ({ allMeals }) => {
                 <p key={meal.date}>{meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}</p>
             ))*/}
       <br></br>
-      {/*test.map((meal) => ( 
+      {/*test.map((meal) => (
                 <p key={meal.date}>{meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}</p>
             ))*/}
       <button
