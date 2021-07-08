@@ -1,11 +1,13 @@
 const Activity = require('../models/activity');
 
 exports.findAll = (req, res) => {
-  Activity.getAll((err, data) => {
-    if (err)
-      res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving customers.',
-      });
-    else res.send(data);
+  const sqlQuery =
+    'SELECT activities.id, uid, activities.name, date, minute, distance FROM activities INNER JOIN mealTest ON activities.user_id = mealTest.id';
+  db.query(sqlQuery, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      res.status(200).send(data);
+    }
   });
 };

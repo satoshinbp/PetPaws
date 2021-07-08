@@ -1,11 +1,10 @@
-const Store = require('../models/store');
-
 exports.findAll = (req, res) => {
-  Store.getAll((err, data) => {
-    if (err)
-      res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving customers.',
-      });
-    else res.send(data);
+  const sqlQuery = 'SELECT * FROM petpaws.stores';
+  db.query(sqlQuery, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      res.status(200).send(data);
+    }
   });
 };

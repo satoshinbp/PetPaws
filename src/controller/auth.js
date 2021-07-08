@@ -1,7 +1,6 @@
-const db = require('../config/connection');
 const admin = require('firebase-admin');
 
-exports.findAll = (req, res) => {
+exports.verifyIdToken = (req, res) => {
   admin
     .auth()
     .verifyIdToken(req.headers['authorization'])
@@ -9,7 +8,6 @@ exports.findAll = (req, res) => {
       res.json({ uid: decodedToken.uid });
     })
     .catch((err) => {
-      console.error(err);
-      return res.status(401).send(err);
+      res.status(401).send(err);
     });
 };
