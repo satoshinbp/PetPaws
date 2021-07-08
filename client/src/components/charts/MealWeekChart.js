@@ -1,36 +1,23 @@
 import { useState, useEffect } from 'react';
-import {
-  ResponsiveContainer,
-  ComposedChart,
-  Bar,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  Legend,
-  BarChart,
-  Area,
-} from 'recharts';
-import Axios from 'axios';
-import firebase from 'firebase/app';
+import { ResponsiveContainer, ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area } from 'recharts';
 
-const MealWeekChart = ({}) => {
-  const getWeek = (startDay, endDay) => {
+const MealWeekChart = ({ allMeals }) => {
+  const createWeekDates = (startDay, endDay) => {
     let tempWeek = [];
     for (let i = startDay; i < endDay; i++) {
       tempWeek.push(new Date(new Date().setDate(new Date().getDate() - i)).toISOString().slice(0, 10));
     }
     return tempWeek;
   };
-  const [startDay, setStartDay] = useState(0);
-  const [endDay, setEndDay] = useState(7);
-  const [week, setWeek] = useState(getWeek(startDay, endDay));
-  const [data, setData] = useState([]); // all data from api
-  const [weekData, setWeekData] = useState([]);
-  const [graphData, setGraphData] = useState([]);
+  // default is the past seven days (this week)
+  const [week, setWeek] = useState(createWeekDates(0, 7));
   const [avgCal, setAvgCal] = useState([]);
-  let allFoodData = [];
+  const [graphData, setGraphData] = useState([]);
+  let allMealsForWeek = [];
+  //for arrow buttons
   const [count, setCount] = useState(0);
+  // in order to know if the loading is first time or not
+  // in order to prevent setNewGraph from being fired on the first loading
   const [firstTime, setFirstTime] = useState(true);
 
   // GET ALL FOOD DATA FOR A WEEK
@@ -38,23 +25,22 @@ const MealWeekChart = ({}) => {
     for (let i = 0; i < 7; i++) {
       const date = week[i];
       for (let y = 0; y < meals.length; y++) {
-        const mealDate = meals[y].date.slice(0, 10);
-        if (date === mealDate) {
+        const activeDate = meals[y].date.slice(0, 10);
+        if (date === activeDate) {
           if (meals[y].type === 'Wet' || meals[y].type === 'Dry') {
             const foodType = 'meal';
-            allFoodData.push({ date: mealDate, type: foodType, meal: meals[y].calorie, treat: 0 });
+            allMealsForWeek.push({ date: activeDate, type: foodType, meal: meals[y].calorie, treat: 0 });
           } else {
             const foodType = 'treat';
-            allFoodData.push({ date: mealDate, type: foodType, meal: 0, treat: meals[y].calorie });
+            allMealsForWeek.push({ date: activeDate, type: foodType, meal: 0, treat: meals[y].calorie });
           }
         }
       }
     }
-    setWeekData(allFoodData);
   };
 
   // SUM UP CALORIE FOR MEAL AND TREAT RESPECTIVELY PER DAY
-  const sumUpCalorie = (meals) => {
+  const calcTotalDailyCalorie = (meals) => {
     let temp = {};
     let obj = null;
     for (let j = 0; j < meals.length; j++) {
@@ -67,15 +53,15 @@ const MealWeekChart = ({}) => {
         temp[obj.date].treat += obj.treat;
       }
     }
-    let dayCalorie = [];
-    for (let prop in temp) dayCalorie.push(temp[prop]);
-    return dayCalorie;
+    let sumCalorie = [];
+    for (let prop in temp) sumCalorie.push(temp[prop]);
+    return sumCalorie;
   };
 
   // CALCULATE AVERAGE CALORIE PER DAY
   // INSERT AVERAGE CALORIE ANYWAY,
   // EVEN IF THERE WAS NO INPUT (FOR PURPOSE OF GRAPH)
-  const getAvgCal = (meals) => {
+  const calcAvgCal = (meals) => {
     let sum = 0;
 
     // get totall calorie of a week
@@ -84,9 +70,8 @@ const MealWeekChart = ({}) => {
       sum = sum + sumCalorie;
     }
 
-    // get average calorie of a day
-    const averageCalorie = Math.round(sum / meals.length);
-    setAvgCal(averageCalorie);
+    // set average calorie of a day
+    setAvgCal(Math.round(sum / meals.length));
 
     let graphDataArray = [];
 
@@ -122,24 +107,12 @@ const MealWeekChart = ({}) => {
     });
 
     setGraphData(graphDataArray);
-    console.log(graphDataArray);
   };
 
   useEffect(() => {
-    const getUid = async () => {
-      const uid = await firebase.auth().currentUser.uid;
-      await Axios.get('http://localhost:3001/api/meal').then((response) => {
-        let userData = [];
-        response.data.filter((meal) => meal.uid === uid).forEach((meal) => userData.push(meal));
-        setData(userData);
-        setData(userData);
-        getFoodData(userData);
-        getAvgCal(sumUpCalorie(allFoodData));
-      });
-    };
-
-    getUid();
-  }, [avgCal]);
+    getFoodData(allMeals);
+    calcAvgCal(calcTotalDailyCalorie(allMealsForWeek));
+  }, [allMeals, avgCal]);
 
   useEffect(() => {
     const setNewGraph = () => {
@@ -149,37 +122,38 @@ const MealWeekChart = ({}) => {
         if (count !== 0) {
           const start = count * 7;
           const end = start + 7;
-          setWeek(getWeek(start, end));
-          pastWeek = getWeek(start, end);
+          // setWeek for calcAvgCalorie
+          setWeek(createWeekDates(start, end));
+          pastWeek = createWeekDates(start, end);
         } else if (count === 0) {
-          setWeek(getWeek(0, 7));
-          pastWeek = getWeek(0, 7);
+          // setWeek for calcAvgCalorie
+          setWeek(createWeekDates(0, 7));
+          pastWeek = createWeekDates(0, 7);
         }
-
+        allMealsForWeek = [];
         for (let i = 0; i < 7; i++) {
           const date = pastWeek[i];
-
-          for (let y = 0; y < data.length; y++) {
-            const mealDate = data[y].date.slice(0, 10);
-            if (date === mealDate) {
-              if (data[y].type === 'Wet' || data[y].type === 'Dry') {
+          for (let y = 0; y < allMeals.length; y++) {
+            const activeDate = allMeals[y].date.slice(0, 10);
+            if (date === activeDate) {
+              if (allMeals[y].type === 'Wet' || allMeals[y].type === 'Dry') {
                 const foodType = 'meal';
-                allFoodData.push({ date: mealDate, type: foodType, meal: data[y].calorie, treat: 0 });
+                allMealsForWeek.push({ date: activeDate, type: foodType, meal: allMeals[y].calorie, treat: 0 });
               } else {
                 const foodType = 'treat';
-                allFoodData.push({ date: mealDate, type: foodType, meal: 0, treat: data[y].calorie });
+                allMealsForWeek.push({ date: activeDate, type: foodType, meal: 0, treat: allMeals[y].calorie });
               }
             }
           }
         }
-        setWeekData(allFoodData);
+        const meals = calcTotalDailyCalorie(allMealsForWeek);
 
-        getAvgCal(sumUpCalorie(allFoodData));
+        calcAvgCal(meals);
       }
     };
 
     setNewGraph();
-  }, [count]);
+  }, [count, avgCal]);
 
   return (
     <div style={{ height: '260px' }}>
@@ -230,22 +204,6 @@ const MealWeekChart = ({}) => {
           <Bar barSize={15} fillOpacity={1} dataKey="treat" stackId="intake" fill="#363869" />
         </ComposedChart>
       </ResponsiveContainer>
-      {/*<ResponsiveContainer>
-            <BarChart
-				width={500}
-				height={300}
-				data={test}
-                margin={{left: 0 }}  // to get rid of extra space
-			>
-                <CartesianGrid stroke="#f5f5f5" />
-                <XAxis dataKey="date" />
-                <YAxis />
-                <Tooltip />
-                <Legend />
-                <Bar dataKey="meal" stackId="a" barSize={15} fill="#85d6c3" />
-                <Bar dataKey="treat" stackId="a" barSize={15} fill="#363869" />
-			</BarChart>
-            </ResponsiveContainer>*/}
     </div>
   );
 };
