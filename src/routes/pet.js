@@ -1,12 +1,6 @@
 const petController = require('../controller/pet');
 
 module.exports = (app) => {
-  app.get('/api/pet/get', petController.findAll);
+  app.get('/api/pet', petController.findAll);
+  app.post('/api/pet', petController.create);
 };
-
-// const petController = require('../controller/pet');
-
-// module.exports = (app) => {
-//   // Retrieve all Stores
-//   app.get('/api/pet/get/', petController.findOne);
-// };
