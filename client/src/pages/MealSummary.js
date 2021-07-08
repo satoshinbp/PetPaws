@@ -1,49 +1,40 @@
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
 import Axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
 import MealWeekChart from '../components/charts/MealWeekChart';
 import MealDayChart from '../components/charts/MealDayChart';
-  
+import MealForm from '../components/forms/Meal';
 
-const MealSummary = () => {    
-    const [data, setData] = useState([]) // all data from api
-    const { currentUser } = useAuth();
+const MealSummary = () => {
+  const [allMeals, setAllMeals] = useState([]); // all allMeals from api
+  const { currentUser } = useAuth();
 
-    useEffect(() => {
-        const getUid = async () => {
-            const uid = currentUser.uid;
-            await Axios.get('http://localhost:3001/api/meal')
-            .then((response) => {
-                let userData = []
-                for(let i = 0; i < response.data.length; i++) {
-                    if(response.data[i].uid === uid) {
-                        userData.push(response.data[i])
-                    } 
-                }
-                setData(userData)
-            })
+  useEffect(() => {
+    // fix this part later
+    const getUid = async () => {
+      const uid = currentUser.uid;
+      await Axios.get('http://localhost:3001/api/meal')
+        .then((response) => {
+          let userData = [];
+          response.data.filter((meal) => meal.uid === uid).forEach((meal) => userData.push(meal));
+          setAllMeals(userData);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    };
 
+    getUid();
+  }, []);
 
-        }
-
-        getUid()
-
-    }, [])
-
-    return (
-        <div>
-            <h2>Meal Tracker</h2>
-            <Link to="/createmeal">Add Meal</Link>
-            <MealDayChart data={data} />
-            <MealWeekChart 
-                data={data}
-            />
-
-            
-        </div>
-        
-    )
-}
+  return (
+    <div>
+      <h2>Meal Tracker</h2>
+      <MealForm />
+      <MealDayChart allMeals={allMeals} />
+      <MealWeekChart allMeals={allMeals} />
+    </div>
+  );
+};
 
 export default MealSummary;
