@@ -6,7 +6,7 @@ import LatestMealSummary from '../components/charts/LatestCalorieSummary';
 import LatestWalkSummary from '../components/charts/LatestWalkSummary';
 
 const Dashboard = () => {
-  const [petDetail, setPetDetail] = useState('');
+  const [petDetail, setPetDetail] = useState({ name: '', breed: '', weight: 0, height: 0 });
   const { currentUser } = useAuth();
 
   useEffect(() => {
@@ -21,7 +21,7 @@ const Dashboard = () => {
     };
     const getPets = async () => {
       const fetchedPets = await fetchPets();
-      setPetDetail(fetchedPets);
+      if (fetchedPets.length > 0) return setPetDetail(fetchedPets[0]);
     };
     getPets();
   }, []);
@@ -31,16 +31,12 @@ const Dashboard = () => {
       <h2 style={{ border: '1px solid black', borderRadius: '5px', backgroundColor: '#F0F0F0' }}>Dashboard</h2>
       <h3>Pet Details</h3>
       <div>
-        {petDetail ? (
-          <div key={petDetail.id}>
-            <p>Pet Name: {petDetail.name} </p>
-            <p>Breed: {petDetail.breed}</p>
-            <p>Weight: {petDetail.weight}kg</p>
-            <p>Height: {petDetail.height}cm</p>
-          </div>
-        ) : (
-          'Loading...'
-        )}
+        <div>
+          <p>Pet Name: {petDetail.name} </p>
+          <p>Breed: {petDetail.breed}</p>
+          <p>Weight: {petDetail.weight}kg</p>
+          <p>Height: {petDetail.height}cm</p>
+        </div>
       </div>
       <h3>In Last 7 Days</h3>
       <LatestMealSummary />

@@ -1,30 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Axios from 'axios';
-import { useAuth } from '../contexts/AuthContext';
+import React, { useState } from 'react';
 import Calculator from '../components/Calculator';
 
-export default function Calorie() {
-  const { currentUser } = useAuth();
+export default function Calorie(props) {
   const [result, setResult] = useState('');
-  const [profile, setProfile] = useState(null);
-
-  useEffect(() => {
-    Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
-      .then((res) => {
-        const user_id = res.data[0].id;
-
-        Axios.get(`http://localhost:3001/api/pet/get?user_id=${user_id}`)
-          .then((res) => {
-            setProfile(res.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  }, []);
 
   return (
     <>
@@ -35,7 +13,7 @@ export default function Calorie() {
       </p>
       <button>Get Premium</button>
 
-      <Calculator setResult={setResult} profile={profile} />
+      <Calculator setResult={setResult} profile={props.petProfile} />
 
       {result && <h3>{result}</h3>}
     </>
