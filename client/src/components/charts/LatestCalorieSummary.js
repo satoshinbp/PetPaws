@@ -3,7 +3,7 @@ import { ResponsiveContainer, ComposedChart, Bar, XAxis, YAxis, Tooltip, Cell } 
 import Axios from 'axios';
 import firebase from 'firebase/app';
 
-const LatestMealSummary = ({}) => {
+const LatestCalorieSummary = ({ MER }) => {
   const getWeek = (startDay, endDay) => {
     let tempWeek = [];
     for (let i = startDay; i < endDay; i++) {
@@ -75,6 +75,7 @@ const LatestMealSummary = ({}) => {
 
     // get average calorie of a day
     const averageCalorie = Math.round(sum / meals.length);
+
     setAvgCal(averageCalorie);
 
     let graphDataArray = [];
@@ -105,11 +106,11 @@ const LatestMealSummary = ({}) => {
         avgCal: avgCal,
       })
     );
-
+    const roundMER = Math.floor(MER);
     // setGraphData(graphDataArray);
     setGraphData([
       { value: 'intake', calorie: avgCal },
-      { value: 'ideal', calorie: 200 },
+      { value: 'ideal', calorie: roundMER },
     ]);
   };
 
@@ -127,7 +128,7 @@ const LatestMealSummary = ({}) => {
     };
 
     getUid();
-  }, [avgCal]);
+  }, [MER]);
 
   return (
     <div style={{ border: '1px solid' }}>
@@ -156,4 +157,4 @@ const LatestMealSummary = ({}) => {
   );
 };
 
-export default LatestMealSummary;
+export default LatestCalorieSummary;

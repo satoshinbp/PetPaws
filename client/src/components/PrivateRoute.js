@@ -8,8 +8,21 @@ import calculateRecommendedCalorie from '../functions/calculateRecommendedCalori
 export default function PrivateRoute({ component: Component, ...rest }) {
   const { currentUser } = useAuth();
 
-  const [petProfile, setPetProfile] = useState(null);
+  // const [petProfile, setPetProfile] = useState(null);
+  const [petProfile, setPetProfile] = useState({
+    name: '',
+    is_dog: 1,
+    breed: '',
+    gender: 'male',
+    is_spayed: 0,
+    height: 0,
+    weight: 0,
+    birthday: new Date(),
+    activity_level: 1,
+    body_condition: 1,
+  });
   const [MER, setMER] = useState(0);
+  const [age, setAge] = useState(0);
 
   useEffect(() => {
     Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
@@ -18,7 +31,10 @@ export default function PrivateRoute({ component: Component, ...rest }) {
 
         Axios.get(`http://localhost:3001/api/pet/get?user_id=${user_id}`)
           .then((res) => {
-            const fetchedPetProfile = res.data;
+            // const fetchedPetProfile = res.data;
+            if (res.data.length === 0) return;
+
+            const fetchedPetProfile = res.data[0];
             setPetProfile(fetchedPetProfile);
             const { ageY, ageM } = calculateAgeFromBirthday(fetchedPetProfile.birthday);
             calculateRecommendedCalorie({
@@ -32,6 +48,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
               ageMonths: ageM,
             })
               .then((calculatedMER) => {
+                setAge(ageY);
                 setMER(calculatedMER);
               })
               .catch((err) => {
@@ -51,7 +68,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     <Route
       {...rest}
       render={(props) => {
-        return currentUser ? <Component {...props} petProfile={petProfile} MER={MER} /> : <Redirect to="/" />;
+        return currentUser ? <Component {...props} petProfile={petProfile} MER={MER} age={age} /> : <Redirect to="/" />;
       }}
     ></Route>
   );
