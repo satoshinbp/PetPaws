@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
+import MealMonthChart from '../components/charts/MealMonthChart';
 import MealWeekChart from '../components/charts/MealWeekChart';
 import MealDayChart from '../components/charts/MealDayChart';
 import MealForm from '../components/forms/Meal';
@@ -33,6 +34,7 @@ const MealSummary = () => {
       <MealForm />
       <MealDayChart allMeals={allMeals} />
       <MealWeekChart allMeals={allMeals} />
+      <MealMonthChart allMeals={allMeals} />
     </div>
   );
 };
