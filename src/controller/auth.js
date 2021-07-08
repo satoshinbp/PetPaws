@@ -1,4 +1,3 @@
-const db = require('../config/connection');
 const admin = require('firebase-admin');
 
 const cert = {
