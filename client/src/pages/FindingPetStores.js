@@ -6,53 +6,33 @@ export default function FindingPetStores() {
   const [shops, setShops] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://localhost:3001/api/store/get')
-      .then((response) => {
-        setShops(response.data);
-        console.log(response.data);
-        // console.log(response.data[0].is_vet);
+    Axios.get('http://localhost:3001/api/store')
+      .then((res) => {
+        setShops(res.data);
       })
       .catch((err) => {
-        // Below dammy data to be removed once database gets ready
-        setShops([
-          { name: 'Canada pet store', address: '7575 alberta st Vancouver BC' },
-          { name: 'Vancouver vet', address: '2524 ontario st Vancouver BC' },
-        ]);
+        console.log(err);
       });
   }, []);
 
   const onChangeSelect = (e) => {
-    Axios.get('http://localhost:3001/api/store/get')
-      .then((response) => {
+    Axios.get('http://localhost:3001/api/store')
+      .then((res) => {
         if (Number(e.target.value) === 2) {
-          setShops(response.data);
+          setShops(res.data);
         } else {
-          setShops(response.data.filter((shop) => shop.is_vet === Number(e.target.value)));
-          // console.log(response.data);
+          setShops(res.data.filter((shop) => shop.is_vet === Number(e.target.value)));
         }
       })
       .catch((err) => {
-        // Below dammy data to be removed once database gets ready
-        setShops([
-          { name: 'Canada pet store', address: '7575 alberta st Vancouver BC' },
-          { name: 'Vancouver vet', address: '2524 ontario st Vancouver BC' },
-        ]);
+        console.log(err);
       });
   };
 
   return (
-    // Will be changed
     <>
       <div>
-        <h1
-          style={{
-            border: '1px solid black',
-            borderRadius: '5px',
-            backgroundColor: '#F0F0F0',
-          }}
-        >
-          Finding Pet stores/ Vets
-        </h1>
+        <h1>Finding Pet stores/ Vets</h1>
       </div>
       <form>
         <h3>Lets find the best Vets and Pet stores</h3>
