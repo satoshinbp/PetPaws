@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
+import MealMonthChart from '../components/charts/MealMonthChart';
 import MealWeekChart from '../components/charts/MealWeekChart';
 import MealDayChart from '../components/charts/MealDayChart';
 import MealForm from '../components/forms/Meal';
@@ -28,6 +29,7 @@ export default function MealSummary({ petProfile }) {
       <MealForm petProfile={petProfile} setAllMeals={setAllMeals} />
       <MealDayChart allMeals={allMeals} />
       <MealWeekChart allMeals={allMeals} />
+      <MealMonthChart allMeals={allMeals} />
     </div>
   );
 }
