@@ -1,7 +1,4 @@
-// import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-// import Axios from 'axios';
-// import { useAuth } from '../contexts/AuthContext';
 import LatestCalorieSummary from '../components/charts/LatestCalorieSummary';
 import LatestWalkSummary from '../components/charts/LatestWalkSummary';
 
@@ -12,7 +9,7 @@ const Dashboard = (props) => {
 
   return (
     <div>
-      <h2 style={{ border: '1px solid black', borderRadius: '5px', backgroundColor: '#F0F0F0' }}>Dashboard</h2>
+      <h2>Dashboard</h2>
       <h3>Pet Details</h3>
       <div>
         <div>
