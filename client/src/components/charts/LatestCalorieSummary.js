@@ -119,11 +119,13 @@ const LatestCalorieSummary = ({ MER }) => {
       const uid = await firebase.auth().currentUser.uid;
       await Axios.get('http://localhost:3001/api/meal').then((response) => {
         let userData = [];
-        response.data.filter((meal) => meal.uid === uid).forEach((meal) => userData.push(meal));
-        setData(userData);
-        setData(userData);
-        getFoodData(userData);
-        getAvgCal(sumUpCalorie(allFoodData));
+        if (response.length > 0) {
+          response.data.filter((meal) => meal.uid === uid).forEach((meal) => userData.push(meal));
+          setData(userData);
+          setData(userData);
+          getFoodData(userData);
+          getAvgCal(sumUpCalorie(allFoodData));
+        }
       });
     };
 
