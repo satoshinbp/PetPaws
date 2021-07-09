@@ -7,7 +7,7 @@ exports.findAll = (req, res) => {
     if (err) {
       throw err;
     } else {
-      res.status(200).send(data[0]); // Currently user can register only one pet
+      res.status(200).send(data);
     }
   });
 };

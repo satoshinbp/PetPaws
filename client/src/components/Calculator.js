@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import calculateAgeFromBirthday from '../functions/calculateAgeFromBirthday';
+import calculateRecommendedCalorie from '../functions/calculateRecommendedCalorie';
 
 export default function Calculator(props) {
   const { setResult } = props;
@@ -14,23 +16,22 @@ export default function Calculator(props) {
   const [isSpayed, setIsSpayed] = useState(0); // 0: intact, 1: spayed/neutered
   const [activityLevel, setActivityLevel] = useState(0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
   const [bodyCondition, setBodyCondition] = useState(0); // 0: underweight, 1: ideal, 2: overweight
-
-  const calcAgeFromBirthday = (dateBirthStr) => {
-    const dateNow = new Date();
-    const dateBirth = new Date(dateBirthStr);
-
-    const timeTillNow = dateNow.getTime() - dateBirth.getTime();
-    const daysTillNow = timeTillNow / (1000 * 3600 * 24);
-
-    const daysPerMonth = 365 / 12;
-    const ageY = Math.floor(daysTillNow / 365);
-    const ageM = Math.floor((daysTillNow - 365 * ageY) / daysPerMonth);
-
-    return { ageY, ageM };
-  };
+  const [initialCalculationDone, setInitialCalculationDone] = useState(false);
 
   useEffect(() => {
-    if (props.profile) {
+    Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
+      const breeds = res.data.map((breed) => breed.name);
+      setDogBreeds(breeds);
+    });
+
+    Axios.get('https://api.thecatapi.com/v1/breeds').then((res) => {
+      const breeds = res.data.map((breed) => breed.name);
+      setCatBreeds(breeds);
+    });
+  }, []);
+
+  useEffect(() => {
+    if (props.profile && !initialCalculationDone) {
       setIsDog(props.profile.is_dog);
       setBreedName(props.profile.breed);
       setWeight(props.profile.weight);
@@ -38,41 +39,12 @@ export default function Calculator(props) {
       setActivityLevel(props.profile.activity_level);
       setBodyCondition(props.profile.body_condition);
 
-      const { ageY, ageM } = calcAgeFromBirthday(props.profile.birthday);
+      const { ageY, ageM } = calculateAgeFromBirthday(props.profile.birthday);
 
       setAgeYears(ageY);
       setAgeMonths(ageM);
     }
   }, [props]);
-
-  useEffect(() => {
-    Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
-      const breeds = res.data.map((breed) => {
-        const weightRange = breed.weight.metric.split('-').map((weightEdge) => parseInt(weightEdge.trim()));
-        const weightAvg = (weightRange[0] + weightRange[1]) / 2;
-        const adultAge = weightAvg <= 4 ? 8 : weightAvg < 10 ? 10 : weightAvg < 25 ? 12 : weightAvg < 44 ? 15 : 18;
-
-        return { name: breed.name, adultAge };
-      });
-      setDogBreeds(breeds);
-    });
-
-    Axios.get('https://api.thecatapi.com/v1/breeds').then((res) => {
-      const breeds = res.data.map((breed) => ({ name: breed.name, adultAge: 12 }));
-      setCatBreeds(breeds);
-    });
-  }, []);
-
-  useEffect(() => {
-    if (props.profile) {
-      const birthday = new Date(props.profile.birthday);
-      const ageInYears = (Date.now() - birthday.getTime()) / 1000 / 60 / 60 / 24 / 365;
-      const ageYears = Math.floor(ageInYears);
-      const ageMonths = Math.floor((ageInYears - ageYears) * 12);
-      setAgeYears(ageYears);
-      setAgeMonths(ageMonths);
-    }
-  }, []);
 
   const changePetType = (e) => {
     setIsDog(parseInt(e.target.value));
@@ -107,28 +79,21 @@ export default function Calculator(props) {
     setResult('');
   };
 
-  const signalmentFactors = [
-    [1.4, 1.2],
-    [1.8, 1.6],
-  ];
-  const activityLevelFactors = [1, 1.2, 1.4, 1.6];
-  const bodyConditionFactors = [1.2, 1, 0.8];
-
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const breedAdultAge = isDog
-      ? dogBreeds.find((dogBreed) => dogBreed.name === breedName).adultAge
-      : catBreeds.find((catBreed) => catBreed.name === breedName).adultAge;
+    const MER = await calculateRecommendedCalorie({
+      isDog,
+      breedName,
+      weight,
+      isSpayed,
+      activityLevel,
+      bodyCondition,
+      ageYears,
+      ageMonths,
+    });
 
-    const RER = 70 * Math.pow(weight, 0.75);
-    const signalmentFactor = signalmentFactors[isDog][isSpayed];
-    const activityLevelFactor = activityLevelFactors[activityLevel];
-    const bodyConditionFactor = bodyConditionFactors[bodyCondition];
-    const ageFactor = ageYears * 12 + ageMonths < 4 ? 3 : ageYears * 12 + ageMonths < breedAdultAge ? 2 : 1;
-
-    const MER = RER * signalmentFactor * activityLevelFactor * bodyConditionFactor * ageFactor;
-
+    setInitialCalculationDone(true);
     setResult(`${MER.toFixed(0)} kcal/day`);
   };
 
@@ -151,16 +116,16 @@ export default function Calculator(props) {
             {isDog ? (
               <>
                 {dogBreeds.map((breed) => (
-                  <option value={breed.name} key={breed.name}>
-                    {breed.name}
+                  <option value={breed} key={breed}>
+                    {breed}
                   </option>
                 ))}
               </>
             ) : (
               <>
                 {catBreeds.map((breed) => (
-                  <option value={breed.name} key={breed.name}>
-                    {breed.name}
+                  <option value={breed} key={breed}>
+                    {breed}
                   </option>
                 ))}
               </>
