@@ -9,6 +9,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
   const { currentUser } = useAuth();
 
   const [petProfile, setPetProfile] = useState({
+    id: '',
     name: '',
     is_dog: 1,
     breed: '',
