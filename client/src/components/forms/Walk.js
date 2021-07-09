@@ -1,33 +1,26 @@
 import { useState } from 'react';
+import Axios from 'axios';
 
-export default function WalkForm() {
+export default function WalkForm({ petProfile, setAllActivities }) {
   const [name, setName] = useState('');
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [duration, setDuration] = useState(0);
   const [distance, setDistance] = useState(0);
 
-  const addWalk = async (walk) => {
-    console.log(walk); // Test purpose, to be removed
-
-    /* The fllowing part is to connect to database, to be completed once api is ready */
-
-    // const res = await fetch('http://localhost:5000/meals', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-type': 'application/json',
-    //   },
-    //   body: JSON.stringify(walk),
-    // });
-
-    // const data = await res.json();
-
-    // setWalks([...walks, data]);
+  const postActivity = async (activity) => {
+    Axios.post('http://localhost:3001/api/activity', activity)
+      .then(() => {
+        setAllActivities((prevActivities) => [...prevActivities, activity]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    addWalk({ name, date, duration, distance });
+    postActivity({ petID: petProfile.id, name, date, duration, distance });
 
     setName('');
     setDate(new Date().toISOString().slice(0, 10));

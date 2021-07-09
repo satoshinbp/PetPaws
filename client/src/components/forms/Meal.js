@@ -1,6 +1,7 @@
 import { useState } from 'react';
+import Axios from 'axios';
 
-export default function MealForm() {
+export default function MealForm({ petProfile, setAllMeals }) {
   const [name, setName] = useState('');
   const [type, setType] = useState('Wet'); // Options: "Wet", "Dry", "Treat"
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
@@ -8,28 +9,20 @@ export default function MealForm() {
   const [amount, setAmount] = useState(0);
   const [calorie, setCalorie] = useState(0);
 
-  const addMeal = async (meal) => {
-    console.log(meal); // Test purpose, to be removed
-
-    /* The fllowing part is to connect to database, to be completed once api is ready */
-
-    // const res = await fetch('http://localhost:5000/meals', {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-type': 'application/json',
-    //   },
-    //   body: JSON.stringify(meal),
-    // });
-
-    // const data = await res.json();
-
-    // setMeals([...meals, data]);
+  const postMeal = async (meal) => {
+    Axios.post('http://localhost:3001/api/meal', meal)
+      .then(() => {
+        setAllMeals((prevMeals) => [...prevMeals, meal]);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    addMeal({ name, date, type, time, amount, calorie });
+    postMeal({ petID: petProfile.id, name, date, type, time, calorie: (calorie * amount) / 100 });
 
     setName('');
     setType('Wet');
