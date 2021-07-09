@@ -3,13 +3,6 @@ const express = require('express');
 const jsonParser = express.json();
 
 module.exports = (app) => {
-  app.post('/api/pet', jsonParser, petController.petCreate);
-  app.get('/api/pet/get', petController.findAll);
+  app.get('/api/pet', petController.findAll);
+  app.post('/api/pet', petController.create);
 };
-
-// const petController = require('../controller/pet');
-
-// module.exports = (app) => {
-//   // Retrieve all Stores
-//   app.get('/api/pet/get/', petController.findOne);
-// };

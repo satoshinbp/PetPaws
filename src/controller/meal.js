@@ -1,11 +1,13 @@
-const Meal = require('../models/meal');
+const db = require('../config/connection');
 
 exports.findAll = (req, res) => {
-  Meal.getAll((err, data) => {
-    if (err)
-      res.status(500).send({
-        message: err.message || 'Some error occurred while retrieving customers.',
-      });
-    else res.send(data);
+  const sqlQuery =
+    'SELECT meals.id, uid, date, time, type, calorie FROM meals INNER JOIN mealTest ON meals.user_id = mealTest.id';
+  db.query(sqlQuery, (err, data) => {
+    if (err) {
+      throw err;
+    } else {
+      res.status(200).send(data);
+    }
   });
 };
