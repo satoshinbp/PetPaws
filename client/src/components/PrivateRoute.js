@@ -21,6 +21,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     body_condition: 1,
   });
   const [MER, setMER] = useState(0);
+  const [age, setAge] = useState(0);
 
   useEffect(() => {
     Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
@@ -47,6 +48,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
               ageMonths: ageM,
             })
               .then((calculatedMER) => {
+                setAge(ageY);
                 setMER(calculatedMER);
               })
               .catch((err) => {
@@ -66,7 +68,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     <Route
       {...rest}
       render={(props) => {
-        return currentUser ? <Component {...props} petProfile={petProfile} MER={MER} /> : <Redirect to="/" />;
+        return currentUser ? <Component {...props} petProfile={petProfile} MER={MER} age={age} /> : <Redirect to="/" />;
       }}
     ></Route>
   );
