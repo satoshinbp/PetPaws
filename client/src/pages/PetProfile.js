@@ -45,7 +45,7 @@ export default function PetProfile({ petProfile, setPetProfile }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`, { params: { uid: currentUser.uid } }).then((res) => {
+    Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`).then((res) => {
       const petData = {
         isDog,
         name,
