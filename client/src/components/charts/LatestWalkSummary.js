@@ -1,8 +1,6 @@
 import { useState, useEffect } from 'react';
-import Axios from 'axios';
-import firebase from 'firebase/app';
 
-const LatestWalkSummary = ({}) => {
+const LatestWalkSummary = ({ allActivities }) => {
   const getWeek = (startDay, endDay) => {
     let tempWeek = [];
     for (let i = startDay; i < endDay; i++) {
@@ -14,7 +12,6 @@ const LatestWalkSummary = ({}) => {
   const [endDay, setEndDay] = useState(7);
   const [week, setWeek] = useState(getWeek(startDay, endDay));
   let allWalkData = [];
-  const [data, setData] = useState([]); // all data from api
   // const [weekData, setWeekData] = useState([]);
   const [avgMin, setAvgMin] = useState([]);
   const [avgDistance, setAvgDistance] = useState([]);
@@ -115,24 +112,9 @@ const LatestWalkSummary = ({}) => {
   };
 
   useEffect(() => {
-    const getUid = async () => {
-      const uid = await firebase.auth().currentUser.uid;
-      await Axios.get('http://localhost:3001/api/activity')
-        .then((response) => {
-          let userData = [];
-          response.data.filter((walk) => walk.uid === uid).forEach((walk) => userData.push(walk));
-          setData(userData);
-          getWalkData(data);
-          // setWeekData(allWalkData);
-          const walks = sumUpTime(allWalkData);
-          getAvgWalk(walks);
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    };
-
-    getUid();
+    getWalkData(allActivities);
+    const walks = sumUpTime(allWalkData);
+    getAvgWalk(walks);
   }, [avgMin]);
 
   return (
