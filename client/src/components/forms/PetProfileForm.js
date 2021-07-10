@@ -74,7 +74,7 @@ export default function petProfileForm(props) {
               '-' +
               (today.getDate() < 10 ? '0' + today.getDate() : today.getDate())
             }
-            value={props.birthday}
+            value={props.birthday.slice(0, 10)}
             onChange={(e) => props.changeBirthday(e.target.value)}
           />
         </div>

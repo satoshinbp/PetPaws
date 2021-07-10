@@ -82,7 +82,7 @@ export default function PetProfile({ petProfile, setPetProfile }) {
   };
 
   const changeBirthday = (value) => {
-    setBirthday(value);
+    setBirthday(value.slice(0, 10));
   };
 
   const changeWeight = (value) => {
