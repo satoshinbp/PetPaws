@@ -4,14 +4,14 @@ import PetProfileForm from '../components/forms/PetProfileForm';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
 
-export default function PetProfile(props) {
+export default function PetProfile({ petProfile, setPetProfile }) {
   const { currentUser } = useAuth();
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
   const [isDog, setIsDog] = useState(1); // 0: cat, 1: dog
   const [name, setName] = useState('');
   const [breedName, setBreedName] = useState('');
-  const [birthday, setBirthday] = useState('');
+  const [birthday, setBirthday] = useState(petProfile.birthday);
   const [gender, setGender] = useState(0);
   const [weight, setWeight] = useState(0);
   const [height, setHeight] = useState(0);
@@ -31,28 +31,16 @@ export default function PetProfile(props) {
       setCatBreeds(breeds);
     });
 
-    Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`, { params: { uid: currentUser.uid } }).then(
-      (response) => {
-        Axios.get(`http://localhost:3001/api/pet/get/${response.data[0].id}`, {
-          params: { user_id: response.data[0].id },
-        })
-          .then((response) => {
-            setIsDog(response.data.is_dog);
-            setName(response.data.name);
-            setBreedName(response.data.breed);
-            setBirthday(response.data.birthday);
-            setGender(response.data.gender);
-            setWeight(response.data.weight);
-            setHeight(response.data.height);
-            setIsSpayed(response.data.spayed);
-            setActivityLevel(response.data.activityLevel);
-            setBodyCondition(response.data.bodyCondition);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      }
-    );
+    setIsDog(petProfile.is_dog);
+    setName(petProfile.name);
+    setBreedName(petProfile.breed);
+    setBirthday(petProfile.birthday);
+    setGender(petProfile.gender);
+    setWeight(petProfile.weight);
+    setHeight(petProfile.height);
+    setIsSpayed(petProfile.spayed);
+    setActivityLevel(petProfile.activityLevel);
+    setBodyCondition(petProfile.bodyCondition);
   }, []);
 
   const handleSubmit = (e) => {

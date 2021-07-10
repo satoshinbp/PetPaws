@@ -32,12 +32,12 @@ export default function petProfileForm(props) {
         </div>
         <div>
           <label htmlFor="breed">Breed:</label>
-          <select name="breed" onChange={(e) => props.changeBreed(e.target.value)} required>
+          <select name="breed" value={props.breedName} onChange={(e) => props.changeBreed(e.target.value)} required>
             <option value="">Select breed</option>
             {props.isDog ? (
               <>
                 {props.dogBreeds.map((breed) => (
-                  <option value={breed.name} key={breed.name} selected={breed.name === props.breedName}>
+                  <option value={breed.name} key={breed.name}>
                     {breed.name}
                   </option>
                 ))}
@@ -45,7 +45,7 @@ export default function petProfileForm(props) {
             ) : (
               <>
                 {props.catBreeds.map((breed) => (
-                  <option value={breed.name} key={breed.name} selected={breed.name === props.breedName}>
+                  <option value={breed.name} key={breed.name}>
                     {breed.name}
                   </option>
                 ))}
@@ -56,7 +56,7 @@ export default function petProfileForm(props) {
 
         <div className="">
           <label htmlFor="gender">Gender:</label>
-          <select name="gender" id="gender" onChange={(e) => props.changeGender(e.target.value)}>
+          <select name="gender" id="gender" value={props.gender} onChange={(e) => props.changeGender(e.target.value)}>
             <option value="male">Male</option>
             <option value="female">Female</option>
           </select>
@@ -74,7 +74,7 @@ export default function petProfileForm(props) {
               '-' +
               (today.getDate() < 10 ? '0' + today.getDate() : today.getDate())
             }
-            value={props.birthday.substr(0, 10)}
+            value={props.birthday}
             onChange={(e) => props.changeBirthday(e.target.value)}
           />
         </div>
@@ -107,46 +107,36 @@ export default function petProfileForm(props) {
 
         <div>
           <label htmlFor="isSpayed">Signalment:</label>
-          <select name="isSpayed" onChange={(e) => props.changeIsSpayed(e.target.value)}>
-            <option value={0} selected={props.isSpayed === 0}>
-              Intact
-            </option>
-            <option value={1} selected={props.isSpayed === 1}>
-              Spayed/Neutered
-            </option>
+          <select name="isSpayed" value={props.isSpayed} onChange={(e) => props.changeIsSpayed(e.target.value)}>
+            <option value={0}>Intact</option>
+            <option value={1}>Spayed/Neutered</option>
           </select>
         </div>
 
         <div>
           <label htmlFor="activityLevel">Activity Level:</label>
-          <select name="activityLevel" onChange={(e) => props.changeActivityLevel(e.target.value)}>
-            <option value={0} selected={props.activityLevel === 0}>
-              Inactive
-            </option>
-            <option value={1} selected={props.activityLevel === 1}>
-              Somewhat Active
-            </option>
-            <option value={2} selected={props.activityLevel === 2}>
-              Active
-            </option>
-            <option value={3} selected={props.activityLevel === 3}>
-              Very Active
-            </option>
+          <select
+            name="activityLevel"
+            value={props.activityLevel}
+            onChange={(e) => props.changeActivityLevel(e.target.value)}
+          >
+            <option value={0}>Inactive</option>
+            <option value={1}>Somewhat Active</option>
+            <option value={2}>Active</option>
+            <option value={3}>Very Active</option>
           </select>
         </div>
 
         <div>
           <label htmlFor="bodyCondition">Body Condition:</label>
-          <select name="bodyCondition" onChange={(e) => props.changeBodyCondition(e.target.value)}>
-            <option value={0} selected={props.bodyCondition === 0}>
-              Underweight
-            </option>
-            <option value={1} selected={props.bodyCondition === 1}>
-              Ideal
-            </option>
-            <option value={2} selected={props.bodyCondition === 2}>
-              Overweight
-            </option>
+          <select
+            name="bodyCondition"
+            value={props.bodyCondition}
+            onChange={(e) => props.changeBodyCondition(e.target.value)}
+          >
+            <option value={0}>Underweight</option>
+            <option value={1}>Ideal</option>
+            <option value={2}>Overweight</option>
           </select>
         </div>
 

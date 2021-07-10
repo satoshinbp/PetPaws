@@ -32,9 +32,13 @@ export function AuthProvider({ children }) {
               headers: {
                 Authorization: idToken,
               },
-            }).then(() => {
-              Axios.post('http://localhost:3001/api/user', userInitialData);
-            });
+            })
+              .then(() => {
+                Axios.post('http://localhost:3001/api/user', userInitialData);
+              })
+              .catch((err) => {
+                console.error(err);
+              });
           })
           .catch((error) => {
             console.error(error);
