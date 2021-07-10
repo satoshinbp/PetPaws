@@ -14,17 +14,17 @@ exports.findAll = (req, res) => {
 };
 
 exports.create = (req, res) => {
-  const is_dog = req.isDog;
-  const name = req.name;
-  const breed = req.breedName;
-  const birthday = req.birthday;
-  const gender = req.gender;
-  const weight = req.weight;
-  const height = req.height;
-  const is_spayed = req.isSpayed;
-  const activity_level = req.activityLevel;
-  const body_condition = req.bodyCondition;
-  const user_id = req.user_id;
+  const is_dog = req.body.isDog;
+  const name = req.body.name;
+  const breed = req.body.breedName;
+  const birthday = req.body.birthday;
+  const gender = req.body.gender;
+  const weight = req.body.weight;
+  const height = req.body.height;
+  const is_spayed = req.body.isSpayed;
+  const activity_level = req.body.activityLevel;
+  const body_condition = req.body.bodyCondition;
+  const user_id = req.body.user_id;
 
   const sqlQuery = `INSERT INTO petpaws.pets (is_dog, name, breed, birthday, gender, weight, height, is_spayed, activity_level, body_condition, user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?);`;
   db.query(

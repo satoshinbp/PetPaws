@@ -1,23 +1,19 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
-import { useAuth } from '../contexts/AuthContext';
+import MealMonthChart from '../components/charts/MealMonthChart';
 import MealWeekChart from '../components/charts/MealWeekChart';
 import MealDayChart from '../components/charts/MealDayChart';
 import MealForm from '../components/forms/Meal';
 
-const MealSummary = () => {
+export default function MealSummary({ petProfile }) {
   const [allMeals, setAllMeals] = useState([]); // all allMeals from api
-  const { currentUser } = useAuth();
 
   useEffect(() => {
-    // fix this part later
     const getUid = async () => {
-      const uid = currentUser.uid;
-      await Axios.get('http://localhost:3001/api/meal')
-        .then((response) => {
-          let userData = [];
-          response.data.filter((meal) => meal.uid === uid).forEach((meal) => userData.push(meal));
-          setAllMeals(userData);
+      await Axios.get(`http://localhost:3001/api/meal?pet_id=${petProfile.id}`)
+        .then((res) => {
+          const fetchedMeals = res.data;
+          setAllMeals(fetchedMeals);
         })
         .catch((err) => {
           console.log(err);
@@ -30,11 +26,10 @@ const MealSummary = () => {
   return (
     <div>
       <h2>Meal Tracker</h2>
-      <MealForm />
+      <MealForm petProfile={petProfile} setAllMeals={setAllMeals} />
       <MealDayChart allMeals={allMeals} />
       <MealWeekChart allMeals={allMeals} />
+      <MealMonthChart allMeals={allMeals} />
     </div>
   );
-};
-
-export default MealSummary;
+}

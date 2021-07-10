@@ -16,8 +16,6 @@ import CalorieGuest from './pages/CalorieGuest';
 import Dashboard from './pages/Dashboard';
 import MealSummary from './pages/MealSummary';
 import WalkSummary from './pages/WalkSummary.js';
-import CreateMeal from './pages/CreateMeal';
-import CreateWalk from './pages/CreateWalk';
 
 function App() {
   return (
@@ -36,8 +34,6 @@ function App() {
           <PrivateRoute path="/dashboard" component={Dashboard} />
           <PrivateRoute path="/mealsummary" component={MealSummary} />
           <PrivateRoute path="/walksummary" component={WalkSummary} />
-          <PrivateRoute path="/createmeal" component={CreateMeal} />
-          <PrivateRoute path="/createwalk" component={CreateWalk} />
         </Switch>
       </AuthProvider>
     </Router>

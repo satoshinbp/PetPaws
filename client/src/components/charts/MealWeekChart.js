@@ -20,8 +20,7 @@ const MealWeekChart = ({ allMeals }) => {
   // in order to prevent setNewGraph from being fired on the first loading
   const [firstTime, setFirstTime] = useState(true);
 
-  // GET ALL FOOD DATA FOR A WEEK
-  const getFoodData = (meals) => {
+  const getAllFoodDataForAWeek = (meals) => {
     for (let i = 0; i < 7; i++) {
       const date = week[i];
       for (let y = 0; y < meals.length; y++) {
@@ -103,14 +102,14 @@ const MealWeekChart = ({ allMeals }) => {
     );
 
     graphDataArray.sort(function (a, b) {
-      return new Date(b.date) - new Date(a.date);
+      return new Date(a.date) - new Date(b.date);
     });
 
     setGraphData(graphDataArray);
   };
 
   useEffect(() => {
-    getFoodData(allMeals);
+    getAllFoodDataForAWeek(allMeals);
     calcAvgCal(calcTotalDailyCalorie(allMealsForWeek));
   }, [allMeals, avgCal]);
 
@@ -157,19 +156,11 @@ const MealWeekChart = ({ allMeals }) => {
 
   return (
     <div style={{ height: '260px' }}>
-      {' '}
-      {/* MUST set height to display chart */}
-      {/*testCal.map((item) => (
-                <p>{item.date}</p>
-            ))*/}
       {/* 確認用 */}
       {/*graphData.map((meal) => (
                 <p key={meal.date}>{meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}</p>
             ))*/}
       <br></br>
-      {/*test.map((meal) => (
-                <p key={meal.date}>{meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}</p>
-            ))*/}
       <button
         onClick={() => {
           setFirstTime(false);
@@ -200,8 +191,8 @@ const MealWeekChart = ({ allMeals }) => {
           <Legend />
           <CartesianGrid stroke="#f5f5f5" />
           <Area type="monotone" dataKey="avgCal" stroke="#00aced" fillOpacity={0.3} fill="rgba(0, 172, 237, 0.2)" />
-          <Bar barSize={15} fillOpacity={1} dataKey="meal" stackId="intake" fill="#85d6c3" />
           <Bar barSize={15} fillOpacity={1} dataKey="treat" stackId="intake" fill="#363869" />
+          <Bar barSize={15} fillOpacity={1} dataKey="meal" stackId="intake" fill="#85d6c3" />
         </ComposedChart>
       </ResponsiveContainer>
     </div>
