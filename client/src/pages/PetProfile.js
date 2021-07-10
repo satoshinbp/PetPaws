@@ -8,16 +8,16 @@ export default function PetProfile({ petProfile, setPetProfile }) {
   const { currentUser } = useAuth();
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
-  const [isDog, setIsDog] = useState(1); // 0: cat, 1: dog
-  const [name, setName] = useState('');
-  const [breedName, setBreedName] = useState('');
+  const [isDog, setIsDog] = useState(petProfile.is_dog); // 0: cat, 1: dog
+  const [name, setName] = useState(petProfile.name);
+  const [breedName, setBreedName] = useState(petProfile.breed);
   const [birthday, setBirthday] = useState(petProfile.birthday);
-  const [gender, setGender] = useState(0);
-  const [weight, setWeight] = useState(0);
-  const [height, setHeight] = useState(0);
-  const [isSpayed, setIsSpayed] = useState(0); // 0: intact, 1: spayed/neutered
-  const [activityLevel, setActivityLevel] = useState(0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
-  const [bodyCondition, setBodyCondition] = useState(0); // 0: underweight, 1: ideal, 2: overweight
+  const [gender, setGender] = useState(petProfile.gender);
+  const [weight, setWeight] = useState(petProfile.weight);
+  const [height, setHeight] = useState(petProfile.height);
+  const [isSpayed, setIsSpayed] = useState(petProfile.is_spayed); // 0: intact, 1: spayed/neutered
+  const [activityLevel, setActivityLevel] = useState(petProfile.activity_level); // 0: inactive, 1: somewhat active, 2: active, 3: very active
+  const [bodyCondition, setBodyCondition] = useState(petProfile.body_condition); // 0: underweight, 1: ideal, 2: overweight
   const history = useHistory();
 
   useEffect(() => {
@@ -30,7 +30,9 @@ export default function PetProfile({ petProfile, setPetProfile }) {
       const breeds = res.data.map((breed) => ({ name: breed.name }));
       setCatBreeds(breeds);
     });
+  }, []);
 
+  useEffect(() => {
     setIsDog(petProfile.is_dog);
     setName(petProfile.name);
     setBreedName(petProfile.breed);
@@ -41,7 +43,7 @@ export default function PetProfile({ petProfile, setPetProfile }) {
     setIsSpayed(petProfile.spayed);
     setActivityLevel(petProfile.activityLevel);
     setBodyCondition(petProfile.bodyCondition);
-  }, []);
+  }, [petProfile]);
 
   const handleSubmit = (e) => {
     e.preventDefault();

@@ -6,7 +6,6 @@ import calculateAgeFromBirthday from '../functions/calculateAgeFromBirthday';
 import calculateRecommendedCalorie from '../functions/calculateRecommendedCalorie';
 
 export default function PrivateRoute({ component: Component, ...rest }) {
-  const now = new Date();
   const { currentUser } = useAuth();
 
   const [petProfile, setPetProfile] = useState({
@@ -18,7 +17,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     is_spayed: 0,
     height: 0,
     weight: 0,
-    birthday: new Date(now.getFullYear(), now.getMonth(), now.getDate()).toISOString().slice(0, 10),
+    birthday: new Date().toISOString().slice(0, 10),
     activity_level: 1,
     body_condition: 1,
   });
