@@ -2,11 +2,7 @@ import { Link } from 'react-router-dom';
 import LatestCalorieSummary from '../components/charts/LatestCalorieSummary';
 import LatestWalkSummary from '../components/charts/LatestWalkSummary';
 
-const Dashboard = (props) => {
-  const petProfile = props.petProfile;
-  const MER = props.MER;
-  const age = props.age;
-
+const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
   return (
     <div>
       <h2>Dashboard</h2>
@@ -21,8 +17,8 @@ const Dashboard = (props) => {
         </div>
       </div>
       <h3>In Last 7 Days</h3>
-      <LatestCalorieSummary MER={MER} />
-      <LatestWalkSummary />
+      <LatestCalorieSummary allMeals={allMeals} MER={MER} />
+      <LatestWalkSummary allActivities={allActivities} />
       <h3>Nutrition Summary</h3>
       <Link to="/mealsummary">Discover More</Link>
       <br></br>

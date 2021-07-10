@@ -21,6 +21,8 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     activity_level: 1,
     body_condition: 1,
   });
+  const [allMeals, setAllMeals] = useState([]);
+  const [allActivities, setAllActivities] = useState([]);
   const [MER, setMER] = useState(0);
   const [age, setAge] = useState(0);
 
@@ -35,6 +37,24 @@ export default function PrivateRoute({ component: Component, ...rest }) {
 
             const fetchedPetProfile = res.data[0];
             setPetProfile(fetchedPetProfile);
+
+            Axios.get(`http://localhost:3001/api/meal?pet_id=${fetchedPetProfile.id}`)
+              .then((res) => {
+                const fetchedMeals = res.data;
+                setAllMeals(fetchedMeals);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+
+            Axios.get(`http://localhost:3001/api/activity?pet_id=${fetchedPetProfile.id}`)
+              .then((res) => {
+                const fetchedActivities = res.data;
+                setAllActivities(fetchedActivities);
+              })
+              .catch((err) => {
+                console.log(err);
+              });
 
             const { ageY, ageM } = calculateAgeFromBirthday(fetchedPetProfile.birthday);
 
@@ -69,7 +89,21 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     <Route
       {...rest}
       render={(props) => {
-        return currentUser ? <Component {...props} petProfile={petProfile} MER={MER} age={age} /> : <Redirect to="/" />;
+        return currentUser ? (
+          <Component
+            {...props}
+            petProfile={petProfile}
+            setPetProfile={setPetProfile}
+            allMeals={allMeals}
+            setAllMeals={setAllMeals}
+            allActivities={allActivities}
+            setAllActivities={setAllActivities}
+            MER={MER}
+            age={age}
+          />
+        ) : (
+          <Redirect to="/" />
+        );
       }}
     ></Route>
   );
