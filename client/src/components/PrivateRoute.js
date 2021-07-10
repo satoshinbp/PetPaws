@@ -17,7 +17,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     is_spayed: 0,
     height: 0,
     weight: 0,
-    birthday: new Date(),
+    birthday: new Date().toISOString().slice(0, 10),
     activity_level: 1,
     body_condition: 1,
   });
