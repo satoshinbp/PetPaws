@@ -1,9 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ResponsiveContainer, ComposedChart, Bar, XAxis, YAxis, Tooltip, Cell } from 'recharts';
-import Axios from 'axios';
-import firebase from 'firebase/app';
 
-const LatestCalorieSummary = ({ MER }) => {
+const LatestCalorieSummary = ({ allMeals, MER }) => {
   const getWeek = (startDay, endDay) => {
     let tempWeek = [];
     for (let i = startDay; i < endDay; i++) {
@@ -107,7 +105,6 @@ const LatestCalorieSummary = ({ MER }) => {
       })
     );
     const roundMER = Math.floor(MER);
-    // setGraphData(graphDataArray);
     setGraphData([
       { value: 'intake', calorie: avgCal },
       { value: 'ideal', calorie: roundMER },
@@ -115,22 +112,9 @@ const LatestCalorieSummary = ({ MER }) => {
   };
 
   useEffect(() => {
-    const getUid = async () => {
-      const uid = await firebase.auth().currentUser.uid;
-      await Axios.get('http://localhost:3001/api/meal').then((response) => {
-        let userData = [];
-        if (response.length > 0) {
-          response.data.filter((meal) => meal.uid === uid).forEach((meal) => userData.push(meal));
-          setData(userData);
-          setData(userData);
-          getFoodData(userData);
-          getAvgCal(sumUpCalorie(allFoodData));
-        }
-      });
-    };
-
-    getUid();
-  }, [MER]);
+    getFoodData(allMeals);
+    getAvgCal(sumUpCalorie(allFoodData));
+  }, []);
 
   return (
     <div style={{ border: '1px solid' }}>
