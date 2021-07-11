@@ -31,25 +31,12 @@ const WalkWeekChart = ({ allActivities }) => {
         if (date === activeDate) {
           // for data user just sent, use this filter above
           // for some reason number become string in the obj. (duration and distance)
-          if (activities[y].duration) {
-            const minute = parseInt(activities[y].duration);
-            const distance = parseFloat(activities[y].distance);
-            allActivityPerWeek.push({
-              date: activeDate,
-              minute: minute,
-              distance: distance,
-              name: activities[y].name,
-            });
-          } else {
-            // if data if from DB
-            console.log(activities[y]);
-            allActivityPerWeek.push({
-              date: activeDate,
-              minute: activities[y].minute,
-              distance: activities[y].distance,
-              name: activities[y].name,
-            });
-          }
+          allActivityPerWeek.push({
+            date: activeDate,
+            minute: activities[y].minute,
+            distance: activities[y].distance,
+            name: activities[y].name,
+          });
         }
       }
     }
