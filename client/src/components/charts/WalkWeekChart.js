@@ -29,12 +29,27 @@ const WalkWeekChart = ({ allActivities }) => {
       for (let y = 0; y < activities.length; y++) {
         const activeDate = activities[y].date.slice(0, 10);
         if (date === activeDate) {
-          allActivityPerWeek.push({
-            date: activeDate,
-            minute: activities[y].minute,
-            distance: activities[y].distance,
-            name: activities[y].name,
-          });
+          // for data user just sent, use this filter above
+          // for some reason number become string in the obj. (duration and distance)
+          if (activities[y].duration) {
+            const minute = parseInt(activities[y].duration);
+            const distance = parseFloat(activities[y].distance);
+            allActivityPerWeek.push({
+              date: activeDate,
+              minute: minute,
+              distance: distance,
+              name: activities[y].name,
+            });
+          } else {
+            // if data if from DB
+            console.log(activities[y]);
+            allActivityPerWeek.push({
+              date: activeDate,
+              minute: activities[y].minute,
+              distance: activities[y].distance,
+              name: activities[y].name,
+            });
+          }
         }
       }
     }
@@ -112,7 +127,7 @@ const WalkWeekChart = ({ allActivities }) => {
 
     // sort our the array based on date
     graphDataArray.sort(function (a, b) {
-      return new Date(b.date) - new Date(a.date);
+      return new Date(a.date) - new Date(b.date);
     });
     setGraphData(graphDataArray);
   };
