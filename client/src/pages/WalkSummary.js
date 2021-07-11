@@ -8,9 +8,9 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
     <div>
       <h2>Activity Tracker</h2>
       <WalkForm petProfile={petProfile} setAllActivities={setAllActivities} />
-      <WalkMonthChart allActivities={allActivities} />
       <WalkDayChart allActivities={allActivities} />
       <WalkWeekChart allActivities={allActivities} />
+      <WalkMonthChart allActivities={allActivities} />
     </div>
   );
 }
