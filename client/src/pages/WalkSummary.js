@@ -7,7 +7,11 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
   return (
     <div>
       <h2>Activity Tracker</h2>
-      <WalkForm petProfile={petProfile} setAllActivities={setAllActivities} />
+      {!petProfile.name ? (
+        <p>Please create your pet profile</p>
+      ) : (
+        <WalkForm petProfile={petProfile} setAllActivities={setAllActivities} />
+      )}
       <WalkMonthChart allActivities={allActivities} />
       <WalkDayChart allActivities={allActivities} />
       <WalkWeekChart allActivities={allActivities} />
