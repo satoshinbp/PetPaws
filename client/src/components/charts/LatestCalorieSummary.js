@@ -74,7 +74,7 @@ const LatestCalorieSummary = ({ allMeals, MER }) => {
     // get average calorie of a day
     const averageCalorie = Math.round(sum / meals.length);
 
-    setAvgCal(averageCalorie);
+    averageCalorie ? setAvgCal(averageCalorie) : setAvgCal('--');
 
     let graphDataArray = [];
 
@@ -104,7 +104,9 @@ const LatestCalorieSummary = ({ allMeals, MER }) => {
         avgCal: avgCal,
       })
     );
-    const roundMER = Math.floor(MER);
+
+    const roundMER = Math.floor(MER) ? Math.floor(MER) : '--';
+
     setGraphData([
       { value: 'intake', calorie: avgCal },
       { value: 'ideal', calorie: roundMER },
