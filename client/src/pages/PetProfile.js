@@ -65,8 +65,8 @@ export default function PetProfile({ petProfile, setPetProfile }) {
         };
 
         if (petProfile.id) {
-          Axios.post(`http://localhost:3001/api/pet/${petProfile.id}`, petData)
-            .then((res) => {
+          Axios.put(`http://localhost:3001/api/pet/${petProfile.id}`, petData)
+            .then(() => {
               history.push('/');
             })
             .catch((err) => {
