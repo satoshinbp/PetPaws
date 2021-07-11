@@ -114,7 +114,7 @@ const LatestCalorieSummary = ({ allMeals, MER }) => {
   useEffect(() => {
     getFoodData(allMeals);
     getAvgCal(sumUpCalorie(allFoodData));
-  }, []);
+  }, [allMeals, avgCal, MER]);
 
   return (
     <div style={{ border: '1px solid' }}>
@@ -122,6 +122,7 @@ const LatestCalorieSummary = ({ allMeals, MER }) => {
       <h3>Avg Calories(Kcal)</h3>
       <div style={{ height: '150px' }}>
         {/* height is necessary to display graph */}
+
         {graphData ? (
           <ResponsiveContainer>
             <ComposedChart layout="vertical" data={graphData} margin={{ top: 20, right: 20, bottom: 0, left: 25 }}>
