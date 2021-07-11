@@ -7,25 +7,22 @@ export default function WalkForm({ petProfile, setAllActivities }) {
   const [duration, setDuration] = useState(0);
   const [distance, setDistance] = useState(0);
 
-  const postActivity = async (activity) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const activity = { petID: petProfile.id, name, date, duration, distance };
+
     Axios.post('http://localhost:3001/api/activity', activity)
       .then(() => {
         setAllActivities((prevActivities) => [...prevActivities, activity]);
+        setName('');
+        setDate(new Date().toISOString().slice(0, 10));
+        setDuration(0);
+        setDistance(0);
       })
       .catch((err) => {
         console.log(err);
       });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    postActivity({ petID: petProfile.id, name, date, duration, distance });
-
-    setName('');
-    setDate(new Date().toISOString().slice(0, 10));
-    setDuration(0);
-    setDistance(0);
   };
 
   return (
