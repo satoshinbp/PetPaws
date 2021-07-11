@@ -36,7 +36,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
             if (res.data.length === 0) return;
 
             const fetchedPetProfile = res.data[0];
-            setPetProfile(fetchedPetProfile);
+            setPetProfile({ ...fetchedPetProfile, birthday: fetchedPetProfile.birthday.slice(0, 10) });
 
             Axios.get(`http://localhost:3001/api/meal?pet_id=${fetchedPetProfile.id}`)
               .then((res) => {
