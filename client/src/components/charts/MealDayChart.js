@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { ResponsiveContainer, ComposedChart, Bar, XAxis, YAxis, Tooltip, Cell } from 'recharts';
 
 const MealDayChart = ({ allMeals, MER }) => {
@@ -7,6 +7,7 @@ const MealDayChart = ({ allMeals, MER }) => {
   const [mealsForDay, setMealsForDay] = useState([]); // each input on the date
   const [totalDailyCalorie, setTotalDailyCalorie] = useState(null); // combile meal and treat
   const colors = ['#86E3CE', 'rgba(252, 136, 123, 0.75)']; // left: intake, right: ideal bars colours
+  let totalCal = 0;
 
   useEffect(() => {
     let allFood = [];
@@ -24,17 +25,16 @@ const MealDayChart = ({ allMeals, MER }) => {
     setMealsForDay(allFood);
 
     if (allFood.length > 0) {
-      let totallCal = 0;
       allFood.forEach((meal) => {
-        totallCal = totallCal + meal.calorie;
+        totalCal = totalCal + meal.calorie;
       });
       setTotalDailyCalorie([
-        { date: allFood[0].date, calorie: totallCal, label: 'intake' },
+        { date: allFood[0].date, calorie: totalCal, label: 'intake' },
         { date: allFood[0].date + 1, calorie: Math.floor(MER), label: 'ideal' },
       ]);
       setIdealCalorie({ date: 'intake', calorie: Math.floor(MER), label: 'ideal' });
     }
-  }, [allMeals, date]);
+  }, [allMeals, date, totalCal, MER]);
 
   return (
     <div style={{ border: '1px solid' }}>
