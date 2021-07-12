@@ -77,52 +77,20 @@ const LatestWalkSummary = ({ allActivities }) => {
     const averageDistance = distanceSum / walks.length;
     setAvgMin(averageTime);
     setAvgDistance(averageDistance);
-
-    // let graphDataArray = [];
-
-    // // get dates when there was no input in a day
-    // const noDataDates = week.filter((o1) => {
-    //   // filter out (!) items in noDataDates2
-    //   return !walks.some((o2) => {
-    //     if (o1 === o2.date) {
-    //       return o2;
-    //     }
-    //   });
-    // });
-    // walks.forEach((walk) =>
-    //   graphDataArray.push({
-    //     date: walk.date,
-    //     minute: walk.minute,
-    //     distance: walk.distance,
-    //     avgMin: avgMin,
-    //   })
-    // );
-    // noDataDates.forEach((walk) =>
-    //   graphDataArray.push({
-    //     date: walk,
-    //     minute: 0,
-    //     distance: 0,
-    //     avgMin: avgMin,
-    //   })
-    // );
-
-    // graphDataArray.sort(function (a, b) {
-    //   return new Date(b.date) - new Date(a.date);
-    // });
   };
 
   useEffect(() => {
     getWalkData(allActivities);
     const walks = sumUpTime(allWalkData);
     getAvgWalk(walks);
-  }, [avgMin]);
+  }, [allActivities, avgMin]);
 
   return (
     <div>
       <h3>Avg Distance(Km)</h3>
-      <p>{avgDistance} Km</p>
+      {avgDistance ? <p>{avgDistance} Km</p> : '--'}
       <h3>Avg Time(Min)</h3>
-      <p>{avgMin} Min</p>
+      {avgMin ? <p>{avgMin} Min</p> : '--'}
     </div>
   );
 };
