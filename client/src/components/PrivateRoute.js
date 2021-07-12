@@ -27,18 +27,18 @@ export default function PrivateRoute({ component: Component, ...rest }) {
   const [age, setAge] = useState(0);
 
   useEffect(() => {
-    Axios.get(`https://pet-paws-langara.herokuapp.com//api/user/${currentUser.uid}`)
+    Axios.get(`https://pet-paws-langara.herokuapp.com/api/user/${currentUser.uid}`)
       .then((res) => {
         const user_id = res.data[0].id;
 
-        Axios.get(`https://pet-paws-langara.herokuapp.com//api/pet?user_id=${user_id}`)
+        Axios.get(`https://pet-paws-langara.herokuapp.com/api/pet?user_id=${user_id}`)
           .then((res) => {
             if (res.data.length === 0) return;
 
             const fetchedPetProfile = res.data[0];
             setPetProfile({ ...fetchedPetProfile, birthday: fetchedPetProfile.birthday.slice(0, 10) });
 
-            Axios.get(`https://pet-paws-langara.herokuapp.com//api/meal?pet_id=${fetchedPetProfile.id}`)
+            Axios.get(`https://pet-paws-langara.herokuapp.com/api/meal?pet_id=${fetchedPetProfile.id}`)
               .then((res) => {
                 const fetchedMeals = res.data;
                 setAllMeals(fetchedMeals);
@@ -47,7 +47,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
                 console.log(err);
               });
 
-            Axios.get(`https://pet-paws-langara.herokuapp.com//api/activity?pet_id=${fetchedPetProfile.id}`)
+            Axios.get(`https://pet-paws-langara.herokuapp.com/api/activity?pet_id=${fetchedPetProfile.id}`)
               .then((res) => {
                 const fetchedActivities = res.data;
                 setAllActivities(fetchedActivities);

@@ -6,7 +6,7 @@ export default function FindingPetStores() {
   const [shops, setShops] = useState([]);
 
   useEffect(() => {
-    Axios.get('https://pet-paws-langara.herokuapp.com//api/store')
+    Axios.get('https://pet-paws-langara.herokuapp.com/api/store')
       .then((res) => {
         setShops(res.data);
       })
@@ -16,7 +16,7 @@ export default function FindingPetStores() {
   }, []);
 
   const onChangeSelect = (e) => {
-    Axios.get('https://pet-paws-langara.herokuapp.com//api/store')
+    Axios.get('https://pet-paws-langara.herokuapp.com/api/store')
       .then((res) => {
         if (Number(e.target.value) === 2) {
           setShops(res.data);

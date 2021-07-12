@@ -14,7 +14,7 @@ export default function MealForm({ petProfile, setAllMeals }) {
 
     const meal = { petID: petProfile.id, name, date, type, time, calorie: (calorie * amount) / 100 };
 
-    Axios.post('https://pet-paws-langara.herokuapp.com//api/meal', meal)
+    Axios.post('https://pet-paws-langara.herokuapp.com/api/meal', meal)
       .then(() => {
         setAllMeals((prevMeals) => [...prevMeals, meal]);
         setName('');
