@@ -5,7 +5,7 @@ export default function Team() {
   const [memberList, setMemberList] = useState([]);
 
   useEffect(() => {
-    Axios.get('http://localhost:3001/api/team')
+    Axios.get('https://pet-paws-langara.herokuapp.com//api/team')
       .then((res) => {
         setMemberList(res.data);
       })
