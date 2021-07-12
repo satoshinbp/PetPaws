@@ -117,7 +117,6 @@ const MealWeekChart = ({ allMeals }) => {
     const setNewGraph = () => {
       let pastWeek;
       if (!firstTime) {
-        console.log(count);
         if (count !== 0) {
           const start = count * 7;
           const end = start + 7;

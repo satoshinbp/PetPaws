@@ -28,7 +28,7 @@ const MealDayChart = ({ allMeals }) => {
       });
       setTotalDailyCalorie({ date: allFood[0].date, calorie: totallCal });
     }
-  }, [date]);
+  }, [allMeals, date]);
 
   return (
     <div style={{ border: '1px solid' }}>
