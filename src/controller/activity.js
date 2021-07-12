@@ -17,7 +17,7 @@ exports.create = (req, res) => {
   const pet_id = req.body.petID;
   const name = req.body.name;
   const date = req.body.date;
-  const minute = req.body.duration;
+  const minute = req.body.minute;
   const distance = req.body.distance;
 
   const sqlQuery = 'INSERT INTO petpaws.activities (pet_id, name, date, minute, distance) VALUES (?,?,?,?,?)';

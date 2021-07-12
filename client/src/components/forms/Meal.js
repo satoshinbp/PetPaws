@@ -9,27 +9,24 @@ export default function MealForm({ petProfile, setAllMeals }) {
   const [amount, setAmount] = useState(0);
   const [calorie, setCalorie] = useState(0);
 
-  const postMeal = async (meal) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    const meal = { petID: petProfile.id, name, date, type, time, calorie: (calorie * amount) / 100 };
+
     Axios.post('http://localhost:3001/api/meal', meal)
       .then(() => {
         setAllMeals((prevMeals) => [...prevMeals, meal]);
+        setName('');
+        setType('Wet');
+        setDate(new Date().toISOString().slice(0, 10));
+        setTime('00:00');
+        setAmount(0);
+        setCalorie(0);
       })
       .catch((err) => {
         console.log(err);
       });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-
-    postMeal({ petID: petProfile.id, name, date, type, time, calorie: (calorie * amount) / 100 });
-
-    setName('');
-    setType('Wet');
-    setDate(new Date().toISOString().slice(0, 10));
-    setTime('00:00');
-    setAmount(0);
-    setCalorie(0);
   };
 
   return (

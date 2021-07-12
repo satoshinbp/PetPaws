@@ -4,28 +4,25 @@ import Axios from 'axios';
 export default function WalkForm({ petProfile, setAllActivities }) {
   const [name, setName] = useState('');
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-  const [duration, setDuration] = useState(0);
+  const [minute, setMinute] = useState(0);
   const [distance, setDistance] = useState(0);
-
-  const postActivity = async (activity) => {
-    Axios.post('http://localhost:3001/api/activity', activity)
-      .then(() => {
-        setAllActivities((prevActivities) => [...prevActivities, activity]);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    postActivity({ petID: petProfile.id, name, date, duration, distance });
+    const activity = { petID: petProfile.id, name, date, minute, distance };
 
-    setName('');
-    setDate(new Date().toISOString().slice(0, 10));
-    setDuration(0);
-    setDistance(0);
+    Axios.post('http://localhost:3001/api/activity', activity)
+      .then(() => {
+        setAllActivities((prevActivities) => [...prevActivities, activity]);
+        setName('');
+        setDate(new Date().toISOString().slice(0, 10));
+        setMinute(0);
+        setDistance(0);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   return (
@@ -58,14 +55,14 @@ export default function WalkForm({ petProfile, setAllActivities }) {
         </div>
 
         <div>
-          <label htmlFor="duration">Duration</label>
+          <label htmlFor="minute">Duration</label>
           <input
             type="number"
-            id="duration"
-            name="duration"
-            value={duration}
+            id="minute"
+            name="minute"
+            value={minute}
             required
-            onChange={(e) => setDuration(e.target.value)}
+            onChange={(e) => setMinute(e.target.value)}
           />
           min
         </div>
