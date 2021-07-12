@@ -86,18 +86,18 @@ const MealWeekChart = ({ allMeals }) => {
 
     meals.forEach((meal) =>
       graphDataArray.push({
-        date: meal.date,
+        date: meal.date.split('-').join('/'),
         meal: meal.meal,
         treat: meal.treat,
-        avgCal: avgCal,
+        'average calorie': avgCal,
       })
     );
     noDataDates.forEach((date) =>
       graphDataArray.push({
-        date: date,
+        date: date.split('-').join('/'),
         meal: 0,
         treat: 0,
-        avgCal: avgCal,
+        'average calorie': avgCal,
       })
     );
 
@@ -189,7 +189,13 @@ const MealWeekChart = ({ allMeals }) => {
           <Tooltip />
           <Legend />
           <CartesianGrid stroke="#f5f5f5" />
-          <Area type="monotone" dataKey="avgCal" stroke="#00aced" fillOpacity={0.3} fill="rgba(0, 172, 237, 0.2)" />
+          <Area
+            type="monotone"
+            dataKey="average calorie"
+            stroke="#00aced"
+            fillOpacity={0.3}
+            fill="rgba(0, 172, 237, 0.2)"
+          />
           <Bar barSize={15} fillOpacity={1} dataKey="treat" stackId="intake" fill="#363869" />
           <Bar barSize={15} fillOpacity={1} dataKey="meal" stackId="intake" fill="#85d6c3" />
         </ComposedChart>

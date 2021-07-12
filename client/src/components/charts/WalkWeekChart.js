@@ -29,8 +29,6 @@ const WalkWeekChart = ({ allActivities }) => {
       for (let y = 0; y < activities.length; y++) {
         const activeDate = activities[y].date.slice(0, 10);
         if (date === activeDate) {
-          // for data user just sent, use this filter above
-          // for some reason number become string in the obj. (duration and distance)
           allActivityPerWeek.push({
             date: activeDate,
             minute: activities[y].minute,
@@ -96,19 +94,19 @@ const WalkWeekChart = ({ allActivities }) => {
     // active dates
     activities.forEach((date) =>
       graphDataArray.push({
-        date: date.date,
+        date: date.date.split('-').join('/'),
         minute: date.minute,
         distance: date.distance,
-        avgMin: avgMin,
+        average: avgMin,
       })
     );
     // inactive dates
     noDataDates.forEach((date) =>
       graphDataArray.push({
-        date: date,
+        date: date.split('-').join('/'),
         minute: 0,
         distance: 0,
-        avgMin: avgMin,
+        average: avgMin,
       })
     );
 
@@ -207,7 +205,7 @@ const WalkWeekChart = ({ allActivities }) => {
           <Tooltip />
           <Legend />
           <CartesianGrid stroke="#f5f5f5" />
-          <Area type="monotone" dataKey="avgMin" stroke="#00aced" fillOpacity={0.3} fill="rgba(0, 172, 237, 0.2)" />
+          <Area type="monotone" dataKey="average" stroke="#00aced" fillOpacity={0.3} fill="rgba(0, 172, 237, 0.2)" />
           <Bar barSize={15} fillOpacity={1} fill="#2250A2" dataKey="minute" stackId="a" barSize={15} fill="#85d6c3" />
         </ComposedChart>
       </ResponsiveContainer>

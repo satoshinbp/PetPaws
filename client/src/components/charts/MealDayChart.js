@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react';
-import { ResponsiveContainer, ComposedChart, Bar, XAxis, YAxis, Tooltip } from 'recharts';
+import { ResponsiveContainer, ComposedChart, Bar, XAxis, YAxis, Tooltip, Cell } from 'recharts';
 
-const MealDayChart = ({ allMeals }) => {
+const MealDayChart = ({ allMeals, MER }) => {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
+  const [idealCalorie, setIdealCalorie] = useState('');
   const [mealsForDay, setMealsForDay] = useState([]); // each input on the date
   const [totalDailyCalorie, setTotalDailyCalorie] = useState(null); // combile meal and treat
+  const colors = ['#86E3CE', 'rgba(252, 136, 123, 0.75)']; // left: intake, right: ideal bars colours
 
   useEffect(() => {
     let allFood = [];
@@ -26,7 +28,11 @@ const MealDayChart = ({ allMeals }) => {
       allFood.forEach((meal) => {
         totallCal = totallCal + meal.calorie;
       });
-      setTotalDailyCalorie({ date: allFood[0].date, calorie: totallCal });
+      setTotalDailyCalorie([
+        { date: allFood[0].date, calorie: totallCal, label: 'intake' },
+        { date: allFood[0].date + 1, calorie: Math.floor(MER), label: 'ideal' },
+      ]);
+      setIdealCalorie({ date: 'intake', calorie: Math.floor(MER), label: 'ideal' });
     }
   }, [allMeals, date]);
 
@@ -38,7 +44,7 @@ const MealDayChart = ({ allMeals }) => {
         mealsForDay.map((meal) => (
           <p>
             Date:&nbsp;{meal.date}&nbsp;&nbsp;&nbsp; Type:&nbsp;{meal.type}&nbsp;&nbsp;&nbsp; Calorie:&nbsp;
-            {meal.calorie}
+            {meal.calorie} kcal
           </p>
         ))
       ) : (
@@ -54,19 +60,23 @@ const MealDayChart = ({ allMeals }) => {
         onChange={(e) => setDate(e.target.value)}
       />
 
-      {date === totalDailyCalorie?.date && (
+      {totalDailyCalorie && date === totalDailyCalorie[0].date && (
         <div style={{ height: '150px' }}>
           {/* height is necessary to display graph */}
           <ResponsiveContainer>
             <ComposedChart
               layout="vertical"
-              data={[totalDailyCalorie]}
+              data={totalDailyCalorie}
               margin={{ top: 20, right: 20, bottom: 0, left: 25 }}
             >
-              <XAxis type="number" domain={[0, 'dataMax']} dataKey="calorie" />
-              <YAxis type="category" dataKey="date" />
+              <XAxis type="number" domain={[0, 'dataMax']} dataKey="calorie" stroke="#3B3054" />
+              <YAxis type="category" dataKey="label" stroke="#3B3054" />
               <Tooltip /> {/* values shown when hovered */}
-              <Bar dataKey="calorie" barSize={20} stroke="rgba(34, 80, 162, 0.2)" fillOpacity={1} fill="#2250A2" />
+              <Bar dataKey="calorie" barSize={20} fillOpacity={1}>
+                {totalDailyCalorie.map((entry, index) => (
+                  <Cell key={`cell-${index}`} fill={colors[index]} />
+                ))}
+              </Bar>
             </ComposedChart>
           </ResponsiveContainer>
         </div>

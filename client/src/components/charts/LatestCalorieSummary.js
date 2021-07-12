@@ -18,7 +18,7 @@ const LatestCalorieSummary = ({ allMeals, MER }) => {
   let allFoodData = [];
   const [graphData, setGraphData] = useState(null);
 
-  const colors = ['#1f77b4', '#2ca02c'];
+  const colors = ['#86E3CE', 'rgba(252, 136, 123, 0.75)']; // left: intake, right: ideal bars colours
 
   // GET ALL FOOD DATA FOR A WEEK
   const getFoodData = (meals) => {
@@ -128,10 +128,10 @@ const LatestCalorieSummary = ({ allMeals, MER }) => {
         {graphData ? (
           <ResponsiveContainer>
             <ComposedChart layout="vertical" data={graphData} margin={{ top: 20, right: 20, bottom: 0, left: 25 }}>
-              <XAxis type="number" domain={[0, 'dataMax']} />
-              <YAxis type="category" dataKey="value" />
+              <XAxis type="number" domain={[0, 'dataMax']} stroke="#3B3054" />
+              <YAxis type="category" dataKey="value" stroke="#3B3054" />
               <Tooltip /> {/* values shown when hovered */}
-              <Bar dataKey="calorie" barSize={20} stroke="rgba(34, 80, 162, 0.2)" fillOpacity={1} fill="#2250A2">
+              <Bar dataKey="calorie" barSize={20} fillOpacity={1}>
                 {graphData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={colors[index]} />
                 ))}

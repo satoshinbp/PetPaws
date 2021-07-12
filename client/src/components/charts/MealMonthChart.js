@@ -102,18 +102,18 @@ const MealMonthChart = ({ allMeals }) => {
 
     meals.forEach((meal) =>
       graphDataArray.push({
-        date: meal.date,
+        date: meal.date.split('-').join('/'),
         meal: meal.meal,
         treat: meal.treat,
-        avgCal: avgCal,
+        'average calorie': avgCal,
       })
     );
     noDataDates.forEach((date) =>
       graphDataArray.push({
-        date: date,
+        date: date.split('-').join('/'),
         meal: 0,
         treat: 0,
-        avgCal: avgCal,
+        'average calorie': avgCal,
       })
     );
 
@@ -240,7 +240,13 @@ const MealMonthChart = ({ allMeals }) => {
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
-            <Area type="monotone" dataKey="avgCal" stroke="#00aced" fillOpacity={0.3} fill="rgba(0, 172, 237, 0)" />
+            <Area
+              type="monotone"
+              dataKey="average calorie"
+              stroke="#00aced"
+              fillOpacity={0.3}
+              fill="rgba(0, 172, 237, 0)"
+            />
             <Area type="monotone" dataKey="meal" stackId="1" stroke="#8884d8" fill="#8884d8" />
             <Area type="monotone" dataKey="treat" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
           </AreaChart>

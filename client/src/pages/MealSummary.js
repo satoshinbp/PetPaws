@@ -3,8 +3,7 @@ import MealWeekChart from '../components/charts/MealWeekChart';
 import MealDayChart from '../components/charts/MealDayChart';
 import MealForm from '../components/forms/Meal';
 
-export default function MealSummary({ petProfile, allMeals, setAllMeals }) {
-  console.log(petProfile.name);
+export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) {
   return (
     <div>
       <h2>Meal Tracker</h2>
@@ -13,7 +12,7 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals }) {
       ) : (
         <MealForm petProfile={petProfile} setAllMeals={setAllMeals} />
       )}
-      <MealDayChart allMeals={allMeals} />
+      <MealDayChart allMeals={allMeals} MER={MER} />
       <MealWeekChart allMeals={allMeals} />
       <MealMonthChart allMeals={allMeals} />
     </div>
