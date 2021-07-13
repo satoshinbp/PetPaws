@@ -66,6 +66,7 @@ export default function Header() {
             aria-controls={open ? 'menu-list-grow' : undefined}
             aria-haspopup="true"
             onClick={handleToggle}
+            className="icon-btn--profile"
           >
             Icon
           </button>
