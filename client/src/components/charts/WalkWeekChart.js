@@ -27,14 +27,15 @@ const WalkWeekChart = ({ allActivities }) => {
     for (let i = 0; i < 7; i++) {
       const date = week[i];
       for (let y = 0; y < activities.length; y++) {
+        // convert string to number (for just sent data)
+        const distance = parseFloat(activities[y].distance);
+        const minute = parseInt(activities[y].minute);
         const activeDate = activities[y].date.slice(0, 10);
         if (date === activeDate) {
-          // for data user just sent, use this filter above
-          // for some reason number become string in the obj. (duration and distance)
           allActivityPerWeek.push({
             date: activeDate,
-            minute: activities[y].minute,
-            distance: activities[y].distance,
+            minute: minute,
+            distance: distance,
             name: activities[y].name,
           });
         }
@@ -71,15 +72,19 @@ const WalkWeekChart = ({ allActivities }) => {
   // INSERT AVERAGE CALORIE ANYWAY,
   // EVEN IF THERE WAS NO INPUT (FOR PURPOSE OF GRAPH)
   const calcAvgMinute = (activities) => {
-    let sum = 0;
+    if (activities.length > 0) {
+      let sum = 0;
 
-    // get totall calorie of a week
-    for (let i = 0; i < activities.length; i++) {
-      sum = sum + activities[i].minute;
+      // get totall calorie of a week
+      for (let i = 0; i < activities.length; i++) {
+        sum = sum + activities[i].minute;
+      }
+
+      // get average calorie of a day
+      setAvgMin(Math.round(sum / activities.length));
+    } else {
+      setAvgMin(0);
     }
-
-    // get average calorie of a day
-    setAvgMin(Math.round(sum / activities.length));
 
     let graphDataArray = [];
 
@@ -116,6 +121,23 @@ const WalkWeekChart = ({ allActivities }) => {
     graphDataArray.sort(function (a, b) {
       return new Date(a.date) - new Date(b.date);
     });
+    // get rid of year e.g 2021-07-13 => 13
+    let slicedDates = [];
+    const sliceDate = () => {
+      graphDataArray.forEach((activity) => {
+        slicedDates.push({
+          date: activity.date.slice(8, 10).split('-').join('/'),
+          minute: activity.minute,
+          distance: activity.distance,
+          'average minute': activity.avgMin,
+        });
+      });
+    };
+
+    sliceDate();
+
+    graphDataArray = slicedDates;
+
     setGraphData(graphDataArray);
   };
 
@@ -194,7 +216,7 @@ const WalkWeekChart = ({ allActivities }) => {
         </button>
         {graphData.length > 0 ? (
           <p>
-            {graphData[6].date} to {graphData[0].date}
+            {week[6].split('-').join(' ')} to {week[0].split('-').join(' ')}
           </p>
         ) : (
           ''
@@ -207,7 +229,13 @@ const WalkWeekChart = ({ allActivities }) => {
           <Tooltip />
           <Legend />
           <CartesianGrid stroke="#f5f5f5" />
-          <Area type="monotone" dataKey="avgMin" stroke="#00aced" fillOpacity={0.3} fill="rgba(0, 172, 237, 0.2)" />
+          <Area
+            type="monotone"
+            dataKey="average minute"
+            stroke="#00aced"
+            fillOpacity={0.3}
+            fill="rgba(0, 172, 237, 0.2)"
+          />
           <Bar barSize={15} fillOpacity={1} fill="#2250A2" dataKey="minute" stackId="a" barSize={15} fill="#85d6c3" />
         </ComposedChart>
       </ResponsiveContainer>

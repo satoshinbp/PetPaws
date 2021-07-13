@@ -4,7 +4,7 @@ import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
 
-export default function PetProfile({ petProfile, setPetProfile }) {
+export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
@@ -40,9 +40,9 @@ export default function PetProfile({ petProfile, setPetProfile }) {
     setGender(petProfile.gender);
     setWeight(petProfile.weight);
     setHeight(petProfile.height);
-    setIsSpayed(petProfile.spayed);
-    setActivityLevel(petProfile.activityLevel);
-    setBodyCondition(petProfile.bodyCondition);
+    setIsSpayed(petProfile.is_spayed);
+    setActivityLevel(petProfile.activity_level);
+    setBodyCondition(petProfile.body_condition);
   }, [petProfile]);
 
   const handleSubmit = (e) => {
