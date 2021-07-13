@@ -88,7 +88,7 @@ const LatestWalkSummary = ({ allActivities }) => {
   return (
     <div>
       <h3>Avg Distance(Km)</h3>
-      {avgDistance ? <p>{avgDistance} Km</p> : '--'}
+      {avgDistance ? <p>{Math.round(avgDistance * 10) / 10} Km</p> : '--'}
       <h3>Avg Time(Min)</h3>
       {avgMin ? <p>{avgMin} Min</p> : '--'}
     </div>
