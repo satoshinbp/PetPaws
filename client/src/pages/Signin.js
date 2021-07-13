@@ -36,7 +36,7 @@ export default function Signup() {
           <input type="email" ref={emailRef} required />
           <label>Password</label>
           <input type="password" ref={passwordRef} required />
-          <button disabled={loading} type="submit">
+          <button className="btn--sm btn-contained-light-purple" disabled={loading} type="submit">
             Sign in
           </button>
         </form>

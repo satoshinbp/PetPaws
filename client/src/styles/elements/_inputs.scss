@@ -1,0 +1,36 @@
+input,
+.input,
+select {
+  width: 100%;
+  height: 45px;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+input[type='radio'] {
+  height: 35px;
+}
+
+input::placeholder,
+select:invalid {
+  color: rgba(218, 218, 218, 1);
+}
+
+// Laptop
+.input-sm {
+  @media screen and(min-width:$tb-breakpoint) {
+    height: 54px;
+  }
+}
+.input-md {
+  @media screen and(min-width:$tb-breakpoint) {
+    height: 64px;
+  }
+}
+.input-lg {
+  @media screen and(min-width:$tb-breakpoint) {
+    height: 75px;
+  }
+}

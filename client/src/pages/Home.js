@@ -10,7 +10,7 @@ function Home() {
         We recommend the best nutrition plan for you furry friends, monitor their daily routine, and locate the best
         vets and pet stores for your convenience.
       </p>
-      <button>Create free account</button>
+      <button className="btn-contained-green">Create free account</button>
       <Features />
       <Team />
     </>
