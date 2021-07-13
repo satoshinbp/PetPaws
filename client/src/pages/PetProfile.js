@@ -33,7 +33,6 @@ export default function PetProfile({ petProfile }) {
   }, []);
 
   useEffect(() => {
-    console.log(petProfile);
     setIsDog(petProfile.is_dog);
     setName(petProfile.name);
     setBreedName(petProfile.breed);
