@@ -55,10 +55,12 @@ const WalkMonthChart = ({ allActivities }) => {
       for (let y = 0; y < activities.length; y++) {
         const activeDate = activities[y].date.slice(0, 10);
         if (date === activeDate) {
+          const distance = parseFloat(activities[y].distance);
+          const minute = parseInt(activities[y].minute);
           allActivityPerWeek.push({
             date: activeDate,
-            minute: activities[y].minute,
-            distance: activities[y].distance,
+            minute: minute,
+            distance: distance,
             name: activities[y].name,
           });
         }
@@ -95,15 +97,19 @@ const WalkMonthChart = ({ allActivities }) => {
   // INSERT AVERAGE CALORIE ANYWAY,
   // EVEN IF THERE WAS NO INPUT (FOR PURPOSE OF GRAPH)
   const calcAvgMinute = (activities) => {
-    let sum = 0;
+    if (activities.length > 0) {
+      let sum = 0;
 
-    // get totall calorie of a month
-    for (let i = 0; i < activities.length; i++) {
-      sum = sum + activities[i].minute;
+      // get totall calorie of a week
+      for (let i = 0; i < activities.length; i++) {
+        sum = sum + activities[i].minute;
+      }
+
+      // get average calorie of a day
+      setAvgMin(Math.round(sum / activities.length));
+    } else {
+      setAvgMin(0);
     }
-
-    // get average calorie of a day
-    setAvgMin(Math.round(sum / activities.length));
 
     let graphDataArray = [];
 
@@ -120,7 +126,7 @@ const WalkMonthChart = ({ allActivities }) => {
     // active dates
     activities.forEach((date) =>
       graphDataArray.push({
-        date: date.date.split('-').join('/'),
+        date: date.date.slice(8, 10).split('-').join('/'),
         minute: date.minute,
         distance: date.distance,
         average: avgMin,
@@ -129,7 +135,7 @@ const WalkMonthChart = ({ allActivities }) => {
     // inactive dates
     noDataDates.forEach((date) =>
       graphDataArray.push({
-        date: date.split('-').join('/'),
+        date: date.slice(8, 10).split('-').join('/'),
         minute: 0,
         distance: 0,
         average: avgMin,
@@ -138,7 +144,7 @@ const WalkMonthChart = ({ allActivities }) => {
 
     // sort our the array based on date
     graphDataArray.sort(function (a, b) {
-      return new Date(a.date) - new Date(b.date);
+      return a.date - b.date;
     });
 
     setGraphData(graphDataArray);
@@ -237,7 +243,7 @@ const WalkMonthChart = ({ allActivities }) => {
           </button>
           {graphData.length > 0 ? (
             <p>
-              {graphData[6].date} to {graphData[0].date}
+              {month[0].split('-').join(' ')} to {month[month.length - 1].split('-').join(' ')}
             </p>
           ) : (
             ''

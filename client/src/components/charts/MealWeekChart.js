@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ResponsiveContainer, ComposedChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area } from 'recharts';
 
-const MealWeekChart = ({ allMeals }) => {
+const MealWeekChart = ({ allMeals, MER }) => {
   const createWeekDates = (startDay, endDay) => {
     let tempWeek = [];
     for (let i = startDay; i < endDay; i++) {
@@ -19,6 +19,7 @@ const MealWeekChart = ({ allMeals }) => {
   // in order to know if the loading is first time or not
   // in order to prevent setNewGraph from being fired on the first loading
   const [firstTime, setFirstTime] = useState(true);
+  const [idealCal, setIdealCal] = useState('');
 
   const getAllFoodDataForAWeek = (meals) => {
     for (let i = 0; i < 7; i++) {
@@ -61,16 +62,20 @@ const MealWeekChart = ({ allMeals }) => {
   // INSERT AVERAGE CALORIE ANYWAY,
   // EVEN IF THERE WAS NO INPUT (FOR PURPOSE OF GRAPH)
   const calcAvgCal = (meals) => {
-    let sum = 0;
+    if (meals.length > 0) {
+      let sum = 0;
 
-    // get totall calorie of a week
-    for (let i = 0; i < meals.length; i++) {
-      let sumCalorie = meals[i].meal + meals[i].treat;
-      sum = sum + sumCalorie;
+      // get totall calorie of a month
+      for (let i = 0; i < meals.length; i++) {
+        let sumCalorie = meals[i].meal + meals[i].treat;
+        sum = sum + sumCalorie;
+      }
+      setAvgCal(Math.round(sum / meals.length));
+
+      // set average calorie of a day
+    } else {
+      setAvgCal(0);
     }
-
-    // set average calorie of a day
-    setAvgCal(Math.round(sum / meals.length));
 
     let graphDataArray = [];
 
@@ -83,27 +88,51 @@ const MealWeekChart = ({ allMeals }) => {
         }
       });
     });
+    setIdealCal(Math.floor(MER));
 
+    // prepare data for 7 days
+    // dates that have input data
     meals.forEach((meal) =>
       graphDataArray.push({
-        date: meal.date.split('-').join('/'),
+        date: meal.date,
         meal: meal.meal,
         treat: meal.treat,
-        'average calorie': avgCal,
+        avgCal: avgCal,
+        idealCal: idealCal,
       })
     );
+    // dates that don't have any input data
     noDataDates.forEach((date) =>
       graphDataArray.push({
-        date: date.split('-').join('/'),
+        date: date,
         meal: 0,
         treat: 0,
-        'average calorie': avgCal,
+        avgCal: avgCal,
+        idealCal: idealCal,
       })
     );
 
+    // order dates
     graphDataArray.sort(function (a, b) {
       return new Date(a.date) - new Date(b.date);
     });
+
+    // get rid of year e.g 2021-07-13 => 13
+    let slicedDates = [];
+    const sliceDate = () => {
+      graphDataArray.forEach((meal) => {
+        slicedDates.push({
+          date: meal.date.slice(8, 10).split('-').join('/'),
+          meal: meal.meal,
+          treat: meal.treat,
+          'average calorie': meal.avgCal,
+          'ideal calorie': meal.idealCal,
+        });
+      });
+    };
+    sliceDate();
+
+    graphDataArray = slicedDates;
 
     setGraphData(graphDataArray);
   };
@@ -111,7 +140,7 @@ const MealWeekChart = ({ allMeals }) => {
   useEffect(() => {
     getAllFoodDataForAWeek(allMeals);
     calcAvgCal(calcTotalDailyCalorie(allMealsForWeek));
-  }, [allMeals, avgCal]);
+  }, [allMeals, MER, avgCal, idealCal]);
 
   useEffect(() => {
     const setNewGraph = () => {
@@ -177,7 +206,7 @@ const MealWeekChart = ({ allMeals }) => {
       </button>
       {graphData.length > 0 ? (
         <p>
-          {graphData[6].date} to {graphData[0].date}
+          {week[6].split('-').join(' ')} to {week[0].split('-').join(' ')}
         </p>
       ) : (
         ''
@@ -192,9 +221,16 @@ const MealWeekChart = ({ allMeals }) => {
           <Area
             type="monotone"
             dataKey="average calorie"
-            stroke="#00aced"
+            stroke="rgba(204, 171, 218, 1)"
             fillOpacity={0.3}
-            fill="rgba(0, 172, 237, 0.2)"
+            fill="rgba(0, 172, 237, 0)"
+          />
+          <Area
+            type="monotone"
+            dataKey="ideal calorie"
+            stroke="rgba(252, 136, 123, 1)"
+            fillOpacity={0.3}
+            fill="rgba(0, 172, 237, 0)"
           />
           <Bar barSize={15} fillOpacity={1} dataKey="treat" stackId="intake" fill="#363869" />
           <Bar barSize={15} fillOpacity={1} dataKey="meal" stackId="intake" fill="#85d6c3" />

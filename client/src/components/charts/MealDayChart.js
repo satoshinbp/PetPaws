@@ -19,6 +19,7 @@ const MealDayChart = ({ allMeals, MER }) => {
           time: allMeals[i].time.slice(0, 5),
           calorie: allMeals[i].calorie,
           type: allMeals[i].type,
+          id: allMeals[i].id,
         });
       }
     }
@@ -30,7 +31,7 @@ const MealDayChart = ({ allMeals, MER }) => {
       });
       setTotalDailyCalorie([
         { date: allFood[0].date, calorie: totalCal, label: 'intake' },
-        { date: allFood[0].date + 1, calorie: Math.floor(MER), label: 'ideal' },
+        { date: 'no-date' + 1, calorie: Math.floor(MER), label: 'ideal' },
       ]);
       setIdealCalorie({ date: 'intake', calorie: Math.floor(MER), label: 'ideal' });
     }
@@ -42,7 +43,7 @@ const MealDayChart = ({ allMeals, MER }) => {
       <h2>Meal Day Chart</h2>
       {mealsForDay.length > 0 ? (
         mealsForDay.map((meal) => (
-          <p>
+          <p key={meal.id}>
             Date:&nbsp;{meal.date}&nbsp;&nbsp;&nbsp; Type:&nbsp;{meal.type}&nbsp;&nbsp;&nbsp; Calorie:&nbsp;
             {meal.calorie} kcal
           </p>

@@ -13,8 +13,8 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
         <MealForm petProfile={petProfile} setAllMeals={setAllMeals} />
       )}
       <MealDayChart allMeals={allMeals} MER={MER} />
-      <MealWeekChart allMeals={allMeals} />
-      <MealMonthChart allMeals={allMeals} />
+      <MealWeekChart allMeals={allMeals} MER={MER} />
+      <MealMonthChart allMeals={allMeals} MER={MER} />
     </div>
   );
 }

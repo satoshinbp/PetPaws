@@ -24,8 +24,8 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
       <LatestCalorieSummary allMeals={allMeals} MER={MER} />
       <LatestWalkSummary allActivities={allActivities} />
       <h3>Nutrition Summary</h3>
-      <MealWeekChart allMeals={allMeals} />
-      <MealMonthChart allMeals={allMeals} />
+      <MealWeekChart allMeals={allMeals} MER={MER} />
+      <MealMonthChart allMeals={allMeals} MER={MER} />
       <Link to="/mealsummary" MER={MER}>
         Discover More
       </Link>
