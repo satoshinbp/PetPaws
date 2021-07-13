@@ -1,0 +1,55 @@
+input,
+.input,
+select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+input[type='radio'] {
+  height: 35px;
+}
+
+input,
+.input,
+select {
+  height: $height_input;
+}
+
+input::placeholder,
+select:invalid {
+  color: rgba(218, 218, 218, 1);
+}
+
+// SignUp SignIn
+
+// // Laptop
+// /* Calculator */
+// .input-home {
+//   height: 75px;
+// }
+// .input-home-select {
+//   height: 54px;
+// }
+
+// /* Meal Summary, Activity Summary */
+
+// .input-add {
+//   height: 75px;
+// }
+
+// /* Map */
+// .input-map {
+//   height: 64px;
+// }
+
+// /* Pet Profile */
+// .input-profile {
+//   height: 75px;
+// }
+
+// .input-profile-select {
+//   height: 54px;
+// }

@@ -7,9 +7,11 @@ $yellow-color: #ffdd95;
 $green-color: #86e3ce;
 $darkgreen-color: darkgreen; // TBD
 $purple-color: rgba(204, 171, 218, 0.82);
+$light-purple: rgba(237, 225, 248, 1);
 $navy-color: #3b3054;
 $pink-color: rgba(252, 136, 123, 0.49);
 $footer-color: #f8f3fa;
+$light-black: #373f41;
 
 // Font Family
 $header-fontfamily: 'To Japan', helvetica, arial, sans-serif;
@@ -28,3 +30,6 @@ $xl-border-radius: 40px; // 65px in first MockUp
 
 // Breakpoints
 $tb-breakpoint: 600px; // TBD
+
+// Height
+$height_input: 45px;

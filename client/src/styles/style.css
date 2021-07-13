@@ -191,9 +191,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
@@ -201,9 +201,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -212,9 +212,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -264,8 +264,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type='checkbox'],
-[type='radio'] {
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -275,8 +275,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -284,7 +284,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type='search'] {
+[type=search] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -294,7 +294,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type='search']::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -378,7 +378,6 @@ a {
     font-size: 18px;
   }
 }
-
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
 /* 2.2. Sign In ============= */
@@ -398,5 +397,95 @@ a {
 /* 3.6. Team ================ */
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
+button {
+  width: 300px;
+  height: 50px;
+  border-radius: 15px;
+  border-width: 0;
+  font-size: 1rem;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+.btn--sm {
+  width: 120px;
+  height: 40px;
+}
+
+.btn-toggle-tab {
+  width: 110px;
+  height: 20px;
+  border-radius: 20px;
+  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
+}
+
+.btn-outlined {
+  border: 1px solid #3b3054;
+  color: #3b3054;
+}
+
+.btn-circle {
+  width: 82px;
+  border-radius: 50px;
+  color: #3b3054;
+  background-color: #86e3ce;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.icon-btn--profile {
+  width: 35px;
+  height: 35px;
+  border: 2px solid #ffdd95;
+  border-radius: 17.5px;
+}
+
+.btn-contained-yellow {
+  background-color: #ffdd95;
+  color: #3b3054;
+}
+
+.btn-contained-purple {
+  background-color: rgba(204, 171, 218, 0.82);
+  color: #3b3054;
+}
+
+.btn-contained-light-purple {
+  background-color: #ede1f8;
+  color: #3b3054;
+}
+
+.btn-contained-green {
+  background-color: #86e3ce;
+  color: #3b3054;
+}
+
+.btn-contained-white {
+  background-color: #fff;
+  color: #3b3054;
+}
+
 /* 4.2. Inputs ============== */
-/*# sourceMappingURL=style.css.map */
+input,
+.input,
+select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 15px;
+  background-color: white;
+  border: 1px solid black;
+}
+
+input[type=radio] {
+  height: 35px;
+}
+
+input,
+.input,
+select {
+  height: 45px;
+}
+
+input::placeholder,
+select:invalid {
+  color: #dadada;
+}/*# sourceMappingURL=style.css.map */
