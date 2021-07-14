@@ -26,25 +26,28 @@ export default function Signup() {
   }
 
   return (
-    <div>
-      <img src={signinImg} alt="" />
-
-      <div>
-        <h2>Sign In</h2>
+    <div className="signin">
+      <div className="image-area">
+        <img src={signinImg} alt="" />
+      </div>
+      <div className="signin_form">
+        <h2>SIGN IN TO YOUR ACCOUNT</h2>
         <form onSubmit={hanleSubmit}>
           <label>Email</label>
-          <input type="email" ref={emailRef} required />
+          <input className="input-md" type="email" ref={emailRef} placeholder="Enter your Email" required />
           <label>Password</label>
-          <input type="password" ref={passwordRef} required />
-          <button className="btn--sm btn-contained-light-purple" disabled={loading} type="submit">
+          <input className="input-md" type="password" ref={passwordRef} placeholder="Enter your Password" required />
+          <button className="btn--sm btn-contained-purple" disabled={loading} type="submit">
             Sign in
           </button>
         </form>
-
-        <div>
-          Don't have an accout? <Link to="/signup">Sign-Up here</Link>
+        <hr />
+        <div className="signup-link-area">
+          <p> Don't have an accout ?</p>
+          <Link to="/signup" className="signup-link-area_link">
+            Sign-Up here
+          </Link>
         </div>
-
         {error && <div>{error}</div>}
       </div>
     </div>
