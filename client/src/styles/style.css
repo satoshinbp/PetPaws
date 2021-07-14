@@ -395,6 +395,12 @@ img {
   gap: 1rem;
 }
 
+@media screen and (min-width: 600px) {
+  .home {
+    gap: 2rem;
+  }
+}
+
 /* 2.4. Dashboard =========== */
 /* 2.5. Profile ============= */
 /* 2.6. Stores/Vets ========= */
