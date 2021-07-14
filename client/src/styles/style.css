@@ -493,7 +493,7 @@ img {
 button {
   width: 100%;
   height: 40px;
-  border-radius: 15px;
+  border-radius: 10px;
   border-width: 0;
   font-size: 1rem;
   text-transform: capitalize;
@@ -502,8 +502,8 @@ button {
 
 @media screen and (min-width: 600px) {
   .btn-not-fullwidth {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     width: auto;
   }
 }
