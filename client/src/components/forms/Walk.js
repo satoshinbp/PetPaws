@@ -12,7 +12,7 @@ export default function WalkForm({ petProfile, setAllActivities }) {
 
     const activity = { petID: petProfile.id, name, date, minute, distance };
 
-    Axios.post('https://pet-paws-langara.herokuapp.com/api/activity', activity)
+    Axios.post('http://localhost:3001/api/activity', activity)
       .then(() => {
         setAllActivities((prevActivities) => [...prevActivities, activity]);
         setName('');
