@@ -4,7 +4,51 @@
   text-align: center;
   background-color: $yellow-color;
 
+  &__wrapper {
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  &__img {
+    display: none;
+  }
+
   &__btn {
-    margin: 1rem;
+    margin: 1rem 0;
+  }
+
+  @media screen and (min-width: $tb-breakpoint) {
+    padding: 2rem;
+    text-align: left;
+
+    &__wrapper {
+      display: flex;
+      align-items: stretch;
+      gap: 2rem;
+    }
+
+    &__body {
+      flex-basis: 50%;
+      display: flex;
+      flex-flow: nowrap column;
+      justify-content: space-between;
+    }
+
+    &__img {
+      flex-basis: 50%;
+      display: block;
+    }
+
+    &__btn {
+      margin: 0;
+    }
+  }
+
+  @media screen and (min-width: $pc-breakpoint) {
+    padding: 3rem;
+
+    &__wrapper {
+      gap: 3rem;
+    }
   }
 }
