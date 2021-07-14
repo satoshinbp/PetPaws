@@ -349,6 +349,7 @@ template {
 body {
   font-family: "Content", helvetica, arial, sans-serif;
   font-size: 16px;
+  color: #3b3054;
 }
 
 h1,
@@ -358,6 +359,7 @@ h4,
 h5,
 h6 {
   font-family: "To Japan", helvetica, arial, sans-serif;
+  text-transform: uppercase;
 }
 
 ul {
@@ -373,6 +375,11 @@ a {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 @media screen and (min-width: 600px) {
   body {
     font-size: 18px;
@@ -382,9 +389,31 @@ a {
 /* 2.1. Sign Up ============= */
 /* 2.2. Sign In ============= */
 /* 2.3. Home ================ */
+.home {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
 /* 2.4. Dashboard =========== */
 /* 2.5. Profile ============= */
 /* 2.6. Stores/Vets ========= */
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-form {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #86e3ce;
+  text-align: center;
+}
+
 /* 2.7. Trackers ============ */
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
@@ -394,27 +423,94 @@ a {
 /* 3.3. Header ============== */
 /* 3.4. Footer ============== */
 /* 3.5. Calculator ========== */
-/* 3.6. Team ================ */
+/* 3.6. Intro ============ */
+.intro {
+  padding: 1rem;
+  border-radius: 30px;
+  text-align: center;
+  background-color: #ffdd95;
+}
+.intro__btn {
+  margin: 1rem;
+}
+
+/* 3.7. Features ============ */
+.features {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #86e3ce;
+  text-align: center;
+}
+.features__feature {
+  padding: 0 1rem;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.64);
+}
+.features__feature-img {
+  width: 56px;
+  margin: 0 auto;
+}
+.features__feature-description {
+  font-size: 0.875rem;
+}
+.features__btn {
+  margin: 1rem;
+}
+
+/* 3.8. Team ================ */
+.team {
+  padding: 1rem;
+  border-radius: 30px;
+  text-align: center;
+  background-color: rgba(204, 171, 218, 0.82);
+}
+.team__title {
+  color: #fff;
+}
+.team__members {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+.team__member-img {
+  overflow: hidden;
+  width: 138px;
+  height: 138px;
+  margin: 0 auto;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+.team__member-name {
+  font-size: 0.875rem;
+}
+
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
 button {
-  width: 300px;
-  height: 50px;
-  border-radius: 15px;
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
   border-width: 0;
   font-size: 1rem;
   text-transform: capitalize;
   cursor: pointer;
 }
 
-.btn--sm {
-  width: 120px;
-  height: 40px;
+@media screen and (min-width: 600px) {
+  .btn-not-fullwidth {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: auto;
+  }
 }
 
 .btn-toggle-tab {
-  width: 110px;
-  height: 20px;
+  width: 50%;
+  height: 16px;
   border-radius: 20px;
   box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
 }
@@ -424,19 +520,32 @@ button {
   color: #3b3054;
 }
 
-.btn-circle {
-  width: 82px;
-  border-radius: 50px;
+.icon-btn--circle-add {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
   color: #3b3054;
   background-color: #86e3ce;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
+@media screen and (min-width: 600px) {
+  .icon-btn--circle-add {
+    width: 86px;
+    height: 86px;
+  }
+}
 
-.icon-btn--profile {
-  width: 35px;
-  height: 35px;
+.icon-btn--circle-profile {
+  width: 28px;
+  height: 28px;
   border: 2px solid #ffdd95;
-  border-radius: 17.5px;
+  border-radius: 50%;
+}
+@media screen and (min-width: 600px) {
+  .icon-btn--circle-profile {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 .btn-contained-yellow {
@@ -469,23 +578,35 @@ input,
 .input,
 select {
   width: 100%;
+  height: 36px;
   padding: 0.5rem 1rem;
   border-radius: 15px;
   background-color: white;
-  border: 1px solid black;
 }
 
 input[type=radio] {
-  height: 35px;
-}
-
-input,
-.input,
-select {
-  height: 45px;
+  height: 28px;
 }
 
 input::placeholder,
 select:invalid {
   color: #dadada;
+}
+
+@media screen and (min-width: 600px) {
+  .input-sm {
+    height: 42px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-md {
+    height: 52px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-lg {
+    height: 60px;
+  }
 }/*# sourceMappingURL=style.css.map */

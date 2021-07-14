@@ -1,7 +1,7 @@
 button {
   width: 100%;
   height: 40px; //50px
-  border-radius: $md-border-radius;
+  border-radius: $sm-border-radius;
   border-width: 0;
   font-size: $md-fontsize;
   text-transform: capitalize;
@@ -12,8 +12,8 @@ button {
 // btn that doesn't correspond to parent component in laptop view exept for icon, circle btn
 .btn-not-fullwidth {
   @media screen and (min-width: $tb-breakpoint) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     width: auto;
   }
 }

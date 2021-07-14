@@ -10,9 +10,9 @@ import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
-  height: '550px',
+  height: '350px',
   marginTop: '1rem',
-  borderRadius: '5px',
+  borderRadius: '30px',
 };
 
 const options = {
