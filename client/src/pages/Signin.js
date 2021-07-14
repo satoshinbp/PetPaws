@@ -34,9 +34,9 @@ export default function Signup() {
         <h2>SIGN IN TO YOUR ACCOUNT</h2>
         <form onSubmit={hanleSubmit}>
           <label>Email</label>
-          <input type="email" ref={emailRef} placeholder="Enter your Email" required />
+          <input className="input-md" type="email" ref={emailRef} placeholder="Enter your Email" required />
           <label>Password</label>
-          <input type="password" ref={passwordRef} placeholder="Enter your Password" required />
+          <input className="input-md" type="password" ref={passwordRef} placeholder="Enter your Password" required />
           <button className="btn--sm btn-contained-light-purple" disabled={loading} type="submit">
             Sign in
           </button>
