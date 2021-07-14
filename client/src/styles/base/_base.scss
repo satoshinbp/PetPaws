@@ -7,6 +7,7 @@
 body {
   font-family: $paragraph-fontfamily;
   font-size: 16px;
+  color: $navy-color;
 }
 
 h1,
@@ -16,6 +17,7 @@ h4,
 h5,
 h6 {
   font-family: $header-fontfamily;
+  text-transform: uppercase;
 }
 
 ul {
@@ -29,6 +31,11 @@ li {
 a {
   text-decoration: none;
   color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
 
 @media screen and (min-width: $tb-breakpoint) {
