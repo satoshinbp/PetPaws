@@ -60,7 +60,7 @@ export default function Signup() {
           <input type="password" className="input-md" ref={passwordRef} required />
           <label id="password-Confirmation">passwordConfirmation</label>
           <input type="password" className="input-md" ref={passwordConfirmRef} required />
-          <button disabled={loading} type="submit">
+          <button className="btn-contained-pink" disabled={loading} type="submit">
             Get Started
           </button>
         </form>
