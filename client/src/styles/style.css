@@ -407,9 +407,21 @@ img {
 /* 3.3. Header ============== */
 /* 3.4. Footer ============== */
 /* 3.5. Calculator ========== */
-/* 3.6. Features ============ */
+/* 3.6. Intro ============ */
+.intro {
+  padding: 1rem;
+  border-radius: 30px;
+  text-align: center;
+  background-color: #ffdd95;
+}
+
+.intro__btn {
+  margin: 1rem;
+}
+
+/* 3.7. Features ============ */
 .features {
-  padding: 0 1rem;
+  padding: 1rem;
   border-radius: 30px;
   display: flex;
   flex-direction: column;
@@ -437,8 +449,9 @@ img {
   margin: 1rem;
 }
 
-/* 3.7. Team ================ */
+/* 3.8. Team ================ */
 .team {
+  padding: 1rem;
   border-radius: 30px;
   text-align: center;
   background-color: rgba(204, 171, 218, 0.82);
