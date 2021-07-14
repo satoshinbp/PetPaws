@@ -393,10 +393,6 @@ img {
   flex-flow: column nowrap;
   background: #f8f3fa;
 }
-.signin img {
-  max-width: 100%;
-  height: auto;
-}
 .signin_form {
   padding: 2rem 1rem 3rem;
   margin: 1rem;

@@ -31,11 +31,10 @@ export default function Signup() {
   };
 
   return (
-    <div>
-      <img src={singupImg} alt="" />
-
-      <div>
-        <h2>Sign Up</h2>
+    <div className="signup">
+      <div className="signup_description"></div>
+      <div className="signup_form">
+        <h2>Create your Free Account</h2>
         {error && <div>{error}</div>}
 
         <form onSubmit={handleSubmit}>
