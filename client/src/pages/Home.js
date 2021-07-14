@@ -4,7 +4,7 @@ import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
 
 function Home() {
   return (
-    <div className="page">
+    <div>
       <div className="intro">
         <div className="intro__wrapper">
           <div className="intro__body">
