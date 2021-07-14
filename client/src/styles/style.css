@@ -489,7 +489,7 @@ img {
 }
 
 /* 3.3. Body ================ */
-.body {
+.body__wrapper {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
@@ -499,26 +499,26 @@ img {
 }
 
 @media screen and (min-width: 600px) {
-  .body {
+  .body__wrapper {
     gap: 2rem;
   }
 }
 
 @media screen and (min-width: 960px) {
-  .body {
+  .body__wrapper {
     gap: 3rem;
   }
 }
 
 @media screen and (min-width: 600px) {
-  .dashboard .body {
+  .dashboard .body__wrapper {
     display: grid;
     grid-template-rows: 1fr 1fr;
     grid-template-columns: 1fr 1fr;
     row-gap: 2rem;
     column-gap: 1rem;
   }
-  .dashboard .body div:first-child {
+  .dashboard .body__wrapper div:first-child {
     grid-column: span 2;
   }
 }

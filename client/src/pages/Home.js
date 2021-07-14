@@ -28,48 +28,50 @@ function Home() {
       </div>
 
       <div className="body">
-        <div className="features">
-          <h2>Our Services</h2>
+        <div className="body__wrapper">
+          <div className="features">
+            <h2>Our Services</h2>
 
-          <div className="features__feature">
-            <h3>Meal and Walk Tracker</h3>
-            <div className="features__feature-img">
-              <img src={signinImg} alt="member portrait" />
+            <div className="features__feature">
+              <h3>Meal and Walk Tracker</h3>
+              <div className="features__feature-img">
+                <img src={signinImg} alt="member portrait" />
+              </div>
+              <p className="features__feature-description">
+                With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
+                healthy and happy
+              </p>
             </div>
-            <p className="features__feature-description">
-              With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
-              healthy and happy
-            </p>
-          </div>
 
-          <div className="features__feature">
-            <h3>Calorie Calculator</h3>
-            <div className="features__feature-img">
-              <img src={signinImg} alt="member portrait" />
+            <div className="features__feature">
+              <h3>Calorie Calculator</h3>
+              <div className="features__feature-img">
+                <img src={signinImg} alt="member portrait" />
+              </div>
+              <p className="features__feature-description">
+                With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
+                healthy and happy
+              </p>
             </div>
-            <p className="features__feature-description">
-              With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
-              healthy and happy
-            </p>
-          </div>
 
-          <div className="features__feature">
-            <h3>Pet Stores Finder</h3>
-            <div className="features__feature-img">
-              <img src={signinImg} alt="member portrait" />
+            <div className="features__feature">
+              <h3>Pet Stores Finder</h3>
+              <div className="features__feature-img">
+                <img src={signinImg} alt="member portrait" />
+              </div>
+              <p className="features__feature-description">
+                With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
+                healthy and happy
+              </p>
             </div>
-            <p className="features__feature-description">
-              With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
-              healthy and happy
-            </p>
+
+            <div className="features__btn">
+              <button className="btn-contained-white btn-not-fullwidth">Unlock All Features</button>
+            </div>
           </div>
 
-          <div className="features__btn">
-            <button className="btn-contained-white btn-not-fullwidth">Unlock All Features</button>
-          </div>
+          <Team />
         </div>
-
-        <Team />
       </div>
     </div>
   );
