@@ -3,6 +3,10 @@
   flex-flow: column nowrap;
   background: $footer-color;
 
+  .image-area {
+    display: none;
+  }
+
   &_form{
     padding: 2rem 1rem 3rem;
     margin: 1rem;
@@ -16,6 +20,10 @@
     label {
       display: block;
       padding: 1rem 0 .5rem;
+    }
+
+    button{
+      margin: 2rem 0;
     }
 
     hr {
@@ -43,18 +51,18 @@
     flex-flow: row nowrap;
     justify-content: space-around;
 
-  .image-area {
-    padding: 0 1rem;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 700px;
+    .image-area {
+      padding: 0 1rem;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 700px;
 
-    img{
-      flex: 0 0 40%;
+      img{
+        flex: 0 0 40%;
+      }
     }
-  }
 
     &_form{
       flex: 0 0 40%;
