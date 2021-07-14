@@ -216,50 +216,37 @@ const WalkMonthChart = ({ allActivities }) => {
   }, [count]);
 
   return (
-    <div style={{ marginTop: '25vh' }}>
-      <h2>Month Chart</h2>
-      <div style={{ height: '300px' }}>
-        {/* MUST set height to display chart */}
-        {/* 確認用 */}
-        {/*graphData.map((meal) => (
+    <div className="walk-month-graph">
+      {/* MUST set height to display chart */}
+      {/* 確認用 */}
+      {/*graphData.map((meal) => (
                 <p key={meal.date}>{meal.date}, minute: {meal.minute}, distance: {meal.distance} avgMin: {meal.avgMin}</p>
             ))*/}
-        <br></br>
-        <div className="month-controller">
-          <button
-            onClick={() => {
-              setFirstTime(false);
-              setCount(count + 1);
-            }}
-          >
-            ＜
-          </button>
-          <button
-            onClick={() => {
-              setCount(count - 1);
-            }}
-          >
-            ＞
-          </button>
-          {graphData.length > 0 ? (
-            <p>
-              {month[0].split('-').join(' ')} to {month[month.length - 1].split('-').join(' ')}
-            </p>
-          ) : (
-            ''
-          )}
-        </div>
-        {/*<ResponsiveContainer>
-          <ComposedChart data={graphData} margin={{ left: 0 }}>
-            <XAxis dataKey="date" />
-            <YAxis />
-            <Tooltip />
-            <Legend />
-            <CartesianGrid stroke="#f5f5f5" />
-            <Area type="monotone" dataKey="avgMin" stroke="#00aced" fillOpacity={0.3} fill="rgba(0, 172, 237, 0.2)" />
-            <Bar barSize={15} fillOpacity={1} fill="#2250A2" dataKey="minute" stackId="a" barSize={15} fill="#85d6c3" />
-          </ComposedChart>
-        </ResponsiveContainer>*/}
+      <div className="month-controller">
+        <button
+          onClick={() => {
+            setFirstTime(false);
+            setCount(count + 1);
+          }}
+        >
+          ＜
+        </button>
+        {graphData.length > 0 ? (
+          <p>
+            {month[0].split('-').join(' ')} to {month[month.length - 1].split('-').join(' ')}
+          </p>
+        ) : (
+          ''
+        )}
+        <button
+          onClick={() => {
+            setCount(count - 1);
+          }}
+        >
+          ＞
+        </button>
+      </div>
+      <div className="graph-height">
         <ResponsiveContainer>
           <AreaChart
             data={graphData}

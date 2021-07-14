@@ -412,167 +412,6 @@ img {
 }
 
 /* 2.7. Trackers ============ */
-/* back ground gradient */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Content", helvetica, arial, sans-serif;
-  font-size: 16px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "To Japan", helvetica, arial, sans-serif;
-}
-
-ul {
-  padding-left: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/*@media screen and (min-width: $tb-breakpoint) {
-  body {
-    font-size: 18px;
-  }
-}*/
-/* ******************************************************** */
-.walk-summary .function-wrapper .walk-form,
-.walk-summary .function-wrapper .meal-form,
-.meal-summary .function-wrapper .walk-form,
-.meal-summary .function-wrapper .meal-form {
-  border-radius: 10px;
-  padding: 1rem;
-}
-
-.walk-summary .function-wrapper .walk-form h3,
-.walk-summary .function-wrapper .meal-form h3,
-.meal-summary .function-wrapper .walk-form h3,
-.meal-summary .function-wrapper .meal-form h3 {
-  font-size: 1rem;
-  text-align: center;
-}
-
-.walk-summary .function-wrapper .walk-form .input-wrapper,
-.walk-summary .function-wrapper .meal-form .input-wrapper,
-.meal-summary .function-wrapper .walk-form .input-wrapper,
-.meal-summary .function-wrapper .meal-form .input-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 0.7rem;
-}
-
-.walk-summary .function-wrapper .walk-form .input-wrapper div,
-.walk-summary .function-wrapper .meal-form .input-wrapper div,
-.meal-summary .function-wrapper .walk-form .input-wrapper div,
-.meal-summary .function-wrapper .meal-form .input-wrapper div {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 0.3rem;
-}
-
-.walk-summary .function-wrapper .walk-form .input-wrapper div label,
-.walk-summary .function-wrapper .meal-form .input-wrapper div label,
-.meal-summary .function-wrapper .walk-form .input-wrapper div label,
-.meal-summary .function-wrapper .meal-form .input-wrapper div label {
-  font-weight: 700;
-}
-
-.walk-summary .function-wrapper .walk-form .button-wrapper,
-.walk-summary .function-wrapper .meal-form .button-wrapper,
-.meal-summary .function-wrapper .walk-form .button-wrapper,
-.meal-summary .function-wrapper .meal-form .button-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
-}
-
-.walk-summary .function-wrapper .meal-week-month-graphs-wrapper,
-.walk-summary .function-wrapper .walk-week-month-graphs-wrapper,
-.meal-summary .function-wrapper .meal-week-month-graphs-wrapper,
-.meal-summary .function-wrapper .walk-week-month-graphs-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  padding: 1rem;
-}
-
-.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info,
-.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info,
-.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info,
-.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 0.7rem;
-}
-
-.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info h3,
-.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info h3,
-.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info h3,
-.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info h3 {
-  margin: 0 auto 0.5rem;
-}
-
-.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info p,
-.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info p,
-.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info p,
-.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info p {
-  margin: 0;
-}
-
-.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info .pet-image,
-.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info .pet-image,
-.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info .pet-image,
-.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info .pet-image {
-  width: 78px;
-  height: 130px;
-  object-fit: cover;
-  background-color: white;
-  border-radius: 15px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-}
-
-.meal-summary {
-  background: linear-gradient(rgba(134, 227, 206, 0.23), rgba(255, 221, 149, 0.23));
-}
-
-.meal-summary .meal-form {
-  background-color: #86e3ce;
-}
-
-.meal-summary .meal-week-month-graphs-wrapper {
-  background-color: rgba(134, 227, 206, 0.5);
-}
-
-.walk-summary {
-  background: linear-gradient(rgba(204, 171, 218, 0.28), rgba(255, 221, 149, 0.23));
-}
-
-.walk-summary .walk-form {
-  background-color: rgba(204, 171, 218, 0.82);
-}
-
-.walk-summary .walk-week-month-graphs-wrapper {
-  background-color: rgba(204, 171, 218, 0.8);
-}
-
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
 /* ========================== */
@@ -734,6 +573,194 @@ a {
 
 /* TO BE REORGANIZED ======== */
 /* 3.1. Forms =============== */
+/* back ground gradient */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Content", helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "To Japan", helvetica, arial, sans-serif;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*@media screen and (min-width: $tb-breakpoint) {
+  body {
+    font-size: 18px;
+  }
+}*/
+/* ******************************************************** */
+.walk-summary .function-wrapper .walk-form,
+.walk-summary .function-wrapper .meal-form,
+.meal-summary .function-wrapper .walk-form,
+.meal-summary .function-wrapper .meal-form {
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.walk-summary .function-wrapper .walk-form h3,
+.walk-summary .function-wrapper .meal-form h3,
+.meal-summary .function-wrapper .walk-form h3,
+.meal-summary .function-wrapper .meal-form h3 {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.walk-summary .function-wrapper .walk-form .input-wrapper,
+.walk-summary .function-wrapper .meal-form .input-wrapper,
+.meal-summary .function-wrapper .walk-form .input-wrapper,
+.meal-summary .function-wrapper .meal-form .input-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.7rem;
+}
+
+.walk-summary .function-wrapper .walk-form .input-wrapper div,
+.walk-summary .function-wrapper .meal-form .input-wrapper div,
+.meal-summary .function-wrapper .walk-form .input-wrapper div,
+.meal-summary .function-wrapper .meal-form .input-wrapper div {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.3rem;
+}
+
+.walk-summary .function-wrapper .walk-form .input-wrapper div label,
+.walk-summary .function-wrapper .meal-form .input-wrapper div label,
+.meal-summary .function-wrapper .walk-form .input-wrapper div label,
+.meal-summary .function-wrapper .meal-form .input-wrapper div label {
+  font-weight: 700;
+}
+
+.walk-summary .function-wrapper .walk-form .button-wrapper,
+.walk-summary .function-wrapper .meal-form .button-wrapper,
+.meal-summary .function-wrapper .walk-form .button-wrapper,
+.meal-summary .function-wrapper .meal-form .button-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info h3,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info h3,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info h3,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info h3 {
+  margin: 0 auto 0.5rem;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info p,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info p,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info p,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info p {
+  margin: 0;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info .pet-image,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info .pet-image,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info .pet-image,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info .pet-image {
+  width: 78px;
+  height: 130px;
+  object-fit: cover;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs {
+  width: 100%;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-radius: 10px;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .graph-height,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .graph-height,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .graph-height,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .graph-height {
+  height: 350px;
+}
+
+.meal-summary .meal-form {
+  background-color: #86e3ce;
+}
+
+.meal-summary .meal-week-month-graphs-wrapper {
+  background-color: rgba(134, 227, 206, 0.5);
+}
+
+.walk-summary .walk-form {
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
+.walk-summary .walk-week-month-graphs-wrapper {
+  background-color: rgba(204, 171, 218, 0.8);
+}
+
 /* 3.2. Charts ============== */
 /* 3.3. Header ============== */
 /* 3.4. Footer ============== */

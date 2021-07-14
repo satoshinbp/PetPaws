@@ -1,0 +1,174 @@
+// Colors
+$lighten-color: rgba(255, 255, 255, 0.64);
+$white-color: #fff;
+$yellow-color: #ffdd95;
+$green-color: #86e3ce;
+$darkgreen-color: darkgreen; // TBD
+$purple-color: rgba(204, 171, 218, 0.82);
+$light-purple: rgba(237, 225, 248, 1);
+$navy-color: #3b3054;
+$pink-color: rgba(252, 136, 123, 0.49);
+$footer-color: #f8f3fa;
+$light-black: #373f41;
+/* back ground gradient */
+$purpleーradient-color: rgba(204, 171, 218, 0.28);
+
+// Font Family
+$header-fontfamily: 'To Japan', helvetica, arial, sans-serif;
+$paragraph-fontfamily: 'Content', helvetica, arial, sans-serif;
+
+// Font Size
+$sm-fontsize: 0.875rem; // 22px in first MockUp
+$md-fontsize: 1rem; // 26px in first MockUp
+$lg-fontsize: 1.5rem; // 32px in first MockUp
+
+// Border Radius
+$sm-border-radius: 10px; // 15px in first MockUp
+$md-border-radius: 15px; // 25px in first MockUp
+$lg-border-radius: 30px; // 50px in first MockUp
+$xl-border-radius: 40px; // 65px in first MockUp
+
+// Breakpoints
+$tb-breakpoint: 600px; // TBD
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $paragraph-fontfamily;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-fontfamily;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*@media screen and (min-width: $tb-breakpoint) {
+  body {
+    font-size: 18px;
+  }
+}*/
+
+/* ******************************************************** */
+
+.walk-summary,
+.meal-summary {
+  // FORM + GRAPHS
+  .function-wrapper {
+    // FORM
+    .walk-form,
+    .meal-form {
+      border-radius: $sm-border-radius;
+      padding: 1rem;
+      h3 {
+        font-size: $md-fontsize;
+        text-align: center;
+      }
+
+      .input-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 0.7rem;
+        div {
+          display: flex;
+          flex-flow: column nowrap;
+          gap: 0.3rem;
+          label {
+            font-weight: 700;
+          }
+        }
+      }
+      // CREATE, CANCEL BUTTON
+      .button-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+      }
+    } // end of form
+    .meal-week-month-graphs-wrapper,
+    .walk-week-month-graphs-wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+      padding: 1rem;
+      border-radius: $sm-border-radius;
+      .basic-info {
+        width: 100%;
+        display: flex;
+        flex-flow: column nowrap;
+        align-items: center;
+        gap: 0.7rem;
+        h3 {
+          margin: 0 auto 0.5rem;
+        }
+        p {
+          margin: 0;
+        }
+        .pet-image {
+          width: 78px;
+          height: 130px;
+          object-fit: cover;
+          background-color: white;
+          border-radius: $md-border-radius;
+          display: flex;
+          align-items: center;
+          text-align: center;
+        }
+      }
+      .graphs {
+        width: 100%;
+        .walk-week-graph,
+        .walk-month-graph,
+        .meal-week-graph,
+        .meal-month-graph {
+          background-color: $lighten-color;
+          border-radius: $sm-border-radius;
+        }
+        .graph-height {
+          height: 350px;
+        }
+      }
+    }
+  }
+}
+
+// Meal Summary Background
+.meal-summary {
+  .meal-form {
+    background-color: $green-color;
+  }
+  .meal-week-month-graphs-wrapper {
+    background-color: rgba($green-color, 0.5);
+  }
+}
+
+// Activity Sammary Background
+.walk-summary {
+  .walk-form {
+    background-color: $purple-color;
+  }
+  .walk-week-month-graphs-wrapper {
+    background-color: rgba($purple-color, 0.8);
+  }
+}

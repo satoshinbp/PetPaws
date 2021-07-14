@@ -183,59 +183,62 @@ const MealWeekChart = ({ allMeals, MER }) => {
   }, [count, avgCal]);
 
   return (
-    <div style={{ height: '260px' }}>
+    <div className="meal-week-graph">
       {/* 確認用 */}
       {/*graphData.map((meal) => (
                 <p key={meal.date}>{meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}</p>
             ))*/}
-      <br></br>
-      <button
-        onClick={() => {
-          setFirstTime(false);
-          setCount(count + 1);
-        }}
-      >
-        ＜
-      </button>
-      <button
-        onClick={() => {
-          setCount(count - 1);
-        }}
-      >
-        ＞
-      </button>
-      {graphData.length > 0 ? (
-        <p>
-          {week[6].split('-').join(' ')} to {week[0].split('-').join(' ')}
-        </p>
-      ) : (
-        ''
-      )}
-      <ResponsiveContainer>
-        <ComposedChart data={graphData} margin={{ left: 0 }}>
-          <XAxis dataKey="date" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid stroke="#f5f5f5" />
-          <Area
-            type="monotone"
-            dataKey="average calorie"
-            stroke="rgba(204, 171, 218, 1)"
-            fillOpacity={0.3}
-            fill="rgba(0, 172, 237, 0)"
-          />
-          <Area
-            type="monotone"
-            dataKey="ideal calorie"
-            stroke="rgba(252, 136, 123, 1)"
-            fillOpacity={0.3}
-            fill="rgba(0, 172, 237, 0)"
-          />
-          <Bar barSize={15} fillOpacity={1} dataKey="treat" stackId="intake" fill="#363869" />
-          <Bar barSize={15} fillOpacity={1} dataKey="meal" stackId="intake" fill="#85d6c3" />
-        </ComposedChart>
-      </ResponsiveContainer>
+      <div className="week-controller">
+        <button
+          onClick={() => {
+            setFirstTime(false);
+            setCount(count + 1);
+          }}
+        >
+          ＜
+        </button>
+        {graphData.length > 0 ? (
+          <p>
+            {week[6].split('-').join(' ')} to {week[0].split('-').join(' ')}
+          </p>
+        ) : (
+          ''
+        )}
+        <button
+          onClick={() => {
+            setCount(count - 1);
+          }}
+        >
+          ＞
+        </button>
+      </div>
+      <div className="graph-height">
+        <ResponsiveContainer>
+          <ComposedChart data={graphData} margin={{ left: 0 }}>
+            <XAxis dataKey="date" />
+            <YAxis />
+            <Tooltip />
+            <Legend />
+            <CartesianGrid stroke="#f5f5f5" />
+            <Area
+              type="monotone"
+              dataKey="average calorie"
+              stroke="rgba(204, 171, 218, 1)"
+              fillOpacity={0.3}
+              fill="rgba(0, 172, 237, 0)"
+            />
+            <Area
+              type="monotone"
+              dataKey="ideal calorie"
+              stroke="rgba(252, 136, 123, 1)"
+              fillOpacity={0.3}
+              fill="rgba(0, 172, 237, 0)"
+            />
+            <Bar barSize={15} fillOpacity={1} dataKey="treat" stackId="intake" fill="#363869" />
+            <Bar barSize={15} fillOpacity={1} dataKey="meal" stackId="intake" fill="#85d6c3" />
+          </ComposedChart>
+        </ResponsiveContainer>
+      </div>
     </div>
   );
 };
