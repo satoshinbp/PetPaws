@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 /* 1 Base =================== */
 /* 1.1. Reset =========== */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -8,7 +8,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 html {
   line-height: 1.15;
   /* 1 */
@@ -347,8 +347,9 @@ template {
 }
 
 body {
-  font-family: "Content", helvetica, arial, sans-serif;
+  font-family: 'Content', helvetica, arial, sans-serif;
   font-size: 16px;
+  color: #3b3054;
 }
 
 h1,
@@ -357,7 +358,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "To Japan", helvetica, arial, sans-serif;
+  font-family: 'To Japan', helvetica, arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -388,32 +389,32 @@ img {
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
 /* 2.2. Sign In ============= */
-/* 2.3. Home ================ */
-.home {
+/* TO BE DELETED ============ */
+/* 2.4. Dashboard =========== */
+/* 2.5. Profile ============= */
+/* 2.6. Stores/Vets ========= */
+.search {
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-@media screen and (min-width: 600px) {
-  .home {
-    gap: 2rem;
-  }
+.search-form {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #86e3ce;
+  text-align: center;
 }
 
-/* 2.4. Dashboard =========== */
-/* 2.5. Profile ============= */
-/* 2.6. Stores/Vets ========= */
 /* 2.7. Trackers ============ */
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
+/* ========================== */
 /* 3 Components ============= */
-/* 3.1. Forms =============== */
-/* 3.2. Charts ============== */
-/* 3.3. Header ============== */
-/* 3.4. Footer ============== */
-/* 3.5. Calculator ========== */
-/* 3.6. Intro ============ */
+/* 3.1. Intro =============== */
 .intro {
   padding: 1rem;
   border-radius: 30px;
@@ -422,7 +423,6 @@ img {
 }
 
 .intro__wrapper {
-  width: 100%;
   max-width: 1280px;
   margin: 0 auto;
 }
@@ -448,19 +448,66 @@ img {
   .intro__body {
     flex-basis: 50%;
     display: flex;
-    flex-direction: column;
+    flex-flow: nowrap column;
     justify-content: space-between;
   }
   .intro__img {
-    display: block;
     flex-basis: 50%;
+    display: block;
   }
   .intro__btn {
     margin: 0;
   }
 }
 
-/* 3.7. Features ============ */
+@media screen and (min-width: 960px) {
+  .intro {
+    padding: 3rem;
+  }
+  .intro__wrapper {
+    gap: 3rem;
+  }
+}
+
+/* 3.2. Body ================ */
+.body__wrapper {
+  width: 100%;
+  max-width: 1280px;
+  padding: 1rem 0;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .body__wrapper {
+    padding: 2rem 0;
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .body__wrapper {
+    padding: 3rem 0;
+    gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard .body__wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+    column-gap: 1rem;
+  }
+  .dashboard .body__wrapper div:first-child {
+    grid-column: span 2;
+  }
+}
+
+/* 3.3. Features ============ */
 .features {
   width: 100%;
   max-width: 1280px;
@@ -511,7 +558,7 @@ img {
   }
 }
 
-/* 3.8. Team ================ */
+/* 3.4. Team ================ */
 .team {
   width: 100%;
   max-width: 1280px;
@@ -564,6 +611,13 @@ img {
   }
 }
 
+/* TO BE REORGANIZED ======== */
+/* 3.1. Forms =============== */
+/* 3.2. Charts ============== */
+/* 3.3. Header ============== */
+/* 3.4. Footer ============== */
+/* 3.5. Calculator ========== */
+/* ========================== */
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
 button {
@@ -660,7 +714,6 @@ select {
   padding: 0.5rem 1rem;
   border-radius: 15px;
   background-color: white;
-  border: 1px solid black;
 }
 
 input[type='radio'] {

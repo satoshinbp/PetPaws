@@ -4,12 +4,12 @@ import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
 
 function Home() {
   return (
-    <div className="home">
+    <div>
       <div className="intro">
         <div className="intro__wrapper">
           <div className="intro__body">
-            <div>
-              <h3>Welcom to Pet Paws</h3>
+            <div className="intro__text">
+              <h2>Welcom to Pet Paws</h2>
               <p>
                 Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets
                 and pet shops for your convenience.
@@ -27,48 +27,52 @@ function Home() {
         </div>
       </div>
 
-      <div className="features">
-        <h2>Our Services</h2>
+      <div className="body">
+        <div className="body__wrapper">
+          <div className="features">
+            <h2>Our Services</h2>
 
-        <div className="features__feature">
-          <h3 className="features__feature-title">Meal and Walk Tracker</h3>
-          <div className="features__feature-img">
-            <img src={signinImg} alt="member portrait" />
+            <div className="features__feature">
+              <h3>Meal and Walk Tracker</h3>
+              <div className="features__feature-img">
+                <img src={signinImg} alt="member portrait" />
+              </div>
+              <p className="features__feature-description">
+                With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
+                healthy and happy
+              </p>
+            </div>
+
+            <div className="features__feature">
+              <h3>Calorie Calculator</h3>
+              <div className="features__feature-img">
+                <img src={signinImg} alt="member portrait" />
+              </div>
+              <p className="features__feature-description">
+                With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
+                healthy and happy
+              </p>
+            </div>
+
+            <div className="features__feature">
+              <h3>Pet Stores Finder</h3>
+              <div className="features__feature-img">
+                <img src={signinImg} alt="member portrait" />
+              </div>
+              <p className="features__feature-description">
+                With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
+                healthy and happy
+              </p>
+            </div>
+
+            <div className="features__btn">
+              <button className="btn-contained-white btn-not-fullwidth">Unlock All Features</button>
+            </div>
           </div>
-          <p className="features__feature-description">
-            With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be healthy
-            and happy
-          </p>
-        </div>
 
-        <div className="features__feature">
-          <h3 className="features__feature-title">Calorie Calculator</h3>
-          <div className="features__feature-img">
-            <img src={signinImg} alt="member portrait" />
-          </div>
-          <p className="features__feature-description">
-            With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be healthy
-            and happy
-          </p>
-        </div>
-
-        <div className="features__feature">
-          <h3 className="features__feature-title">Pet Stores Finder</h3>
-          <div className="features__feature-img">
-            <img src={signinImg} alt="member portrait" />
-          </div>
-          <p className="features__feature-description">
-            With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be healthy
-            and happy
-          </p>
-        </div>
-
-        <div className="features__btn">
-          <button className="btn-contained-white btn-not-fullwidth">Unlock All Features</button>
+          <Team />
         </div>
       </div>
-
-      <Team />
     </div>
   );
 }
