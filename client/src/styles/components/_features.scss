@@ -1,4 +1,7 @@
 .features {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
   padding: 1rem;
   border-radius: $lg-border-radius;
   display: flex;
@@ -8,7 +11,7 @@
   text-align: center;
 
   &__feature {
-    padding: 0 1rem;
+    padding: 1rem;
     border-radius: $md-border-radius;
     background-color: $lighten-color;
   }
@@ -23,6 +26,27 @@
   }
 
   &__btn {
-    margin: 1rem;
+    margin: 1rem 0;
+  }
+
+  @media screen and (min-width: $tb-breakpoint) {
+    &__feature {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 2fr;
+      gap: 1rem;
+      text-align: left;
+
+      &:nth-child(2n + 1) {
+        .features__feature-img {
+          grid-column: 2 / span 1;
+        }
+      }
+    }
+
+    &__feature-img {
+      width: 100%;
+      grid-row: 1 / span 2;
+    }
   }
 }

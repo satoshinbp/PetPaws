@@ -17,7 +17,7 @@ function Home() {
             </div>
 
             <div className="intro__btn">
-              <button className="btn-contained-green btn-not-fullwidth">Create free account</button>
+              <button className="btn-contained-white btn-not-fullwidth">Create free account</button>
             </div>
           </div>
 
@@ -31,7 +31,7 @@ function Home() {
         <h2>Our Services</h2>
 
         <div className="features__feature">
-          <h3>Meal and Walk Tracker</h3>
+          <h3 className="features__feature-title">Meal and Walk Tracker</h3>
           <div className="features__feature-img">
             <img src={signinImg} alt="member portrait" />
           </div>
@@ -42,7 +42,7 @@ function Home() {
         </div>
 
         <div className="features__feature">
-          <h3>Calorie Calculator</h3>
+          <h3 className="features__feature-title">Calorie Calculator</h3>
           <div className="features__feature-img">
             <img src={signinImg} alt="member portrait" />
           </div>
@@ -53,7 +53,7 @@ function Home() {
         </div>
 
         <div className="features__feature">
-          <h3>Pet Stores Finder</h3>
+          <h3 className="features__feature-title">Pet Stores Finder</h3>
           <div className="features__feature-img">
             <img src={signinImg} alt="member portrait" />
           </div>
@@ -64,7 +64,7 @@ function Home() {
         </div>
 
         <div className="features__btn">
-          <button className="btn-contained-yellow btn-not-fullwidth">Unlock All Features</button>
+          <button className="btn-contained-white btn-not-fullwidth">Unlock All Features</button>
         </div>
       </div>
 
