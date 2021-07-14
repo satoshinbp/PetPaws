@@ -455,6 +455,9 @@ img {
     display: block;
     flex-basis: 50%;
   }
+  .intro__btn {
+    margin: 0;
+  }
 }
 
 /* 3.7. Features ============ */
@@ -480,10 +483,6 @@ img {
 .features__feature-img {
   width: 56px;
   margin: 0 auto;
-}
-
-.features__feature-description {
-  font-size: 0.875rem;
 }
 
 .features__btn {
@@ -544,7 +543,7 @@ img {
 }
 
 .team__member-name {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 
 @media screen and (min-width: 600px) {
@@ -572,7 +571,7 @@ button {
   height: 40px;
   border-radius: 10px;
   border-width: 0;
-  font-size: 1rem;
+  font-size: 1em;
   text-transform: capitalize;
   cursor: pointer;
 }
