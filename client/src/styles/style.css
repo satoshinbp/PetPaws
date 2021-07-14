@@ -349,6 +349,7 @@ template {
 body {
   font-family: "Content", helvetica, arial, sans-serif;
   font-size: 16px;
+  color: #3b3054;
 }
 
 h1,
@@ -358,6 +359,7 @@ h4,
 h5,
 h6 {
   font-family: "To Japan", helvetica, arial, sans-serif;
+  text-transform: uppercase;
 }
 
 ul {
@@ -373,6 +375,11 @@ a {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 @media screen and (min-width: 600px) {
   body {
     font-size: 18px;
@@ -385,6 +392,19 @@ a {
 /* 2.4. Dashboard =========== */
 /* 2.5. Profile ============= */
 /* 2.6. Stores/Vets ========= */
+.search {
+  border-radius: 30px;
+  background-color: #86e3ce;
+  padding: 1rem 2rem;
+}
+
+.search-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
 /* 2.7. Trackers ============ */
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
@@ -398,8 +418,8 @@ a {
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
 button {
-  width: 300px;
-  height: 50px;
+  width: 100%;
+  height: 40px;
   border-radius: 15px;
   border-width: 0;
   font-size: 1rem;
@@ -407,14 +427,17 @@ button {
   cursor: pointer;
 }
 
-.btn--sm {
-  width: 120px;
-  height: 40px;
+@media screen and (min-width: 600px) {
+  .btn-not-fullwidth {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: auto;
+  }
 }
 
 .btn-toggle-tab {
-  width: 110px;
-  height: 20px;
+  width: 50%;
+  height: 16px;
   border-radius: 20px;
   box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
 }
@@ -424,19 +447,32 @@ button {
   color: #3b3054;
 }
 
-.btn-circle {
-  width: 82px;
-  border-radius: 50px;
+.icon-btn--circle-add {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
   color: #3b3054;
   background-color: #86e3ce;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
+@media screen and (min-width: 600px) {
+  .icon-btn--circle-add {
+    width: 86px;
+    height: 86px;
+  }
+}
 
-.icon-btn--profile {
-  width: 35px;
-  height: 35px;
+.icon-btn--circle-profile {
+  width: 28px;
+  height: 28px;
   border: 2px solid #ffdd95;
-  border-radius: 17.5px;
+  border-radius: 50%;
+}
+@media screen and (min-width: 600px) {
+  .icon-btn--circle-profile {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 .btn-contained-yellow {
@@ -469,23 +505,35 @@ input,
 .input,
 select {
   width: 100%;
+  height: 36px;
   padding: 0.5rem 1rem;
   border-radius: 15px;
   background-color: white;
-  border: 1px solid black;
 }
 
 input[type=radio] {
-  height: 35px;
-}
-
-input,
-.input,
-select {
-  height: 45px;
+  height: 28px;
 }
 
 input::placeholder,
 select:invalid {
   color: #dadada;
+}
+
+@media screen and (min-width: 600px) {
+  .input-sm {
+    height: 42px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-md {
+    height: 52px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-lg {
+    height: 60px;
+  }
 }/*# sourceMappingURL=style.css.map */

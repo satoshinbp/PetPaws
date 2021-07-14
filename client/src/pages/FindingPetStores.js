@@ -31,22 +31,27 @@ export default function FindingPetStores() {
 
   return (
     <>
-      <div>
-        <h1>Finding Pet stores/ Vets</h1>
-      </div>
-      <form>
-        <h3>Lets find the best Vets and Pet stores</h3>
-        <div>
-          <label htmlFor="">Find location</label>
+      {/* <h3>Finding Pet shops / Vets</h3>
+      <p>
+        Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets and pet
+        shops for your convenience.
+      </p>
+      <button>Create free account</button> */}
+      <div className="search">
+        <form className="search-form">
+          <h3>Lets find the best Pet Stores and vets</h3>
+
+          <label htmlFor="">Choose Pet Stores / Vets</label>
           <select name="name" id="name" onChange={(e) => onChangeSelect(e)}>
             <option value={2}>Both</option>
             <option value={0}>Pet store</option>
             <option value={1}>Vet</option>
           </select>
-        </div>
-        <br />
-      </form>
-      <Map shops={shops} />
+
+          <br />
+        </form>
+        <Map shops={shops} />
+      </div>
     </>
   );
 }
