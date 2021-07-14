@@ -4,7 +4,39 @@
   text-align: center;
   background-color: $yellow-color;
 
+  &__wrapper {
+    width: 100%;
+    max-width: $max-width;
+    margin: 0 auto;
+  }
+
+  &__img {
+    display: none;
+  }
+
   &__btn {
-    margin: 1rem;
+    margin: 1rem 0;
+  }
+
+  @media screen and (min-width: $tb-breakpoint) {
+    text-align: left;
+
+    &__wrapper {
+      display: flex;
+      align-items: stretch;
+      gap: 1rem;
+    }
+
+    &__body {
+      flex-basis: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    &__img {
+      display: block;
+      flex-basis: 50%;
+    }
   }
 }

@@ -6,13 +6,24 @@ function Home() {
   return (
     <div className="home">
       <div className="intro">
-        <h3>Welcom to Pet Paws</h3>
-        <p>
-          We recommend the best nutrition plan for you furry friends, monitor their daily routine, and locate the best
-          vets and pet stores for your convenience.
-        </p>
-        <div className="intro__btn">
-          <button className="btn-contained-green">Create free account</button>
+        <div className="intro__wrapper">
+          <div className="intro__body">
+            <div>
+              <h3>Welcom to Pet Paws</h3>
+              <p>
+                Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets
+                and pet shops for your convenience.
+              </p>
+            </div>
+
+            <div className="intro__btn">
+              <button className="btn-contained-green btn-not-fullwidth">Create free account</button>
+            </div>
+          </div>
+
+          <div className="intro__img">
+            <img src={signinImg} alt="member portrait" />
+          </div>
         </div>
       </div>
 
@@ -53,7 +64,7 @@ function Home() {
         </div>
 
         <div className="features__btn">
-          <button className="btn-contained-yellow">Unlock All Features</button>
+          <button className="btn-contained-yellow btn-not-fullwidth">Unlock All Features</button>
         </div>
       </div>
 
