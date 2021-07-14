@@ -27,7 +27,9 @@ export default function Signup() {
 
   return (
     <div className="signin">
-      <img src={signinImg} alt="" />
+      <div className="image-area">
+        <img src={signinImg} alt="" />
+      </div>
       <div className="signin_form">
         <h2>SIGN IN TO YOUR ACCOUNT</h2>
         <form onSubmit={hanleSubmit}>

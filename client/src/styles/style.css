@@ -422,6 +422,28 @@ a {
   text-decoration: underline;
 }
 
+@media screen and (min-width: 700px) {
+  .signin {
+    padding: 2rem 0;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+  }
+  .signin .image-area {
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+  }
+  .signin .image-area img {
+    flex: 0 0 40%;
+  }
+  .signin_form {
+    flex: 0 0 40%;
+    max-width: 400px;
+  }
+}
 /* 2.3. Home ================ */
 /* 2.4. Dashboard =========== */
 /* 2.5. Profile ============= */
