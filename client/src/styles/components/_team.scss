@@ -32,6 +32,8 @@
   }
 
   @media screen and (min-width: $tb-breakpoint) {
+    padding: 2rem;
+
     &__members {
       flex-flow: wrap row;
       justify-content: center;

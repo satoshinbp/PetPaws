@@ -431,12 +431,13 @@ img {
 
 @media screen and (min-width: 600px) {
   .intro {
+    padding: 2rem;
     text-align: left;
   }
   .intro__wrapper {
     display: flex;
     align-items: stretch;
-    gap: 1rem;
+    gap: 2rem;
   }
   .intro__body {
     flex-basis: 50%;
@@ -484,11 +485,16 @@ img {
 }
 
 @media screen and (min-width: 600px) {
+  .features {
+    padding: 2rem;
+    gap: 2rem;
+  }
   .features__feature {
+    padding: 2rem;
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 2fr;
-    gap: 1rem;
+    gap: 2rem;
     text-align: left;
   }
   .features__feature:nth-child(2n + 1) .features__feature-img {
@@ -536,6 +542,9 @@ img {
 }
 
 @media screen and (min-width: 600px) {
+  .team {
+    padding: 2rem;
+  }
   .team__members {
     flex-flow: wrap row;
     justify-content: center;
