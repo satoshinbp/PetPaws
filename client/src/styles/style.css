@@ -361,6 +361,7 @@ h4,
 h5,
 h6 {
   font-family: "To Japan", helvetica, arial, sans-serif;
+  text-transform: uppercase;
 }
 
 ul {
@@ -376,6 +377,11 @@ a {
   color: inherit;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 @media screen and (min-width: 600px) {
   body {
     font-size: 18px;
@@ -385,10 +391,26 @@ a {
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
 /* 2.2. Sign In ============= */
-/* 2.3. Home ================ */
+/* TO BE DELETED ============ */
 /* 2.4. Dashboard =========== */
 /* 2.5. Profile ============= */
 /* 2.6. Stores/Vets ========= */
+.search {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-form {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #86e3ce;
+  text-align: center;
+}
+
 /* 2.7. Trackers ============ */
 /* back ground gradient */
 * {
@@ -553,19 +575,176 @@ a {
 
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
+/* ========================== */
 /* 3 Components ============= */
+/* 3.1. Intro =============== */
+.intro {
+  padding: 1rem;
+  border-radius: 30px;
+  text-align: center;
+  background-color: #ffdd95;
+}
+
+.intro__wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.intro__img {
+  display: none;
+}
+
+.intro__btn {
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 600px) {
+  .intro {
+    padding: 2rem;
+    text-align: left;
+  }
+  .intro__wrapper {
+    display: flex;
+    align-items: stretch;
+    gap: 2rem;
+  }
+  .intro__body {
+    flex-basis: 50%;
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: space-between;
+  }
+  .intro__img {
+    flex-basis: 50%;
+    display: block;
+  }
+  .intro__btn {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .intro {
+    padding: 3rem;
+  }
+  .intro__wrapper {
+    gap: 3rem;
+  }
+}
+
+/* 3.2. Body ================ */
+.body__wrapper {
+  width: 100%;
+  max-width: 1280px;
+  padding: 1rem 0;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .body__wrapper {
+    padding: 2rem 0;
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .body__wrapper {
+    padding: 3rem 0;
+    gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard .body__wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+    column-gap: 1rem;
+  }
+  .dashboard .body__wrapper div:first-child {
+    grid-column: span 2;
+  }
+}
+
+/* 3.3. Features ============ */
+.features {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #86e3ce;
+  text-align: center;
+}
+
+.features__feature {
+  padding: 0 1rem;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.64);
+}
+
+.features__feature-img {
+  width: 56px;
+  margin: 0 auto;
+}
+
+.features__feature-description {
+  font-size: 0.875rem;
+}
+
+.features__btn {
+  margin: 1rem;
+}
+
+/* 3.4. Team ================ */
+.team {
+  padding: 1rem;
+  border-radius: 30px;
+  text-align: center;
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
+.team__title {
+  color: #fff;
+}
+
+.team__members {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.team__member-img {
+  overflow: hidden;
+  width: 138px;
+  height: 138px;
+  margin: 0 auto;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.team__member-name {
+  font-size: 0.875rem;
+}
+
+/* TO BE REORGANIZED ======== */
 /* 3.1. Forms =============== */
 /* 3.2. Charts ============== */
 /* 3.3. Header ============== */
 /* 3.4. Footer ============== */
 /* 3.5. Calculator ========== */
-/* 3.6. Team ================ */
+/* ========================== */
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
 button {
   width: 100%;
-  height: 50px;
-  border-radius: 15px;
+  height: 40px;
+  border-radius: 10px;
   border-width: 0;
   font-size: 1rem;
   text-transform: capitalize;
@@ -574,15 +753,15 @@ button {
 
 @media screen and (min-width: 600px) {
   .btn-not-fullwidth {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     width: auto;
   }
 }
 
 .btn-toggle-tab {
   width: 50%;
-  height: 20px;
+  height: 16px;
   border-radius: 20px;
   box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
 }
@@ -593,8 +772,8 @@ button {
 }
 
 .icon-btn--circle-add {
-  width: 82px;
-  height: 82px;
+  width: 64px;
+  height: 64px;
   border-radius: 50%;
   color: #3b3054;
   background-color: #86e3ce;
@@ -603,22 +782,22 @@ button {
 
 @media screen and (min-width: 600px) {
   .icon-btn--circle-add {
-    width: 108px;
-    height: 108px;
+    width: 86px;
+    height: 86px;
   }
 }
 
 .icon-btn--circle-profile {
-  width: 35px;
-  height: 35px;
+  width: 28px;
+  height: 28px;
   border: 2px solid #ffdd95;
   border-radius: 50%;
 }
 
 @media screen and (min-width: 600px) {
   .icon-btn--circle-profile {
-    width: 64px;
-    height: 64px;
+    width: 52px;
+    height: 52px;
   }
 }
 
@@ -652,7 +831,7 @@ input,
 .input,
 select {
   width: 100%;
-  height: 45px;
+  height: 36px;
   padding: 0.5rem 1rem;
   border-radius: 15px;
   background-color: white;
@@ -660,7 +839,7 @@ select {
 }
 
 input[type='radio'] {
-  height: 35px;
+  height: 28px;
 }
 
 input::placeholder,
@@ -670,19 +849,19 @@ select:invalid {
 
 @media screen and (min-width: 600px) {
   .input-sm {
-    height: 54px;
+    height: 42px;
   }
 }
 
 @media screen and (min-width: 600px) {
   .input-md {
-    height: 64px;
+    height: 52px;
   }
 }
 
 @media screen and (min-width: 600px) {
   .input-lg {
-    height: 75px;
+    height: 60px;
   }
 }
 /*# sourceMappingURL=style.css.map */

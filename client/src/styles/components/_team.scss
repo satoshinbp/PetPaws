@@ -1,0 +1,30 @@
+.team {
+  padding: 1rem;
+  border-radius: $lg-border-radius;
+  text-align: center;
+  background-color: $purple-color;
+
+  &__title {
+    color: $white-color;
+  }
+
+  &__members {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__member-img {
+    overflow: hidden;
+    width: 138px;
+    height: 138px;
+    margin: 0 auto;
+    border: 2px solid $white-color;
+    border-radius: 50%;
+  }
+
+  &__member-name {
+    font-size: $sm-fontsize;
+  }
+}

@@ -11,8 +11,8 @@
 @import 'pages/signup';
 /* 2.2. Sign In ============= */
 @import 'pages/signin';
-/* 2.3. Home ================ */
-@import 'pages/home';
+
+/* TO BE DELETED ============ */
 /* 2.4. Dashboard =========== */
 @import 'pages/dashboard';
 /* 2.5. Profile ============= */
@@ -27,8 +27,19 @@
 @import 'pages/calorie-guest';
 /* 2.9. Contact ============= */
 @import 'pages/contact';
+/* ========================== */
 
 /* 3 Components ============= */
+/* 3.1. Intro =============== */
+@import 'components/intro';
+/* 3.2. Body ================ */
+@import 'components/body';
+/* 3.3. Features ============ */
+@import 'components/features';
+/* 3.4. Team ================ */
+@import 'components/team';
+
+/* TO BE REORGANIZED ======== */
 /* 3.1. Forms =============== */
 @import 'components/meal-form';
 @import 'components/walk-form';
@@ -48,8 +59,7 @@
 @import 'components/footer';
 /* 3.5. Calculator ========== */
 @import 'components/calculator';
-/* 3.6. Team ================ */
-@import 'components/team';
+/* ========================== */
 
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */

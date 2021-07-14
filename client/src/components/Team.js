@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
 
 export default function Team() {
   const [memberList, setMemberList] = useState([]);
 
   useEffect(() => {
-    Axios.get('https://pet-paws-langara.herokuapp.com/api/team')
+    Axios.get('http://localhost:3001/api/team')
       .then((res) => {
         setMemberList(res.data);
       })
@@ -15,24 +16,22 @@ export default function Team() {
   }, []);
 
   return (
-    <div>
-      <h3>Team Members</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat sunt, nostrum recusandae quos perferendis
-        quidem quo alias ex quisquam odio fugiat facere voluptates dignissimos, aspernatur repellendus sapiente quis
-        cumque similique.
-      </p>
-
-      {/* The following part is for testing purpose only. To be removed. */}
-      {memberList
-        ? memberList.map((val) => (
-            <div key={val.id}>
-              <img src={val.image_url} alt="member portrait" />
-              <p>{val.name} </p>
-              <p>{val.role}</p>
-            </div>
-          ))
-        : 'Loading...'}
+    <div className="team">
+      <h3 className="team__title">PET PAWS TEAM</h3>
+      <div className="team__members">
+        {memberList
+          ? memberList.map((val) => (
+              <div key={val.id} className="team__member">
+                {/* <img src={val.image_url} alt="member portrait" className="team__member-img" /> */}
+                <div className="team__member-img">
+                  <img src={signinImg} alt="member portrait" />
+                </div>
+                <p className="team__member-name">{val.name}</p>
+                <p className="team__member-title">{val.role}</p>
+              </div>
+            ))
+          : 'Loading...'}
+      </div>
     </div>
   );
 }

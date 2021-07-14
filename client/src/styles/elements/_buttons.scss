@@ -1,7 +1,7 @@
 button {
   width: 100%;
-  height: 50px;
-  border-radius: $md-border-radius;
+  height: 40px; //50px
+  border-radius: $sm-border-radius;
   border-width: 0;
   font-size: $md-fontsize;
   text-transform: capitalize;
@@ -12,8 +12,8 @@ button {
 // btn that doesn't correspond to parent component in laptop view exept for icon, circle btn
 .btn-not-fullwidth {
   @media screen and (min-width: $tb-breakpoint) {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     width: auto;
   }
 }
@@ -22,7 +22,7 @@ button {
 
 .btn-toggle-tab {
   width: 50%;
-  height: 20px;
+  height: 16px; //20px
   border-radius: 20px;
   box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
 }
@@ -33,27 +33,27 @@ button {
 }
 
 .icon-btn--circle-add {
-  width: 82px;
-  height: 82px;
+  width: 64px; //82px
+  height: 64px; //82px
   border-radius: 50%;
   color: $navy-color;
   background-color: $green-color;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
 
   @media screen and(min-width: $tb-breakpoint) {
-    width: 108px;
-    height: 108px;
+    width: 86px; //108px
+    height: 86px; //108px
   }
 }
 
 .icon-btn--circle-profile {
-  width: 35px;
-  height: 35px;
+  width: 28px; //35px
+  height: 28px; //35px
   border: 2px solid $yellow-color;
   border-radius: 50%;
   @media screen and(min-width: $tb-breakpoint) {
-    width: 64px;
-    height: 64px;
+    width: 52px; //64px
+    height: 52px; //64px
   }
 }
 
