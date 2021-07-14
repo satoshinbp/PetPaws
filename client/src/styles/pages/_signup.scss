@@ -41,8 +41,31 @@
 
 @media screen and (min-width: 700px){
   .signup{
+    padding: 2rem 0;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+
     &_description{
-      display: block;
+      padding: 0 1rem;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      max-width: 600px;
+      flex: 70%;
+
+      p{
+        margin: 0 0 1rem;
+      }
+
+    
+      ul {
+        padding-left: 2rem;
+
+        li{
+          display: flex;
+          padding: 1rem 0;
+        }
+      }
     }
   }
 }

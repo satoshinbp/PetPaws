@@ -33,13 +33,18 @@ export default function Signup() {
   return (
     <div className="signup">
       <div className="signup_description">
-        <p>By creating your free account,</p>
-        <p>You will be able to :</p>
+        <h3>By creating your free account,</h3>
+        <p>　You will be able to :</p>
         <ul>
           <li>
-            keep track of your pet's healthy routines, including their nutritional intake and physical activity levels
+            ・
+            <div>
+              keep track of your pet's healthy routines, including their nutritional intake and physical activity levels
+            </div>
           </li>
-          <li>Get the optimal amount of calories and activity level for your pet</li>
+          <li>
+            ・<div className="">Get the optimal amount of calories and activity level for your pet</div>
+          </li>
         </ul>
       </div>
       <div className="signup_form">

@@ -422,8 +422,28 @@ img {
 }
 
 @media screen and (min-width: 700px) {
+  .signup {
+    padding: 2rem 0;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+  }
   .signup_description {
-    display: block;
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    max-width: 600px;
+    flex: 70%;
+  }
+  .signup_description p {
+    margin: 0 0 1rem;
+  }
+  .signup_description ul {
+    padding-left: 2rem;
+  }
+  .signup_description ul li {
+    display: flex;
+    padding: 1rem 0;
   }
 }
 /* 2.2. Sign In ============= */
