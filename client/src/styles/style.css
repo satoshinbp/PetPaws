@@ -420,7 +420,7 @@ img {
   text-decoration: underline;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   .signup {
     padding: 2rem 0;
     flex-flow: row nowrap;
@@ -485,7 +485,7 @@ img {
   text-decoration: underline;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   .signin {
     padding: 2rem 0;
     flex-flow: row nowrap;

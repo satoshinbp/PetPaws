@@ -38,7 +38,7 @@
   }
 }
 
-@media screen and (min-width: 700px){
+@media screen and (min-width: $tb-breakpoint){
   .signup{
     padding: 2rem 0;
     flex-flow: row nowrap;
