@@ -1,0 +1,48 @@
+.signin{
+  display: flex;
+  flex-flow: column nowrap;
+  background: $footer-color;
+
+  img{
+    max-width: 100%;
+    height: auto;
+  }
+
+  &_form{
+    padding: 2rem 1rem 3rem;
+    margin: 1rem;
+    border-radius: 15px;
+    background:$light-purple;
+
+    h2{
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      padding: 1rem 0 .5rem;
+    }
+
+    button{
+      margin: 2rem 0;
+      background: $purple-color;
+    }
+
+    hr {
+      box-sizing: content-box;
+      height: 1.2px;
+      overflow: visible;
+      background: black;
+    }
+
+    .signup-link-area{
+      text-align: center;
+      padding: 1rem 0;
+
+      &_link{
+        font-weight: 600;
+        text-decoration: underline;
+      }
+    }
+  }
+}

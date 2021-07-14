@@ -381,6 +381,47 @@ a {
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
 /* 2.2. Sign In ============= */
+.signin {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #f8f3fa;
+}
+.signin img {
+  max-width: 100%;
+  height: auto;
+}
+.signin_form {
+  padding: 2rem 1rem 3rem;
+  margin: 1rem;
+  border-radius: 15px;
+  background: #ede1f8;
+}
+.signin_form h2 {
+  text-align: center;
+}
+.signin_form label {
+  display: block;
+  padding: 1rem 0 0.5rem;
+}
+.signin_form button {
+  margin: 2rem 0;
+  background: rgba(204, 171, 218, 0.82);
+}
+.signin_form hr {
+  box-sizing: content-box;
+  height: 1.2px;
+  overflow: visible;
+  background: black;
+}
+.signin_form .signup-link-area {
+  text-align: center;
+  padding: 1rem 0;
+}
+.signin_form .signup-link-area_link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
 /* 2.3. Home ================ */
 /* 2.4. Dashboard =========== */
 /* 2.5. Profile ============= */
@@ -398,8 +439,8 @@ a {
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
 button {
-  width: 300px;
-  height: 50px;
+  width: 100%;
+  height: 40px;
   border-radius: 15px;
   border-width: 0;
   font-size: 1rem;
@@ -407,14 +448,17 @@ button {
   cursor: pointer;
 }
 
-.btn--sm {
-  width: 120px;
-  height: 40px;
+@media screen and (min-width: 600px) {
+  .btn-not-fullwidth {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: auto;
+  }
 }
 
 .btn-toggle-tab {
-  width: 110px;
-  height: 20px;
+  width: 50%;
+  height: 16px;
   border-radius: 20px;
   box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
 }
@@ -424,19 +468,32 @@ button {
   color: #3b3054;
 }
 
-.btn-circle {
-  width: 82px;
-  border-radius: 50px;
+.icon-btn--circle-add {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
   color: #3b3054;
   background-color: #86e3ce;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
+@media screen and (min-width: 600px) {
+  .icon-btn--circle-add {
+    width: 86px;
+    height: 86px;
+  }
+}
 
-.icon-btn--profile {
-  width: 35px;
-  height: 35px;
+.icon-btn--circle-profile {
+  width: 28px;
+  height: 28px;
   border: 2px solid #ffdd95;
-  border-radius: 17.5px;
+  border-radius: 50%;
+}
+@media screen and (min-width: 600px) {
+  .icon-btn--circle-profile {
+    width: 52px;
+    height: 52px;
+  }
 }
 
 .btn-contained-yellow {
@@ -469,6 +526,7 @@ input,
 .input,
 select {
   width: 100%;
+  height: 36px;
   padding: 0.5rem 1rem;
   border-radius: 15px;
   background-color: white;
@@ -476,16 +534,28 @@ select {
 }
 
 input[type=radio] {
-  height: 35px;
-}
-
-input,
-.input,
-select {
-  height: 45px;
+  height: 28px;
 }
 
 input::placeholder,
 select:invalid {
   color: #dadada;
+}
+
+@media screen and (min-width: 600px) {
+  .input-sm {
+    height: 42px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-md {
+    height: 52px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-lg {
+    height: 60px;
+  }
 }/*# sourceMappingURL=style.css.map */
