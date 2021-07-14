@@ -387,6 +387,45 @@ img {
 }
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
+.signup {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #f8f3fa;
+}
+.signup_description {
+  display: none;
+}
+.signup_form {
+  padding: 2rem 1rem 3rem;
+  margin: 1rem;
+  border-radius: 15px;
+  background: rgba(252, 136, 123, 0.34);
+}
+.signup_form h2 {
+  text-align: center;
+}
+.signup_form label {
+  display: block;
+  padding: 1rem 0 0.5rem;
+}
+.signup_form button {
+  margin: 2rem 0 0;
+  background: rgba(252, 136, 123, 0.49);
+}
+.signup_form .signin-link-area {
+  text-align: center;
+  padding: 1rem 0;
+}
+.signup_form .signin-link-area_link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 700px) {
+  .signup_description {
+    display: block;
+  }
+}
 /* 2.2. Sign In ============= */
 .signin {
   display: flex;
@@ -405,10 +444,6 @@ img {
 .signin_form label {
   display: block;
   padding: 1rem 0 0.5rem;
-}
-.signin_form button {
-  margin: 2rem 0;
-  background: rgba(204, 171, 218, 0.82);
 }
 .signin_form hr {
   box-sizing: content-box;
