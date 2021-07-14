@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* 1 Base =================== */
 /* 1.1. Reset =========== */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -8,7 +8,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -347,7 +347,7 @@ template {
 }
 
 body {
-  font-family: 'Content', helvetica, arial, sans-serif;
+  font-family: "Content", helvetica, arial, sans-serif;
   font-size: 16px;
   color: #3b3054;
 }
@@ -358,7 +358,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'To Japan', helvetica, arial, sans-serif;
+  font-family: "To Japan", helvetica, arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -509,6 +509,8 @@ img {
 
 /* 3.3. Features ============ */
 .features {
+  background-image: url("../images/bg-green.png");
+  background-size: contain;
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
