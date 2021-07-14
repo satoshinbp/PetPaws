@@ -9,6 +9,7 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -191,9 +192,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type=button],
-[type=reset],
-[type=submit] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
 }
 
@@ -201,9 +202,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type=button]::-moz-focus-inner,
-[type=reset]::-moz-focus-inner,
-[type=submit]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -212,9 +213,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type=button]:-moz-focusring,
-[type=reset]:-moz-focusring,
-[type=submit]:-moz-focusring {
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -264,8 +265,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type=checkbox],
-[type=radio] {
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -275,8 +276,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type=number]::-webkit-inner-spin-button,
-[type=number]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -284,7 +285,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type=search] {
+[type='search'] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -294,7 +295,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type=search]::-webkit-search-decoration {
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -349,6 +350,8 @@ template {
 body {
   font-family: "Content", helvetica, arial, sans-serif;
   font-size: 16px;
+  line-height: 25px;
+  color: #3b3054;
 }
 
 h1,
@@ -378,6 +381,7 @@ a {
     font-size: 18px;
   }
 }
+
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
 /* 2.2. Sign In ============= */
@@ -386,6 +390,167 @@ a {
 /* 2.5. Profile ============= */
 /* 2.6. Stores/Vets ========= */
 /* 2.7. Trackers ============ */
+/* back ground gradient */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Content", helvetica, arial, sans-serif;
+  font-size: 16px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "To Japan", helvetica, arial, sans-serif;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/*@media screen and (min-width: $tb-breakpoint) {
+  body {
+    font-size: 18px;
+  }
+}*/
+/* ******************************************************** */
+.walk-summary .function-wrapper .walk-form,
+.walk-summary .function-wrapper .meal-form,
+.meal-summary .function-wrapper .walk-form,
+.meal-summary .function-wrapper .meal-form {
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.walk-summary .function-wrapper .walk-form h3,
+.walk-summary .function-wrapper .meal-form h3,
+.meal-summary .function-wrapper .walk-form h3,
+.meal-summary .function-wrapper .meal-form h3 {
+  font-size: 1rem;
+  text-align: center;
+}
+
+.walk-summary .function-wrapper .walk-form .input-wrapper,
+.walk-summary .function-wrapper .meal-form .input-wrapper,
+.meal-summary .function-wrapper .walk-form .input-wrapper,
+.meal-summary .function-wrapper .meal-form .input-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.7rem;
+}
+
+.walk-summary .function-wrapper .walk-form .input-wrapper div,
+.walk-summary .function-wrapper .meal-form .input-wrapper div,
+.meal-summary .function-wrapper .walk-form .input-wrapper div,
+.meal-summary .function-wrapper .meal-form .input-wrapper div {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.3rem;
+}
+
+.walk-summary .function-wrapper .walk-form .input-wrapper div label,
+.walk-summary .function-wrapper .meal-form .input-wrapper div label,
+.meal-summary .function-wrapper .walk-form .input-wrapper div label,
+.meal-summary .function-wrapper .meal-form .input-wrapper div label {
+  font-weight: 700;
+}
+
+.walk-summary .function-wrapper .walk-form .button-wrapper,
+.walk-summary .function-wrapper .meal-form .button-wrapper,
+.meal-summary .function-wrapper .walk-form .button-wrapper,
+.meal-summary .function-wrapper .meal-form .button-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 1rem;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info h3,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info h3,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info h3,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info h3 {
+  margin: 0 auto 0.5rem;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info p,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info p,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info p,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info p {
+  margin: 0;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info .pet-image,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info .pet-image,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info .pet-image,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .basic-info .pet-image {
+  width: 78px;
+  height: 130px;
+  object-fit: cover;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.meal-summary {
+  background: linear-gradient(rgba(134, 227, 206, 0.23), rgba(255, 221, 149, 0.23));
+}
+
+.meal-summary .meal-form {
+  background-color: #86e3ce;
+}
+
+.meal-summary .meal-week-month-graphs-wrapper {
+  background-color: rgba(134, 227, 206, 0.5);
+}
+
+.walk-summary {
+  background: linear-gradient(rgba(204, 171, 218, 0.28), rgba(255, 221, 149, 0.23));
+}
+
+.walk-summary .walk-form {
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
+.walk-summary .walk-week-month-graphs-wrapper {
+  background-color: rgba(204, 171, 218, 0.8);
+}
+
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
 /* 3 Components ============= */
@@ -398,7 +563,7 @@ a {
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
 button {
-  width: 300px;
+  width: 100%;
   height: 50px;
   border-radius: 15px;
   border-width: 0;
@@ -407,13 +572,16 @@ button {
   cursor: pointer;
 }
 
-.btn--sm {
-  width: 120px;
-  height: 40px;
+@media screen and (min-width: 600px) {
+  .btn-not-fullwidth {
+    padding-left: 0.5rem;
+    padding-right: 0.5rem;
+    width: auto;
+  }
 }
 
 .btn-toggle-tab {
-  width: 110px;
+  width: 50%;
   height: 20px;
   border-radius: 20px;
   box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
@@ -424,19 +592,34 @@ button {
   color: #3b3054;
 }
 
-.btn-circle {
+.icon-btn--circle-add {
   width: 82px;
-  border-radius: 50px;
+  height: 82px;
+  border-radius: 50%;
   color: #3b3054;
   background-color: #86e3ce;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
 
-.icon-btn--profile {
+@media screen and (min-width: 600px) {
+  .icon-btn--circle-add {
+    width: 108px;
+    height: 108px;
+  }
+}
+
+.icon-btn--circle-profile {
   width: 35px;
   height: 35px;
   border: 2px solid #ffdd95;
-  border-radius: 17.5px;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 600px) {
+  .icon-btn--circle-profile {
+    width: 64px;
+    height: 64px;
+  }
 }
 
 .btn-contained-yellow {
@@ -469,23 +652,37 @@ input,
 .input,
 select {
   width: 100%;
+  height: 45px;
   padding: 0.5rem 1rem;
   border-radius: 15px;
   background-color: white;
-  border: 1px solid black;
+  border: none;
 }
 
-input[type=radio] {
+input[type='radio'] {
   height: 35px;
-}
-
-input,
-.input,
-select {
-  height: 45px;
 }
 
 input::placeholder,
 select:invalid {
   color: #dadada;
-}/*# sourceMappingURL=style.css.map */
+}
+
+@media screen and (min-width: 600px) {
+  .input-sm {
+    height: 54px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-md {
+    height: 64px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-lg {
+    height: 75px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
