@@ -393,6 +393,9 @@ img {
   flex-flow: column nowrap;
   background: #f8f3fa;
 }
+.signin .image-area {
+  display: none;
+}
 .signin img {
   max-width: 100%;
   height: auto;
@@ -412,7 +415,6 @@ img {
 }
 .signin_form button {
   margin: 2rem 0;
-  background: rgba(204, 171, 218, 0.82);
 }
 .signin_form hr {
   box-sizing: content-box;
