@@ -1,0 +1,13 @@
+.activity-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  .activity-avg {
+    flex-basis: 50%;
+    border: 1px solid $navy-color;
+    border-radius: $sm-border-radius;
+    h3 {
+      text-align: center;
+    }
+  }
+}

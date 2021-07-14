@@ -396,6 +396,47 @@ img {
 }
 
 /* 2.4. Dashboard =========== */
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.latest-summary {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: rgba(204, 171, 218, 0.82);
+  text-align: center;
+}
+
+.latest-summary-content {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #ede1f8;
+  text-align: center;
+}
+.latest-summary-content h3 {
+  text-align: left;
+}
+
+.pet-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.pet-details p {
+  flex-basis: 50%;
+}
+.pet-details .pet-detail {
+  border-bottom: solid 1.5px #3b3054;
+}
+
 /* 2.5. Profile ============= */
 /* 2.6. Stores/Vets ========= */
 .search {
@@ -420,6 +461,25 @@ img {
 /* 3 Components ============= */
 /* 3.1. Forms =============== */
 /* 3.2. Charts ============== */
+.calorie-stats {
+  border: 1px solid #3b3054;
+  border-radius: 10px;
+}
+
+.activity-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+.activity-stats .activity-avg {
+  flex-basis: 50%;
+  border: 1px solid #3b3054;
+  border-radius: 10px;
+}
+.activity-stats .activity-avg h3 {
+  text-align: center;
+}
+
 /* 3.3. Header ============== */
 /* 3.4. Footer ============== */
 /* 3.5. Calculator ========== */
