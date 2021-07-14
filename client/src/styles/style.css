@@ -415,12 +415,46 @@ img {
   background-color: #ffdd95;
 }
 
+.intro__wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.intro__img {
+  display: none;
+}
+
 .intro__btn {
-  margin: 1rem;
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 600px) {
+  .intro {
+    text-align: left;
+  }
+  .intro__wrapper {
+    display: flex;
+    align-items: stretch;
+    gap: 1rem;
+  }
+  .intro__body {
+    flex-basis: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .intro__img {
+    display: block;
+    flex-basis: 50%;
+  }
 }
 
 /* 3.7. Features ============ */
 .features {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 1rem;
   border-radius: 30px;
   display: flex;
@@ -431,7 +465,7 @@ img {
 }
 
 .features__feature {
-  padding: 0 1rem;
+  padding: 1rem;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.64);
 }
@@ -446,11 +480,31 @@ img {
 }
 
 .features__btn {
-  margin: 1rem;
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 600px) {
+  .features__feature {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 1rem;
+    text-align: left;
+  }
+  .features__feature:nth-child(2n + 1) .features__feature-img {
+    grid-column: 2 / span 1;
+  }
+  .features__feature-img {
+    width: 100%;
+    grid-row: 1 / span 2;
+  }
 }
 
 /* 3.8. Team ================ */
 .team {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 1rem;
   border-radius: 30px;
   text-align: center;
@@ -463,7 +517,7 @@ img {
 
 .team__members {
   display: flex;
-  flex-direction: column;
+  flex-flow: nowrap column;
   align-items: center;
   gap: 1rem;
 }
@@ -481,12 +535,27 @@ img {
   font-size: 0.875rem;
 }
 
+@media screen and (min-width: 600px) {
+  .team__members {
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .team__member {
+    flex: 240px 0 0;
+  }
+  .team__member-img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
 button {
   width: 100%;
   height: 40px;
-  border-radius: 15px;
+  border-radius: 10px;
   border-width: 0;
   font-size: 1rem;
   text-transform: capitalize;
@@ -495,8 +564,8 @@ button {
 
 @media screen and (min-width: 600px) {
   .btn-not-fullwidth {
-    padding-left: 0.5rem;
-    padding-right: 0.5rem;
+    padding-left: 1rem;
+    padding-right: 1rem;
     width: auto;
   }
 }
