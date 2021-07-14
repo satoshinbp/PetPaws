@@ -681,6 +681,7 @@ a {
   flex-flow: column nowrap;
   align-items: center;
   gap: 0.7rem;
+  padding: 1rem 0;
 }
 
 .walk-summary .function-wrapper .meal-week-month-graphs-wrapper .basic-info h3,
@@ -718,6 +719,42 @@ a {
   width: 100%;
 }
 
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .week-month-toggle,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .week-month-toggle,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .week-month-toggle,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .week-month-toggle {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background {
+  display: flex;
+  height: 35px;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background .button-no-accent,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background .button-no-accent,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background .button-no-accent,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background .button-no-accent {
+  background-color: transparent;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background button,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background button,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background button,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background button {
+  font-size: 0.875rem;
+  color: #3b3054;
+}
+
 .walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph,
 .walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph,
 .walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph,
@@ -735,14 +772,157 @@ a {
 .meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph,
 .meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph {
   background-color: rgba(255, 255, 255, 0.64);
-  border-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding: 0 0 1rem;
 }
 
-.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .graph-height,
-.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .graph-height,
-.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .graph-height,
-.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .graph-height {
-  height: 350px;
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller button,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller button,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller button,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller button,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller button,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller button,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller button,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller button,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller button,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller button,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller button,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller button,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller button,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller button,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller button,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller button,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller button,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller button,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller button,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller button,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller button,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller button,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller button,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller button,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller button,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller button,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller button,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller button,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller button,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller button,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller button,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller button {
+  width: 50px;
+  background-color: transparent;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller p,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller p,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller p,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller p,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller p,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller p,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller p,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller p,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller p,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller p,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller p,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller p,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller p,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller p,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller p,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller p,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller p,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller p,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller p,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller p,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller p,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller p,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller p,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller p,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller p,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller p,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller p,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller p,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller p,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller p,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller p,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller p {
+  font-size: 0.875rem;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height {
+  height: 300px;
+}
+
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height .recharts-legend-wrapper,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height .recharts-legend-wrapper,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height .recharts-legend-wrapper,
+.walk-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height .recharts-legend-wrapper,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height .recharts-legend-wrapper,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height .recharts-legend-wrapper,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height .recharts-legend-wrapper,
+.walk-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height .recharts-legend-wrapper,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height .recharts-legend-wrapper,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height .recharts-legend-wrapper,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height .recharts-legend-wrapper,
+.meal-summary .function-wrapper .meal-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height .recharts-legend-wrapper,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height .recharts-legend-wrapper,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height .recharts-legend-wrapper,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height .recharts-legend-wrapper,
+.meal-summary .function-wrapper .walk-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height .recharts-legend-wrapper {
+  position: absolute;
+  bottom: -50px;
 }
 
 .meal-summary .meal-form {
@@ -753,12 +933,28 @@ a {
   background-color: rgba(134, 227, 206, 0.5);
 }
 
+.meal-summary .meal-week-month-graphs-wrapper .button-background {
+  background-color: rgba(134, 227, 206, 0.3);
+}
+
+.meal-summary .meal-week-month-graphs-wrapper .button-background .btn-darkened {
+  background-color: rgba(134, 227, 206, 0.5);
+}
+
 .walk-summary .walk-form {
   background-color: rgba(204, 171, 218, 0.82);
 }
 
 .walk-summary .walk-week-month-graphs-wrapper {
   background-color: rgba(204, 171, 218, 0.8);
+}
+
+.walk-summary .walk-week-month-graphs-wrapper .button-background {
+  background-color: rgba(204, 171, 218, 0.3);
+}
+
+.walk-summary .walk-week-month-graphs-wrapper .button-background .btn-darkened {
+  background-color: #fff;
 }
 
 /* 3.2. Charts ============== */
@@ -787,10 +983,9 @@ button {
 }
 
 .btn-toggle-tab {
-  width: 50%;
-  height: 16px;
+  height: 27px;
   border-radius: 20px;
-  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .btn-outlined {

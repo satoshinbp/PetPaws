@@ -214,12 +214,11 @@ const MealWeekChart = ({ allMeals, MER }) => {
       </div>
       <div className="graph-height">
         <ResponsiveContainer>
-          <ComposedChart data={graphData} margin={{ left: 0 }}>
+          <ComposedChart data={graphData} margin={{ right: 20, left: 0 }}>
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
-            <Legend />
-            <CartesianGrid stroke="#f5f5f5" />
+            <Legend wrapperStyle={{ bottom: -50 }} />
             <Area
               type="monotone"
               dataKey="average calorie"

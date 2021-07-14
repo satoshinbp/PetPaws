@@ -6,6 +6,8 @@ import MealForm from '../components/forms/Meal';
 
 export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) {
   const [showForm, setShowForm] = useState(false);
+  // if yes, week graph appears, if no, month graph appears
+  const [showWeekGraph, setShowWeekGraph] = useState(true);
   return (
     <div className="meal-summary">
       <div className="intro">
@@ -42,8 +44,27 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
             )}
           </div>
           <div className="graphs">
-            <MealWeekChart allMeals={allMeals} MER={MER} />
-            <MealMonthChart allMeals={allMeals} MER={MER} />
+            <div className="week-month-toggle">
+              <div className="button-background btn-toggle-tab">
+                <button
+                  onClick={() => setShowWeekGraph(true)}
+                  className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                >
+                  Week
+                </button>
+                <button
+                  onClick={() => setShowWeekGraph(false)}
+                  className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                >
+                  Month
+                </button>
+              </div>
+            </div>
+            {showWeekGraph ? (
+              <MealWeekChart allMeals={allMeals} MER={MER} />
+            ) : (
+              <MealMonthChart allMeals={allMeals} MER={MER} />
+            )}
           </div>
         </div>
         <div className="meal-day-graph-wrapper">

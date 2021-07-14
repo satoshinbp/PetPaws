@@ -119,6 +119,7 @@ a {
         flex-flow: column nowrap;
         align-items: center;
         gap: 0.7rem;
+        padding: 1rem 0;
         h3 {
           margin: 0 auto 0.5rem;
         }
@@ -138,15 +139,56 @@ a {
       }
       .graphs {
         width: 100%;
+        .week-month-toggle {
+          background-color: $lighten-color;
+          border-top-left-radius: 18px;
+          border-top-right-radius: 18px;
+          .button-background {
+            display: flex;
+            height: 35px;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+            .button-no-accent {
+              background-color: transparent;
+            }
+            button {
+              font-size: $sm-fontsize;
+              color: $navy-color;
+            }
+          }
+        }
+
         .walk-week-graph,
         .walk-month-graph,
         .meal-week-graph,
         .meal-month-graph {
           background-color: $lighten-color;
-          border-radius: $sm-border-radius;
-        }
-        .graph-height {
-          height: 350px;
+          border-bottom-left-radius: $sm-border-radius;
+          border-bottom-right-radius: $sm-border-radius;
+          padding: 0 0 1rem;
+          .week-controller,
+          .month-controller {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            button {
+              width: 50px;
+              background-color: transparent;
+            }
+            p {
+              font-size: $sm-fontsize;
+            }
+          }
+          .graph-height {
+            height: 300px;
+            .recharts-legend-wrapper {
+              position: absolute;
+              bottom: -50px;
+            }
+          }
         }
       }
     }
@@ -160,6 +202,12 @@ a {
   }
   .meal-week-month-graphs-wrapper {
     background-color: rgba($green-color, 0.5);
+    .button-background {
+      background-color: rgba($green-color, 0.3);
+      .btn-darkened {
+        background-color: rgba($green-color, 0.5);
+      }
+    }
   }
 }
 
@@ -170,5 +218,11 @@ a {
   }
   .walk-week-month-graphs-wrapper {
     background-color: rgba($purple-color, 0.8);
+    .button-background {
+      background-color: rgba($purple-color, 0.3);
+      .btn-darkened {
+        background-color: #fff;
+      }
+    }
   }
 }

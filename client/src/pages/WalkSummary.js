@@ -6,6 +6,8 @@ import WalkForm from '../components/forms/Walk';
 
 export default function WalkSummary({ petProfile, allActivities, setAllActivities }) {
   const [showForm, setShowForm] = useState(false);
+  // if yes, week graph appears, if no, month graph appears
+  const [showWeekGraph, setShowWeekGraph] = useState(true);
   return (
     <div className="walk-summary">
       <div className="intro">
@@ -47,8 +49,27 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
               )}
             </div>
             <div className="graphs">
-              <WalkWeekChart allActivities={allActivities} />
-              <WalkMonthChart allActivities={allActivities} />
+              <div className="week-month-toggle">
+                <div className="button-background btn-toggle-tab">
+                  <button
+                    onClick={() => setShowWeekGraph(true)}
+                    className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                  >
+                    Week
+                  </button>
+                  <button
+                    onClick={() => setShowWeekGraph(false)}
+                    className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                  >
+                    Month
+                  </button>
+                </div>
+              </div>
+              {showWeekGraph ? (
+                <WalkWeekChart allActivities={allActivities} />
+              ) : (
+                <WalkMonthChart allActivities={allActivities} />
+              )}
             </div>
           </div>
           <div className="walk-day-graph-wrapper">

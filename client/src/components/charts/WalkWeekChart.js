@@ -219,18 +219,17 @@ const WalkWeekChart = ({ allActivities }) => {
       </div>
       <div className="graph-height">
         <ResponsiveContainer>
-          <ComposedChart data={graphData} margin={{ left: 0 }}>
+          <ComposedChart data={graphData} margin={{ left: 0, right: 20 }}>
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
-            <Legend />
-            <CartesianGrid stroke="#f5f5f5" />
+            <Legend wrapperStyle={{ bottom: -25 }} />
             <Area
               type="monotone"
               dataKey="average minute"
               stroke="#00aced"
               fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0.2)"
+              fill="rgba(0, 172, 237, 0)"
             />
             <Bar barSize={15} fillOpacity={1} fill="#2250A2" dataKey="minute" stackId="a" barSize={15} fill="#85d6c3" />
           </ComposedChart>
