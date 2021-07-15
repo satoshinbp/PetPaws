@@ -45,4 +45,17 @@
     align-items: center;
     gap: 0.25rem;
   }
+
+  &__result {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: $md-border-radius;
+    background-color: $lightgreen-color;
+  }
+
+  &__result-calorie {
+    color: $light-purple;
+    font-size: $xl-fontsize;
+    font-weight: 900;
+  }
 }

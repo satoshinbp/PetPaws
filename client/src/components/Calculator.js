@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
 import calculateAgeFromBirthday from '../functions/calculateAgeFromBirthday';
 import calculateRecommendedCalorie from '../functions/calculateRecommendedCalorie';
 
 export default function Calculator(props) {
-  const { setResult } = props;
+  const { currentUser } = useAuth();
 
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
@@ -17,6 +18,7 @@ export default function Calculator(props) {
   const [activityLevel, setActivityLevel] = useState(0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
   const [bodyCondition, setBodyCondition] = useState(0); // 0: underweight, 1: ideal, 2: overweight
   const [initialCalculationDone, setInitialCalculationDone] = useState(false);
+  const [result, setResult] = useState('');
 
   useEffect(() => {
     Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
@@ -212,6 +214,25 @@ export default function Calculator(props) {
           calculate
         </button>
       </form>
+
+      {result && (
+        <div className="calculator__result">
+          <h3>Calculation Done!</h3>
+          {currentUser ? (
+            <>
+              <p>The ideal calorie number for your pet is</p>
+              <p className="calculator__result-calorie">{result}</p>
+            </>
+          ) : (
+            <>
+              <p>Enter your email so we could send you the results!</p>
+              <input type="text" placeholder="Enter your email" />
+
+              <button className="btn-contained-yellow">Send</button>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 }

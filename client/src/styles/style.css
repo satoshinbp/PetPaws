@@ -469,7 +469,7 @@ img {
   padding: 2rem 1rem 3rem;
   margin: 1rem;
   border-radius: 15px;
-  background: #ede1f8;
+  background: #ccabda;
 }
 
 .signin_form h2 {
@@ -661,7 +661,7 @@ img {
 }
 
 .features__feature-description {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 
 .features__btn {
@@ -697,7 +697,7 @@ img {
 }
 
 .team__member-name {
-  font-size: 0.875rem;
+  font-size: 0.875em;
 }
 
 /* TO BE REORGANIZED ======== */
@@ -755,6 +755,19 @@ img {
   gap: 0.25rem;
 }
 
+.calculator__result {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: #dcf7f1;
+}
+
+.calculator__result-calorie {
+  color: #ccabda;
+  font-size: 4em;
+  font-weight: 900;
+}
+
 /* ========================== */
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
@@ -763,7 +776,7 @@ button {
   height: 40px;
   border-radius: 10px;
   border-width: 0;
-  font-size: 1rem;
+  font-size: 1em;
   text-transform: capitalize;
   cursor: pointer;
 }
@@ -834,7 +847,7 @@ button {
 }
 
 .btn-contained-light-purple {
-  background-color: #ede1f8;
+  background-color: #ccabda;
   color: #3b3054;
 }
 
