@@ -3,9 +3,8 @@
   flex-flow: column nowrap;
   background: $footer-color;
 
-  img{
-    max-width: 100%;
-    height: auto;
+  .image-area {
+    display: none;
   }
 
   &_form{
@@ -25,7 +24,6 @@
 
     button{
       margin: 2rem 0;
-      background: $purple-color;
     }
 
     hr {
@@ -47,24 +45,24 @@
   }
 }
 
-@media screen and (min-width: 700px){
+@media screen and (min-width: $tb-breakpoint){
   .signin{
     padding: 2rem 0;
     flex-flow: row nowrap;
     justify-content: space-around;
 
-  .image-area {
-    padding: 0 1rem;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    align-items: center;
-    max-width: 700px;
+    .image-area {
+      padding: 0 1rem;
+      display: flex;
+      flex-flow: column;
+      justify-content: center;
+      align-items: center;
+      max-width: 700px;
 
-    img{
-      flex: 0 0 40%;
+      img{
+        flex: 0 0 40%;
+      }
     }
-  }
 
     &_form{
       flex: 0 0 40%;

@@ -1,79 +1,9 @@
-// Colors
-$lighten-color: rgba(255, 255, 255, 0.64);
-$white-color: #fff;
-$yellow-color: #ffdd95;
-$green-color: #86e3ce;
-$darkgreen-color: darkgreen; // TBD
-$purple-color: rgba(204, 171, 218, 0.82);
-$light-purple: rgba(237, 225, 248, 1);
-$navy-color: #3b3054;
-$pink-color: rgba(252, 136, 123, 0.49);
-$footer-color: #f8f3fa;
-$light-black: #373f41;
-/* back ground gradient */
-$purpleーradient-color: rgba(204, 171, 218, 0.28);
-
-// Font Family
-$header-fontfamily: 'To Japan', helvetica, arial, sans-serif;
-$paragraph-fontfamily: 'Content', helvetica, arial, sans-serif;
-
-// Font Size
-$sm-fontsize: 0.875rem; // 22px in first MockUp
-$md-fontsize: 1rem; // 26px in first MockUp
-$lg-fontsize: 1.5rem; // 32px in first MockUp
-
-// Border Radius
-$sm-border-radius: 10px; // 15px in first MockUp
-$md-border-radius: 15px; // 25px in first MockUp
-$lg-border-radius: 30px; // 50px in first MockUp
-$xl-border-radius: 40px; // 65px in first MockUp
-
-// Breakpoints
-$tb-breakpoint: 600px; // TBD
-
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: $paragraph-fontfamily;
-  font-size: 16px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: $header-fontfamily;
-}
-
-ul {
-  padding-left: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/*@media screen and (min-width: $tb-breakpoint) {
-  body {
-    font-size: 18px;
-  }
-}*/
-
-/* ******************************************************** */
-
 .walk-summary,
 .meal-summary {
+  h3 {
+    font-size: $md-fontsize;
+    text-align: center;
+  }
   // FORM + GRAPHS
   .function-wrapper {
     // FORM
@@ -81,10 +11,6 @@ a {
     .meal-form {
       border-radius: $sm-border-radius;
       padding: 1rem;
-      h3 {
-        font-size: $md-fontsize;
-        text-align: center;
-      }
 
       .input-wrapper {
         display: flex;
@@ -104,6 +30,11 @@ a {
         display: flex;
         flex-flow: column nowrap;
         gap: 1rem;
+
+        .btn-outlined {
+          border: 1px solid $white-color;
+          background-color: transparent;
+        }
       }
     } // end of form
     .meal-week-month-graphs-wrapper,
@@ -113,12 +44,14 @@ a {
       align-items: center;
       padding: 1rem;
       border-radius: $sm-border-radius;
+      // pet name, pet img, add btn
       .basic-info {
         width: 100%;
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
-        gap: 0.7rem;
+        gap: 1rem;
+        padding: 1rem 0 2.5rem 0;
         h3 {
           margin: 0 auto 0.5rem;
         }
@@ -138,15 +71,58 @@ a {
       }
       .graphs {
         width: 100%;
+        .week-month-toggle {
+          background-color: $lighten-color;
+          border-top-left-radius: 18px;
+          border-top-right-radius: 18px;
+          .button-background {
+            display: flex;
+            height: 35px;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            padding: 0 1rem;
+            .button-no-accent {
+              background-color: transparent;
+            }
+            button {
+              font-size: $sm-fontsize;
+              color: $navy-color;
+            }
+          }
+        }
+
         .walk-week-graph,
         .walk-month-graph,
         .meal-week-graph,
         .meal-month-graph {
           background-color: $lighten-color;
-          border-radius: $sm-border-radius;
-        }
-        .graph-height {
-          height: 350px;
+          border-bottom-left-radius: $sm-border-radius;
+          border-bottom-right-radius: $sm-border-radius;
+          padding-bottom: calc(1rem + 50px);
+          .week-controller,
+          .month-controller {
+            display: flex;
+            flex-flow: row nowrap;
+            align-items: center;
+            justify-content: center;
+            button {
+              width: 50px;
+              background-color: transparent;
+            }
+            p {
+              font-size: $sm-fontsize;
+            }
+          }
+          .graph-height {
+            height: 300px;
+            .recharts-default-legend {
+              display: flex;
+              flex-flow: row wrap;
+              align-items: center;
+              justify-content: center;
+            }
+          }
         }
       }
     }
@@ -158,8 +134,21 @@ a {
   .meal-form {
     background-color: $green-color;
   }
-  .meal-week-month-graphs-wrapper {
-    background-color: rgba($green-color, 0.5);
+}
+
+.meal-week-month-graphs-wrapper,
+.meal-toggle-graph {
+  background-color: rgba($green-color, 0.5);
+  padding: 1rem;
+  h3 {
+    margin: 0;
+    padding: 1.5rem 0;
+  }
+  .button-background {
+    background-color: rgba($green-color, 0.3);
+    .btn-darkened {
+      background-color: rgba($green-color, 0.5);
+    }
   }
 }
 
@@ -168,7 +157,20 @@ a {
   .walk-form {
     background-color: $purple-color;
   }
-  .walk-week-month-graphs-wrapper {
-    background-color: rgba($purple-color, 0.8);
+}
+
+.walk-week-month-graphs-wrapper,
+.walk-toggle-graph {
+  background-color: rgba($purple-color, 0.4);
+  padding: 1rem;
+  h3 {
+    margin: 0;
+    padding: 1.5rem 0;
+  }
+  .button-background {
+    background-color: rgba($purple-color, 0.2);
+    .btn-darkened {
+      background-color: rgba($purple-color, 0.4);
+    }
   }
 }

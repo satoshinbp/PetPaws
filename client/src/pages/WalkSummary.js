@@ -3,9 +3,12 @@ import WalkMonthChart from '../components/charts/WalkMonthChart';
 import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkDayChart from '../components/charts/WalkDayChart';
 import WalkForm from '../components/forms/Walk';
+import trackerIcon from '../images/tracker.svg'; // dammy img, to be replaced
 
 export default function WalkSummary({ petProfile, allActivities, setAllActivities }) {
   const [showForm, setShowForm] = useState(false);
+  // if yes, week graph appears, if no, month graph appears
+  const [showWeekGraph, setShowWeekGraph] = useState(true);
   return (
     <div className="walk-summary">
       <div className="intro">
@@ -30,13 +33,13 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
           <div className="walk-week-month-graphs-wrapper">
             <div class="basic-info">
               <h3>ACTIVITY SUMMARY</h3>
-              {petProfile.name ? <p className="pet-name">{petProfile.name}</p> : <p>i</p>}
               {/* if there is no pet img uploaded, use default img*/}
               {petProfile.image ? (
                 <image className="pet-image" src={petProfile.image} />
               ) : (
                 <p className="pet-image">default image</p>
               )}
+              {petProfile.name ? <p className="pet-name">{petProfile.name}</p> : <p>Please create your pet profile</p>}
               {/* if there is no pet pet pofile, warn to create profile*/}
               {petProfile.name ? (
                 <button className="add-button btn-contained-yellow" onClick={() => setShowForm(true)}>
@@ -47,8 +50,28 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
               )}
             </div>
             <div className="graphs">
-              <WalkWeekChart allActivities={allActivities} />
-              <WalkMonthChart allActivities={allActivities} />
+              <h3>weekly/monthly charts</h3>
+              <div className="week-month-toggle">
+                <div className="button-background btn-toggle-tab">
+                  <button
+                    onClick={() => setShowWeekGraph(true)}
+                    className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                  >
+                    Week
+                  </button>
+                  <button
+                    onClick={() => setShowWeekGraph(false)}
+                    className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                  >
+                    Month
+                  </button>
+                </div>
+              </div>
+              {showWeekGraph ? (
+                <WalkWeekChart allActivities={allActivities} />
+              ) : (
+                <WalkMonthChart allActivities={allActivities} />
+              )}
             </div>
           </div>
           <div className="walk-day-graph-wrapper">

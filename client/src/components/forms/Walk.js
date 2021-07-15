@@ -88,7 +88,7 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
           <button type="submit" className="btn-contained-green">
             Create
           </button>
-          <button className="btn-outlined btn-contained-white">Cancel</button>
+          <button className="btn-outlined">Cancel</button>
         </div>
       </form>
     </div>

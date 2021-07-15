@@ -233,13 +233,12 @@ const MealMonthChart = ({ allMeals, MER }) => {
             data={graphData}
             margin={{
               top: 10,
-              right: 30,
+              right: 20,
               left: 0,
               bottom: 0,
             }}
           >
-            <Legend />
-            <CartesianGrid stroke="#f5f5f5" />
+            <Legend wrapperStyle={{ bottom: -50, left: 20 }} />
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
