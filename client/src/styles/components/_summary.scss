@@ -104,6 +104,11 @@ a {
         display: flex;
         flex-flow: column nowrap;
         gap: 1rem;
+
+        .btn-outlined {
+          border: 1px solid $white-color;
+          background-color: transparent;
+        }
       }
     } // end of form
     .meal-week-month-graphs-wrapper,
@@ -113,13 +118,14 @@ a {
       align-items: center;
       padding: 1rem;
       border-radius: $sm-border-radius;
+      // pet name, pet img, add btn
       .basic-info {
         width: 100%;
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
-        gap: 0.7rem;
-        padding: 1rem 0;
+        gap: 1rem;
+        padding: 1rem 0 2.5rem 0;
         h3 {
           margin: 0 auto 0.5rem;
         }
@@ -167,7 +173,7 @@ a {
           background-color: $lighten-color;
           border-bottom-left-radius: $sm-border-radius;
           border-bottom-right-radius: $sm-border-radius;
-          padding: 0 0 1rem;
+          padding-bottom: calc(1rem + 50px);
           .week-controller,
           .month-controller {
             display: flex;
@@ -184,9 +190,11 @@ a {
           }
           .graph-height {
             height: 300px;
-            .recharts-legend-wrapper {
-              position: absolute;
-              bottom: -50px;
+            .recharts-default-legend {
+              display: flex;
+              flex-flow: row wrap;
+              align-items: center;
+              justify-content: center;
             }
           }
         }
@@ -217,11 +225,11 @@ a {
     background-color: $purple-color;
   }
   .walk-week-month-graphs-wrapper {
-    background-color: rgba($purple-color, 0.8);
+    background-color: rgba($purple-color, 0.4);
     .button-background {
-      background-color: rgba($purple-color, 0.3);
+      background-color: rgba($purple-color, 0.2);
       .btn-darkened {
-        background-color: #fff;
+        background-color: rgba($purple-color, 0.4);
       }
     }
   }

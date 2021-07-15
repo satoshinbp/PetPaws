@@ -218,7 +218,7 @@ const MealWeekChart = ({ allMeals, MER }) => {
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
-            <Legend wrapperStyle={{ bottom: -50 }} />
+            <Legend wrapperStyle={{ bottom: -50, left: 20 }} />
             <Area
               type="monotone"
               dataKey="average calorie"

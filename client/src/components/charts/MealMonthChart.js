@@ -238,7 +238,7 @@ const MealMonthChart = ({ allMeals, MER }) => {
               bottom: 0,
             }}
           >
-            <Legend wrapperStyle={{ bottom: -50 }} />
+            <Legend wrapperStyle={{ bottom: -50, left: 20 }} />
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />

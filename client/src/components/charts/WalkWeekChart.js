@@ -223,7 +223,7 @@ const WalkWeekChart = ({ allActivities }) => {
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
-            <Legend wrapperStyle={{ bottom: -25 }} />
+            <Legend wrapperStyle={{ bottom: -25, left: 20 }} />
             <Area
               type="monotone"
               dataKey="average minute"

@@ -257,7 +257,7 @@ const WalkMonthChart = ({ allActivities }) => {
               bottom: 0,
             }}
           >
-            <Legend wrapperStyle={{ bottom: -25 }} />
+            <Legend wrapperStyle={{ bottom: -25, left: 20 }} />
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
