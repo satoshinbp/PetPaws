@@ -1401,6 +1401,11 @@ nav ul {
   }
 }
 
+.button-wrapper {
+  text-align: right;
+  margin-top: 3rem;
+}
+
 /* 3.7. Stores/Vets ========= */
 .search-form {
   padding: 1rem;

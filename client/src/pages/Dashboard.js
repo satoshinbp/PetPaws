@@ -82,7 +82,9 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
               )}
             </div>
             <Link to="/mealsummary" MER={MER}>
-              <button className="btn-contained-yellow btn-not-fullwidth">Discover More</button>
+              <div className="button-wrapper">
+                <button className="btn-contained-yellow btn-not-fullwidth">Discover More</button>
+              </div>
             </Link>
           </div>
           <div className="dashboard-walk-summary">
@@ -111,7 +113,9 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
               )}
             </div>
             <Link to="/walksummary" MER={MER}>
-              <button className="btn-contained-yellow btn-not-fullwidth">Discover More</button>
+              <div className="button-wrapper">
+                <button className="btn-contained-yellow btn-not-fullwidth">Discover More</button>
+              </div>
             </Link>
           </div>
         </div>
