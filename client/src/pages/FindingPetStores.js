@@ -57,17 +57,18 @@ export default function FindingPetStores() {
       <div className="body">
         <div className="body__wrapper">
           <div className="search-form">
-            <form className="search-form">
-              <h2>Lets find the best Pet Stores and vets</h2>
-
-              <label htmlFor="">Choose Pet Stores / Vets</label>
-              <select name="name" id="name" onChange={(e) => onChangeSelect(e)}>
-                <option value={2}>Both</option>
-                <option value={0}>Pet store</option>
-                <option value={1}>Vet</option>
-              </select>
-            </form>
-            <Map shops={shops} />
+            <h2>Lets find the best Pet Stores and vets</h2>
+            <div className="search-form-background">
+              <form className="search-form-inner">
+                <label htmlFor="">Choose Pet Stores / Vets</label>
+                <select className="input-md" name="name" id="name" onChange={(e) => onChangeSelect(e)}>
+                  <option value={2}>Both</option>
+                  <option value={0}>Pet store</option>
+                  <option value={1}>Vet</option>
+                </select>
+              </form>
+              <Map shops={shops} />
+            </div>
           </div>
         </div>
       </div>

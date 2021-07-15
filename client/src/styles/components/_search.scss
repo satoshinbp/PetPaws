@@ -6,4 +6,26 @@
   gap: 1rem;
   background-color: $green-color;
   text-align: center;
+
+  .search-form-inner {
+    padding: 1rem;
+    border-radius: $lg-border-radius;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  select {
+    max-width: 400px;
+    align-self: center;
+  }
+  .search-form-background {
+    @media screen and(min-width:$tb-breakpoint) {
+      background-color: $lighten-color;
+      border-radius: $lg-border-radius;
+      margin: 3rem;
+      padding: 2rem 1rem;
+    }
+  }
 }
