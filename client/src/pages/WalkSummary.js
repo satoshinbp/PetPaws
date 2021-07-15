@@ -10,16 +10,31 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
   // if yes, week graph appears, if no, month graph appears
   const [showWeekGraph, setShowWeekGraph] = useState(true);
   return (
-    <div className="walk-summary">
+    <>
       <div className="intro">
-        <h2>ACTIVITY TRACKER</h2>
-        <p>
-          A nutritious, balanced diet is essential to keeping your dog healthy. We provide a feature that allows you to
-          keep track of your pet's meals. Additionally, we offer the ideal nutrition for your pet's weight control.
-        </p>
+        <div className="intro__wrapper">
+          <div className="intro__body">
+            <div className="intro__text">
+              <h2>Activity Tracker</h2>
+              <p>
+                A nutritious, balanced diet is essential to keeping your dog healthy. We provide a feature that allows
+                you to keep track of your pet's meals. Additionally, we offer the ideal nutrition for your pet's weight
+                control.
+              </p>
+            </div>
+
+            <div className="intro__btn">
+              <button className="btn-contained-white btn-not-fullwidth">Create free account</button>
+            </div>
+          </div>
+
+          <div className="intro__img">
+            <img src={trackerIcon} alt="member portrait" />
+          </div>
+        </div>
       </div>
       <div className="body">
-        <div className="function-wrapper">
+        <div className="walk-summary body__wrapper">
           {/* form toggled by add button */}
           {showForm ? (
             <WalkForm
@@ -79,6 +94,6 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }
