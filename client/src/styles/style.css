@@ -677,19 +677,16 @@ img {
   flex-flow: column nowrap;
   align-items: center;
 }
-.pet-profile-form_area .pet-type {
+.pet-profile-form_area .pet-type, .pet-profile-form_area .spay {
   display: flex;
   flex-flow: row wrap;
   text-align: center;
 }
-.pet-profile-form_area .pet-type label {
+.pet-profile-form_area .pet-type label, .pet-profile-form_area .spay label {
   padding: 1rem 0;
   width: 100%;
 }
-.pet-profile-form_area .pet-type .pet-type_cat {
-  flex: 50%;
-}
-.pet-profile-form_area .pet-type .pet-type_dog {
+.pet-profile-form_area .pet-type .pet-type_cat, .pet-profile-form_area .pet-type .pet-type_dog, .pet-profile-form_area .pet-type .spayed, .pet-profile-form_area .pet-type .notSpayed, .pet-profile-form_area .spay .pet-type_cat, .pet-profile-form_area .spay .pet-type_dog, .pet-profile-form_area .spay .spayed, .pet-profile-form_area .spay .notSpayed {
   flex: 50%;
 }
 .pet-profile-form_area .input-area {
@@ -737,15 +734,11 @@ img {
   .pet-profile-form_area .input-area label {
     text-align: left;
   }
-  .pet-profile-form_area .pet-type {
+  .pet-profile-form_area .pet-type, .pet-profile-form_area .spay {
     width: 100%;
     justify-content: center;
   }
-  .pet-profile-form_area .pet-type .pet-type_cat {
-    flex: unset;
-    padding: 0 0.5rem;
-  }
-  .pet-profile-form_area .pet-type .pet-type_dog {
+  .pet-profile-form_area .pet-type .pet-type_cat, .pet-profile-form_area .pet-type .pet-type_dog, .pet-profile-form_area .pet-type .spayed, .pet-profile-form_area .pet-type .notSpayed, .pet-profile-form_area .spay .pet-type_cat, .pet-profile-form_area .spay .pet-type_dog, .pet-profile-form_area .spay .spayed, .pet-profile-form_area .spay .notSpayed {
     flex: unset;
     padding: 0 0.5rem;
   }

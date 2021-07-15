@@ -7,7 +7,7 @@
     flex-flow: column nowrap;
     align-items: center;
 
-    .pet-type{
+    .pet-type, .spay{
     display: flex;
     flex-flow: row wrap;
     text-align: center;
@@ -17,11 +17,7 @@
       width: 100%;
     }
 
-    .pet-type_cat {
-      flex: 50%;
-    }
-
-    .pet-type_dog {
+    .pet-type_cat, .pet-type_dog, .spayed, .notSpayed {
       flex: 50%;
     }
   }
@@ -82,16 +78,11 @@
         }
       }
 
-      .pet-type {
+      .pet-type, .spay {
         width: 100%;
         justify-content: center;
 
-        .pet-type_cat {
-          flex: unset;
-          padding: 0 .5rem;
-        }
-
-        .pet-type_dog {
+        .pet-type_cat, .pet-type_dog, .spayed, .notSpayed {
           flex: unset;
           padding: 0 .5rem;
         }

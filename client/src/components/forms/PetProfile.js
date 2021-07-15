@@ -115,13 +115,6 @@ export default function petProfileForm(props) {
             />
           </div>
           <div className="input-area">
-            <label htmlFor="isSpayed">Signalment</label>
-            <select name="isSpayed" value={props.isSpayed} onChange={(e) => props.changeIsSpayed(e.target.value)}>
-              <option value={0}>Intact</option>
-              <option value={1}>Spayed/Neutered</option>
-            </select>
-          </div>
-          <div className="input-area">
             <label htmlFor="activityLevel">Activity Level</label>
             <select
               name="activityLevel"
@@ -145,6 +138,31 @@ export default function petProfileForm(props) {
               <option value={1}>Ideal</option>
               <option value={2}>Overweight</option>
             </select>
+          </div>
+          <div className="spay">
+            <label htmlFor="isSpayed">Spay</label>
+            <div className="notSpayed">
+              <input
+                id="notSpayed"
+                type="radio"
+                name="isSpay"
+                value={0}
+                checked={props.isSpayed == 0}
+                onChange={(e) => props.changeIsSpayed(e.target.value)}
+              />
+              <label htmlFor="notSpayed">No</label>
+            </div>
+            <div className="spayed">
+              <input
+                id="spayed"
+                type="radio"
+                name="isSpay"
+                value={1}
+                checked={props.isSpayed == 1}
+                onChange={(e) => props.changeIsSpayed(e.target.value)}
+              />
+              <label htmlFor="spayed">Yes</label>
+            </div>
           </div>
         </div>
 
