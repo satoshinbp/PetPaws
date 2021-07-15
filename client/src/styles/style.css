@@ -1061,6 +1061,7 @@ img {
 .pet-profile-form {
   background: #86e3ce;
   padding: 2rem 1rem;
+  border-radius: 10px;
 }
 .pet-profile-form_area {
   display: flex;
@@ -1092,6 +1093,7 @@ img {
   height: 120px;
   border-radius: 50%;
   border: 0.5rem #ffdd95 solid;
+  object-fit: cover;
 }
 .pet-profile-form button {
   margin: 2rem 0;
@@ -1099,6 +1101,7 @@ img {
 }
 
 .add-pet {
+  border-radius: 10px;
   padding: 2rem;
   text-align: center;
   background-color: rgba(204, 171, 218, 0.82);

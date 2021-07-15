@@ -1,6 +1,7 @@
 .pet-profile-form{
   background: $green-color;
   padding: 2rem 1rem;
+  border-radius: 10px;
 
   &_area{
     display: flex;
@@ -39,6 +40,7 @@
       height: 120px;
       border-radius: 50%;
       border: .5rem $yellow-color solid;
+      object-fit: cover;
     }
   }
 
@@ -49,6 +51,7 @@
 }
 
 .add-pet{
+  border-radius: 10px;
   padding:2rem;
   text-align: center;
   background-color: $purple-color;
