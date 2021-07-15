@@ -13,12 +13,10 @@
 @import 'pages/signin';
 
 /* TO BE DELETED ============ */
-/* 2.4. Dashboard =========== */
-@import 'pages/dashboard';
+
 /* 2.5. Profile ============= */
 @import 'pages/profile';
-/* 2.6. Stores/Vets ========= */
-@import 'pages/search';
+
 /* 2.7. Trackers ============ */
 @import 'pages/meal-tracker';
 @import 'pages/walk-tracker';
@@ -59,6 +57,10 @@
 @import 'components/footer';
 /* 3.5. Calculator ========== */
 @import 'components/calculator';
+/* 3.6. Dashboard =========== */
+@import 'components/dashboard';
+/* 3.7. Stores/Vets ========= */
+@import 'components/search';
 /* ========================== */
 
 /* 4 Elements =============== */
