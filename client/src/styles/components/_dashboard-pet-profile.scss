@@ -1,0 +1,36 @@
+.dashboard-body {
+  background-color: $purple-color;
+  border-radius: $lg-border-radius;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.dashboard-body-wrapper {
+  background-color: $light-purple;
+  border-radius: $lg-border-radius;
+}
+
+.pet-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+
+  p {
+    flex-basis: 50%;
+  }
+  .pet-detail {
+    border-bottom: solid 1.5px $navy-color;
+  }
+}
+
+.dashboard-pet-profile {
+  padding: 1rem;
+}
+
+.dashboard-meal-summary {
+  padding: 1rem;
+}
+.dashboard-walk-summary {
+  padding: 1rem;
+}

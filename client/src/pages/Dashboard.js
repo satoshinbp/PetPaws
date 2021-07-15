@@ -25,33 +25,33 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
         </div>
       </div>
 
-      <div className="body">
-        <div className="body__wrapper">
-          <div className="latest-summary">
-            <div className="latest-summary-content">
-              <h3>Pet Details</h3>
-              <div className="pet-details">
-                <p>Pet Name</p>
-                <p className="pet-detail">{petProfile.name} </p>
-                <p>Age</p>
-                <p className="pet-detail">{age} </p>
-                <p>Breed</p>
-                <p className="pet-detail">{petProfile.breed}</p>
-                <p>Weight</p>
-                <p className="pet-detail">{petProfile.weight}kg</p>
-                <p>Height</p>
-                <p className="pet-detail">{petProfile.height}cm</p>
-              </div>
-              <h3>In Last Week</h3>
-              <LatestWalkSummary allActivities={allActivities} />
-              <LatestCalorieSummary allMeals={allMeals} MER={MER} />
-
-              <h3>Nutrition Summary</h3>
-              <Link to="/mealsummary">Discover More</Link>
-              <br></br>
-              <h3>Activity Summary</h3>
-              <Link to="/walksummary">Discover More</Link>
+      <div className="body dashboard-body">
+        <div className="body__wrapper dashboard-body-wrapper">
+          <div className="dashboard-pet-profile">
+            <h3>Pet Details</h3>
+            <div className="pet-details">
+              <p>Pet Name</p>
+              <p className="pet-detail">{petProfile.name} </p>
+              <p>Age</p>
+              <p className="pet-detail">{age} </p>
+              <p>Breed</p>
+              <p className="pet-detail">{petProfile.breed}</p>
+              <p>Weight</p>
+              <p className="pet-detail">{petProfile.weight}kg</p>
+              <p>Height</p>
+              <p className="pet-detail">{petProfile.height}cm</p>
             </div>
+            <h3>In Last Week</h3>
+            <LatestWalkSummary allActivities={allActivities} />
+            <LatestCalorieSummary allMeals={allMeals} MER={MER} />
+          </div>
+          <div className="dashboard-meal-summary">
+            <h3>Nutrition Summary</h3>
+            <Link to="/mealsummary">Discover More</Link>
+          </div>
+          <div className="dashboard-walk-summary">
+            <h3>Activity Summary</h3>
+            <Link to="/walksummary">Discover More</Link>
           </div>
         </div>
       </div>

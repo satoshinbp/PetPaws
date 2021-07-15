@@ -1,0 +1,7 @@
+.dashboard-meal-summary,
+.dashboard-walk-summary {
+  display: none;
+  @media screen and (min-width: $tb-breakpoint) {
+    display: block;
+  }
+}
