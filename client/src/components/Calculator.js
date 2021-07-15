@@ -98,19 +98,29 @@ export default function Calculator(props) {
   };
 
   return (
-    <>
-      <h2>Calorie Calculator</h2>
-      {/* This styling is temporary, to be removed */}
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <div>
-          <h3>Pet type:</h3>
-          <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
-          <label htmlFor="cat">Cat</label>
-          <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
-          <label htmlFor="dog">Dog</label>
+    <div className="calculator">
+      <h3>Let's Calculate!</h3>
+
+      <form onSubmit={handleSubmit} className="calculator__form">
+        <div className="calculator__pet-type">
+          <div className="calculator__label--pet-type">Pet type</div>
+
+          <div className="calculator__pet-type-options">
+            <label htmlFor="dog">
+              <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
+              Dog
+            </label>
+            <label htmlFor="cat">
+              <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
+              Cat
+            </label>
+          </div>
         </div>
-        <div>
-          <label htmlFor="breed">Breed:</label>
+
+        <div className="calculator__params">
+          <label htmlFor="breed" className="calculator__label">
+            Breed
+          </label>
           <select name="breed" value={breedName} onChange={changeBreed} required>
             <option value="">Select breed</option>
             {isDog ? (
@@ -133,32 +143,52 @@ export default function Calculator(props) {
           </select>
         </div>
 
-        <div>
-          <label>
-            Age:
-            <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
-            Years
-            <input type="number" name="ageMonths" value={ageMonths} min={0} max={11} step={1} onChange={changeMonths} />
-            Months
-          </label>
+        <div className="calculator__params">
+          <div className="calculator__label">Age</div>
+          <div className="calculator__params--age">
+            <label className="calculator__label--age">
+              <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
+              years
+            </label>
+            <label className="calculator__label--age">
+              <input
+                type="number"
+                name="ageMonths"
+                value={ageMonths}
+                min={0}
+                max={11}
+                step={1}
+                onChange={changeMonths}
+              />
+              months
+            </label>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="weight">Weight:</label>
-          <input type="number" name="weight" value={weight} min={0} step={0.1} onChange={changeWeight} />
-          kg
+        <div className="calculator__params">
+          <div className="calculator__label">
+            <label htmlFor="weight">Weight</label>
+          </div>
+          <div className="calculator__input-with-endadornment">
+            <input type="number" name="weight" value={weight} min={0} step={0.1} onChange={changeWeight} />
+            kg
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="isSpayed">Signalment:</label>
+        <div className="calculator__params">
+          <div className="calculator__label">
+            <label htmlFor="isSpayed">Spayed</label>
+          </div>
           <select name="isSpayed" value={isSpayed} onChange={changeIsSpayed}>
             <option value={0}>Intact</option>
             <option value={1}>Spayed/Neutered</option>
           </select>
         </div>
 
-        <div>
-          <label htmlFor="activityLevel">Activity Level:</label>
+        <div className="calculator__params">
+          <div className="calculator__label">
+            <label htmlFor="activityLevel">Activity Level</label>
+          </div>
           <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
             <option value={0}>Inactive</option>
             <option value={1}>Somewhat Active</option>
@@ -167,8 +197,10 @@ export default function Calculator(props) {
           </select>
         </div>
 
-        <div>
-          <label htmlFor="bodyCondition">Body Condition:</label>
+        <div className="calculator__params">
+          <div className="calculator__label">
+            <label htmlFor="bodyCondition">Body Condition</label>
+          </div>
           <select name="bodyCondition" value={bodyCondition} onChange={changeBodyCondition}>
             <option value={0}>Underweight</option>
             <option value={1}>Ideal</option>
@@ -176,8 +208,10 @@ export default function Calculator(props) {
           </select>
         </div>
 
-        <button type="submit">calculate</button>
+        <button type="submit" className="btn-contained-yellow">
+          calculate
+        </button>
       </form>
-    </>
+    </div>
   );
 }
