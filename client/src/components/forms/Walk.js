@@ -75,10 +75,11 @@ export default function WalkForm({ petProfile, setAllActivities }) {
             name="distance"
             value={distance}
             min="0"
-            max="50000"
+            max="10"
+            step="0.1"
             onChange={(e) => setDistance(e.target.value)}
           />
-          m
+          km
         </div>
 
         <div>
