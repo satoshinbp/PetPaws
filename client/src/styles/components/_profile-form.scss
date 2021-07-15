@@ -1,0 +1,61 @@
+.pet-profile-form{
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background: $green-color;
+  padding: 0 1rem;
+
+  &_image{
+
+    img{
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: .5rem $yellow-color solid;
+    }
+  }
+
+  .pet-type{
+    display: flex;
+    flex-flow: row wrap;
+    text-align: center;
+
+    label{
+      padding: 1rem 0;
+      width: 100%;
+    }
+
+    .pet-type_cat {
+      flex: 50%;
+    }
+
+    .pet-type_dog {
+      flex: 50%;
+    }
+  }
+
+  .input-area{
+    margin: .5rem 0;
+    width: 100%;
+    label{
+      display: block;
+      padding: .3rem 0;
+    }
+  }
+
+  button{
+    margin: 2rem 0;
+    padding: 0 1rem;
+  }
+}
+
+.add-pet{
+  padding:2rem;
+  text-align: center;
+  background-color: $purple-color;
+  button{
+    font-size: 2rem;
+    font-weight: 700;
+  }
+
+}

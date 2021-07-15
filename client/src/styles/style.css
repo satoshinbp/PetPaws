@@ -620,6 +620,57 @@ img {
 
 /* TO BE REORGANIZED ======== */
 /* 3.1. Forms =============== */
+.pet-profile-form {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  background: #86e3ce;
+  padding: 0 1rem;
+}
+.pet-profile-form_image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 0.5rem #ffdd95 solid;
+}
+.pet-profile-form .pet-type {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+.pet-profile-form .pet-type label {
+  padding: 1rem 0;
+  width: 100%;
+}
+.pet-profile-form .pet-type .pet-type_cat {
+  flex: 50%;
+}
+.pet-profile-form .pet-type .pet-type_dog {
+  flex: 50%;
+}
+.pet-profile-form .input-area {
+  margin: 0.5rem 0;
+  width: 100%;
+}
+.pet-profile-form .input-area label {
+  display: block;
+  padding: 0.3rem 0;
+}
+.pet-profile-form button {
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.add-pet {
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(204, 171, 218, 0.82);
+}
+.add-pet button {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
 /* 3.2. Charts ============== */
 /* 3.3. Header ============== */
 /* 3.4. Footer ============== */
