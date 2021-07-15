@@ -131,6 +131,10 @@ export default function PetProfile({ petProfile }) {
   return (
     <>
       <h2>Pet Profile</h2>
+      <p>
+        Let's complete your furry friend detail here. Depending on the age and breed, we will advise the best individual
+        plan for nutrition and walking activities.
+      </p>
       <PetProfileForm
         dogBreeds={dogBreeds}
         catBreeds={catBreeds}
