@@ -119,17 +119,17 @@ const LatestCalorieSummary = ({ allMeals, MER }) => {
   }, [allMeals, avgCal, MER]);
 
   return (
-    <div style={{ border: '1px solid' }}>
+    <div className="calorie-stats">
       {/* temporary styling */}
-      <h3>Avg Calories(Kcal)</h3>
+      <p>Avg Calories(Kcal)</p>
       <div style={{ height: '150px' }}>
         {/* height is necessary to display graph */}
 
         {graphData ? (
           <ResponsiveContainer>
             <ComposedChart layout="vertical" data={graphData} margin={{ top: 20, right: 20, bottom: 0, left: 25 }}>
-              <XAxis type="number" domain={[0, 'dataMax']} stroke="#3B3054" />
-              <YAxis type="category" dataKey="value" stroke="#3B3054" />
+              <XAxis type="number" domain={[0, 'dataMax']} axisLine={false} tick={false} />
+              <YAxis type="category" dataKey="value" axisLine={false} />
               <Tooltip /> {/* values shown when hovered */}
               <Bar dataKey="calorie" barSize={20} fillOpacity={1}>
                 {graphData.map((entry, index) => (

@@ -13,10 +13,8 @@
 @import 'pages/signin';
 
 /* TO BE DELETED ============ */
-/* 2.4. Dashboard =========== */
-@import 'pages/dashboard';
+
 /* 2.6. Stores/Vets ========= */
-@import 'pages/search';
 /* 2.8. Calorie ============= */
 @import 'pages/calorie';
 @import 'pages/calorie-guest';
@@ -54,6 +52,11 @@
 @import 'components/footer';
 /* 3.5. Calculator ========== */
 @import 'components/calculator';
+/* 3.6. Dashboard =========== */
+@import 'components/dashboard-pet-profile';
+@import 'components/dashboard-summary';
+/* 3.7. Stores/Vets ========= */
+@import 'components/search';
 /* ========================== */
 
 /* 4 Elements =============== */

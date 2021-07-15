@@ -510,18 +510,7 @@ img {
   }
 }
 /* TO BE DELETED ============ */
-/* 2.4. Dashboard =========== */
 /* 2.6. Stores/Vets ========= */
-.search-form {
-  padding: 1rem;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: #86e3ce;
-  text-align: center;
-}
-
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
 /* ========================== */
@@ -1284,6 +1273,25 @@ img {
   justify-content: center;
 }
 
+.calorie-stats {
+  border: 1px solid #3b3054;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.activity-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  text-align: center;
+}
+.activity-stats .activity-avg {
+  flex-basis: 50%;
+  border: 1px solid #3b3054;
+  border-radius: 10px;
+}
+
 /* 3.3. Header ============== */
 header {
   position: fixed;
@@ -1320,6 +1328,115 @@ nav ul {
 
 /* 3.4. Footer ============== */
 /* 3.5. Calculator ========== */
+/* 3.6. Dashboard =========== */
+.dashboard-pet-profile {
+  background-color: rgba(204, 171, 218, 0.82);
+  border-radius: 30px;
+}
+@media screen and (min-width: 600px) {
+  .dashboard-pet-profile {
+    background-color: white;
+    border: 1px solid #3b3054;
+  }
+}
+
+.dashboard-pet-profile-wrapper {
+  background-color: #ede1f8;
+  border-radius: 30px;
+  padding: 1rem;
+}
+@media screen and (min-width: 600px) {
+  .dashboard-pet-profile-wrapper {
+    background-color: white;
+  }
+}
+
+.pet-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.pet-details p {
+  flex-basis: 50%;
+}
+.pet-details .pet-detail {
+  border-bottom: solid 1.5px #3b3054;
+}
+
+.dashboard-pet-profile {
+  padding: 1rem;
+}
+
+.dashboard-meal-summary {
+  padding: 1rem;
+}
+
+.dashboard-walk-summary {
+  padding: 1rem;
+}
+
+.dashboard-meal-summary,
+.dashboard-walk-summary {
+  display: none;
+}
+@media screen and (min-width: 600px) {
+  .dashboard-meal-summary,
+.dashboard-walk-summary {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-meal-summary {
+    background-color: #ede1f8;
+    border-radius: 30px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-walk-summary {
+    background-color: rgba(134, 227, 206, 0.22);
+    border-radius: 30px;
+  }
+}
+
+.button-wrapper {
+  text-align: right;
+  margin-top: 3rem;
+}
+
+/* 3.7. Stores/Vets ========= */
+.search-form {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #86e3ce;
+  text-align: center;
+}
+.search-form .search-form-inner {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+.search-form select {
+  max-width: 400px;
+  align-self: center;
+}
+@media screen and (min-width: 600px) {
+  .search-form .search-form-background {
+    background-color: rgba(255, 255, 255, 0.64);
+    border-radius: 30px;
+    margin: 3rem;
+    padding: 2rem 1rem;
+  }
+}
+
 /* ========================== */
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */

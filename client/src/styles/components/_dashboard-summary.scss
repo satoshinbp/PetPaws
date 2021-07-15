@@ -1,0 +1,26 @@
+.dashboard-meal-summary,
+.dashboard-walk-summary {
+  display: none;
+  @media screen and (min-width: $tb-breakpoint) {
+    display: block;
+  }
+}
+
+.dashboard-meal-summary {
+  @media screen and (min-width: $tb-breakpoint) {
+    background-color: $light-purple;
+    border-radius: $lg-border-radius;
+  }
+}
+
+.dashboard-walk-summary {
+  @media screen and (min-width: $tb-breakpoint) {
+    background-color: $light-green-color;
+    border-radius: $lg-border-radius;
+  }
+}
+
+.button-wrapper {
+  text-align: right;
+  margin-top: 3rem;
+}
