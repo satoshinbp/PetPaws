@@ -1,4 +1,10 @@
 .features {
+  background-image: url('../images/bg-green.png');
+  background-size: contain;
+
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
   padding: 1rem;
   border-radius: $lg-border-radius;
   display: flex;
@@ -8,7 +14,7 @@
   text-align: center;
 
   &__feature {
-    padding: 0 1rem;
+    padding: 1rem;
     border-radius: $md-border-radius;
     background-color: $lighten-color;
   }
@@ -18,11 +24,32 @@
     margin: 0 auto;
   }
 
-  &__feature-description {
-    font-size: $sm-fontsize;
+  &__btn {
+    margin: 1rem 0;
   }
 
-  &__btn {
-    margin: 1rem;
+  @media screen and (min-width: $tb-breakpoint) {
+    padding: 2rem;
+    gap: 2rem;
+
+    &__feature {
+      padding: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 2fr;
+      gap: 2rem;
+      text-align: left;
+
+      &:nth-child(2n + 1) {
+        .features__feature-img {
+          grid-column: 2 / span 1;
+        }
+      }
+    }
+
+    &__feature-img {
+      width: 100%;
+      grid-row: 1 / span 2;
+    }
   }
 }

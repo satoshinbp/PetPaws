@@ -4,8 +4,7 @@ import MealDayChart from '../components/charts/MealDayChart';
 import MealForm from '../components/forms/Meal';
 import storesVetsFinderIcon from '../images/stores-vets-finder.svg'; // dammy img, to be replaced
 
-export default function MealSummary({ petProfile, allMeals, setAllMeals }) {
-  console.log(petProfile.name);
+export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) {
   return (
     <>
       <div className="intro">
