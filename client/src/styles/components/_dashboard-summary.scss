@@ -5,3 +5,17 @@
     display: block;
   }
 }
+
+.dashboard-meal-summary {
+  @media screen and (min-width: $tb-breakpoint) {
+    background-color: $light-purple;
+    border-radius: $lg-border-radius;
+  }
+}
+
+.dashboard-walk-summary {
+  @media screen and (min-width: $tb-breakpoint) {
+    background-color: $light-green-color;
+    border-radius: $lg-border-radius;
+  }
+}
