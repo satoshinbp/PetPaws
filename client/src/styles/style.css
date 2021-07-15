@@ -347,8 +347,10 @@ template {
 }
 
 body {
+  padding-top: 84px;
   font-family: "Content", helvetica, arial, sans-serif;
   font-size: 16px;
+  line-height: 25px;
   color: #3b3054;
 }
 
@@ -520,7 +522,6 @@ img {
   text-align: center;
 }
 
-/* 2.7. Trackers ============ */
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
 /* ========================== */
@@ -614,6 +615,11 @@ img {
 
 /* 3.3. Features ============ */
 .features {
+  background-image: url("../images/bg-green.png");
+  background-size: contain;
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 1rem;
   border-radius: 30px;
   display: flex;
@@ -623,7 +629,7 @@ img {
   text-align: center;
 }
 .features__feature {
-  padding: 0 1rem;
+  padding: 1rem;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.64);
 }
@@ -631,15 +637,36 @@ img {
   width: 56px;
   margin: 0 auto;
 }
-.features__feature-description {
-  font-size: 0.875rem;
-}
 .features__btn {
-  margin: 1rem;
+  margin: 1rem 0;
+}
+@media screen and (min-width: 600px) {
+  .features {
+    padding: 2rem;
+    gap: 2rem;
+  }
+  .features__feature {
+    padding: 2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 2fr;
+    gap: 2rem;
+    text-align: left;
+  }
+  .features__feature:nth-child(2n+1) .features__feature-img {
+    grid-column: 2/span 1;
+  }
+  .features__feature-img {
+    width: 100%;
+    grid-row: 1/span 2;
+  }
 }
 
 /* 3.4. Team ================ */
 .team {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
   padding: 1rem;
   border-radius: 30px;
   text-align: center;
@@ -650,7 +677,7 @@ img {
 }
 .team__members {
   display: flex;
-  flex-direction: column;
+  flex-flow: nowrap column;
   align-items: center;
   gap: 1rem;
 }
@@ -663,11 +690,374 @@ img {
   border-radius: 50%;
 }
 .team__member-name {
-  font-size: 0.875rem;
+  font-size: 0.875em;
+}
+@media screen and (min-width: 600px) {
+  .team {
+    padding: 2rem;
+  }
+  .team__members {
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .team__member {
+    flex: 240px 0 0;
+  }
+  .team__member-img {
+    width: 180px;
+    height: 180px;
+  }
 }
 
 /* TO BE REORGANIZED ======== */
 /* 3.1. Forms =============== */
+.walk-summary h3,
+.meal-summary h3 {
+  font-size: 1em;
+  text-align: center;
+}
+.walk-summary .walk-form,
+.walk-summary .meal-form,
+.meal-summary .walk-form,
+.meal-summary .meal-form {
+  border-radius: 10px;
+  padding: 1rem;
+}
+.walk-summary .walk-form .input-wrapper,
+.walk-summary .meal-form .input-wrapper,
+.meal-summary .walk-form .input-wrapper,
+.meal-summary .meal-form .input-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.7rem;
+}
+.walk-summary .walk-form .input-wrapper div,
+.walk-summary .meal-form .input-wrapper div,
+.meal-summary .walk-form .input-wrapper div,
+.meal-summary .meal-form .input-wrapper div {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.3rem;
+}
+.walk-summary .walk-form .input-wrapper div label,
+.walk-summary .meal-form .input-wrapper div label,
+.meal-summary .walk-form .input-wrapper div label,
+.meal-summary .meal-form .input-wrapper div label {
+  font-weight: 700;
+}
+.walk-summary .walk-form .button-wrapper,
+.walk-summary .meal-form .button-wrapper,
+.meal-summary .walk-form .button-wrapper,
+.meal-summary .meal-form .button-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+.walk-summary .walk-form .button-wrapper .btn-outlined,
+.walk-summary .meal-form .button-wrapper .btn-outlined,
+.meal-summary .walk-form .button-wrapper .btn-outlined,
+.meal-summary .meal-form .button-wrapper .btn-outlined {
+  border: 1px solid #fff;
+  background-color: transparent;
+}
+.walk-summary .meal-week-month-graphs-wrapper,
+.walk-summary .walk-week-month-graphs-wrapper,
+.meal-summary .meal-week-month-graphs-wrapper,
+.meal-summary .walk-week-month-graphs-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+}
+.walk-summary .meal-week-month-graphs-wrapper .basic-info,
+.walk-summary .walk-week-month-graphs-wrapper .basic-info,
+.meal-summary .meal-week-month-graphs-wrapper .basic-info,
+.meal-summary .walk-week-month-graphs-wrapper .basic-info {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0 2.5rem 0;
+}
+.walk-summary .meal-week-month-graphs-wrapper .basic-info h3,
+.walk-summary .walk-week-month-graphs-wrapper .basic-info h3,
+.meal-summary .meal-week-month-graphs-wrapper .basic-info h3,
+.meal-summary .walk-week-month-graphs-wrapper .basic-info h3 {
+  margin: 0 auto 0.5rem;
+}
+.walk-summary .meal-week-month-graphs-wrapper .basic-info p,
+.walk-summary .walk-week-month-graphs-wrapper .basic-info p,
+.meal-summary .meal-week-month-graphs-wrapper .basic-info p,
+.meal-summary .walk-week-month-graphs-wrapper .basic-info p {
+  margin: 0;
+}
+.walk-summary .meal-week-month-graphs-wrapper .basic-info .pet-image,
+.walk-summary .walk-week-month-graphs-wrapper .basic-info .pet-image,
+.meal-summary .meal-week-month-graphs-wrapper .basic-info .pet-image,
+.meal-summary .walk-week-month-graphs-wrapper .basic-info .pet-image {
+  width: 78px;
+  height: 130px;
+  object-fit: cover;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs,
+.walk-summary .walk-week-month-graphs-wrapper .graphs,
+.meal-summary .meal-week-month-graphs-wrapper .graphs,
+.meal-summary .walk-week-month-graphs-wrapper .graphs {
+  width: 100%;
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs .week-month-toggle,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .week-month-toggle,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .week-month-toggle,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .week-month-toggle {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background {
+  display: flex;
+  height: 35px;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background .button-no-accent,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background .button-no-accent,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background .button-no-accent,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background .button-no-accent {
+  background-color: transparent;
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background button,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background button,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .week-month-toggle .button-background button,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .week-month-toggle .button-background button {
+  font-size: 0.875em;
+  color: #3b3054;
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: calc(1rem + 50px);
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller button,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller button,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller button,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller button,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller button,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller button,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller button,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller button,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller button,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller button,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller button,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller button,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller button,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller button,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller button,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller button,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller button,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller button,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller button,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller button,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller button,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller button,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller button,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller button,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller button,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller button,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller button,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller button,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller button,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller button,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller button,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller button {
+  width: 50px;
+  background-color: transparent;
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller p,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller p,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller p,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller p,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller p,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller p,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller p,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller p,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller p,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller p,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller p,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller p,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller p,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller p,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller p,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller p,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller p,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller p,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller p,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller p,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller p,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller p,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller p,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller p,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .week-controller p,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .month-controller p,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .week-controller p,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .month-controller p,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .week-controller p,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .month-controller p,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .week-controller p,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .month-controller p {
+  font-size: 0.875em;
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height {
+  height: 300px;
+}
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height .recharts-default-legend,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height .recharts-default-legend,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height .recharts-default-legend,
+.walk-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height .recharts-default-legend,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height .recharts-default-legend,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height .recharts-default-legend,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height .recharts-default-legend,
+.walk-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height .recharts-default-legend,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height .recharts-default-legend,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height .recharts-default-legend,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height .recharts-default-legend,
+.meal-summary .meal-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height .recharts-default-legend,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-week-graph .graph-height .recharts-default-legend,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .walk-month-graph .graph-height .recharts-default-legend,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-week-graph .graph-height .recharts-default-legend,
+.meal-summary .walk-week-month-graphs-wrapper .graphs .meal-month-graph .graph-height .recharts-default-legend {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.meal-summary .meal-form {
+  background-color: #86e3ce;
+}
+
+.meal-week-month-graphs-wrapper,
+.meal-toggle-graph {
+  background-color: rgba(134, 227, 206, 0.5);
+  padding: 1rem;
+}
+.meal-week-month-graphs-wrapper h3,
+.meal-toggle-graph h3 {
+  margin: 0;
+  padding: 1.5rem 0;
+}
+.meal-week-month-graphs-wrapper .button-background,
+.meal-toggle-graph .button-background {
+  background-color: rgba(134, 227, 206, 0.3);
+}
+.meal-week-month-graphs-wrapper .button-background .btn-darkened,
+.meal-toggle-graph .button-background .btn-darkened {
+  background-color: rgba(134, 227, 206, 0.5);
+}
+
+.walk-summary .walk-form {
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
+.walk-week-month-graphs-wrapper,
+.walk-toggle-graph {
+  background-color: rgba(204, 171, 218, 0.4);
+  padding: 1rem;
+}
+.walk-week-month-graphs-wrapper h3,
+.walk-toggle-graph h3 {
+  margin: 0;
+  padding: 1.5rem 0;
+}
+.walk-week-month-graphs-wrapper .button-background,
+.walk-toggle-graph .button-background {
+  background-color: rgba(204, 171, 218, 0.2);
+}
+.walk-week-month-graphs-wrapper .button-background .btn-darkened,
+.walk-toggle-graph .button-background .btn-darkened {
+  background-color: rgba(204, 171, 218, 0.4);
+}
+
 .pet-profile-form {
   background: #86e3ce;
   padding: 2rem 1rem;
@@ -749,7 +1139,182 @@ img {
   }
 }
 /* 3.2. Charts ============== */
+.walk-day-graph-wrapper {
+  background-color: rgba(134, 227, 206, 0.5);
+}
+
+.meal-day-graph-wrapper {
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
+.walk-day-graph-wrapper,
+.meal-day-graph-wrapper {
+  border-radius: 10px;
+  padding: 1rem;
+}
+.walk-day-graph-wrapper .background-color-wrapper,
+.meal-day-graph-wrapper .background-color-wrapper {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-radius: 10px;
+}
+.walk-day-graph-wrapper .background-color-wrapper .info,
+.meal-day-graph-wrapper .background-color-wrapper .info {
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+}
+.walk-day-graph-wrapper .background-color-wrapper .info label,
+.meal-day-graph-wrapper .background-color-wrapper .info label {
+  font-size: 0.875em;
+}
+.walk-day-graph-wrapper .background-color-wrapper .info h3,
+.meal-day-graph-wrapper .background-color-wrapper .info h3 {
+  margin: 0;
+}
+.walk-day-graph-wrapper .background-color-wrapper .info p,
+.meal-day-graph-wrapper .background-color-wrapper .info p {
+  margin: 0;
+}
+.walk-day-graph-wrapper .background-color-wrapper .info .daily-list,
+.meal-day-graph-wrapper .background-color-wrapper .info .daily-list {
+  border: 1px solid #3b3054;
+  padding: 1rem 0.5rem;
+}
+.walk-day-graph-wrapper .background-color-wrapper .info .daily-list > p:first-of-type,
+.meal-day-graph-wrapper .background-color-wrapper .info .daily-list > p:first-of-type {
+  font-weight: 300;
+  border-bottom: 1px solid rgba(59, 48, 84, 0.5);
+}
+.walk-day-graph-wrapper .background-color-wrapper .info .daily-list p,
+.meal-day-graph-wrapper .background-color-wrapper .info .daily-list p {
+  padding: 0.5rem 0;
+}
+.walk-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item,
+.meal-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item {
+  padding: 0.5rem 0;
+}
+.walk-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item p,
+.meal-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item p {
+  padding: 0;
+}
+
+.graphs {
+  width: 100%;
+}
+.graphs .week-month-toggle {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+.graphs .week-month-toggle .button-background {
+  display: flex;
+  height: 35px;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+.graphs .week-month-toggle .button-background .button-no-accent {
+  background-color: transparent;
+}
+.graphs .week-month-toggle .button-background button {
+  font-size: 0.875em;
+  color: #3b3054;
+}
+.graphs .walk-week-graph,
+.graphs .walk-month-graph,
+.graphs .meal-week-graph,
+.graphs .meal-month-graph {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: calc(1rem + 50px);
+}
+.graphs .walk-week-graph .week-controller,
+.graphs .walk-week-graph .month-controller,
+.graphs .walk-month-graph .week-controller,
+.graphs .walk-month-graph .month-controller,
+.graphs .meal-week-graph .week-controller,
+.graphs .meal-week-graph .month-controller,
+.graphs .meal-month-graph .week-controller,
+.graphs .meal-month-graph .month-controller {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+.graphs .walk-week-graph .week-controller button,
+.graphs .walk-week-graph .month-controller button,
+.graphs .walk-month-graph .week-controller button,
+.graphs .walk-month-graph .month-controller button,
+.graphs .meal-week-graph .week-controller button,
+.graphs .meal-week-graph .month-controller button,
+.graphs .meal-month-graph .week-controller button,
+.graphs .meal-month-graph .month-controller button {
+  width: 50px;
+  background-color: transparent;
+}
+.graphs .walk-week-graph .week-controller p,
+.graphs .walk-week-graph .month-controller p,
+.graphs .walk-month-graph .week-controller p,
+.graphs .walk-month-graph .month-controller p,
+.graphs .meal-week-graph .week-controller p,
+.graphs .meal-week-graph .month-controller p,
+.graphs .meal-month-graph .week-controller p,
+.graphs .meal-month-graph .month-controller p {
+  font-size: 0.875em;
+}
+.graphs .walk-week-graph .graph-height,
+.graphs .walk-month-graph .graph-height,
+.graphs .meal-week-graph .graph-height,
+.graphs .meal-month-graph .graph-height {
+  height: 300px;
+}
+.graphs .walk-week-graph .graph-height .recharts-default-legend,
+.graphs .walk-month-graph .graph-height .recharts-default-legend,
+.graphs .meal-week-graph .graph-height .recharts-default-legend,
+.graphs .meal-month-graph .graph-height .recharts-default-legend {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
 /* 3.3. Header ============== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875em;
+  background-color: #fff;
+}
+
+.header__wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* 3.4. Footer ============== */
 /* 3.5. Calculator ========== */
 /* ========================== */
@@ -760,7 +1325,7 @@ button {
   height: 40px;
   border-radius: 10px;
   border-width: 0;
-  font-size: 1rem;
+  font-size: 1em;
   text-transform: capitalize;
   cursor: pointer;
 }
@@ -774,10 +1339,9 @@ button {
 }
 
 .btn-toggle-tab {
-  width: 50%;
-  height: 16px;
+  height: 27px;
   border-radius: 20px;
-  box-shadow: inset 3px 3px 5px rgba(0, 0, 0, 0.25);
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .btn-outlined {
@@ -852,6 +1416,7 @@ select {
   padding: 0.5rem 1rem;
   border-radius: 15px;
   background-color: white;
+  border: none;
 }
 
 input[type=radio] {
@@ -861,6 +1426,10 @@ input[type=radio] {
 input::placeholder,
 select:invalid {
   color: #dadada;
+}
+
+label {
+  color: #3b3054;
 }
 
 @media screen and (min-width: 600px) {

@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 
 const WalkDayChart = ({ allActivities }) => {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
-  const [activityForDay, setDateData] = useState([]); // each input on the date
+  const [activityForDay, setActivityForDay] = useState([]); // each input on the date
 
   useEffect(() => {
     let allWalk = [];
@@ -10,41 +10,55 @@ const WalkDayChart = ({ allActivities }) => {
     for (let i = 0; i < allActivities.length; i++) {
       const activeDate = allActivities[i].date.slice(0, 10);
       if (date === activeDate) {
-        //setDateData((meal) => ({...meal, date: activities[i].activities}))
+        //setActivityForDay((meal) => ({...meal, date: activities[i].activities}))
         allWalk.push({
           id: allActivities[i].id,
-          date: activeDate,
+          date: allActivities[i].date.slice(0, 10),
           minute: allActivities[i].minute,
           distance: allActivities[i].distance,
           name: allActivities[i].name,
         });
       }
     }
-    setDateData(allWalk);
-  }, [date]);
+    setActivityForDay(allWalk);
+  }, [allActivities, date]);
 
   return (
-    <div style={{ border: '1px solid' }}>
-      {/* temporary styling */}
-      <h2>Walk Day Chart</h2>
-      {activityForDay.length > 0 ? (
-        activityForDay.map((meal) => (
-          <p key={meal.id}>
-            Date:&nbsp;{meal.date}&nbsp;&nbsp;&nbsp; Duratinon:&nbsp;{meal.minute} min&nbsp;&nbsp;&nbsp; Distance:&nbsp;
-            {meal.distance ? meal.distance + 'km' : 'no activities'}
-          </p>
-        ))
-      ) : (
-        <p>No activity is added</p>
-      )}
-      <input
-        type="date"
-        id="walk-date"
-        name="walk-date"
-        defaultValue={date}
-        required
-        onChange={(e) => setDate(e.target.value)}
-      />
+    <div className="walk-daily-record">
+      <div className="background-color-wrapper">
+        <div className="info">
+          {/* temporary styling */}
+          <h3>Daily Activities</h3>
+          <label>
+            Choose a date:
+            <input
+              type="date"
+              id="walk-date"
+              name="walk-date"
+              defaultValue={date}
+              required
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </label>
+          {activityForDay.length > 0 && date === activityForDay[0].date ? (
+            <div className="daily-list">
+              <p>{activityForDay[0].date.split('-').join('/')}</p>
+              {activityForDay.map((activity) => (
+                <div className="list-item">
+                  <p key={activity.id}>Activity Name:&nbsp;{activity.name},</p>
+                  <p key={activity.id}>Duratinon:&nbsp;{activity.minute} min,</p>
+                  <p key={activity.id}>
+                    Distance:&nbsp;
+                    {activity.distance ? activity.distance + 'km' : 'no data entered'}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <p>No activity is added</p>
+          )}
+        </div>
+      </div>
     </div>
   );
 };
