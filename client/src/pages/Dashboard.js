@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import LatestCalorieSummary from '../components/charts/LatestCalorieSummary';
 import LatestWalkSummary from '../components/charts/LatestWalkSummary';
 import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
@@ -8,6 +9,8 @@ import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkMonthChart from '../components/charts/WalkMonthChart';
 
 const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
+  // if yes, week graph appears, if no, month graph appears
+  const [showWeekGraph, setShowWeekGraph] = useState(true);
   return (
     <div className="dashboard">
       <div className="intro">
