@@ -347,6 +347,7 @@ template {
 }
 
 body {
+  padding-top: 84px;
   font-family: 'Content', helvetica, arial, sans-serif;
   font-size: 16px;
   color: #3b3054;
@@ -393,29 +394,36 @@ img {
   flex-flow: column nowrap;
   background: #f8f3fa;
 }
+
 .signup_description {
   display: none;
 }
+
 .signup_form {
   padding: 2rem 1rem 3rem;
   margin: 1rem;
   border-radius: 15px;
   background: rgba(252, 136, 123, 0.34);
 }
+
 .signup_form h2 {
   text-align: center;
 }
+
 .signup_form label {
   display: block;
   padding: 1rem 0 0.5rem;
 }
+
 .signup_form button {
   margin: 2rem 0 0;
 }
+
 .signup_form .signin-link-area {
   text-align: center;
   padding: 1rem 0;
 }
+
 .signup_form .signin-link-area_link {
   font-weight: 600;
   text-decoration: underline;
@@ -446,6 +454,7 @@ img {
     padding: 1rem 0;
   }
 }
+
 /* 2.2. Sign In ============= */
 .signin {
   display: flex;
@@ -456,6 +465,7 @@ img {
 .signin .image-area {
   display: none;
 }
+
 .signin_form {
   padding: 2rem 1rem 3rem;
   margin: 1rem;
@@ -631,7 +641,7 @@ img {
 
 /* 3.3. Features ============ */
 .features {
-  background-image: url("../images/bg-green.png");
+  background-image: url('../images/bg-green.png');
   background-size: contain;
   width: 100%;
   max-width: 1280px;
@@ -739,6 +749,39 @@ img {
 /* 3.1. Forms =============== */
 /* 3.2. Charts ============== */
 /* 3.3. Header ============== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875em;
+  background-color: #fff;
+}
+
+.header__wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 /* 3.4. Footer ============== */
 /* 3.5. Calculator ========== */
 /* ========================== */
