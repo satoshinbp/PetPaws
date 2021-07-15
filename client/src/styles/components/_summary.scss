@@ -4,124 +4,121 @@
     font-size: $md-fontsize;
     text-align: center;
   }
-  // FORM + GRAPHS
-  .function-wrapper {
-    // FORM
-    .walk-form,
-    .meal-form {
-      border-radius: $sm-border-radius;
-      padding: 1rem;
+  // FORM
+  .walk-form,
+  .meal-form {
+    border-radius: $sm-border-radius;
+    padding: 1rem;
 
-      .input-wrapper {
+    .input-wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 0.7rem;
+      div {
         display: flex;
         flex-flow: column nowrap;
-        gap: 0.7rem;
-        div {
-          display: flex;
-          flex-flow: column nowrap;
-          gap: 0.3rem;
-          label {
-            font-weight: 700;
-          }
+        gap: 0.3rem;
+        label {
+          font-weight: 700;
         }
       }
-      // CREATE, CANCEL BUTTON
-      .button-wrapper {
-        display: flex;
-        flex-flow: column nowrap;
-        gap: 1rem;
+    }
+    // CREATE, CANCEL BUTTON
+    .button-wrapper {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1rem;
 
-        .btn-outlined {
-          border: 1px solid $white-color;
-          background-color: transparent;
-        }
+      .btn-outlined {
+        border: 1px solid $white-color;
+        background-color: transparent;
       }
-    } // end of form
-    .meal-week-month-graphs-wrapper,
-    .walk-week-month-graphs-wrapper {
+    }
+  } // end of form
+  .meal-week-month-graphs-wrapper,
+  .walk-week-month-graphs-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 1rem;
+    border-radius: $sm-border-radius;
+    // pet name, pet img, add btn
+    .basic-info {
+      width: 100%;
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
-      padding: 1rem;
-      border-radius: $sm-border-radius;
-      // pet name, pet img, add btn
-      .basic-info {
-        width: 100%;
+      gap: 1rem;
+      padding: 1rem 0 2.5rem 0;
+      h3 {
+        margin: 0 auto 0.5rem;
+      }
+      p {
+        margin: 0;
+      }
+      .pet-image {
+        width: 78px;
+        height: 130px;
+        object-fit: cover;
+        background-color: white;
+        border-radius: $md-border-radius;
         display: flex;
-        flex-flow: column nowrap;
         align-items: center;
-        gap: 1rem;
-        padding: 1rem 0 2.5rem 0;
-        h3 {
-          margin: 0 auto 0.5rem;
-        }
-        p {
-          margin: 0;
-        }
-        .pet-image {
-          width: 78px;
-          height: 130px;
-          object-fit: cover;
-          background-color: white;
-          border-radius: $md-border-radius;
+        text-align: center;
+      }
+    }
+    .graphs {
+      width: 100%;
+      .week-month-toggle {
+        background-color: $lighten-color;
+        border-top-left-radius: 18px;
+        border-top-right-radius: 18px;
+        .button-background {
           display: flex;
+          height: 35px;
+          flex-flow: row nowrap;
           align-items: center;
-          text-align: center;
+          justify-content: center;
+          padding: 0 1rem;
+          .button-no-accent {
+            background-color: transparent;
+          }
+          button {
+            font-size: $sm-fontsize;
+            color: $navy-color;
+          }
         }
       }
-      .graphs {
-        width: 100%;
-        .week-month-toggle {
-          background-color: $lighten-color;
-          border-top-left-radius: 18px;
-          border-top-right-radius: 18px;
-          .button-background {
-            display: flex;
-            height: 35px;
-            flex-flow: row nowrap;
-            align-items: center;
-            justify-content: center;
-            padding: 0 1rem;
-            .button-no-accent {
-              background-color: transparent;
-            }
-            button {
-              font-size: $sm-fontsize;
-              color: $navy-color;
-            }
+
+      .walk-week-graph,
+      .walk-month-graph,
+      .meal-week-graph,
+      .meal-month-graph {
+        background-color: $lighten-color;
+        border-bottom-left-radius: $sm-border-radius;
+        border-bottom-right-radius: $sm-border-radius;
+        padding-bottom: calc(1rem + 50px);
+        .week-controller,
+        .month-controller {
+          display: flex;
+          flex-flow: row nowrap;
+          align-items: center;
+          justify-content: center;
+          button {
+            width: 50px;
+            background-color: transparent;
+          }
+          p {
+            font-size: $sm-fontsize;
           }
         }
-
-        .walk-week-graph,
-        .walk-month-graph,
-        .meal-week-graph,
-        .meal-month-graph {
-          background-color: $lighten-color;
-          border-bottom-left-radius: $sm-border-radius;
-          border-bottom-right-radius: $sm-border-radius;
-          padding-bottom: calc(1rem + 50px);
-          .week-controller,
-          .month-controller {
+        .graph-height {
+          height: 300px;
+          .recharts-default-legend {
             display: flex;
-            flex-flow: row nowrap;
+            flex-flow: row wrap;
             align-items: center;
             justify-content: center;
-            button {
-              width: 50px;
-              background-color: transparent;
-            }
-            p {
-              font-size: $sm-fontsize;
-            }
-          }
-          .graph-height {
-            height: 300px;
-            .recharts-default-legend {
-              display: flex;
-              flex-flow: row wrap;
-              align-items: center;
-              justify-content: center;
-            }
           }
         }
       }
