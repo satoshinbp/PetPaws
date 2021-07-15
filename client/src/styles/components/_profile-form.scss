@@ -1,20 +1,13 @@
 .pet-profile-form{
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
   background: $green-color;
   padding: 2rem 1rem;
 
-  &_image{
-    img{
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: .5rem $yellow-color solid;
-    }
-  }
+  &_area{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
 
-  .pet-type{
+    .pet-type{
     display: flex;
     flex-flow: row wrap;
     text-align: center;
@@ -42,6 +35,16 @@
       padding: .3rem 0;
     }
   }
+  }
+
+  &_image{
+    img{
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      border: .5rem $yellow-color solid;
+    }
+  }
 
   button{
     margin: 2rem 0;
@@ -62,36 +65,42 @@
 
 @media screen and (min-width: $tb-breakpoint){
   .pet-profile-form {
-    text-align: center;
-    flex-flow: row wrap;
-    justify-content: center;
-
-    .pet-profile-form_image {
-      width: 100%;
-    }
-
-    .input-area{
-      flex: 0 0 40%;
-      padding: 0 1rem;
-
-      label{
-        text-align: left;
-      }
-    }
-
-    .pet-type {
-      width: 100%;
+    &_area{
+      text-align: center;
+      flex-flow: row wrap;
       justify-content: center;
-
-      .pet-type_cat {
-        flex: unset;
-        padding: 0 .5rem;
+      .pet-profile-form_image {
+        width: 100%;
       }
 
-      .pet-type_dog {
-        flex: unset;
-        padding: 0 .5rem;
+      .input-area{
+        flex: 0 0 40%;
+        padding: 0 1rem;
+
+        label{
+          text-align: left;
+        }
       }
+
+      .pet-type {
+        width: 100%;
+        justify-content: center;
+
+        .pet-type_cat {
+          flex: unset;
+          padding: 0 .5rem;
+        }
+
+        .pet-type_dog {
+          flex: unset;
+          padding: 0 .5rem;
+        }
+      }
+    }
+    button{
+      padding: 0 5rem;
+      margin: 2rem auto;
+      display: block;
     }
   }
 }
