@@ -74,6 +74,10 @@ a {
 
 .walk-summary,
 .meal-summary {
+  h3 {
+    font-size: $md-fontsize;
+    text-align: center;
+  }
   // FORM + GRAPHS
   .function-wrapper {
     // FORM
@@ -81,10 +85,6 @@ a {
     .meal-form {
       border-radius: $sm-border-radius;
       padding: 1rem;
-      h3 {
-        font-size: $md-fontsize;
-        text-align: center;
-      }
 
       .input-wrapper {
         display: flex;
@@ -208,13 +208,20 @@ a {
   .meal-form {
     background-color: $green-color;
   }
-  .meal-week-month-graphs-wrapper {
-    background-color: rgba($green-color, 0.5);
-    .button-background {
-      background-color: rgba($green-color, 0.3);
-      .btn-darkened {
-        background-color: rgba($green-color, 0.5);
-      }
+}
+
+.meal-week-month-graphs-wrapper,
+.meal-toggle-graph {
+  background-color: rgba($green-color, 0.5);
+  padding: 1rem;
+  h3 {
+    margin: 0;
+    padding: 1.5rem 0;
+  }
+  .button-background {
+    background-color: rgba($green-color, 0.3);
+    .btn-darkened {
+      background-color: rgba($green-color, 0.5);
     }
   }
 }
@@ -224,13 +231,20 @@ a {
   .walk-form {
     background-color: $purple-color;
   }
-  .walk-week-month-graphs-wrapper {
-    background-color: rgba($purple-color, 0.4);
-    .button-background {
-      background-color: rgba($purple-color, 0.2);
-      .btn-darkened {
-        background-color: rgba($purple-color, 0.4);
-      }
+}
+
+.walk-week-month-graphs-wrapper,
+.walk-toggle-graph {
+  background-color: rgba($purple-color, 0.4);
+  padding: 1rem;
+  h3 {
+    margin: 0;
+    padding: 1.5rem 0;
+  }
+  .button-background {
+    background-color: rgba($purple-color, 0.2);
+    .btn-darkened {
+      background-color: rgba($purple-color, 0.4);
     }
   }
 }
