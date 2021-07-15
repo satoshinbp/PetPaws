@@ -3,6 +3,7 @@ import MealMonthChart from '../components/charts/MealMonthChart';
 import MealWeekChart from '../components/charts/MealWeekChart';
 import MealDayChart from '../components/charts/MealDayChart';
 import MealForm from '../components/forms/Meal';
+import storesVetsFinderIcon from '../images/stores-vets-finder.svg'; // dammy img, to be replaced
 
 export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) {
   const [showForm, setShowForm] = useState(false);

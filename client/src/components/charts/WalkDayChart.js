@@ -40,7 +40,7 @@ const WalkDayChart = ({ allActivities }) => {
               onChange={(e) => setDate(e.target.value)}
             />
           </label>
-          {activityForDay && date == activityForDay[0].date ? (
+          {activityForDay.length > 0 && date === activityForDay[0].date ? (
             <div className="daily-list">
               <p>{activityForDay[0].date.split('-').join('/')}</p>
               {activityForDay.map((activity) => (

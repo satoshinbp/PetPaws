@@ -3,6 +3,7 @@ import WalkMonthChart from '../components/charts/WalkMonthChart';
 import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkDayChart from '../components/charts/WalkDayChart';
 import WalkForm from '../components/forms/Walk';
+import trackerIcon from '../images/tracker.svg'; // dammy img, to be replaced
 
 export default function WalkSummary({ petProfile, allActivities, setAllActivities }) {
   const [showForm, setShowForm] = useState(false);

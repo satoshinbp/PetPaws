@@ -9,8 +9,6 @@
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -391,17 +389,147 @@ img {
 
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
+.signup {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #f8f3fa;
+}
+
+.signup_description {
+  display: none;
+}
+
+.signup_form {
+  padding: 2rem 1rem 3rem;
+  margin: 1rem;
+  border-radius: 15px;
+  background: rgba(252, 136, 123, 0.34);
+}
+
+.signup_form h2 {
+  text-align: center;
+}
+
+.signup_form label {
+  display: block;
+  padding: 1rem 0 .5rem;
+}
+
+.signup_form button {
+  margin: 2rem 0 0;
+}
+
+.signup_form .signin-link-area {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.signup_form .signin-link-area_link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+  .signup {
+    padding: 2rem 0;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+  }
+  .signup_description {
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    max-width: 600px;
+    flex: 70%;
+  }
+  .signup_description p {
+    margin: 0 0 1rem;
+  }
+  .signup_description ul {
+    padding-left: 2rem;
+  }
+  .signup_description ul li {
+    display: flex;
+    padding: 1rem 0;
+  }
+}
+
 /* 2.2. Sign In ============= */
+.signin {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #f8f3fa;
+}
+
+.signin .image-area {
+  display: none;
+}
+
+.signin_form {
+  padding: 2rem 1rem 3rem;
+  margin: 1rem;
+  border-radius: 15px;
+  background: #ede1f8;
+}
+
+.signin_form h2 {
+  text-align: center;
+}
+
+.signin_form label {
+  display: block;
+  padding: 1rem 0 .5rem;
+}
+
+.signin_form button {
+  margin: 2rem 0;
+}
+
+.signin_form hr {
+  box-sizing: content-box;
+  height: 1.2px;
+  overflow: visible;
+  background: black;
+}
+
+.signin_form .signup-link-area {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.signin_form .signup-link-area_link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+  .signin {
+    padding: 2rem 0;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+  }
+  .signin .image-area {
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+  }
+  .signin .image-area img {
+    flex: 0 0 40%;
+  }
+  .signin_form {
+    flex: 0 0 40%;
+    max-width: 400px;
+  }
+}
+
 /* TO BE DELETED ============ */
 /* 2.4. Dashboard =========== */
 /* 2.5. Profile ============= */
 /* 2.6. Stores/Vets ========= */
-.search {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .search-form {
   padding: 1rem;
   border-radius: 30px;
@@ -412,7 +540,6 @@ img {
   text-align: center;
 }
 
-/* 2.7. Trackers ============ */
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
 /* ========================== */
@@ -456,6 +583,7 @@ img {
   }
   .intro__img {
     flex-basis: 50%;
+    text-align: right;
     display: block;
   }
   .intro__btn {
@@ -574,44 +702,6 @@ img {
 
 /* TO BE REORGANIZED ======== */
 /* 3.1. Forms =============== */
-/* back ground gradient */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Content", helvetica, arial, sans-serif;
-  font-size: 16px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "To Japan", helvetica, arial, sans-serif;
-}
-
-ul {
-  padding-left: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/*@media screen and (min-width: $tb-breakpoint) {
-  body {
-    font-size: 18px;
-  }
-}*/
-/* ******************************************************** */
 .walk-summary h3,
 .meal-summary h3 {
   font-size: 1rem;
@@ -987,44 +1077,6 @@ a {
 }
 
 /* 3.2. Charts ============== */
-/* back ground gradient */
-* {
-  box-sizing: border-box;
-}
-
-body {
-  font-family: "Content", helvetica, arial, sans-serif;
-  font-size: 16px;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  font-family: "To Japan", helvetica, arial, sans-serif;
-}
-
-ul {
-  padding-left: 0;
-}
-
-li {
-  list-style-type: none;
-}
-
-a {
-  text-decoration: none;
-  color: inherit;
-}
-
-/*@media screen and (min-width: $tb-breakpoint) {
-  body {
-    font-size: 18px;
-  }
-}*/
-/* ******************************************************** */
 .walk-day-graph-wrapper {
   background-color: rgba(134, 227, 206, 0.5);
 }
@@ -1259,6 +1311,11 @@ button {
 
 .btn-contained-purple {
   background-color: rgba(204, 171, 218, 0.82);
+  color: #3b3054;
+}
+
+.btn-contained-pink {
+  background-color: rgba(252, 136, 123, 0.49);
   color: #3b3054;
 }
 
