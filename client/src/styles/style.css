@@ -459,7 +459,7 @@ img {
 .signin_form {
   padding: 2rem 1rem 3rem;
   margin: 1rem;
-  border-radius: 15px;
+  border-radius: 10px;
   background: #ede1f8;
 }
 .signin_form h2 {
