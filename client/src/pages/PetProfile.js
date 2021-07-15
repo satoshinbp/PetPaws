@@ -148,35 +148,33 @@ export default function PetProfile({ petProfile }) {
           </div>
         </div>
       </div>
-      <div className="pet-profile">
-        <div className="body">
-          <div className="body__wrapper">
-            <PetProfileForm
-              dogBreeds={dogBreeds}
-              catBreeds={catBreeds}
-              isDog={isDog}
-              name={name}
-              breedName={breedName}
-              birthday={birthday}
-              gender={gender}
-              weight={weight}
-              height={height}
-              isSpayed={isSpayed}
-              activityLevel={activityLevel}
-              bodyCondition={bodyCondition}
-              changePetType={changePetType}
-              changeName={changeName}
-              changeBreed={changeBreed}
-              changeGender={changeGender}
-              changeBirthday={changeBirthday}
-              changeWeight={changeWeight}
-              changeHeight={changeHeight}
-              changeIsSpayed={changeIsSpayed}
-              changeActivityLevel={changeActivityLevel}
-              changeBodyCondition={changeBodyCondition}
-              handleSubmit={handleSubmit}
-            />
-          </div>
+      <div className="body">
+        <div className="body__wrapper">
+          <PetProfileForm
+            dogBreeds={dogBreeds}
+            catBreeds={catBreeds}
+            isDog={isDog}
+            name={name}
+            breedName={breedName}
+            birthday={birthday}
+            gender={gender}
+            weight={weight}
+            height={height}
+            isSpayed={isSpayed}
+            activityLevel={activityLevel}
+            bodyCondition={bodyCondition}
+            changePetType={changePetType}
+            changeName={changeName}
+            changeBreed={changeBreed}
+            changeGender={changeGender}
+            changeBirthday={changeBirthday}
+            changeWeight={changeWeight}
+            changeHeight={changeHeight}
+            changeIsSpayed={changeIsSpayed}
+            changeActivityLevel={changeActivityLevel}
+            changeBodyCondition={changeBodyCondition}
+            handleSubmit={handleSubmit}
+          />
         </div>
       </div>
     </>
