@@ -720,6 +720,35 @@ img {
   font-weight: 700;
 }
 
+@media screen and (min-width: 600px) {
+  .pet-profile-form {
+    text-align: center;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .pet-profile-form .pet-profile-form_image {
+    width: 100%;
+  }
+  .pet-profile-form .input-area {
+    flex: 0 0 40%;
+    padding: 0 1rem;
+  }
+  .pet-profile-form .input-area label {
+    text-align: left;
+  }
+  .pet-profile-form .pet-type {
+    width: 100%;
+    justify-content: center;
+  }
+  .pet-profile-form .pet-type .pet-type_cat {
+    flex: unset;
+    padding: 0 0.5rem;
+  }
+  .pet-profile-form .pet-type .pet-type_dog {
+    flex: unset;
+    padding: 0 0.5rem;
+  }
+}
 /* 3.2. Charts ============== */
 /* 3.3. Header ============== */
 /* 3.4. Footer ============== */
