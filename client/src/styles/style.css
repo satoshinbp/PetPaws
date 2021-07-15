@@ -459,7 +459,7 @@ img {
 .signin_form {
   padding: 2rem 1rem 3rem;
   margin: 1rem;
-  border-radius: 15px;
+  border-radius: 10px;
   background: #ede1f8;
 }
 .signin_form h2 {
@@ -510,7 +510,6 @@ img {
   }
 }
 /* TO BE DELETED ============ */
-/* 2.5. Profile ============= */
 /* 2.6. Stores/Vets ========= */
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
@@ -1048,6 +1047,89 @@ img {
   background-color: rgba(204, 171, 218, 0.4);
 }
 
+.pet-profile-form {
+  background: #86e3ce;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+}
+.pet-profile-form_area {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+.pet-profile-form_area .pet-type, .pet-profile-form_area .spay {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+.pet-profile-form_area .pet-type label, .pet-profile-form_area .spay label {
+  padding: 1rem 0;
+  width: 100%;
+}
+.pet-profile-form_area .pet-type .pet-type_cat, .pet-profile-form_area .pet-type .pet-type_dog, .pet-profile-form_area .pet-type .spayed, .pet-profile-form_area .pet-type .notSpayed, .pet-profile-form_area .spay .pet-type_cat, .pet-profile-form_area .spay .pet-type_dog, .pet-profile-form_area .spay .spayed, .pet-profile-form_area .spay .notSpayed {
+  flex: 50%;
+}
+.pet-profile-form_area .input-area {
+  margin: 0.5rem 0;
+  width: 100%;
+}
+.pet-profile-form_area .input-area label {
+  display: block;
+  padding: 0.3rem 0;
+}
+.pet-profile-form_image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 0.5rem #ffdd95 solid;
+  object-fit: cover;
+}
+.pet-profile-form button {
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.add-pet {
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(204, 171, 218, 0.82);
+}
+.add-pet button {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 600px) {
+  .pet-profile-form_area {
+    text-align: center;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .pet-profile-form_area .pet-profile-form_image {
+    width: 100%;
+  }
+  .pet-profile-form_area .input-area {
+    flex: 0 0 40%;
+    padding: 0 1rem;
+  }
+  .pet-profile-form_area .input-area label {
+    text-align: left;
+  }
+  .pet-profile-form_area .pet-type, .pet-profile-form_area .spay {
+    width: 100%;
+    justify-content: center;
+  }
+  .pet-profile-form_area .pet-type .pet-type_cat, .pet-profile-form_area .pet-type .pet-type_dog, .pet-profile-form_area .pet-type .spayed, .pet-profile-form_area .pet-type .notSpayed, .pet-profile-form_area .spay .pet-type_cat, .pet-profile-form_area .spay .pet-type_dog, .pet-profile-form_area .spay .spayed, .pet-profile-form_area .spay .notSpayed {
+    flex: unset;
+    padding: 0 0.5rem;
+  }
+  .pet-profile-form button {
+    padding: 0 5rem;
+    margin: 2rem auto;
+    display: block;
+  }
+}
 /* 3.2. Charts ============== */
 .walk-day-graph-wrapper {
   background-color: rgba(134, 227, 206, 0.5);
