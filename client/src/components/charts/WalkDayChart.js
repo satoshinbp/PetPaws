@@ -21,7 +21,7 @@ const WalkDayChart = ({ allActivities }) => {
       }
     }
     setDateData(allWalk);
-  }, [date]);
+  }, [allActivities, date]);
 
   return (
     <div style={{ border: '1px solid' }}>
