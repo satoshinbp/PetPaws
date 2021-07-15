@@ -187,17 +187,12 @@ const WalkWeekChart = ({ allActivities }) => {
   }, [count]);
 
   return (
-    <div style={{ height: '300px' }}>
+    <div className="walk-week-graph">
       {/* MUST set height to display chart */}
-      <h2>Walk Graph</h2>
-      {/*testCal.map((item) => (
-                <p>{item.date}</p>
-            ))*/}
       {/* 確認用 */}
       {/*graphData.map((meal) => (
                 <p key={meal.date}>{meal.date}, minute: {meal.minute}, distance: {meal.distance} avgMin: {meal.avgMin}</p>
             ))*/}
-      <br></br>
       <div className="week-controller">
         <button
           onClick={() => {
@@ -207,13 +202,6 @@ const WalkWeekChart = ({ allActivities }) => {
         >
           ＜
         </button>
-        <button
-          onClick={() => {
-            setCount(count - 1);
-          }}
-        >
-          ＞
-        </button>
         {graphData.length > 0 ? (
           <p>
             {week[6].split('-').join(' ')} to {week[0].split('-').join(' ')}
@@ -221,25 +209,33 @@ const WalkWeekChart = ({ allActivities }) => {
         ) : (
           ''
         )}
+        <button
+          onClick={() => {
+            setCount(count - 1);
+          }}
+        >
+          ＞
+        </button>
       </div>
-      <ResponsiveContainer>
-        <ComposedChart data={graphData} margin={{ left: 0 }}>
-          <XAxis dataKey="date" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <CartesianGrid stroke="#f5f5f5" />
-          <Area
-            type="monotone"
-            dataKey="average minute"
-            stroke="#00aced"
-            fillOpacity={0.3}
-            fill="rgba(0, 172, 237, 0.2)"
-          />
-          <Bar barSize={15} fillOpacity={1} fill="#2250A2" dataKey="minute" stackId="a" barSize={15} fill="#85d6c3" />
-        </ComposedChart>
-      </ResponsiveContainer>
-      <br></br>
+      <div className="graph-height">
+        <ResponsiveContainer>
+          <ComposedChart data={graphData} margin={{ left: 0, right: 20 }}>
+            <XAxis dataKey="date" />
+            <YAxis />
+            <Tooltip />
+            <Legend wrapperStyle={{ bottom: -25, left: 20 }} />
+            <Area
+              type="monotone"
+              dataKey="average minute"
+              stroke="#00aced"
+              fillOpacity={0.3}
+              fill="rgba(0, 172, 237, 0)"
+            />
+            <Bar barSize={15} fillOpacity={1} fill="#2250A2" dataKey="minute" stackId="a" barSize={15} fill="#85d6c3" />
+          </ComposedChart>
+        </ResponsiveContainer>
+        <br></br>
+      </div>
     </div>
   );
 };

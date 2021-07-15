@@ -195,19 +195,15 @@ const MealMonthChart = ({ allMeals, MER }) => {
   }, [count, avgCal]);
 
   return (
-    <div className="month-graph" style={{ marginTop: '20vh' }}>
-      {/* temporary styling marginBottom */}
-      <h2>Month Chart</h2>
-
-      <div style={{ height: '260px' }}>
-        {/* MUST set height to display chart */}
-        {/* 確認用 */}
-        {/*graphData.map((meal) => (
+    <div className="meal-month-graph">
+      {/* MUST set height to display chart */}
+      {/* 確認用 */}
+      {/*graphData.map((meal) => (
           <p key={meal.date}>
             {meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}
           </p>
         ))*/}
-        <br></br>
+      <div className="month-controller">
         <button
           onClick={() => {
             setFirstTime(false);
@@ -216,13 +212,6 @@ const MealMonthChart = ({ allMeals, MER }) => {
         >
           ＜
         </button>
-        <button
-          onClick={() => {
-            setCount(count - 1);
-          }}
-        >
-          ＞
-        </button>
         {graphData.length > 0 ? (
           <p>
             {month[0].split('-').join(' ')} to {month[month.length - 1].split('-').join(' ')}
@@ -230,18 +219,26 @@ const MealMonthChart = ({ allMeals, MER }) => {
         ) : (
           ''
         )}
+        <button
+          onClick={() => {
+            setCount(count - 1);
+          }}
+        >
+          ＞
+        </button>
+      </div>
+      <div className="graph-height">
         <ResponsiveContainer>
           <AreaChart
             data={graphData}
             margin={{
               top: 10,
-              right: 30,
+              right: 20,
               left: 0,
               bottom: 0,
             }}
           >
-            <Legend />
-            <CartesianGrid stroke="#f5f5f5" />
+            <Legend wrapperStyle={{ bottom: -50, left: 20 }} />
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
