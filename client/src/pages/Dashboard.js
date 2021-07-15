@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import LatestCalorieSummary from '../components/charts/LatestCalorieSummary';
 import LatestWalkSummary from '../components/charts/LatestWalkSummary';
 import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
@@ -8,6 +9,8 @@ import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkMonthChart from '../components/charts/WalkMonthChart';
 
 const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
+  // if yes, week graph appears, if no, month graph appears
+  const [showWeekGraph, setShowWeekGraph] = useState(true);
   return (
     <div className="dashboard">
       <div className="intro">
@@ -54,18 +57,60 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
           </div>
           <div className="dashboard-meal-summary">
             <h3>Nutrition Summary</h3>
-            {/* <MealWeekChart allMeals={allMeals} MER={MER} />
-            <MealMonthChart allMeals={allMeals} MER={MER} /> */}
+            <div className="graphs">
+              <div className="week-month-toggle">
+                <div className="button-background btn-toggle-tab">
+                  <button
+                    onClick={() => setShowWeekGraph(true)}
+                    className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                  >
+                    Week
+                  </button>
+                  <button
+                    onClick={() => setShowWeekGraph(false)}
+                    className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                  >
+                    Month
+                  </button>
+                </div>
+              </div>
+              {showWeekGraph ? (
+                <MealWeekChart allMeals={allMeals} MER={MER} />
+              ) : (
+                <MealMonthChart allMeals={allMeals} MER={MER} />
+              )}
+            </div>
             <Link to="/mealsummary" MER={MER}>
-              Discover More
+              <button className="btn-contained-yellow btn-not-fullwidth">Discover More</button>
             </Link>
           </div>
           <div className="dashboard-walk-summary">
             <h3>Activity Summary</h3>
-            {/* <WalkWeekChart allActivities={allActivities} />
-            <WalkMonthChart allActivities={allActivities} /> */}
+            <div className="graphs">
+              <div className="week-month-toggle">
+                <div className="button-background btn-toggle-tab">
+                  <button
+                    onClick={() => setShowWeekGraph(true)}
+                    className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                  >
+                    Week
+                  </button>
+                  <button
+                    onClick={() => setShowWeekGraph(false)}
+                    className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                  >
+                    Month
+                  </button>
+                </div>
+              </div>
+              {showWeekGraph ? (
+                <WalkWeekChart allActivities={allActivities} />
+              ) : (
+                <WalkMonthChart allActivities={allActivities} />
+              )}
+            </div>
             <Link to="/walksummary" MER={MER}>
-              Discover More
+              <button className="btn-contained-yellow btn-not-fullwidth">Discover More</button>
             </Link>
           </div>
         </div>
