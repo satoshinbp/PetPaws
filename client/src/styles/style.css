@@ -387,6 +387,64 @@ img {
 }
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
+.signup {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #f8f3fa;
+}
+.signup_description {
+  display: none;
+}
+.signup_form {
+  padding: 2rem 1rem 3rem;
+  margin: 1rem;
+  border-radius: 15px;
+  background: rgba(252, 136, 123, 0.34);
+}
+.signup_form h2 {
+  text-align: center;
+}
+.signup_form label {
+  display: block;
+  padding: 1rem 0 0.5rem;
+}
+.signup_form button {
+  margin: 2rem 0 0;
+}
+.signup_form .signin-link-area {
+  text-align: center;
+  padding: 1rem 0;
+}
+.signup_form .signin-link-area_link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+  .signup {
+    padding: 2rem 0;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+  }
+  .signup_description {
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    max-width: 600px;
+    flex: 70%;
+  }
+  .signup_description p {
+    margin: 0 0 1rem;
+  }
+  .signup_description ul {
+    padding-left: 2rem;
+  }
+  .signup_description ul li {
+    display: flex;
+    padding: 1rem 0;
+  }
+}
 /* 2.2. Sign In ============= */
 .signin {
   display: flex;
@@ -395,10 +453,6 @@ img {
 }
 .signin .image-area {
   display: none;
-}
-.signin img {
-  max-width: 100%;
-  height: auto;
 }
 .signin_form {
   padding: 2rem 1rem 3rem;
@@ -431,7 +485,7 @@ img {
   text-decoration: underline;
 }
 
-@media screen and (min-width: 700px) {
+@media screen and (min-width: 600px) {
   .signin {
     padding: 2rem 0;
     flex-flow: row nowrap;
@@ -457,12 +511,6 @@ img {
 /* 2.4. Dashboard =========== */
 /* 2.5. Profile ============= */
 /* 2.6. Stores/Vets ========= */
-.search {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
 .search-form {
   padding: 1rem;
   border-radius: 30px;
@@ -513,6 +561,7 @@ img {
   }
   .intro__img {
     flex-basis: 50%;
+    text-align: right;
     display: block;
   }
   .intro__btn {
@@ -625,7 +674,7 @@ img {
   flex-flow: column nowrap;
   align-items: center;
   background: #86e3ce;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
 }
 .pet-profile-form_image img {
   width: 120px;
@@ -743,6 +792,11 @@ button {
 
 .btn-contained-purple {
   background-color: rgba(204, 171, 218, 0.82);
+  color: #3b3054;
+}
+
+.btn-contained-pink {
+  background-color: rgba(252, 136, 123, 0.49);
   color: #3b3054;
 }
 

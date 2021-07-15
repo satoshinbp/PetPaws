@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';

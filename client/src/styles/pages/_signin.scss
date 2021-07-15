@@ -7,11 +7,6 @@
     display: none;
   }
 
-  img{
-    max-width: 100%;
-    height: auto;
-  }
-
   &_form{
     padding: 2rem 1rem 3rem;
     margin: 1rem;
@@ -50,7 +45,7 @@
   }
 }
 
-@media screen and (min-width: 700px){
+@media screen and (min-width: $tb-breakpoint){
   .signin{
     padding: 2rem 0;
     flex-flow: row nowrap;
