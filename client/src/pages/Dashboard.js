@@ -10,7 +10,8 @@ import WalkMonthChart from '../components/charts/WalkMonthChart';
 
 const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
   // if yes, week graph appears, if no, month graph appears
-  const [showWeekGraph, setShowWeekGraph] = useState(true);
+  const [showMealWeekGraph, setShowMealWeekGraph] = useState(true);
+  const [showWalkWeekGraph, setShowWalkWeekGraph] = useState(true);
   return (
     <div className="dashboard">
       <div className="intro">
@@ -61,20 +62,20 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
               <div className="week-month-toggle">
                 <div className="button-background btn-toggle-tab">
                   <button
-                    onClick={() => setShowWeekGraph(true)}
-                    className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                    onClick={() => setShowMealWeekGraph(true)}
+                    className={showMealWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
                   >
                     Week
                   </button>
                   <button
-                    onClick={() => setShowWeekGraph(false)}
-                    className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                    onClick={() => setShowMealWeekGraph(false)}
+                    className={!showMealWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
                   >
                     Month
                   </button>
                 </div>
               </div>
-              {showWeekGraph ? (
+              {showMealWeekGraph ? (
                 <MealWeekChart allMeals={allMeals} MER={MER} />
               ) : (
                 <MealMonthChart allMeals={allMeals} MER={MER} />
@@ -90,20 +91,20 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
               <div className="week-month-toggle">
                 <div className="button-background btn-toggle-tab">
                   <button
-                    onClick={() => setShowWeekGraph(true)}
-                    className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                    onClick={() => setShowWalkWeekGraph(true)}
+                    className={showWalkWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
                   >
                     Week
                   </button>
                   <button
-                    onClick={() => setShowWeekGraph(false)}
-                    className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                    onClick={() => setShowWalkWeekGraph(false)}
+                    className={!showWalkWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
                   >
                     Month
                   </button>
                 </div>
               </div>
-              {showWeekGraph ? (
+              {showWalkWeekGraph ? (
                 <WalkWeekChart allActivities={allActivities} />
               ) : (
                 <WalkMonthChart allActivities={allActivities} />
