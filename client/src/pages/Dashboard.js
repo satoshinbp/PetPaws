@@ -29,52 +29,47 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
         </div>
       </div>
 
-      <div className="body dashboard-body">
-        <div className="body__wrapper dashboard-body-wrapper">
+      <div className="body">
+        <div className="body__wrapper">
           <div className="dashboard-pet-profile">
-            <h3>Pet Details</h3>
-            <div className="pet-details">
-              <p>Pet Name</p>
-              <p className="pet-detail">{petProfile.name} </p>
-              <p>Age</p>
-              <p className="pet-detail">{age} </p>
-              <p>Breed</p>
-              <p className="pet-detail">{petProfile.breed}</p>
-              <p>Weight</p>
-              <p className="pet-detail">{petProfile.weight}kg</p>
-              <p>Height</p>
-              <p className="pet-detail">{petProfile.height}cm</p>
+            <div className="dashboard-pet-profile-wrapper">
+              <h3>Pet Details</h3>
+              <div className="pet-details">
+                <p>Pet Name</p>
+                <p className="pet-detail">{petProfile.name} </p>
+                <p>Age</p>
+                <p className="pet-detail">{age} </p>
+                <p>Breed</p>
+                <p className="pet-detail">{petProfile.breed}</p>
+                <p>Weight</p>
+                <p className="pet-detail">{petProfile.weight}kg</p>
+                <p>Height</p>
+                <p className="pet-detail">{petProfile.height}cm</p>
+              </div>
+
+              <h3>In Last Week</h3>
+              <LatestWalkSummary allActivities={allActivities} />
+              <LatestCalorieSummary allMeals={allMeals} MER={MER} />
             </div>
-            <h3>In Last Week</h3>
-            <LatestWalkSummary allActivities={allActivities} />
-            <LatestCalorieSummary allMeals={allMeals} MER={MER} />
           </div>
           <div className="dashboard-meal-summary">
             <h3>Nutrition Summary</h3>
-            <Link to="/mealsummary">Discover More</Link>
+            {/* <MealWeekChart allMeals={allMeals} MER={MER} />
+            <MealMonthChart allMeals={allMeals} MER={MER} /> */}
+            <Link to="/mealsummary" MER={MER}>
+              Discover More
+            </Link>
           </div>
           <div className="dashboard-walk-summary">
             <h3>Activity Summary</h3>
-            <Link to="/walksummary">Discover More</Link>
+            {/* <WalkWeekChart allActivities={allActivities} />
+            <WalkMonthChart allActivities={allActivities} /> */}
+            <Link to="/walksummary" MER={MER}>
+              Discover More
+            </Link>
           </div>
         </div>
       </div>
-      <h3>In Last 7 Days</h3>
-      <LatestCalorieSummary allMeals={allMeals} MER={MER} />
-      <LatestWalkSummary allActivities={allActivities} />
-      <h3>Nutrition Summary</h3>
-      <MealWeekChart allMeals={allMeals} MER={MER} />
-      <MealMonthChart allMeals={allMeals} MER={MER} />
-      <Link to="/mealsummary" MER={MER}>
-        Discover More
-      </Link>
-      <br></br>
-      <h3>Activity Summary</h3>
-      <WalkWeekChart allActivities={allActivities} />
-      <WalkMonthChart allActivities={allActivities} />
-      <Link to="/walksummary" MER={MER}>
-        Discover More
-      </Link>
     </div>
   );
 };

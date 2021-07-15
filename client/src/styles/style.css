@@ -681,16 +681,15 @@ img {
 /* 3.4. Footer ============== */
 /* 3.5. Calculator ========== */
 /* 3.6. Dashboard =========== */
-.dashboard-body {
+.dashboard-pet-profile {
   background-color: rgba(204, 171, 218, 0.82);
   border-radius: 30px;
-  padding: 1rem;
-  margin-top: 1rem;
 }
 
-.dashboard-body-wrapper {
+.dashboard-pet-profile-wrapper {
   background-color: #ede1f8;
   border-radius: 30px;
+  padding: 1rem;
 }
 
 .pet-details {
