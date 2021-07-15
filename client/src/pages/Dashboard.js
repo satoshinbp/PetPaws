@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import LatestCalorieSummary from '../components/charts/LatestCalorieSummary';
 import LatestWalkSummary from '../components/charts/LatestWalkSummary';
+import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
 import MealWeekChart from '../components/charts/MealWeekChart';
 import MealMonthChart from '../components/charts/MealMonthChart';
 import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkMonthChart from '../components/charts/WalkMonthChart';
-import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
 
 const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
   // if yes, week graph appears, if no, month graph appears
