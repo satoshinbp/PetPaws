@@ -1385,7 +1385,7 @@ nav ul {
 
 @media screen and (min-width: 600px) {
   .dashboard-walk-summary {
-    background-color: #ccabda;
+    background-color: rgba(204, 171, 218, 0.22);
     border-radius: 30px;
   }
 }
