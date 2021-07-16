@@ -3,7 +3,7 @@ import Axios from 'axios';
 import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
-import storesVetsFinderIcon from '../images/stores-vets-finder.svg'; // dammy img, to be replaced
+import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -140,15 +140,14 @@ export default function PetProfile({ petProfile }) {
                 Let's complete your furry friend detail here. Depending on the age and breed, we will advise the best
                 individual plan for nutrition and walking activities.
               </p>
+              <button className="btn-contained-green">Go premium</button>
             </div>
           </div>
-
           <div className="intro__img">
-            <img src={storesVetsFinderIcon} alt="member portrait" />
+            <img src={signinImg} alt="member portrait" />
           </div>
         </div>
       </div>
-
       <div className="body">
         <div className="body__wrapper">
           <PetProfileForm

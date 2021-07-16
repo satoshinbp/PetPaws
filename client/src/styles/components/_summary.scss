@@ -1,3 +1,11 @@
+.meal-form {
+  background-color: $green-color;
+}
+
+.walk-form {
+  background-color: $purple-color;
+}
+
 .walk-form,
 .meal-form {
   border-radius: $sm-border-radius;
@@ -77,15 +85,8 @@
   }
 }
 
-// Meal Summary Background
-.meal-summary {
-  .meal-form {
-    background-color: $green-color;
-  }
-}
-
-.meal-week-month-graphs-wrapper,
-.meal-toggle-graph {
+// summary page meal graphs
+.meal-week-month-graphs-wrapper {
   background-color: rgba($green-color, 0.5);
   padding: 1rem;
   h3 {
@@ -100,21 +101,33 @@
   }
 }
 
-// Activity Sammary Background
-.walk-summary {
-  .walk-form {
-    background-color: $purple-color;
+// dashboard page meal graphs
+.dashboard-meal-summary {
+  .button-background {
+    background-color: rgba($green-color, 0.3);
+    .btn-darkened {
+      background-color: rgba($green-color, 0.5);
+    }
   }
 }
 
-.walk-week-month-graphs-wrapper,
-.walk-toggle-graph {
+// summary page walk graphs
+.walk-week-month-graphs-wrapper {
   background-color: rgba($purple-color, 0.4);
   padding: 1rem;
   h3 {
     margin: 0;
     padding: 1.5rem 0;
   }
+  .button-background {
+    background-color: rgba($purple-color, 0.2);
+    .btn-darkened {
+      background-color: rgba($purple-color, 0.4);
+    }
+  }
+}
+// dashboard page walk graphs
+.dashboard-walk-summary {
   .button-background {
     background-color: rgba($purple-color, 0.2);
     .btn-darkened {

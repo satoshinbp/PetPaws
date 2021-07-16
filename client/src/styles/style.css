@@ -470,7 +470,7 @@ img {
 .signin_form {
   padding: 2rem 1rem 3rem;
   margin: 1rem;
-  border-radius: 15px;
+  border-radius: 10px;
   background: #ede1f8;
 }
 
@@ -528,19 +528,7 @@ img {
 }
 
 /* TO BE DELETED ============ */
-/* 2.4. Dashboard =========== */
-/* 2.5. Profile ============= */
 /* 2.6. Stores/Vets ========= */
-.search-form {
-  padding: 1rem;
-  border-radius: 30px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: #86e3ce;
-  text-align: center;
-}
-
 /* 2.8. Calorie ============= */
 /* 2.9. Contact ============= */
 /* ========================== */
@@ -747,6 +735,14 @@ img {
 
 /* TO BE REORGANIZED ======== */
 /* 3.1. Forms =============== */
+.meal-form {
+  background-color: #86e3ce;
+}
+
+.walk-form {
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
 .walk-form,
 .meal-form {
   border-radius: 10px;
@@ -847,55 +843,55 @@ img {
   justify-content: center;
 }
 
-.meal-summary .meal-form {
-  background-color: #86e3ce;
-}
-
-.meal-week-month-graphs-wrapper,
-.meal-toggle-graph {
+.meal-week-month-graphs-wrapper {
   background-color: rgba(134, 227, 206, 0.5);
   padding: 1rem;
 }
 
-.meal-week-month-graphs-wrapper h3,
-.meal-toggle-graph h3 {
+.meal-week-month-graphs-wrapper h3 {
   margin: 0;
   padding: 1.5rem 0;
 }
 
-.meal-week-month-graphs-wrapper .button-background,
-.meal-toggle-graph .button-background {
+.meal-week-month-graphs-wrapper .button-background {
   background-color: rgba(134, 227, 206, 0.3);
 }
 
-.meal-week-month-graphs-wrapper .button-background .btn-darkened,
-.meal-toggle-graph .button-background .btn-darkened {
+.meal-week-month-graphs-wrapper .button-background .btn-darkened {
   background-color: rgba(134, 227, 206, 0.5);
 }
 
-.walk-summary .walk-form {
-  background-color: rgba(204, 171, 218, 0.82);
+.dashboard-meal-summary .button-background {
+  background-color: rgba(134, 227, 206, 0.3);
 }
 
-.walk-week-month-graphs-wrapper,
-.walk-toggle-graph {
+.dashboard-meal-summary .button-background .btn-darkened {
+  background-color: rgba(134, 227, 206, 0.5);
+}
+
+.walk-week-month-graphs-wrapper {
   background-color: rgba(204, 171, 218, 0.4);
   padding: 1rem;
 }
 
-.walk-week-month-graphs-wrapper h3,
-.walk-toggle-graph h3 {
+.walk-week-month-graphs-wrapper h3 {
   margin: 0;
   padding: 1.5rem 0;
 }
 
-.walk-week-month-graphs-wrapper .button-background,
-.walk-toggle-graph .button-background {
+.walk-week-month-graphs-wrapper .button-background {
   background-color: rgba(204, 171, 218, 0.2);
 }
 
-.walk-week-month-graphs-wrapper .button-background .btn-darkened,
-.walk-toggle-graph .button-background .btn-darkened {
+.walk-week-month-graphs-wrapper .button-background .btn-darkened {
+  background-color: rgba(204, 171, 218, 0.4);
+}
+
+.dashboard-walk-summary .button-background {
+  background-color: rgba(204, 171, 218, 0.2);
+}
+
+.dashboard-walk-summary .button-background .btn-darkened {
   background-color: rgba(204, 171, 218, 0.4);
 }
 
@@ -926,6 +922,116 @@ img {
   .walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-image {
     width: 120px;
     height: 200px;
+  }
+}
+
+.pet-profile-form {
+  background: #86e3ce;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+}
+
+.pet-profile-form_area {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.pet-profile-form_area .pet-type,
+.pet-profile-form_area .spay {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+.pet-profile-form_area .pet-type label,
+.pet-profile-form_area .spay label {
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.pet-profile-form_area .pet-type .pet-type_cat,
+.pet-profile-form_area .pet-type .pet-type_dog,
+.pet-profile-form_area .pet-type .spayed,
+.pet-profile-form_area .pet-type .notSpayed,
+.pet-profile-form_area .spay .pet-type_cat,
+.pet-profile-form_area .spay .pet-type_dog,
+.pet-profile-form_area .spay .spayed,
+.pet-profile-form_area .spay .notSpayed {
+  flex: 50%;
+}
+
+.pet-profile-form_area .input-area {
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+.pet-profile-form_area .input-area label {
+  display: block;
+  padding: 0.3rem 0;
+}
+
+.pet-profile-form_image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 0.5rem #ffdd95 solid;
+  object-fit: cover;
+}
+
+.pet-profile-form button {
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.add-pet {
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
+.add-pet button {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 600px) {
+  .pet-profile-form_area {
+    text-align: center;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .pet-profile-form_area .pet-profile-form_image {
+    width: 100%;
+  }
+  .pet-profile-form_area .input-area {
+    flex: 0 0 40%;
+    padding: 0 1rem;
+  }
+  .pet-profile-form_area .input-area label {
+    text-align: left;
+  }
+  .pet-profile-form_area .pet-type,
+  .pet-profile-form_area .spay {
+    width: 100%;
+    justify-content: center;
+  }
+  .pet-profile-form_area .pet-type .pet-type_cat,
+  .pet-profile-form_area .pet-type .pet-type_dog,
+  .pet-profile-form_area .pet-type .spayed,
+  .pet-profile-form_area .pet-type .notSpayed,
+  .pet-profile-form_area .spay .pet-type_cat,
+  .pet-profile-form_area .spay .pet-type_dog,
+  .pet-profile-form_area .spay .spayed,
+  .pet-profile-form_area .spay .notSpayed {
+    flex: unset;
+    padding: 0 0.5rem;
+  }
+  .pet-profile-form button {
+    padding: 0 5rem;
+    margin: 2rem auto;
+    display: block;
   }
 }
 
@@ -1022,6 +1128,11 @@ img {
     display: grid;
     grid-template-columns: 40% 60%;
     align-items: center;
+  }
+  .walk-day-graph-wrapper .background-color-wrapper .meal-daily-graph,
+  .meal-day-graph-wrapper .background-color-wrapper .meal-daily-graph {
+    display: flex;
+    align-self: center;
   }
 }
 
@@ -1147,6 +1258,26 @@ img {
   }
 }
 
+.calorie-stats {
+  border: 1px solid #3b3054;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.activity-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  text-align: center;
+}
+
+.activity-stats .activity-avg {
+  flex-basis: 50%;
+  border: 1px solid #3b3054;
+  border-radius: 10px;
+}
+
 /* 3.3. Header ============== */
 header {
   position: fixed;
@@ -1183,6 +1314,123 @@ nav ul {
 
 /* 3.4. Footer ============== */
 /* 3.5. Calculator ========== */
+/* 3.6. Dashboard =========== */
+.dashboard-pet-profile {
+  background-color: rgba(204, 171, 218, 0.82);
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-pet-profile {
+    background-color: white;
+    border: 1px solid #3b3054;
+  }
+}
+
+.dashboard-pet-profile-wrapper {
+  background-color: #ede1f8;
+  border-radius: 30px;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-pet-profile-wrapper {
+    background-color: white;
+  }
+}
+
+.pet-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.pet-details p {
+  flex-basis: 50%;
+}
+
+.pet-details .pet-detail {
+  border-bottom: solid 1.5px #3b3054;
+}
+
+.dashboard-pet-profile {
+  padding: 1rem;
+}
+
+.dashboard-meal-summary {
+  padding: 1rem;
+}
+
+.dashboard-walk-summary {
+  padding: 1rem;
+}
+
+.dashboard-meal-summary,
+.dashboard-walk-summary {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-meal-summary,
+  .dashboard-walk-summary {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-meal-summary {
+    background-color: rgba(134, 227, 206, 0.22);
+    border-radius: 30px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-walk-summary {
+    background-color: #ede1f8;
+    border-radius: 30px;
+  }
+}
+
+.button-wrapper {
+  text-align: right;
+  margin-top: 3rem;
+}
+
+/* 3.7. Stores/Vets ========= */
+.search-form {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #86e3ce;
+  text-align: center;
+}
+
+.search-form .search-form-inner {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.search-form select {
+  max-width: 400px;
+  align-self: center;
+}
+
+@media screen and (min-width: 600px) {
+  .search-form .search-form-background {
+    background-color: rgba(255, 255, 255, 0.64);
+    border-radius: 30px;
+    margin: 3rem;
+    padding: 2rem 1rem;
+  }
+}
+
 /* ========================== */
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
