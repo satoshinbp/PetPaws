@@ -191,9 +191,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
@@ -201,9 +201,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -212,9 +212,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -264,8 +264,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type='checkbox'],
-[type='radio'] {
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -275,8 +275,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -284,7 +284,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type='search'] {
+[type=search] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -294,7 +294,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type='search']::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -390,14 +390,15 @@ img {
   body {
     font-size: 18px;
   }
+
   .mb-hidden {
     display: initial;
   }
+
   .pc-hidden {
     display: none;
   }
 }
-
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
 .signup {
@@ -405,36 +406,29 @@ img {
   flex-flow: column nowrap;
   background: #f8f3fa;
 }
-
 .signup_description {
   display: none;
 }
-
 .signup_form {
   padding: 2rem 1rem 3rem;
   margin: 1rem;
   border-radius: 15px;
   background: rgba(252, 136, 123, 0.34);
 }
-
 .signup_form h2 {
   text-align: center;
 }
-
 .signup_form label {
   display: block;
-  padding: 1rem 0 .5rem;
+  padding: 1rem 0 0.5rem;
 }
-
 .signup_form button {
   margin: 2rem 0 0;
 }
-
 .signup_form .signin-link-area {
   text-align: center;
   padding: 1rem 0;
 }
-
 .signup_form .signin-link-area_link {
   font-weight: 600;
   text-decoration: underline;
@@ -465,50 +459,41 @@ img {
     padding: 1rem 0;
   }
 }
-
 /* 2.2. Sign In ============= */
 .signin {
   display: flex;
   flex-flow: column nowrap;
   background: #f8f3fa;
 }
-
 .signin .image-area {
   display: none;
 }
-
 .signin_form {
   padding: 2rem 1rem 3rem;
   margin: 1rem;
   border-radius: 10px;
   background: #ccabda;
 }
-
 .signin_form h2 {
   text-align: center;
 }
-
 .signin_form label {
   display: block;
-  padding: 1rem 0 .5rem;
+  padding: 1rem 0 0.5rem;
 }
-
 .signin_form button {
   margin: 2rem 0;
 }
-
 .signin_form hr {
   box-sizing: content-box;
   height: 1.2px;
   overflow: visible;
   background: black;
 }
-
 .signin_form .signup-link-area {
   text-align: center;
   padding: 1rem 0;
 }
-
 .signin_form .signup-link-area_link {
   font-weight: 600;
   text-decoration: underline;
@@ -536,7 +521,6 @@ img {
     max-width: 400px;
   }
 }
-
 /* 3 Components ============= */
 /* 3.1. Intro =============== */
 .intro {
@@ -545,20 +529,16 @@ img {
   text-align: center;
   background-color: #ffdd95;
 }
-
 .intro__wrapper {
   max-width: 1280px;
   margin: 0 auto;
 }
-
 .intro__img {
   display: none;
 }
-
 .intro__btn {
   margin: 1rem 0;
 }
-
 @media screen and (min-width: 600px) {
   .intro {
     padding: 2rem;
@@ -584,7 +564,6 @@ img {
     margin: 0;
   }
 }
-
 @media screen and (min-width: 960px) {
   .intro {
     padding: 3rem;
@@ -604,14 +583,12 @@ img {
   flex-flow: nowrap column;
   gap: 1rem;
 }
-
 @media screen and (min-width: 600px) {
   .body__wrapper {
     padding: 2rem 0;
     gap: 2rem;
   }
 }
-
 @media screen and (min-width: 960px) {
   .body__wrapper {
     padding: 3rem 0;
@@ -645,22 +622,18 @@ img {
   background-color: #86e3ce;
   text-align: center;
 }
-
 .features .feature {
   padding: 1rem;
   border-radius: 15px;
   background-color: rgba(255, 255, 255, 0.64);
 }
-
 .features .feature__img {
   width: 56px;
   margin: 0 auto;
 }
-
 .features .btn-area {
   margin: 1rem 0;
 }
-
 @media screen and (min-width: 600px) {
   .features {
     padding: 2rem;
@@ -683,7 +656,7 @@ img {
     flex-basis: 30%;
     text-align: right;
   }
-  .features .feature:nth-child(2n + 1) .feature__img {
+  .features .feature:nth-child(2n+1) .feature__img {
     order: -1;
     text-align: left;
   }
@@ -699,18 +672,15 @@ img {
   text-align: center;
   background-color: rgba(204, 171, 218, 0.82);
 }
-
 .team__title {
   color: #fff;
 }
-
 .team__members {
   display: flex;
   flex-flow: nowrap column;
   align-items: center;
   gap: 1rem;
 }
-
 .team__member-img {
   overflow: hidden;
   width: 138px;
@@ -719,11 +689,9 @@ img {
   border: 2px solid #fff;
   border-radius: 50%;
 }
-
 .team__member-name {
   font-size: 0.875em;
 }
-
 @media screen and (min-width: 600px) {
   .team {
     padding: 2rem;
@@ -757,33 +725,28 @@ img {
   border-radius: 10px;
   padding: 1rem;
 }
-
 .walk-form .input-wrapper,
 .meal-form .input-wrapper {
   display: flex;
   flex-flow: column nowrap;
   gap: 0.7rem;
 }
-
 .walk-form .input-wrapper div,
 .meal-form .input-wrapper div {
   display: flex;
   flex-flow: column nowrap;
   gap: 0.3rem;
 }
-
 .walk-form .input-wrapper div label,
 .meal-form .input-wrapper div label {
   font-weight: 700;
 }
-
 .walk-form .button-wrapper,
 .meal-form .button-wrapper {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
 }
-
 .walk-form .button-wrapper .btn-outlined,
 .meal-form .button-wrapper .btn-outlined {
   border: 1px solid #fff;
@@ -798,13 +761,11 @@ img {
   padding: 1rem;
   border-radius: 10px;
 }
-
 .meal-week-month-graphs-wrapper h3,
 .walk-week-month-graphs-wrapper h3 {
   font-size: 1em;
   text-align: center;
 }
-
 .meal-week-month-graphs-wrapper .basic-info,
 .walk-week-month-graphs-wrapper .basic-info {
   width: 100%;
@@ -814,18 +775,15 @@ img {
   gap: 1rem;
   padding: 1rem 0 2.5rem 0;
 }
-
 .meal-week-month-graphs-wrapper .basic-info h3,
 .walk-week-month-graphs-wrapper .basic-info h3 {
   margin: 0 auto 0.5rem;
 }
-
 .meal-week-month-graphs-wrapper .basic-info p,
 .walk-week-month-graphs-wrapper .basic-info p {
   margin: 0;
   text-align: center;
 }
-
 .meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper,
 .walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper {
   display: flex;
@@ -833,12 +791,10 @@ img {
   justify-content: center;
   align-items: center;
 }
-
 .meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-name,
 .walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-name {
   padding-top: 0.5rem;
 }
-
 .meal-week-month-graphs-wrapper .basic-info .pet-image,
 .walk-week-month-graphs-wrapper .basic-info .pet-image {
   width: 78px;
@@ -856,16 +812,13 @@ img {
   background-color: rgba(134, 227, 206, 0.5);
   padding: 1rem;
 }
-
 .meal-week-month-graphs-wrapper h3 {
   margin: 0;
   padding: 1.5rem 0;
 }
-
 .meal-week-month-graphs-wrapper .button-background {
   background-color: rgba(134, 227, 206, 0.3);
 }
-
 .meal-week-month-graphs-wrapper .button-background .btn-darkened {
   background-color: rgba(134, 227, 206, 0.5);
 }
@@ -873,7 +826,6 @@ img {
 .dashboard-meal-summary .button-background {
   background-color: rgba(134, 227, 206, 0.3);
 }
-
 .dashboard-meal-summary .button-background .btn-darkened {
   background-color: rgba(134, 227, 206, 0.5);
 }
@@ -882,16 +834,13 @@ img {
   background-color: rgba(204, 171, 218, 0.4);
   padding: 1rem;
 }
-
 .walk-week-month-graphs-wrapper h3 {
   margin: 0;
   padding: 1.5rem 0;
 }
-
 .walk-week-month-graphs-wrapper .button-background {
   background-color: rgba(204, 171, 218, 0.2);
 }
-
 .walk-week-month-graphs-wrapper .button-background .btn-darkened {
   background-color: rgba(204, 171, 218, 0.4);
 }
@@ -899,66 +848,60 @@ img {
 .dashboard-walk-summary .button-background {
   background-color: rgba(204, 171, 218, 0.2);
 }
-
 .dashboard-walk-summary .button-background .btn-darkened {
   background-color: rgba(204, 171, 218, 0.4);
 }
 
 @media screen and (min-width: 600px) {
   .meal-week-month-graphs-wrapper,
-  .walk-week-month-graphs-wrapper {
+.walk-week-month-graphs-wrapper {
     padding: 1rem 2rem;
     display: grid;
     grid-template-columns: 30% 70%;
     gap: 1rem;
   }
   .meal-week-month-graphs-wrapper .basic-info,
-  .walk-week-month-graphs-wrapper .basic-info {
+.walk-week-month-graphs-wrapper .basic-info {
     width: 80%;
     display: grid;
     grid-template-rows: 1fr auto 1fr;
     justify-self: center;
   }
   .meal-week-month-graphs-wrapper .basic-info h3,
-  .walk-week-month-graphs-wrapper .basic-info h3 {
+.walk-week-month-graphs-wrapper .basic-info h3 {
     align-self: start;
   }
   .meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper,
-  .walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper {
+.walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper {
     align-self: start;
   }
   .meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-image,
-  .walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-image {
+.walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-image {
     width: 120px;
     height: 200px;
   }
 }
-
 .pet-profile-form {
   background: #86e3ce;
   padding: 2rem 1rem;
   border-radius: 10px;
 }
-
 .pet-profile-form_area {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
-
 .pet-profile-form_area .pet-type,
 .pet-profile-form_area .spay {
   display: flex;
   flex-flow: row wrap;
   text-align: center;
 }
-
 .pet-profile-form_area .pet-type label,
 .pet-profile-form_area .spay label {
   padding: 1rem 0;
   width: 100%;
 }
-
 .pet-profile-form_area .pet-type .pet-type_cat,
 .pet-profile-form_area .pet-type .pet-type_dog,
 .pet-profile-form_area .pet-type .spayed,
@@ -969,17 +912,14 @@ img {
 .pet-profile-form_area .spay .notSpayed {
   flex: 50%;
 }
-
 .pet-profile-form_area .input-area {
   margin: 0.5rem 0;
   width: 100%;
 }
-
 .pet-profile-form_area .input-area label {
   display: block;
   padding: 0.3rem 0;
 }
-
 .pet-profile-form_image img {
   width: 120px;
   height: 120px;
@@ -987,7 +927,6 @@ img {
   border: 0.5rem #ffdd95 solid;
   object-fit: cover;
 }
-
 .pet-profile-form button {
   margin: 2rem 0;
   padding: 0 1rem;
@@ -999,7 +938,6 @@ img {
   text-align: center;
   background-color: rgba(204, 171, 218, 0.82);
 }
-
 .add-pet button {
   font-size: 2rem;
   font-weight: 700;
@@ -1022,18 +960,18 @@ img {
     text-align: left;
   }
   .pet-profile-form_area .pet-type,
-  .pet-profile-form_area .spay {
+.pet-profile-form_area .spay {
     width: 100%;
     justify-content: center;
   }
   .pet-profile-form_area .pet-type .pet-type_cat,
-  .pet-profile-form_area .pet-type .pet-type_dog,
-  .pet-profile-form_area .pet-type .spayed,
-  .pet-profile-form_area .pet-type .notSpayed,
-  .pet-profile-form_area .spay .pet-type_cat,
-  .pet-profile-form_area .spay .pet-type_dog,
-  .pet-profile-form_area .spay .spayed,
-  .pet-profile-form_area .spay .notSpayed {
+.pet-profile-form_area .pet-type .pet-type_dog,
+.pet-profile-form_area .pet-type .spayed,
+.pet-profile-form_area .pet-type .notSpayed,
+.pet-profile-form_area .spay .pet-type_cat,
+.pet-profile-form_area .spay .pet-type_dog,
+.pet-profile-form_area .spay .spayed,
+.pet-profile-form_area .spay .notSpayed {
     flex: unset;
     padding: 0 0.5rem;
   }
@@ -1043,28 +981,23 @@ img {
     display: block;
   }
 }
-
 .contact {
   padding: 2rem;
   border-radius: 30px;
   background-color: #86e3ce;
 }
-
 .contact__form {
   display: flex;
   flex-flow: nowrap column;
   gap: 2rem;
 }
-
 .contact h2 {
   text-align: center;
 }
-
 .contact input,
 .contact textarea {
   margin-top: 0.5rem;
 }
-
 .contact label {
   font-weight: 700;
 }
@@ -1083,13 +1016,11 @@ img {
   border-radius: 10px;
   padding: 1rem;
 }
-
 .walk-day-graph-wrapper .background-color-wrapper,
 .meal-day-graph-wrapper .background-color-wrapper {
   background-color: rgba(255, 255, 255, 0.64);
   border-radius: 10px;
 }
-
 .walk-day-graph-wrapper .background-color-wrapper .info,
 .meal-day-graph-wrapper .background-color-wrapper .info {
   padding: 1rem 0.5rem;
@@ -1097,45 +1028,37 @@ img {
   flex-flow: column nowrap;
   gap: 1.5rem;
 }
-
 .walk-day-graph-wrapper .background-color-wrapper .info label,
 .meal-day-graph-wrapper .background-color-wrapper .info label {
   font-size: 0.875em;
 }
-
 .walk-day-graph-wrapper .background-color-wrapper .info h3,
 .meal-day-graph-wrapper .background-color-wrapper .info h3 {
   margin: 0;
 }
-
 .walk-day-graph-wrapper .background-color-wrapper .info p,
 .meal-day-graph-wrapper .background-color-wrapper .info p {
   margin: 0;
 }
-
 .walk-day-graph-wrapper .background-color-wrapper .info .daily-list,
 .meal-day-graph-wrapper .background-color-wrapper .info .daily-list {
   border: 1px solid #3b3054;
   padding: 1rem 0.5rem;
   border-radius: 15px;
 }
-
 .walk-day-graph-wrapper .background-color-wrapper .info .daily-list > p:first-of-type,
 .meal-day-graph-wrapper .background-color-wrapper .info .daily-list > p:first-of-type {
   font-weight: 300;
   border-bottom: 1px solid rgba(59, 48, 84, 0.5);
 }
-
 .walk-day-graph-wrapper .background-color-wrapper .info .daily-list p,
 .meal-day-graph-wrapper .background-color-wrapper .info .daily-list p {
   padding: 0.5rem 0;
 }
-
 .walk-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item,
 .meal-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item {
   padding: 0.5rem 0;
 }
-
 .walk-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item p,
 .meal-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item p {
   padding: 0;
@@ -1143,37 +1066,35 @@ img {
 
 @media screen and (min-width: 600px) {
   .walk-day-graph-wrapper,
-  .meal-day-graph-wrapper {
+.meal-day-graph-wrapper {
     padding: 2rem;
   }
   .walk-day-graph-wrapper .background-color-wrapper,
-  .meal-day-graph-wrapper .background-color-wrapper {
+.meal-day-graph-wrapper .background-color-wrapper {
     display: grid;
     grid-template-columns: 50% 50%;
     padding: 1rem 3rem 1rem 3rem;
   }
   .walk-day-graph-wrapper .background-color-wrapper .info,
-  .meal-day-graph-wrapper .background-color-wrapper .info {
+.meal-day-graph-wrapper .background-color-wrapper .info {
     gap: 2rem;
   }
   .walk-day-graph-wrapper .background-color-wrapper .info label,
-  .meal-day-graph-wrapper .background-color-wrapper .info label {
+.meal-day-graph-wrapper .background-color-wrapper .info label {
     font-size: 0.875em;
     display: grid;
     grid-template-columns: 40% 60%;
     align-items: center;
   }
   .walk-day-graph-wrapper .background-color-wrapper .meal-daily-graph,
-  .meal-day-graph-wrapper .background-color-wrapper .meal-daily-graph {
+.meal-day-graph-wrapper .background-color-wrapper .meal-daily-graph {
     display: flex;
     align-self: center;
   }
 }
-
 .walk-day-graph-wrapper .background-color-wrapper {
   display: block;
 }
-
 .walk-day-graph-wrapper .background-color-wrapper .info label {
   margin-right: auto;
   margin-left: auto;
@@ -1183,13 +1104,11 @@ img {
 .graphs {
   width: 100%;
 }
-
 .graphs .week-month-toggle {
   background-color: rgba(255, 255, 255, 0.64);
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
 }
-
 .graphs .week-month-toggle .button-background {
   display: flex;
   height: 35px;
@@ -1198,16 +1117,13 @@ img {
   justify-content: center;
   padding: 0 1rem;
 }
-
 .graphs .week-month-toggle .button-background .button-no-accent {
   background-color: transparent;
 }
-
 .graphs .week-month-toggle .button-background button {
   font-size: 0.875em;
   color: #3b3054;
 }
-
 .graphs .walk-week-graph,
 .graphs .walk-month-graph,
 .graphs .meal-week-graph,
@@ -1217,7 +1133,6 @@ img {
   border-bottom-right-radius: 10px;
   padding-bottom: calc(1rem + 50px);
 }
-
 .graphs .walk-week-graph .week-controller,
 .graphs .walk-week-graph .month-controller,
 .graphs .walk-month-graph .week-controller,
@@ -1231,7 +1146,6 @@ img {
   align-items: center;
   justify-content: center;
 }
-
 .graphs .walk-week-graph .week-controller button,
 .graphs .walk-week-graph .month-controller button,
 .graphs .walk-month-graph .week-controller button,
@@ -1243,7 +1157,6 @@ img {
   width: 50px;
   background-color: transparent;
 }
-
 .graphs .walk-week-graph .week-controller p,
 .graphs .walk-week-graph .month-controller p,
 .graphs .walk-month-graph .week-controller p,
@@ -1254,14 +1167,12 @@ img {
 .graphs .meal-month-graph .month-controller p {
   font-size: 0.875em;
 }
-
 .graphs .walk-week-graph .graph-height,
 .graphs .walk-month-graph .graph-height,
 .graphs .meal-week-graph .graph-height,
 .graphs .meal-month-graph .graph-height {
   height: 300px;
 }
-
 .graphs .walk-week-graph .graph-height .recharts-default-legend,
 .graphs .walk-month-graph .graph-height .recharts-default-legend,
 .graphs .meal-week-graph .graph-height .recharts-default-legend,
@@ -1291,7 +1202,6 @@ img {
     border-radius: 12px;
   }
 }
-
 .calorie-stats {
   border: 1px solid #3b3054;
   border-radius: 10px;
@@ -1305,7 +1215,6 @@ img {
   gap: 1rem;
   text-align: center;
 }
-
 .activity-stats .activity-avg {
   flex-basis: 50%;
   border: 1px solid #3b3054;
@@ -1354,66 +1263,54 @@ nav ul {
   background-color: #86e3ce;
   text-align: center;
 }
-
 .calculator__form {
   display: flex;
   flex-flow: nowrap column;
   gap: 1rem;
 }
-
 .calculator__radio-options {
   display: flex;
   justify-content: center;
   gap: 1rem;
 }
-
 .calculator__params {
   text-align: left;
 }
-
 .calculator__params--age {
   display: flex;
   gap: 1rem;
 }
-
 .calculator__label {
   margin-bottom: 0.25rem;
 }
-
 .calculator__label--radio {
   margin: 1rem 0;
 }
-
 .calculator__label--age {
   flex-basis: 50%;
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
-
 .calculator__input-with-endadornment {
   display: flex;
   align-items: center;
   gap: 0.25rem;
 }
-
 .calculator__result {
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 15px;
   background-color: #dcf7f1;
 }
-
 .calculator__result-calorie {
   color: #ccabda;
   font-size: 4em;
   font-weight: 900;
 }
-
 .calculator__btn-area {
   margin: 1rem 0;
 }
-
 @media screen and (min-width: 600px) {
   .calculator {
     padding: 2rem;
@@ -1422,10 +1319,9 @@ nav ul {
 
 /* 3.6. Dashboard =========== */
 .dashboard-pet-profile {
-  background-color: rgba(204, 171, 218, 0.82);
+  background-color: #ccabda;
   border-radius: 30px;
 }
-
 @media screen and (min-width: 600px) {
   .dashboard-pet-profile {
     background-color: white;
@@ -1434,11 +1330,10 @@ nav ul {
 }
 
 .dashboard-pet-profile-wrapper {
-  background-color: #ccabda;
+  background-color: rgba(255, 255, 255, 0.64);
   border-radius: 30px;
   padding: 1rem;
 }
-
 @media screen and (min-width: 600px) {
   .dashboard-pet-profile-wrapper {
     background-color: white;
@@ -1451,11 +1346,9 @@ nav ul {
   flex-wrap: wrap;
   text-align: center;
 }
-
 .pet-details p {
   flex-basis: 50%;
 }
-
 .pet-details .pet-detail {
   border-bottom: solid 1.5px #3b3054;
 }
@@ -1476,10 +1369,9 @@ nav ul {
 .dashboard-walk-summary {
   display: none;
 }
-
 @media screen and (min-width: 600px) {
   .dashboard-meal-summary,
-  .dashboard-walk-summary {
+.dashboard-walk-summary {
     display: block;
   }
 }
@@ -1513,7 +1405,6 @@ nav ul {
   background-color: #86e3ce;
   text-align: center;
 }
-
 .search-form .search-form-inner {
   padding: 1rem;
   border-radius: 30px;
@@ -1522,12 +1413,10 @@ nav ul {
   gap: 1rem;
   text-align: center;
 }
-
 .search-form select {
   max-width: 400px;
   align-self: center;
 }
-
 @media screen and (min-width: 600px) {
   .search-form .search-form-background {
     background-color: rgba(255, 255, 255, 0.64);
@@ -1564,7 +1453,6 @@ button {
   border-radius: 10px;
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 @media screen and (min-width: 600px) {
   .btn-toggle-tab {
     border-radius: 15px;
@@ -1585,7 +1473,6 @@ button {
   background-color: #86e3ce;
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
 }
-
 @media screen and (min-width: 600px) {
   .icon-btn--circle-add {
     width: 86px;
@@ -1599,7 +1486,6 @@ button {
   border: 2px solid #ffdd95;
   border-radius: 50%;
 }
-
 @media screen and (min-width: 600px) {
   .icon-btn--circle-profile {
     width: 52px;
@@ -1657,7 +1543,7 @@ textarea {
   border: none;
 }
 
-input[type='radio'] {
+input[type=radio] {
   height: 28px;
 }
 
@@ -1687,5 +1573,4 @@ label {
   .input-lg {
     height: 60px;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

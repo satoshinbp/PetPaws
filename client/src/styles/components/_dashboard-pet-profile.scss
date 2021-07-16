@@ -1,5 +1,5 @@
 .dashboard-pet-profile {
-  background-color: $purple-color;
+  background-color: $light-purple;
   border-radius: $lg-border-radius;
   @media screen and (min-width: $tb-breakpoint) {
     background-color: white;
@@ -8,7 +8,7 @@
 }
 
 .dashboard-pet-profile-wrapper {
-  background-color: $light-purple;
+  background-color: $lighten-color;
   border-radius: $lg-border-radius;
   padding: 1rem;
   @media screen and (min-width: $tb-breakpoint) {
