@@ -12,16 +12,6 @@
 /* 2.2. Sign In ============= */
 @import 'pages/signin';
 
-/* TO BE DELETED ============ */
-
-/* 2.6. Stores/Vets ========= */
-/* 2.8. Calorie ============= */
-@import 'pages/calorie';
-@import 'pages/calorie-guest';
-/* 2.9. Contact ============= */
-@import 'pages/contact';
-/* ========================== */
-
 /* 3 Components ============= */
 /* 3.1. Intro =============== */
 @import 'components/intro';
@@ -38,13 +28,9 @@
 @import 'components/walk-form';
 @import 'components/profile-form';
 /* 3.2. Charts ============== */
-@import 'components/meal-day-chart';
-@import 'components/meal-week-chart';
-@import 'components/meal-month-chart';
+@import 'components/day-graph';
+@import 'components/week-month-graphs';
 @import 'components/meal-latest-chart';
-@import 'components/walk-day-chart';
-@import 'components/walk-week-chart';
-@import 'components/walk-month-chart';
 @import 'components/walk-latest-chart';
 /* 3.3. Header ============== */
 @import 'components/header';

@@ -30,7 +30,7 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
         </div>
       </div>
       <div className="body">
-        <div className="meal-summary body__wrapper">
+        <div className="body__wrapper">
           {/* form toggled by add button */}
           {showForm ? (
             <MealForm petProfile={petProfile} setAllMeals={setAllMeals} closeForm={() => setShowForm(false)} />
@@ -40,24 +40,28 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
           <div className="meal-week-month-graphs-wrapper">
             <div class="basic-info">
               <h3>MEAL SUMMARY</h3>
-              {/* if there is no pet img uploaded, use default img*/}
-              {petProfile.image ? (
-                <image className="pet-image" src={petProfile.image} />
-              ) : (
-                <p className="pet-image">default image</p>
-              )}
-              {petProfile.name ? <p className="pet-name">{petProfile.name}</p> : <p>Please create your pet profile</p>}
-              {/* if there is no pet pet pofile, warn to create profile*/}
-              {petProfile.name ? (
+              <div className="pet-image-name-wrapper">
+                {/* if there is no pet img uploaded, use default img*/}
+                {petProfile.image ? (
+                  <image className="pet-image" src={petProfile.image} />
+                ) : (
+                  <p className="pet-image">default image</p>
+                )}
+                {petProfile.name ? (
+                  <p className="pet-name">{petProfile.name}</p>
+                ) : (
+                  <p>Please create your pet profile</p>
+                )}
+              </div>
+              {/* ADD Buton: if there is no pet pet pofile, warn to create profile*/}
+              {petProfile.name && (
                 <button className="add-button btn-contained-yellow" onClick={() => setShowForm(true)}>
                   Add Meal
                 </button>
-              ) : (
-                <p id="form-warning">Please create your pet profile</p>
               )}
             </div>
             <div className="graphs">
-              <h3>Weekly/Monthly Charts</h3>
+              <h3 className="graph-title">Weekly/Monthly Charts</h3>
               <div className="week-month-toggle">
                 <div className="button-background btn-toggle-tab">
                   <button
