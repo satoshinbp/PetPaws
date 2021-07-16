@@ -22,8 +22,12 @@ button {
 
 .btn-toggle-tab {
   height: 27px;
-  border-radius: 20px;
+  border-radius: $toggle-button-radius;
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+  @media screen and(min-width: $tb-breakpoint) {
+    border-radius: $toggle-button-radius + 5px;
+    height: 32px;
+  }
 }
 
 .btn-outlined {
