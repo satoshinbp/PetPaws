@@ -13,15 +13,8 @@
 @import 'pages/signin';
 
 /* TO BE DELETED ============ */
-/* 2.4. Dashboard =========== */
-@import 'pages/dashboard';
-/* 2.5. Profile ============= */
-@import 'pages/profile';
+
 /* 2.6. Stores/Vets ========= */
-@import 'pages/search';
-/* 2.7. Trackers ============ */
-@import 'pages/meal-tracker';
-@import 'pages/walk-tracker';
 /* 2.8. Calorie ============= */
 @import 'pages/calorie';
 @import 'pages/calorie-guest';
@@ -41,7 +34,7 @@
 
 /* TO BE REORGANIZED ======== */
 /* 3.1. Forms =============== */
-@import 'components/meal-form';
+@import 'components/summary';
 @import 'components/walk-form';
 @import 'components/profile-form';
 /* 3.2. Charts ============== */
@@ -59,6 +52,11 @@
 @import 'components/footer';
 /* 3.5. Calculator ========== */
 @import 'components/calculator';
+/* 3.6. Dashboard =========== */
+@import 'components/dashboard-pet-profile';
+@import 'components/dashboard-summary';
+/* 3.7. Stores/Vets ========= */
+@import 'components/search';
 /* ========================== */
 
 /* 4 Elements =============== */

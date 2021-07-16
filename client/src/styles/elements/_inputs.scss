@@ -6,6 +6,7 @@ select {
   padding: 0.5rem 1rem;
   border-radius: 10px; //15px
   background-color: white;
+  border: none;
 }
 
 input[type='radio'] {
@@ -15,6 +16,10 @@ input[type='radio'] {
 input::placeholder,
 select:invalid {
   color: rgba(218, 218, 218, 1);
+}
+
+label {
+  color: $navy-color;
 }
 
 // Laptop

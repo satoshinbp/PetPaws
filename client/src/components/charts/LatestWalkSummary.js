@@ -86,11 +86,15 @@ const LatestWalkSummary = ({ allActivities }) => {
   }, [allActivities, avgMin]);
 
   return (
-    <div>
-      <h3>Avg Distance(Km)</h3>
-      {avgDistance ? <p>{avgDistance} Km</p> : '--'}
-      <h3>Avg Time(Min)</h3>
-      {avgMin ? <p>{avgMin} Min</p> : '--'}
+    <div className="activity-stats">
+      <div className="activity-avg">
+        <p>Avg Distance(Km)</p>
+        {avgDistance ? <h3>{avgDistance} Km</h3> : '--'}
+      </div>
+      <div className="activity-avg">
+        <p>Avg Time(Min)</p>
+        {avgMin ? <h3>{avgMin} Min</h3> : '--'}
+      </div>
     </div>
   );
 };

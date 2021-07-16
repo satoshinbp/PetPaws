@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, AreaChart } from 'recharts';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
-const MealMonthChart = ({ allMeals }) => {
+const MealMonthChart = ({ allMeals, MER }) => {
   const createWeekDates = (startDay, endDay) => {
     let tempWeek = [];
     for (let i = startDay; i < endDay; i++) {
@@ -77,16 +77,20 @@ const MealMonthChart = ({ allMeals }) => {
   // INSERT AVERAGE CALORIE ANYWAY,
   // EVEN IF THERE WAS NO INPUT (FOR PURPOSE OF GRAPH)
   const calcAvgCal = (meals) => {
-    let sum = 0;
+    if (meals.length > 0) {
+      let sum = 0;
 
-    // get totall calorie of a month
-    for (let i = 0; i < meals.length; i++) {
-      let sumCalorie = meals[i].meal + meals[i].treat;
-      sum = sum + sumCalorie;
+      // get totall calorie of a month
+      for (let i = 0; i < meals.length; i++) {
+        let sumCalorie = meals[i].meal + meals[i].treat;
+        sum = sum + sumCalorie;
+      }
+      setAvgCal(Math.round(sum / meals.length));
+
+      // set average calorie of a day
+    } else {
+      setAvgCal(0);
     }
-
-    // set average calorie of a day
-    setAvgCal(Math.round(sum / meals.length));
 
     let graphDataArray = [];
 
@@ -99,26 +103,29 @@ const MealMonthChart = ({ allMeals }) => {
         }
       });
     });
+    const idealCal = Math.floor(MER) ? Math.floor(MER) : '--';
 
     meals.forEach((meal) =>
       graphDataArray.push({
-        date: meal.date,
+        date: meal.date.slice(8, 10).split('-').join('/'), // e.g 2021-07-13 => 07/13
         meal: meal.meal,
         treat: meal.treat,
-        avgCal: avgCal,
+        'average calorie': avgCal,
+        'ideal calorie': idealCal,
       })
     );
     noDataDates.forEach((date) =>
       graphDataArray.push({
-        date: date,
+        date: date.slice(8, 10).split('-').join('/'),
         meal: 0,
         treat: 0,
-        avgCal: avgCal,
+        'average calorie': avgCal,
+        'ideal calorie': idealCal,
       })
     );
 
     graphDataArray.sort(function (a, b) {
-      return new Date(a.date) - new Date(b.date);
+      return a.date - b.date;
     });
 
     setGraphData(graphDataArray);
@@ -127,7 +134,7 @@ const MealMonthChart = ({ allMeals }) => {
   useEffect(() => {
     getAllFoodDataForMonth(allMeals);
     calcAvgCal(calcTotalDailyCalorie(allMealsForMonth));
-  }, [allMeals, avgCal]);
+  }, [allMeals, avgCal, MER]);
 
   useEffect(() => {
     const getChosenMonthDates = () => {
@@ -154,7 +161,6 @@ const MealMonthChart = ({ allMeals }) => {
     const setNewGraph = () => {
       let pastMonth;
       if (!firstTime) {
-        console.log(count);
         if (count !== 0) {
           setMonth(getChosenMonthDates());
           pastMonth = getChosenMonthDates();
@@ -164,7 +170,6 @@ const MealMonthChart = ({ allMeals }) => {
           pastMonth = getThisMonthDates();
         }
         allMealsForMonth = [];
-        console.log(pastMonth);
         for (let i = 0; i < pastMonth.length; i++) {
           const date = pastMonth[i];
           for (let y = 0; y < allMeals.length; y++) {
@@ -190,19 +195,15 @@ const MealMonthChart = ({ allMeals }) => {
   }, [count, avgCal]);
 
   return (
-    <div className="month-graph" style={{ marginTop: '20vh' }}>
-      {/* temporary styling marginBottom */}
-      <h2>Month Chart</h2>
-
-      <div style={{ height: '260px' }}>
-        {/* MUST set height to display chart */}
-        {/* 確認用 */}
-        {/*graphData.map((meal) => (
+    <div className="meal-month-graph">
+      {/* MUST set height to display chart */}
+      {/* 確認用 */}
+      {/*graphData.map((meal) => (
           <p key={meal.date}>
             {meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}
           </p>
         ))*/}
-        <br></br>
+      <div className="month-controller">
         <button
           onClick={() => {
             setFirstTime(false);
@@ -211,6 +212,13 @@ const MealMonthChart = ({ allMeals }) => {
         >
           ＜
         </button>
+        {graphData.length > 0 ? (
+          <p>
+            {month[0].split('-').join(' ')} to {month[month.length - 1].split('-').join(' ')}
+          </p>
+        ) : (
+          ''
+        )}
         <button
           onClick={() => {
             setCount(count - 1);
@@ -218,29 +226,36 @@ const MealMonthChart = ({ allMeals }) => {
         >
           ＞
         </button>
-        {graphData.length > 0 ? (
-          <p>
-            {month[0]} to {month[month.length - 1]}
-          </p>
-        ) : (
-          ''
-        )}
+      </div>
+      <div className="graph-height">
         <ResponsiveContainer>
           <AreaChart
             data={graphData}
             margin={{
               top: 10,
-              right: 30,
+              right: 20,
               left: 0,
               bottom: 0,
             }}
           >
-            <Legend />
-            <CartesianGrid strokeDasharray="3 3" />
+            <Legend wrapperStyle={{ bottom: -50, left: 20 }} />
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
-            <Area type="monotone" dataKey="avgCal" stroke="#00aced" fillOpacity={0.3} fill="rgba(0, 172, 237, 0)" />
+            <Area
+              type="monotone"
+              dataKey="average calorie"
+              stroke="rgba(204, 171, 218, 1)"
+              fillOpacity={0.3}
+              fill="rgba(0, 172, 237, 0)"
+            />
+            <Area
+              type="monotone"
+              dataKey="ideal calorie"
+              stroke="rgba(252, 136, 123, 1)"
+              fillOpacity={0.3}
+              fill="rgba(0, 172, 237, 0)"
+            />
             <Area type="monotone" dataKey="meal" stackId="1" stroke="#8884d8" fill="#8884d8" />
             <Area type="monotone" dataKey="treat" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
           </AreaChart>

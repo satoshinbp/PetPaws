@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import WalkMonthChart from '../components/charts/WalkMonthChart';
 import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkDayChart from '../components/charts/WalkDayChart';
@@ -5,6 +6,9 @@ import WalkForm from '../components/forms/Walk';
 import trackerIcon from '../images/tracker.svg'; // dammy img, to be replaced
 
 export default function WalkSummary({ petProfile, allActivities, setAllActivities }) {
+  const [showForm, setShowForm] = useState(false);
+  // if yes, week graph appears, if no, month graph appears
+  const [showWeekGraph, setShowWeekGraph] = useState(true);
   return (
     <>
       <div className="intro">
@@ -29,17 +33,65 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
           </div>
         </div>
       </div>
-
       <div className="body">
-        <div className="body__wrapper">
-          {!petProfile.name ? (
-            <p>Please create your pet profile</p>
+        <div className="walk-summary body__wrapper">
+          {/* form toggled by add button */}
+          {showForm ? (
+            <WalkForm
+              petProfile={petProfile}
+              setAllActivities={setAllActivities}
+              closeForm={() => setShowForm(false)}
+            />
           ) : (
-            <WalkForm petProfile={petProfile} setAllActivities={setAllActivities} />
+            ''
           )}
-          <WalkDayChart allActivities={allActivities} />
-          <WalkWeekChart allActivities={allActivities} />
-          <WalkMonthChart allActivities={allActivities} />
+          <div className="walk-week-month-graphs-wrapper">
+            <div class="basic-info">
+              <h3>ACTIVITY SUMMARY</h3>
+              {/* if there is no pet img uploaded, use default img*/}
+              {petProfile.image ? (
+                <image className="pet-image" src={petProfile.image} />
+              ) : (
+                <p className="pet-image">default image</p>
+              )}
+              {petProfile.name ? <p className="pet-name">{petProfile.name}</p> : <p>Please create your pet profile</p>}
+              {/* if there is no pet pet pofile, warn to create profile*/}
+              {petProfile.name ? (
+                <button className="add-button btn-contained-yellow" onClick={() => setShowForm(true)}>
+                  Add Activity
+                </button>
+              ) : (
+                <p id="form-warning">Please create your pet profile</p>
+              )}
+            </div>
+            <div className="graphs">
+              <h3>weekly/monthly charts</h3>
+              <div className="week-month-toggle">
+                <div className="button-background btn-toggle-tab">
+                  <button
+                    onClick={() => setShowWeekGraph(true)}
+                    className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                  >
+                    Week
+                  </button>
+                  <button
+                    onClick={() => setShowWeekGraph(false)}
+                    className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                  >
+                    Month
+                  </button>
+                </div>
+              </div>
+              {showWeekGraph ? (
+                <WalkWeekChart allActivities={allActivities} />
+              ) : (
+                <WalkMonthChart allActivities={allActivities} />
+              )}
+            </div>
+          </div>
+          <div className="walk-day-graph-wrapper">
+            <WalkDayChart allActivities={allActivities} />
+          </div>
         </div>
       </div>
     </>
