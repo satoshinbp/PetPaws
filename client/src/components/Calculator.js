@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
 import calculateAgeFromBirthday from '../functions/calculateAgeFromBirthday';
 import calculateRecommendedCalorie from '../functions/calculateRecommendedCalorie';
 
 export default function Calculator(props) {
-  const { setResult } = props;
+  const { currentUser } = useAuth();
 
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
@@ -17,6 +18,7 @@ export default function Calculator(props) {
   const [activityLevel, setActivityLevel] = useState(0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
   const [bodyCondition, setBodyCondition] = useState(0); // 0: underweight, 1: ideal, 2: overweight
   const [initialCalculationDone, setInitialCalculationDone] = useState(false);
+  const [result, setResult] = useState('');
 
   useEffect(() => {
     Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
@@ -98,19 +100,29 @@ export default function Calculator(props) {
   };
 
   return (
-    <>
-      <h2>Calorie Calculator</h2>
-      {/* This styling is temporary, to be removed */}
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <div>
-          <h3>Pet type:</h3>
-          <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
-          <label htmlFor="cat">Cat</label>
-          <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
-          <label htmlFor="dog">Dog</label>
+    <div className="calculator">
+      <h3>Let's Calculate!</h3>
+
+      <form onSubmit={handleSubmit} className="calculator__form">
+        <div className="calculator__pet-type">
+          <div className="calculator__label--radio">Pet type</div>
+
+          <div className="calculator__radio-options">
+            <label htmlFor="dog">
+              <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
+              Dog
+            </label>
+            <label htmlFor="cat">
+              <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
+              Cat
+            </label>
+          </div>
         </div>
-        <div>
-          <label htmlFor="breed">Breed:</label>
+
+        <div className="calculator__params">
+          <label htmlFor="breed" className="calculator__label">
+            Breed
+          </label>
           <select name="breed" value={breedName} onChange={changeBreed} required>
             <option value="">Select breed</option>
             {isDog ? (
@@ -133,32 +145,42 @@ export default function Calculator(props) {
           </select>
         </div>
 
-        <div>
-          <label>
-            Age:
-            <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
-            Years
-            <input type="number" name="ageMonths" value={ageMonths} min={0} max={11} step={1} onChange={changeMonths} />
-            Months
-          </label>
+        <div className="calculator__params">
+          <div className="calculator__label">Age</div>
+          <div className="calculator__params--age">
+            <label className="calculator__label--age">
+              <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
+              years
+            </label>
+            <label className="calculator__label--age">
+              <input
+                type="number"
+                name="ageMonths"
+                value={ageMonths}
+                min={0}
+                max={11}
+                step={1}
+                onChange={changeMonths}
+              />
+              months
+            </label>
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="weight">Weight:</label>
-          <input type="number" name="weight" value={weight} min={0} step={0.1} onChange={changeWeight} />
-          kg
+        <div className="calculator__params">
+          <div className="calculator__label">
+            <label htmlFor="weight">Weight</label>
+          </div>
+          <div className="calculator__input-with-endadornment">
+            <input type="number" name="weight" value={weight} min={0} step={0.1} onChange={changeWeight} />
+            kg
+          </div>
         </div>
 
-        <div>
-          <label htmlFor="isSpayed">Signalment:</label>
-          <select name="isSpayed" value={isSpayed} onChange={changeIsSpayed}>
-            <option value={0}>Intact</option>
-            <option value={1}>Spayed/Neutered</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="activityLevel">Activity Level:</label>
+        <div className="calculator__params">
+          <div className="calculator__label">
+            <label htmlFor="activityLevel">Activity Level</label>
+          </div>
           <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
             <option value={0}>Inactive</option>
             <option value={1}>Somewhat Active</option>
@@ -167,8 +189,10 @@ export default function Calculator(props) {
           </select>
         </div>
 
-        <div>
-          <label htmlFor="bodyCondition">Body Condition:</label>
+        <div className="calculator__params">
+          <div className="calculator__label">
+            <label htmlFor="bodyCondition">Body Condition</label>
+          </div>
           <select name="bodyCondition" value={bodyCondition} onChange={changeBodyCondition}>
             <option value={0}>Underweight</option>
             <option value={1}>Ideal</option>
@@ -176,8 +200,60 @@ export default function Calculator(props) {
           </select>
         </div>
 
-        <button type="submit">calculate</button>
+        <div className="calculator__pet-type">
+          <div className="calculator__label--radio">Spayed/Neutered</div>
+
+          <div className="calculator__radio-options">
+            <label htmlFor="intact">
+              <input
+                id="intact"
+                type="radio"
+                name="isSpay"
+                value={0}
+                checked={isSpayed === 0}
+                onChange={changeIsSpayed}
+              />
+              No
+            </label>
+            <label htmlFor="spayed">
+              <input
+                id="spayed"
+                type="radio"
+                name="spayed"
+                value={1}
+                checked={isSpayed === 1}
+                onChange={changeIsSpayed}
+              />
+              Yes
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" className="btn-contained-yellow btn-not-fullwidth">
+          calculate
+        </button>
       </form>
-    </>
+
+      {result && (
+        <div className="calculator__result">
+          <h3>Calculation Done!</h3>
+          {currentUser ? (
+            <>
+              <p>The ideal calorie number for your pet is</p>
+              <p className="calculator__result-calorie">{result}</p>
+            </>
+          ) : (
+            <>
+              <p>Enter your email so we could send you the results!</p>
+              <input type="text" placeholder="Enter your email" />
+
+              <div className="calculator__btn-area">
+                <button className="btn-contained-yellow">Send</button>
+              </div>
+            </>
+          )}
+        </div>
+      )}
+    </div>
   );
 }

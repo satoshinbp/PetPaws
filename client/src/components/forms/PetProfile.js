@@ -140,7 +140,7 @@ export default function petProfileForm(props) {
             </select>
           </div>
           <div className="spay">
-            <label htmlFor="isSpayed">Spay</label>
+            <label htmlFor="isSpayed">Spayed/Neutered</label>
             <div className="notSpayed">
               <input
                 id="notSpayed"
