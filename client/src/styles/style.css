@@ -1414,6 +1414,12 @@ nav ul {
   margin: 1rem 0;
 }
 
+@media screen and (min-width: 600px) {
+  .calculator {
+    padding: 2rem;
+  }
+}
+
 /* 3.6. Dashboard =========== */
 .dashboard-pet-profile {
   background-color: rgba(204, 171, 218, 0.82);

@@ -63,10 +63,11 @@
     margin: 1rem 0;
   }
 
-  // @media screen and (min-width: $tb-breakpoint) {
-  //   &__form {
-  //     display: grid;
-  //     grid-template-columns: 1fr 1fr;
-  //   }
-  // }
+  @media screen and (min-width: $tb-breakpoint) {
+    padding: 2rem;
+    // &__form {
+    //   display: grid;
+    //   grid-template-columns: 1fr 1fr;
+    // }
+  }
 }
