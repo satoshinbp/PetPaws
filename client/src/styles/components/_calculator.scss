@@ -1,0 +1,72 @@
+.calculator {
+  padding: 1rem;
+  border-radius: $lg-border-radius;
+  background-color: $green-color;
+  text-align: center;
+
+  &__form {
+    display: flex;
+    flex-flow: nowrap column;
+    gap: 1rem;
+  }
+
+  &__radio-options {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__params {
+    text-align: left;
+  }
+
+  &__params--age {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__label {
+    margin-bottom: 0.25rem;
+  }
+
+  &__label--radio {
+    margin: 1rem 0;
+  }
+
+  &__label--age {
+    flex-basis: 50%;
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  &__input-with-endadornment {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  &__result {
+    margin: 1rem 0;
+    padding: 1rem;
+    border-radius: $md-border-radius;
+    background-color: $lightgreen-color;
+  }
+
+  &__result-calorie {
+    color: $light-purple;
+    font-size: $xl-fontsize;
+    font-weight: 900;
+  }
+
+  &__btn-area {
+    margin: 1rem 0;
+  }
+
+  // @media screen and (min-width: $tb-breakpoint) {
+  //   &__form {
+  //     display: grid;
+  //     grid-template-columns: 1fr 1fr;
+  //   }
+  // }
+}
