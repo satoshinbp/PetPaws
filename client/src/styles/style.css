@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* 1 Base =================== */
 /* 1.1. Reset =========== */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -8,7 +8,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -348,9 +348,9 @@ template {
 
 body {
   padding-top: 84px;
-  font-family: 'Content', helvetica, arial, sans-serif;
+  font-family: "Content", helvetica, arial, sans-serif;
   font-size: 16px;
-  line-height: 25px;
+  line-height: 1.15;
   color: #3b3054;
 }
 
@@ -360,7 +360,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'To Japan', helvetica, arial, sans-serif;
+  font-family: "To Japan", helvetica, arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -413,7 +413,7 @@ img {
 
 .signup_form label {
   display: block;
-  padding: 1rem 0 0.5rem;
+  padding: 1rem 0 .5rem;
 }
 
 .signup_form button {
@@ -480,7 +480,7 @@ img {
 
 .signin_form label {
   display: block;
-  padding: 1rem 0 0.5rem;
+  padding: 1rem 0 .5rem;
 }
 
 .signin_form button {
@@ -629,7 +629,7 @@ img {
 
 /* 3.3. Features ============ */
 .features {
-  background-image: url('../images/bg-green.png');
+  background-image: url("../images/bg-green.png");
   background-size: contain;
   width: 100%;
   max-width: 1280px;
@@ -1121,38 +1121,29 @@ img {
   align-items: center;
 }
 
-.pet-profile-form_area .pet-type,
-.pet-profile-form_area .spay {
+.pet-profile-form_area .pet-type, .pet-profile-form_area .spay {
   display: flex;
   flex-flow: row wrap;
   text-align: center;
 }
 
-.pet-profile-form_area .pet-type label,
-.pet-profile-form_area .spay label {
+.pet-profile-form_area .pet-type label, .pet-profile-form_area .spay label {
   padding: 1rem 0;
   width: 100%;
 }
 
-.pet-profile-form_area .pet-type .pet-type_cat,
-.pet-profile-form_area .pet-type .pet-type_dog,
-.pet-profile-form_area .pet-type .spayed,
-.pet-profile-form_area .pet-type .notSpayed,
-.pet-profile-form_area .spay .pet-type_cat,
-.pet-profile-form_area .spay .pet-type_dog,
-.pet-profile-form_area .spay .spayed,
-.pet-profile-form_area .spay .notSpayed {
+.pet-profile-form_area .pet-type .pet-type_cat, .pet-profile-form_area .pet-type .pet-type_dog, .pet-profile-form_area .pet-type .spayed, .pet-profile-form_area .pet-type .notSpayed, .pet-profile-form_area .spay .pet-type_cat, .pet-profile-form_area .spay .pet-type_dog, .pet-profile-form_area .spay .spayed, .pet-profile-form_area .spay .notSpayed {
   flex: 50%;
 }
 
 .pet-profile-form_area .input-area {
-  margin: 0.5rem 0;
+  margin: .5rem 0;
   width: 100%;
 }
 
 .pet-profile-form_area .input-area label {
   display: block;
-  padding: 0.3rem 0;
+  padding: .3rem 0;
 }
 
 .pet-profile-form_image img {
@@ -1196,21 +1187,13 @@ img {
   .pet-profile-form_area .input-area label {
     text-align: left;
   }
-  .pet-profile-form_area .pet-type,
-  .pet-profile-form_area .spay {
+  .pet-profile-form_area .pet-type, .pet-profile-form_area .spay {
     width: 100%;
     justify-content: center;
   }
-  .pet-profile-form_area .pet-type .pet-type_cat,
-  .pet-profile-form_area .pet-type .pet-type_dog,
-  .pet-profile-form_area .pet-type .spayed,
-  .pet-profile-form_area .pet-type .notSpayed,
-  .pet-profile-form_area .spay .pet-type_cat,
-  .pet-profile-form_area .spay .pet-type_dog,
-  .pet-profile-form_area .spay .spayed,
-  .pet-profile-form_area .spay .notSpayed {
+  .pet-profile-form_area .pet-type .pet-type_cat, .pet-profile-form_area .pet-type .pet-type_dog, .pet-profile-form_area .pet-type .spayed, .pet-profile-form_area .pet-type .notSpayed, .pet-profile-form_area .spay .pet-type_cat, .pet-profile-form_area .spay .pet-type_dog, .pet-profile-form_area .spay .spayed, .pet-profile-form_area .spay .notSpayed {
     flex: unset;
-    padding: 0 0.5rem;
+    padding: 0 .5rem;
   }
   .pet-profile-form button {
     padding: 0 5rem;
@@ -1451,7 +1434,7 @@ nav ul {
   gap: 1rem;
 }
 
-.calculator__pet-type-options {
+.calculator__radio-options {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -1470,7 +1453,7 @@ nav ul {
   margin-bottom: 0.25rem;
 }
 
-.calculator__label--pet-type {
+.calculator__label--radio {
   margin: 1rem 0;
 }
 
@@ -1498,6 +1481,10 @@ nav ul {
   color: #ccabda;
   font-size: 4em;
   font-weight: 900;
+}
+
+.calculator__btn-area {
+  margin: 1rem 0;
 }
 
 /* 3.6. Dashboard =========== */

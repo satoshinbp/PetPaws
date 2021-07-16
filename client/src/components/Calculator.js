@@ -105,9 +105,9 @@ export default function Calculator(props) {
 
       <form onSubmit={handleSubmit} className="calculator__form">
         <div className="calculator__pet-type">
-          <div className="calculator__label--pet-type">Pet type</div>
+          <div className="calculator__label--radio">Pet type</div>
 
-          <div className="calculator__pet-type-options">
+          <div className="calculator__radio-options">
             <label htmlFor="dog">
               <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
               Dog
@@ -179,16 +179,6 @@ export default function Calculator(props) {
 
         <div className="calculator__params">
           <div className="calculator__label">
-            <label htmlFor="isSpayed">Spayed</label>
-          </div>
-          <select name="isSpayed" value={isSpayed} onChange={changeIsSpayed}>
-            <option value={0}>Intact</option>
-            <option value={1}>Spayed/Neutered</option>
-          </select>
-        </div>
-
-        <div className="calculator__params">
-          <div className="calculator__label">
             <label htmlFor="activityLevel">Activity Level</label>
           </div>
           <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
@@ -210,7 +200,36 @@ export default function Calculator(props) {
           </select>
         </div>
 
-        <button type="submit" className="btn-contained-yellow">
+        <div className="calculator__pet-type">
+          <div className="calculator__label--radio">Spayed/Neutered</div>
+
+          <div className="calculator__radio-options">
+            <label htmlFor="intact">
+              <input
+                id="intact"
+                type="radio"
+                name="isSpay"
+                value={0}
+                checked={isSpayed === 0}
+                onChange={changeIsSpayed}
+              />
+              No
+            </label>
+            <label htmlFor="spayed">
+              <input
+                id="spayed"
+                type="radio"
+                name="spayed"
+                value={1}
+                checked={isSpayed === 1}
+                onChange={changeIsSpayed}
+              />
+              Yes
+            </label>
+          </div>
+        </div>
+
+        <button type="submit" className="btn-contained-yellow btn-not-fullwidth">
           calculate
         </button>
       </form>
@@ -228,7 +247,9 @@ export default function Calculator(props) {
               <p>Enter your email so we could send you the results!</p>
               <input type="text" placeholder="Enter your email" />
 
-              <button className="btn-contained-yellow">Send</button>
+              <div className="calculator__btn-area">
+                <button className="btn-contained-yellow">Send</button>
+              </div>
             </>
           )}
         </div>

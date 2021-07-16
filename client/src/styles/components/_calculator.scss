@@ -10,7 +10,7 @@
     gap: 1rem;
   }
 
-  &__pet-type-options {
+  &__radio-options {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -29,7 +29,7 @@
     margin-bottom: 0.25rem;
   }
 
-  &__label--pet-type {
+  &__label--radio {
     margin: 1rem 0;
   }
 
@@ -58,4 +58,15 @@
     font-size: $xl-fontsize;
     font-weight: 900;
   }
+
+  &__btn-area {
+    margin: 1rem 0;
+  }
+
+  // @media screen and (min-width: $tb-breakpoint) {
+  //   &__form {
+  //     display: grid;
+  //     grid-template-columns: 1fr 1fr;
+  //   }
+  // }
 }
