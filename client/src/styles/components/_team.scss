@@ -1,0 +1,52 @@
+.team {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: $lg-border-radius;
+  text-align: center;
+  background-color: $purple-color;
+
+  &__title {
+    color: $white-color;
+  }
+
+  &__members {
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__member-img {
+    overflow: hidden;
+    width: 138px;
+    height: 138px;
+    margin: 0 auto;
+    border: 2px solid $white-color;
+    border-radius: 50%;
+  }
+
+  &__member-name {
+    font-size: $sm-fontsize;
+  }
+
+  @media screen and (min-width: $tb-breakpoint) {
+    padding: 2rem;
+
+    &__members {
+      flex-flow: wrap row;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
+    &__member {
+      flex: 240px 0 0;
+    }
+
+    &__member-img {
+      width: 180px;
+      height: 180px;
+    }
+  }
+}

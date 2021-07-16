@@ -1,0 +1,42 @@
+.dashboard-pet-profile {
+  background-color: $purple-color;
+  border-radius: $lg-border-radius;
+  @media screen and (min-width: $tb-breakpoint) {
+    background-color: white;
+    border: 1px solid $navy-color;
+  }
+}
+
+.dashboard-pet-profile-wrapper {
+  background-color: $light-purple;
+  border-radius: $lg-border-radius;
+  padding: 1rem;
+  @media screen and (min-width: $tb-breakpoint) {
+    background-color: white;
+  }
+}
+
+.pet-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+
+  p {
+    flex-basis: 50%;
+  }
+  .pet-detail {
+    border-bottom: solid 1.5px $navy-color;
+  }
+}
+
+.dashboard-pet-profile {
+  padding: 1rem;
+}
+
+.dashboard-meal-summary {
+  padding: 1rem;
+}
+.dashboard-walk-summary {
+  padding: 1rem;
+}

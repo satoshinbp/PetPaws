@@ -1,0 +1,1691 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+/* 1 Base =================== */
+/* 1.1. Reset =========== */
+/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/* Document
+   ========================================================================== */
+/**
+ * 1. Correct the line height in all browsers.
+ * 2. Prevent adjustments of font size after orientation changes in iOS.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+html {
+  line-height: 1.15;
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/* Sections
+   ========================================================================== */
+/**
+ * Remove the margin in all browsers.
+ */
+body {
+  margin: 0;
+}
+
+/**
+ * Render the `main` element consistently in IE.
+ */
+main {
+  display: block;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+pre {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * Remove the gray background on active links in IE 10.
+ */
+a {
+  background-color: transparent;
+}
+
+/**
+ * 1. Remove the bottom border in Chrome 57-
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+code,
+kbd,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10.
+ */
+img {
+  border-style: none;
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change the font styles in all browsers.
+ * 2. Remove the margin in Firefox and Safari.
+ */
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  /* 1 */
+  font-size: 100%;
+  /* 1 */
+  line-height: 1.15;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * Correct the inability to style clickable types in iOS and Safari.
+ */
+button,
+[type='button'],
+[type='reset'],
+[type='submit'] {
+  -webkit-appearance: button;
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+button::-moz-focus-inner,
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+button:-moz-focusring,
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Correct the padding in Firefox.
+ */
+fieldset {
+  padding: 0.35em 0.75em 0.625em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Remove the default vertical scrollbar in IE 10+.
+ */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10.
+ * 2. Remove the padding in IE 10.
+ */
+[type='checkbox'],
+[type='radio'] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+[type='search'] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding in Chrome and Safari on macOS.
+ */
+[type='search']::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* Interactive
+   ========================================================================== */
+/*
+ * Add the correct display in Edge, IE 10+, and Firefox.
+ */
+details {
+  display: block;
+}
+
+/*
+ * Add the correct display in all browsers.
+ */
+summary {
+  display: list-item;
+}
+
+/* Misc
+   ========================================================================== */
+/**
+ * Add the correct display in IE 10+.
+ */
+template {
+  display: none;
+}
+
+/**
+ * Add the correct display in IE 10.
+ */
+[hidden] {
+  display: none;
+}
+
+/* 1.2. Base ================ */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: 84px;
+  font-family: "Content", helvetica, arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.3;
+  color: #3b3054;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "To Japan", helvetica, arial, sans-serif;
+  text-transform: uppercase;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.mb-hidden {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+  .mb-hidden {
+    display: initial;
+  }
+  .pc-hidden {
+    display: none;
+  }
+}
+
+/* 2 Pages ================== */
+/* 2.1. Sign Up ============= */
+.signup {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #f8f3fa;
+}
+
+.signup_description {
+  display: none;
+}
+
+.signup_form {
+  padding: 2rem 1rem 3rem;
+  margin: 1rem;
+  border-radius: 15px;
+  background: rgba(252, 136, 123, 0.34);
+}
+
+.signup_form h2 {
+  text-align: center;
+}
+
+.signup_form label {
+  display: block;
+  padding: 1rem 0 .5rem;
+}
+
+.signup_form button {
+  margin: 2rem 0 0;
+}
+
+.signup_form .signin-link-area {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.signup_form .signin-link-area_link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+  .signup {
+    padding: 2rem 0;
+    flex-flow: row nowrap;
+    justify-content: space-evenly;
+  }
+  .signup_description {
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    max-width: 600px;
+    flex: 70%;
+  }
+  .signup_description p {
+    margin: 0 0 1rem;
+  }
+  .signup_description ul {
+    padding-left: 2rem;
+  }
+  .signup_description ul li {
+    display: flex;
+    padding: 1rem 0;
+  }
+}
+
+/* 2.2. Sign In ============= */
+.signin {
+  display: flex;
+  flex-flow: column nowrap;
+  background: #f8f3fa;
+}
+
+.signin .image-area {
+  display: none;
+}
+
+.signin_form {
+  padding: 2rem 1rem 3rem;
+  margin: 1rem;
+  border-radius: 10px;
+  background: #ccabda;
+}
+
+.signin_form h2 {
+  text-align: center;
+}
+
+.signin_form label {
+  display: block;
+  padding: 1rem 0 .5rem;
+}
+
+.signin_form button {
+  margin: 2rem 0;
+}
+
+.signin_form hr {
+  box-sizing: content-box;
+  height: 1.2px;
+  overflow: visible;
+  background: black;
+}
+
+.signin_form .signup-link-area {
+  text-align: center;
+  padding: 1rem 0;
+}
+
+.signin_form .signup-link-area_link {
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+@media screen and (min-width: 600px) {
+  .signin {
+    padding: 2rem 0;
+    flex-flow: row nowrap;
+    justify-content: space-around;
+  }
+  .signin .image-area {
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    max-width: 700px;
+  }
+  .signin .image-area img {
+    flex: 0 0 40%;
+  }
+  .signin_form {
+    flex: 0 0 40%;
+    max-width: 400px;
+  }
+}
+
+/* 3 Components ============= */
+/* 3.1. Intro =============== */
+.intro {
+  padding: 1rem;
+  border-radius: 30px;
+  text-align: center;
+  background-color: #ffdd95;
+}
+
+.intro__wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.intro__img {
+  display: none;
+}
+
+.intro__btn {
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 600px) {
+  .intro {
+    padding: 2rem;
+    text-align: left;
+  }
+  .intro__wrapper {
+    display: flex;
+    align-items: stretch;
+    gap: 2rem;
+  }
+  .intro__body {
+    flex-basis: 50%;
+    display: flex;
+    flex-flow: nowrap column;
+    justify-content: space-between;
+  }
+  .intro__img {
+    flex-basis: 50%;
+    text-align: right;
+    display: block;
+  }
+  .intro__btn {
+    margin: 0;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .intro {
+    padding: 3rem;
+  }
+  .intro__wrapper {
+    gap: 3rem;
+  }
+}
+
+/* 3.2. Body ================ */
+.body__wrapper {
+  width: 100%;
+  max-width: 1280px;
+  padding: 1rem 0;
+  margin: 0 auto;
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .body__wrapper {
+    padding: 2rem 0;
+    gap: 2rem;
+  }
+}
+
+@media screen and (min-width: 960px) {
+  .body__wrapper {
+    padding: 3rem 0;
+    gap: 3rem;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard .body__wrapper {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    row-gap: 2rem;
+    column-gap: 1rem;
+  }
+  .dashboard .body__wrapper div:first-child {
+    grid-column: span 2;
+  }
+}
+
+/* 3.3. Features ============ */
+.features {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #86e3ce;
+  text-align: center;
+}
+
+.features .feature {
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: rgba(255, 255, 255, 0.64);
+}
+
+.features .feature__img {
+  width: 56px;
+  margin: 0 auto;
+}
+
+.features .btn-area {
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 600px) {
+  .features {
+    padding: 2rem;
+    gap: 2rem;
+  }
+  .features .feature {
+    padding: 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2rem;
+  }
+  .features .feature__text {
+    flex-basis: 70%;
+    text-align: left;
+  }
+  .features .feature__img {
+    width: auto;
+    margin: 0;
+    flex-basis: 30%;
+    text-align: right;
+  }
+  .features .feature:nth-child(2n + 1) .feature__img {
+    order: -1;
+    text-align: left;
+  }
+}
+
+/* 3.4. Team ================ */
+.team {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem;
+  border-radius: 30px;
+  text-align: center;
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
+.team__title {
+  color: #fff;
+}
+
+.team__members {
+  display: flex;
+  flex-flow: nowrap column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.team__member-img {
+  overflow: hidden;
+  width: 138px;
+  height: 138px;
+  margin: 0 auto;
+  border: 2px solid #fff;
+  border-radius: 50%;
+}
+
+.team__member-name {
+  font-size: 0.875em;
+}
+
+@media screen and (min-width: 600px) {
+  .team {
+    padding: 2rem;
+  }
+  .team__members {
+    flex-flow: wrap row;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .team__member {
+    flex: 240px 0 0;
+  }
+  .team__member-img {
+    width: 180px;
+    height: 180px;
+  }
+}
+
+/* TO BE REORGANIZED ======== */
+/* 3.1. Forms =============== */
+.meal-form {
+  background-color: #86e3ce;
+}
+
+.walk-form {
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
+.walk-form,
+.meal-form {
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.walk-form .input-wrapper,
+.meal-form .input-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.7rem;
+}
+
+.walk-form .input-wrapper div,
+.meal-form .input-wrapper div {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.3rem;
+}
+
+.walk-form .input-wrapper div label,
+.meal-form .input-wrapper div label {
+  font-weight: 700;
+}
+
+.walk-form .button-wrapper,
+.meal-form .button-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+.walk-form .button-wrapper .btn-outlined,
+.meal-form .button-wrapper .btn-outlined {
+  border: 1px solid #fff;
+  background-color: transparent;
+}
+
+.meal-week-month-graphs-wrapper,
+.walk-week-month-graphs-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 10px;
+}
+
+.meal-week-month-graphs-wrapper h3,
+.walk-week-month-graphs-wrapper h3 {
+  font-size: 1em;
+  text-align: center;
+}
+
+.meal-week-month-graphs-wrapper .basic-info,
+.walk-week-month-graphs-wrapper .basic-info {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0 2.5rem 0;
+}
+
+.meal-week-month-graphs-wrapper .basic-info h3,
+.walk-week-month-graphs-wrapper .basic-info h3 {
+  margin: 0 auto 0.5rem;
+}
+
+.meal-week-month-graphs-wrapper .basic-info p,
+.walk-week-month-graphs-wrapper .basic-info p {
+  margin: 0;
+  text-align: center;
+}
+
+.meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper,
+.walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-name,
+.walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-name {
+  padding-top: 0.5rem;
+}
+
+.meal-week-month-graphs-wrapper .basic-info .pet-image,
+.walk-week-month-graphs-wrapper .basic-info .pet-image {
+  width: 78px;
+  height: 130px;
+  object-fit: cover;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.meal-week-month-graphs-wrapper {
+  background-color: rgba(134, 227, 206, 0.5);
+  padding: 1rem;
+}
+
+.meal-week-month-graphs-wrapper h3 {
+  margin: 0;
+  padding: 1.5rem 0;
+}
+
+.meal-week-month-graphs-wrapper .button-background {
+  background-color: rgba(134, 227, 206, 0.3);
+}
+
+.meal-week-month-graphs-wrapper .button-background .btn-darkened {
+  background-color: rgba(134, 227, 206, 0.5);
+}
+
+.dashboard-meal-summary .button-background {
+  background-color: rgba(134, 227, 206, 0.3);
+}
+
+.dashboard-meal-summary .button-background .btn-darkened {
+  background-color: rgba(134, 227, 206, 0.5);
+}
+
+.walk-week-month-graphs-wrapper {
+  background-color: rgba(204, 171, 218, 0.4);
+  padding: 1rem;
+}
+
+.walk-week-month-graphs-wrapper h3 {
+  margin: 0;
+  padding: 1.5rem 0;
+}
+
+.walk-week-month-graphs-wrapper .button-background {
+  background-color: rgba(204, 171, 218, 0.2);
+}
+
+.walk-week-month-graphs-wrapper .button-background .btn-darkened {
+  background-color: rgba(204, 171, 218, 0.4);
+}
+
+.dashboard-walk-summary .button-background {
+  background-color: rgba(204, 171, 218, 0.2);
+}
+
+.dashboard-walk-summary .button-background .btn-darkened {
+  background-color: rgba(204, 171, 218, 0.4);
+}
+
+@media screen and (min-width: 600px) {
+  .meal-week-month-graphs-wrapper,
+  .walk-week-month-graphs-wrapper {
+    padding: 1rem 2rem;
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 1rem;
+  }
+  .meal-week-month-graphs-wrapper .basic-info,
+  .walk-week-month-graphs-wrapper .basic-info {
+    width: 80%;
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    justify-self: center;
+  }
+  .meal-week-month-graphs-wrapper .basic-info h3,
+  .walk-week-month-graphs-wrapper .basic-info h3 {
+    align-self: start;
+  }
+  .meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper,
+  .walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper {
+    align-self: start;
+  }
+  .meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-image,
+  .walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-image {
+    width: 120px;
+    height: 200px;
+  }
+}
+
+.pet-profile-form {
+  background: #86e3ce;
+  padding: 2rem 1rem;
+  border-radius: 10px;
+}
+
+.pet-profile-form_area {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.pet-profile-form_area .pet-type,
+.pet-profile-form_area .spay {
+  display: flex;
+  flex-flow: row wrap;
+  text-align: center;
+}
+
+.pet-profile-form_area .pet-type label,
+.pet-profile-form_area .spay label {
+  padding: 1rem 0;
+  width: 100%;
+}
+
+.pet-profile-form_area .pet-type .pet-type_cat,
+.pet-profile-form_area .pet-type .pet-type_dog,
+.pet-profile-form_area .pet-type .spayed,
+.pet-profile-form_area .pet-type .notSpayed,
+.pet-profile-form_area .spay .pet-type_cat,
+.pet-profile-form_area .spay .pet-type_dog,
+.pet-profile-form_area .spay .spayed,
+.pet-profile-form_area .spay .notSpayed {
+  flex: 50%;
+}
+
+.pet-profile-form_area .input-area {
+  margin: 0.5rem 0;
+  width: 100%;
+}
+
+.pet-profile-form_area .input-area label {
+  display: block;
+  padding: 0.3rem 0;
+}
+
+.pet-profile-form_image img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 0.5rem #ffdd95 solid;
+  object-fit: cover;
+}
+
+.pet-profile-form button {
+  margin: 2rem 0;
+  padding: 0 1rem;
+}
+
+.add-pet {
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
+.add-pet button {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+@media screen and (min-width: 600px) {
+  .pet-profile-form_area {
+    text-align: center;
+    flex-flow: row wrap;
+    justify-content: center;
+  }
+  .pet-profile-form_area .pet-profile-form_image {
+    width: 100%;
+  }
+  .pet-profile-form_area .input-area {
+    flex: 0 0 40%;
+    padding: 0 1rem;
+  }
+  .pet-profile-form_area .input-area label {
+    text-align: left;
+  }
+  .pet-profile-form_area .pet-type,
+  .pet-profile-form_area .spay {
+    width: 100%;
+    justify-content: center;
+  }
+  .pet-profile-form_area .pet-type .pet-type_cat,
+  .pet-profile-form_area .pet-type .pet-type_dog,
+  .pet-profile-form_area .pet-type .spayed,
+  .pet-profile-form_area .pet-type .notSpayed,
+  .pet-profile-form_area .spay .pet-type_cat,
+  .pet-profile-form_area .spay .pet-type_dog,
+  .pet-profile-form_area .spay .spayed,
+  .pet-profile-form_area .spay .notSpayed {
+    flex: unset;
+    padding: 0 0.5rem;
+  }
+  .pet-profile-form button {
+    padding: 0 5rem;
+    margin: 2rem auto;
+    display: block;
+  }
+}
+
+.contact {
+  padding: 2rem;
+  border-radius: 30px;
+  background-color: #86e3ce;
+}
+
+.contact__form {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 2rem;
+}
+
+.contact h2 {
+  text-align: center;
+}
+
+.contact input,
+.contact textarea {
+  margin-top: 0.5rem;
+}
+
+.contact label {
+  font-weight: 700;
+}
+
+/* 3.2. Charts ============== */
+.walk-day-graph-wrapper {
+  background-color: rgba(134, 227, 206, 0.5);
+}
+
+.meal-day-graph-wrapper {
+  background-color: rgba(204, 171, 218, 0.82);
+}
+
+.walk-day-graph-wrapper,
+.meal-day-graph-wrapper {
+  border-radius: 10px;
+  padding: 1rem;
+}
+
+.walk-day-graph-wrapper .background-color-wrapper,
+.meal-day-graph-wrapper .background-color-wrapper {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-radius: 10px;
+}
+
+.walk-day-graph-wrapper .background-color-wrapper .info,
+.meal-day-graph-wrapper .background-color-wrapper .info {
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+}
+
+.walk-day-graph-wrapper .background-color-wrapper .info label,
+.meal-day-graph-wrapper .background-color-wrapper .info label {
+  font-size: 0.875em;
+}
+
+.walk-day-graph-wrapper .background-color-wrapper .info h3,
+.meal-day-graph-wrapper .background-color-wrapper .info h3 {
+  margin: 0;
+}
+
+.walk-day-graph-wrapper .background-color-wrapper .info p,
+.meal-day-graph-wrapper .background-color-wrapper .info p {
+  margin: 0;
+}
+
+.walk-day-graph-wrapper .background-color-wrapper .info .daily-list,
+.meal-day-graph-wrapper .background-color-wrapper .info .daily-list {
+  border: 1px solid #3b3054;
+  padding: 1rem 0.5rem;
+  border-radius: 15px;
+}
+
+.walk-day-graph-wrapper .background-color-wrapper .info .daily-list > p:first-of-type,
+.meal-day-graph-wrapper .background-color-wrapper .info .daily-list > p:first-of-type {
+  font-weight: 300;
+  border-bottom: 1px solid rgba(59, 48, 84, 0.5);
+}
+
+.walk-day-graph-wrapper .background-color-wrapper .info .daily-list p,
+.meal-day-graph-wrapper .background-color-wrapper .info .daily-list p {
+  padding: 0.5rem 0;
+}
+
+.walk-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item,
+.meal-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item {
+  padding: 0.5rem 0;
+}
+
+.walk-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item p,
+.meal-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item p {
+  padding: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .walk-day-graph-wrapper,
+  .meal-day-graph-wrapper {
+    padding: 2rem;
+  }
+  .walk-day-graph-wrapper .background-color-wrapper,
+  .meal-day-graph-wrapper .background-color-wrapper {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 1rem 3rem 1rem 3rem;
+  }
+  .walk-day-graph-wrapper .background-color-wrapper .info,
+  .meal-day-graph-wrapper .background-color-wrapper .info {
+    gap: 2rem;
+  }
+  .walk-day-graph-wrapper .background-color-wrapper .info label,
+  .meal-day-graph-wrapper .background-color-wrapper .info label {
+    font-size: 0.875em;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+  }
+  .walk-day-graph-wrapper .background-color-wrapper .meal-daily-graph,
+  .meal-day-graph-wrapper .background-color-wrapper .meal-daily-graph {
+    display: flex;
+    align-self: center;
+  }
+}
+
+.walk-day-graph-wrapper .background-color-wrapper {
+  display: block;
+}
+
+.walk-day-graph-wrapper .background-color-wrapper .info label {
+  margin-right: auto;
+  margin-left: auto;
+  width: 50%;
+}
+
+.graphs {
+  width: 100%;
+}
+
+.graphs .week-month-toggle {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-top-left-radius: 18px;
+  border-top-right-radius: 18px;
+}
+
+.graphs .week-month-toggle .button-background {
+  display: flex;
+  height: 35px;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+}
+
+.graphs .week-month-toggle .button-background .button-no-accent {
+  background-color: transparent;
+}
+
+.graphs .week-month-toggle .button-background button {
+  font-size: 0.875em;
+  color: #3b3054;
+}
+
+.graphs .walk-week-graph,
+.graphs .walk-month-graph,
+.graphs .meal-week-graph,
+.graphs .meal-month-graph {
+  background-color: rgba(255, 255, 255, 0.64);
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  padding-bottom: calc(1rem + 50px);
+}
+
+.graphs .walk-week-graph .week-controller,
+.graphs .walk-week-graph .month-controller,
+.graphs .walk-month-graph .week-controller,
+.graphs .walk-month-graph .month-controller,
+.graphs .meal-week-graph .week-controller,
+.graphs .meal-week-graph .month-controller,
+.graphs .meal-month-graph .week-controller,
+.graphs .meal-month-graph .month-controller {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.graphs .walk-week-graph .week-controller button,
+.graphs .walk-week-graph .month-controller button,
+.graphs .walk-month-graph .week-controller button,
+.graphs .walk-month-graph .month-controller button,
+.graphs .meal-week-graph .week-controller button,
+.graphs .meal-week-graph .month-controller button,
+.graphs .meal-month-graph .week-controller button,
+.graphs .meal-month-graph .month-controller button {
+  width: 50px;
+  background-color: transparent;
+}
+
+.graphs .walk-week-graph .week-controller p,
+.graphs .walk-week-graph .month-controller p,
+.graphs .walk-month-graph .week-controller p,
+.graphs .walk-month-graph .month-controller p,
+.graphs .meal-week-graph .week-controller p,
+.graphs .meal-week-graph .month-controller p,
+.graphs .meal-month-graph .week-controller p,
+.graphs .meal-month-graph .month-controller p {
+  font-size: 0.875em;
+}
+
+.graphs .walk-week-graph .graph-height,
+.graphs .walk-month-graph .graph-height,
+.graphs .meal-week-graph .graph-height,
+.graphs .meal-month-graph .graph-height {
+  height: 300px;
+}
+
+.graphs .walk-week-graph .graph-height .recharts-default-legend,
+.graphs .walk-month-graph .graph-height .recharts-default-legend,
+.graphs .meal-week-graph .graph-height .recharts-default-legend,
+.graphs .meal-month-graph .graph-height .recharts-default-legend {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 600px) {
+  .graphs {
+    padding-right: 1rem;
+  }
+  .graphs .graph-title {
+    display: none;
+  }
+  .graphs .week-month-toggle {
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+  }
+  .graphs .week-month-toggle .button-background {
+    padding: 0 3rem;
+    height: 45px;
+  }
+  .graphs .week-month-toggle .button-background .btn-darkened.btn-toggle-tab {
+    border-radius: 12px;
+  }
+}
+
+.calorie-stats {
+  border: 1px solid #3b3054;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1rem;
+}
+
+.activity-stats {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  text-align: center;
+}
+
+.activity-stats .activity-avg {
+  flex-basis: 50%;
+  border: 1px solid #3b3054;
+  border-radius: 10px;
+}
+
+/* 3.3. Header ============== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 84px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.875em;
+  background-color: #fff;
+}
+
+.header__wrapper {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 3.4. Footer ============== */
+/* 3.5. Calculator ========== */
+.calculator {
+  padding: 1rem;
+  border-radius: 30px;
+  background-color: #86e3ce;
+  text-align: center;
+}
+
+.calculator__form {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 1rem;
+}
+
+.calculator__radio-options {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.calculator__params {
+  text-align: left;
+}
+
+.calculator__params--age {
+  display: flex;
+  gap: 1rem;
+}
+
+.calculator__label {
+  margin-bottom: 0.25rem;
+}
+
+.calculator__label--radio {
+  margin: 1rem 0;
+}
+
+.calculator__label--age {
+  flex-basis: 50%;
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.calculator__input-with-endadornment {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+}
+
+.calculator__result {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-radius: 15px;
+  background-color: #dcf7f1;
+}
+
+.calculator__result-calorie {
+  color: #ccabda;
+  font-size: 4em;
+  font-weight: 900;
+}
+
+.calculator__btn-area {
+  margin: 1rem 0;
+}
+
+@media screen and (min-width: 600px) {
+  .calculator {
+    padding: 2rem;
+  }
+}
+
+/* 3.6. Dashboard =========== */
+.dashboard-pet-profile {
+  background-color: rgba(204, 171, 218, 0.82);
+  border-radius: 30px;
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-pet-profile {
+    background-color: white;
+    border: 1px solid #3b3054;
+  }
+}
+
+.dashboard-pet-profile-wrapper {
+  background-color: #ccabda;
+  border-radius: 30px;
+  padding: 1rem;
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-pet-profile-wrapper {
+    background-color: white;
+  }
+}
+
+.pet-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+}
+
+.pet-details p {
+  flex-basis: 50%;
+}
+
+.pet-details .pet-detail {
+  border-bottom: solid 1.5px #3b3054;
+}
+
+.dashboard-pet-profile {
+  padding: 1rem;
+}
+
+.dashboard-meal-summary {
+  padding: 1rem;
+}
+
+.dashboard-walk-summary {
+  padding: 1rem;
+}
+
+.dashboard-meal-summary,
+.dashboard-walk-summary {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-meal-summary,
+  .dashboard-walk-summary {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-meal-summary {
+    background-color: rgba(134, 227, 206, 0.22);
+    border-radius: 30px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .dashboard-walk-summary {
+    background-color: #ccabda;
+    border-radius: 30px;
+  }
+}
+
+.button-wrapper {
+  text-align: right;
+  margin-top: 3rem;
+}
+
+/* 3.7. Stores/Vets ========= */
+.search-form {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #86e3ce;
+  text-align: center;
+}
+
+.search-form .search-form-inner {
+  padding: 1rem;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
+
+.search-form select {
+  max-width: 400px;
+  align-self: center;
+}
+
+@media screen and (min-width: 600px) {
+  .search-form .search-form-background {
+    background-color: rgba(255, 255, 255, 0.64);
+    border-radius: 30px;
+    margin: 3rem;
+    padding: 2rem 1rem;
+  }
+}
+
+/* ========================== */
+/* 4 Elements =============== */
+/* 4.1. Buttons ============= */
+button {
+  width: 100%;
+  height: 40px;
+  border-radius: 10px;
+  border-width: 0;
+  font-size: 1em;
+  font-weight: 700;
+  text-transform: capitalize;
+  cursor: pointer;
+}
+
+@media screen and (min-width: 600px) {
+  .btn-not-fullwidth {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    width: auto;
+  }
+}
+
+.btn-toggle-tab {
+  height: 27px;
+  border-radius: 10px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 600px) {
+  .btn-toggle-tab {
+    border-radius: 15px;
+    height: 32px;
+  }
+}
+
+.btn-outlined {
+  border: 1px solid #3b3054;
+  color: #3b3054;
+}
+
+.icon-btn--circle-add {
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  color: #3b3054;
+  background-color: #86e3ce;
+  box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.14), 0px 1px 10px rgba(0, 0, 0, 0.12), 0px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+@media screen and (min-width: 600px) {
+  .icon-btn--circle-add {
+    width: 86px;
+    height: 86px;
+  }
+}
+
+.icon-btn--circle-profile {
+  width: 28px;
+  height: 28px;
+  border: 2px solid #ffdd95;
+  border-radius: 50%;
+}
+
+@media screen and (min-width: 600px) {
+  .icon-btn--circle-profile {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+.btn-contained-yellow {
+  background-color: #ffdd95;
+  color: #3b3054;
+}
+
+.btn-contained-purple {
+  background-color: rgba(204, 171, 218, 0.82);
+  color: #3b3054;
+}
+
+.btn-contained-pink {
+  background-color: rgba(252, 136, 123, 0.49);
+  color: #3b3054;
+}
+
+.btn-contained-light-purple {
+  background-color: #ccabda;
+  color: #3b3054;
+}
+
+.btn-contained-green {
+  background-color: #86e3ce;
+  color: #3b3054;
+}
+
+.btn-contained-white {
+  background-color: #fff;
+  color: #3b3054;
+}
+
+/* 4.2. Inputs ============== */
+input,
+.input,
+select {
+  width: 100%;
+  height: 36px;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+}
+
+textarea {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+}
+
+input[type='radio'] {
+  height: 28px;
+}
+
+input::placeholder,
+textarea::placeholder,
+select:invalid {
+  color: #dadada;
+}
+
+label {
+  color: #3b3054;
+}
+
+@media screen and (min-width: 600px) {
+  .input-sm {
+    height: 42px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-md {
+    height: 52px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .input-lg {
+    height: 60px;
+  }
+}
+/*# sourceMappingURL=style.css.map */
