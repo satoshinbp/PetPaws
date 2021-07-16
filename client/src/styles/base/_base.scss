@@ -40,8 +40,20 @@ img {
   height: auto;
 }
 
+.mb-hidden {
+  display: none;
+}
+
 @media screen and (min-width: $tb-breakpoint) {
   body {
     font-size: 18px;
+  }
+
+  .mb-hidden {
+    display: initial;
+  }
+
+  .pc-hidden {
+    display: none;
   }
 }

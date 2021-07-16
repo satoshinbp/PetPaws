@@ -1,7 +1,4 @@
 .features {
-  background-image: url('../images/bg-green.png');
-  background-size: contain;
-
   width: 100%;
   max-width: $max-width;
   margin: 0 auto;
@@ -13,18 +10,18 @@
   background-color: $green-color;
   text-align: center;
 
-  &__feature {
+  .feature {
     padding: 1rem;
     border-radius: $md-border-radius;
     background-color: $lighten-color;
+
+    &__img {
+      width: 56px;
+      margin: 0 auto;
+    }
   }
 
-  &__feature-img {
-    width: 56px;
-    margin: 0 auto;
-  }
-
-  &__btn {
+  .btn-area {
     margin: 1rem 0;
   }
 
@@ -32,24 +29,31 @@
     padding: 2rem;
     gap: 2rem;
 
-    &__feature {
+    .feature {
       padding: 2rem;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      grid-template-rows: 1fr 2fr;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
       gap: 2rem;
-      text-align: left;
+
+      &__text {
+        flex-basis: 70%;
+        text-align: left;
+      }
+
+      &__img {
+        width: auto;
+        margin: 0;
+        flex-basis: 30%;
+        text-align: right;
+      }
 
       &:nth-child(2n + 1) {
-        .features__feature-img {
-          grid-column: 2 / span 1;
+        .feature__img {
+          order: -1;
+          text-align: left;
         }
       }
-    }
-
-    &__feature-img {
-      width: 100%;
-      grid-row: 1 / span 2;
     }
   }
 }

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
-import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
+import catIcon from '../images/cat.svg';
 
 export default function Team() {
   const [memberList, setMemberList] = useState([]);
@@ -24,7 +24,8 @@ export default function Team() {
               <div key={val.id} className="team__member">
                 {/* <img src={val.image_url} alt="member portrait" className="team__member-img" /> */}
                 <div className="team__member-img">
-                  <img src={signinImg} alt="member portrait" />
+                  {/* to be replaced */}
+                  <img src={catIcon} alt="member portrait" />
                 </div>
                 <p className="team__member-name">{val.name}</p>
                 <p className="team__member-title">{val.role}</p>
