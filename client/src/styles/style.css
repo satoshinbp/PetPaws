@@ -1030,6 +1030,31 @@ img {
   }
 }
 
+.contact {
+  padding: 2rem;
+  border-radius: 30px;
+  background-color: #86e3ce;
+}
+
+.contact__form {
+  display: flex;
+  flex-flow: nowrap column;
+  gap: 2rem;
+}
+
+.contact h2 {
+  text-align: center;
+}
+
+.contact input,
+.contact textarea {
+  margin-top: 0.5rem;
+}
+
+.contact label {
+  font-weight: 700;
+}
+
 /* 3.2. Charts ============== */
 .walk-day-graph-wrapper {
   background-color: rgba(134, 227, 206, 0.5);
@@ -1501,6 +1526,7 @@ button {
   border-radius: 10px;
   border-width: 0;
   font-size: 1em;
+  font-weight: 700;
   text-transform: capitalize;
   cursor: pointer;
 }
@@ -1603,11 +1629,20 @@ select {
   border: none;
 }
 
+textarea {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  background-color: white;
+  border: none;
+}
+
 input[type='radio'] {
   height: 28px;
 }
 
 input::placeholder,
+textarea::placeholder,
 select:invalid {
   color: #dadada;
 }
