@@ -24,13 +24,27 @@ exports.create = (req, res) => {
   const is_spayed = req.body.isSpayed;
   const activity_level = req.body.activityLevel;
   const body_condition = req.body.bodyCondition;
+  const imageURL = req.body.url;
   const user_id = req.body.user_id;
 
   const sqlQuery =
-    'INSERT INTO petpaws.pets (is_dog, name, breed, birthday, gender, weight, height, is_spayed, activity_level, body_condition, user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?)';
+    'INSERT INTO petpaws.pets (is_dog, name, breed, birthday, gender, weight, height, is_spayed, activity_level, body_condition, image, user_id) VALUES (?,?,?,?,?,?,?,?,?,?,?,?)';
   db.query(
     sqlQuery,
-    [is_dog, name, breed, birthday, gender, weight, height, is_spayed, activity_level, body_condition, user_id],
+    [
+      is_dog,
+      name,
+      breed,
+      birthday,
+      gender,
+      weight,
+      height,
+      is_spayed,
+      activity_level,
+      body_condition,
+      imageURL,
+      user_id,
+    ],
     (err, data) => {
       if (err) {
         throw err;
@@ -54,12 +68,28 @@ exports.update = (req, res) => {
   const is_spayed = req.body.isSpayed;
   const activity_level = req.body.activityLevel;
   const body_condition = req.body.bodyCondition;
+  const imageURL = req.body.url;
+  console.log(imageURL);
 
   const sqlQuery =
-    'UPDATE petpaws.pets SET user_id = ?, is_dog = ?, name = ?, breed = ?, birthday = ?, gender = ?, weight = ?, height = ?, is_spayed = ?, activity_level = ?, body_condition = ? WHERE id = ?';
+    'UPDATE petpaws.pets SET user_id = ?, is_dog = ?, name = ?, breed = ?, birthday = ?, gender = ?, weight = ?, height = ?, is_spayed = ?, activity_level = ?, body_condition = ?, image= ? WHERE id = ?';
   db.query(
     sqlQuery,
-    [user_id, is_dog, name, breed, birthday, gender, weight, height, is_spayed, activity_level, body_condition, id],
+    [
+      user_id,
+      is_dog,
+      name,
+      breed,
+      birthday,
+      gender,
+      weight,
+      height,
+      is_spayed,
+      activity_level,
+      body_condition,
+      imageURL,
+      id,
+    ],
     (err, data) => {
       if (err) {
         throw err;

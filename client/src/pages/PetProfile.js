@@ -3,6 +3,7 @@ import Axios from 'axios';
 import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
+import { storage } from '../firebase/index';
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -10,6 +11,8 @@ export default function PetProfile({ petProfile }) {
   const [catBreeds, setCatBreeds] = useState([]);
   const [isDog, setIsDog] = useState(petProfile.is_dog); // 0: cat, 1: dog
   const [name, setName] = useState(petProfile.name);
+  const [image, setImage] = useState('');
+  const [imageURL, setImageURL] = useState(petProfile.image);
   const [breedName, setBreedName] = useState(petProfile.breed);
   const [birthday, setBirthday] = useState(petProfile.birthday);
   const [gender, setGender] = useState(petProfile.gender);
@@ -47,44 +50,65 @@ export default function PetProfile({ petProfile }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (image) {
+    }
+    const uploadImage = storage.ref(`images/${image.name}`).put(image);
+    console.log('image', image);
+    uploadImage.on(
+      'state_changed',
+      (snapshot) => {},
+      (error) => {
+        console.log(error);
+      },
+      () => {
+        storage
+          .ref('images')
+          .child(image.name)
+          .getDownloadURL()
+          .then((url) => {
+            console.log('url', url);
+            setImageURL(url);
+            Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
+              .then((res) => {
+                const petData = {
+                  isDog,
+                  name,
+                  breedName,
+                  birthday,
+                  gender,
+                  weight,
+                  height,
+                  isSpayed,
+                  activityLevel,
+                  bodyCondition,
+                  url,
+                  user_id: res.data[0].id,
+                };
 
-    Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
-      .then((res) => {
-        const petData = {
-          isDog,
-          name,
-          breedName,
-          birthday,
-          gender,
-          weight,
-          height,
-          isSpayed,
-          activityLevel,
-          bodyCondition,
-          user_id: res.data[0].id,
-        };
-
-        if (petProfile.id) {
-          Axios.put(`http://localhost:3001/api/pet/${petProfile.id}`, petData)
-            .then(() => {
-              history.push('/');
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        } else {
-          Axios.post('http://localhost:3001/api/pet', petData)
-            .then(() => {
-              history.push('/');
-            })
-            .catch((err) => {
-              console.log(err);
-            });
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+                if (petProfile.id) {
+                  Axios.put(`http://localhost:3001/api/pet/${petProfile.id}`, petData)
+                    .then(() => {
+                      // history.push('/');
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                } else {
+                  Axios.post('http://localhost:3001/api/pet', petData)
+                    .then(() => {
+                      // history.push('/');
+                    })
+                    .catch((err) => {
+                      console.log(err);
+                    });
+                }
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          });
+      }
+    );
   };
 
   const changePetType = (value) => {
@@ -93,6 +117,14 @@ export default function PetProfile({ petProfile }) {
 
   const changeName = (value) => {
     setName(value);
+  };
+
+  const changeImage = (value) => {
+    let createObjectURL = (window.URL || window.webkitURL).createObjectURL || window.createObjectURL;
+    let image_url = createObjectURL(value);
+    console.log('image_url', image_url);
+    setImageURL(image_url);
+    setImage(value);
   };
 
   const changeBreed = (value) => {
@@ -135,6 +167,8 @@ export default function PetProfile({ petProfile }) {
         catBreeds={catBreeds}
         isDog={isDog}
         name={name}
+        image={image}
+        imageURL={imageURL}
         breedName={breedName}
         birthday={birthday}
         gender={gender}
@@ -145,6 +179,7 @@ export default function PetProfile({ petProfile }) {
         bodyCondition={bodyCondition}
         changePetType={changePetType}
         changeName={changeName}
+        changeImage={changeImage}
         changeBreed={changeBreed}
         changeGender={changeGender}
         changeBirthday={changeBirthday}

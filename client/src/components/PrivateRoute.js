@@ -20,6 +20,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     birthday: new Date().toISOString().slice(0, 10),
     activity_level: 1,
     body_condition: 1,
+    image: '',
   });
   const [allMeals, setAllMeals] = useState([]);
   const [allActivities, setAllActivities] = useState([]);
@@ -36,6 +37,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
             if (res.data.length === 0) return;
 
             const fetchedPetProfile = res.data[0];
+            console.log('fetchedPetProfile', fetchedPetProfile);
             setPetProfile({ ...fetchedPetProfile, birthday: fetchedPetProfile.birthday.slice(0, 10) });
 
             Axios.get(`http://localhost:3001/api/meal?pet_id=${fetchedPetProfile.id}`)
