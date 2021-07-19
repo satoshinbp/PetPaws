@@ -51,64 +51,99 @@ export default function PetProfile({ petProfile }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (image) {
-    }
-    const uploadImage = storage.ref(`images/${image.name}`).put(image);
-    console.log('image', image);
-    uploadImage.on(
-      'state_changed',
-      (snapshot) => {},
-      (error) => {
-        console.log(error);
-      },
-      () => {
-        storage
-          .ref('images')
-          .child(image.name)
-          .getDownloadURL()
-          .then((url) => {
-            console.log('url', url);
-            setImageURL(url);
-            Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
-              .then((res) => {
-                const petData = {
-                  isDog,
-                  name,
-                  breedName,
-                  birthday,
-                  gender,
-                  weight,
-                  height,
-                  isSpayed,
-                  activityLevel,
-                  bodyCondition,
-                  url,
-                  user_id: res.data[0].id,
-                };
+      const uploadImage = storage.ref(`images/${image.name}`).put(image);
+      uploadImage.on(
+        'state_changed',
+        (snapshot) => {},
+        (error) => {
+          console.log(error);
+        }
+      );
+      storage
+        .ref('images')
+        .child(image.name)
+        .getDownloadURL()
+        .then((url) => {
+          setImageURL(url);
+          Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
+            .then((res) => {
+              const petData = {
+                isDog,
+                name,
+                breedName,
+                birthday,
+                gender,
+                weight,
+                height,
+                isSpayed,
+                activityLevel,
+                bodyCondition,
+                url: url,
+                user_id: res.data[0].id,
+              };
 
-                if (petProfile.id) {
-                  Axios.put(`http://localhost:3001/api/pet/${petProfile.id}`, petData)
-                    .then(() => {
-                      // history.push('/');
-                    })
-                    .catch((err) => {
-                      console.log(err);
-                    });
-                } else {
-                  Axios.post('http://localhost:3001/api/pet', petData)
-                    .then(() => {
-                      // history.push('/');
-                    })
-                    .catch((err) => {
-                      console.log(err);
-                    });
-                }
+              if (petProfile.id) {
+                Axios.put(`http://localhost:3001/api/pet/${petProfile.id}`, petData)
+                  .then(() => {
+                    history.push('/');
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              } else {
+                Axios.post('http://localhost:3001/api/pet', petData)
+                  .then(() => {
+                    history.push('/');
+                  })
+                  .catch((err) => {
+                    console.log(err);
+                  });
+              }
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        });
+    } else {
+      Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
+        .then((res) => {
+          const petData = {
+            isDog,
+            name,
+            breedName,
+            birthday,
+            gender,
+            weight,
+            height,
+            isSpayed,
+            activityLevel,
+            bodyCondition,
+            url: imageURL,
+            user_id: res.data[0].id,
+          };
+
+          if (petProfile.id) {
+            Axios.put(`http://localhost:3001/api/pet/${petProfile.id}`, petData)
+              .then(() => {
+                history.push('/');
               })
               .catch((err) => {
                 console.log(err);
               });
-          });
-      }
-    );
+          } else {
+            Axios.post('http://localhost:3001/api/pet', petData)
+              .then(() => {
+                history.push('/');
+              })
+              .catch((err) => {
+                console.log(err);
+              });
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   };
 
   const changePetType = (value) => {
@@ -122,7 +157,6 @@ export default function PetProfile({ petProfile }) {
   const changeImage = (value) => {
     let createObjectURL = (window.URL || window.webkitURL).createObjectURL || window.createObjectURL;
     let image_url = createObjectURL(value);
-    console.log('image_url', image_url);
     setImageURL(image_url);
     setImage(value);
   };
