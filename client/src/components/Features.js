@@ -1,4 +1,4 @@
-import finderIcon from '../images/stores-vets-finder.svg';
+import finderIcon from '../images/finder.svg';
 import trackerIcon from '../images/tracker.svg';
 
 export default function Features() {

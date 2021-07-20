@@ -1,4 +1,4 @@
-import storesVetsFinderIcon from '../../images/stores-vets-finder.svg';
+import storesVetsFinderIcon from '../../images/finder.svg';
 
 export default function Finder() {
   return (

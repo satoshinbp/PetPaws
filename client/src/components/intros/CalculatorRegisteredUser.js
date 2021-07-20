@@ -1,4 +1,4 @@
-import storesVetsFinderIcon from '../../images/stores-vets-finder.svg'; // dammy img, to be replaced
+import storesVetsFinderIcon from '../../images/finder.svg'; // dammy img, to be replaced
 
 export default function CalculatorRegisteredUser() {
   return (

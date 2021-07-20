@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import Map from '../components/GoogleMap';
-import storesVetsFinderIcon from '../images/stores-vets-finder.svg'; // dammy img, to be replaced
+import storesVetsFinderIcon from '../images/finder.svg'; // dammy img, to be replaced
 import FinderIntro from '../components/intros/Finder';
 
 export default function FindingPetStores() {
