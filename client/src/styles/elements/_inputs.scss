@@ -6,11 +6,13 @@ select {
   border-radius: $input-borderradius;
   background-color: $base-color;
   border: none;
+  padding: 0 1rem;
   font-size: $input-fontsize-mb;
 
   @media screen and (min-width: $tb-breakpoint) {
     width: $input-width;
     height: $input-height-pc;
+    font-size: $input-fontsize-pc;
   }
 }
 

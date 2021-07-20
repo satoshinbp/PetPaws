@@ -343,7 +343,7 @@ template {
 
 /* 1.2. Base ================ */
 * {
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 body {
@@ -395,8 +395,14 @@ img {
 }
 
 .wrapper {
-  padding: 1.5rem 0;
+  padding: 1.5rem;
   max-width: 877px;
+  margin: 0 auto;
+}
+
+.wrapper-lg {
+  padding: 1.5rem;
+  max-width: 1067px;
   margin: 0 auto;
 }
 
@@ -419,7 +425,7 @@ img {
     font-size: 24px;
   }
   .wrapper {
-    padding: 3rem 0;
+    padding: 3rem;
   }
   .mb-hidden {
     display: initial;
@@ -586,11 +592,6 @@ img {
 @media screen and (min-width: 600px) {
   .intro {
     text-align: left;
-  }
-  .intro__wrapper {
-    display: flex;
-    align-items: stretch;
-    gap: 2rem;
   }
   .intro__body {
     flex-basis: 50%;
@@ -1599,6 +1600,7 @@ select {
   border-radius: 15px;
   background-color: #fff;
   border: none;
+  padding: 0 1rem;
   font-size: 14px;
 }
 
@@ -1608,6 +1610,7 @@ select {
   select {
     width: 340px;
     height: 54px;
+    font-size: 18px;
   }
 }
 

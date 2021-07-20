@@ -13,12 +13,6 @@
   @media screen and (min-width: $tb-breakpoint) {
     text-align: left;
 
-    &__wrapper {
-      display: flex;
-      align-items: stretch;
-      gap: 2rem;
-    }
-
     &__body {
       flex-basis: 50%;
       display: flex;
