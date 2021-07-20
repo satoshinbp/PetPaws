@@ -1,11 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@font-face {
+  font-family: 'To Japan';
+  src: url('fonts/tojapan/to-japan.ttf') format('truetype');
+}
 
 // Colors
 $base-color: #fff;
 $disabled-color: #dadada;
 $intro-color: #ffdd95;
 $font-color: #3b3054;
-$primary-color: #a4daea;
+$primary-color: #a4eada;
 $primary-color-light: #dcf7f1;
 $secondary-color: #ccabda;
 $secondary-color-light: #e4c8f0;

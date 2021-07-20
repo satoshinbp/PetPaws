@@ -69,6 +69,26 @@ img {
   display: none;
 }
 
+.bg-primary-meat {
+  background-image: url(../images/bg-green-meatbone-mb.png);
+  background-color: $primary-color;
+}
+
+.bg-primary-fish {
+  background-image: url(../images/bg-green-fishbone-mb.png);
+  background-color: $primary-color;
+}
+
+.bg-secondary-meat {
+  background-image: url(../images/bg-purple-meatbone-mb.png);
+  background-color: $secondary-color;
+}
+
+.bg-secondary-fish {
+  background-image: url(../images/bg-purple-fishbone-mb.png);
+  background-color: $secondary-color;
+}
+
 @media screen and (min-width: $tb-breakpoint) {
   body {
     padding-top: $header-height-pc;
@@ -97,5 +117,21 @@ img {
 
   .pc-hidden {
     display: none;
+  }
+
+  .bg-primary-meat {
+    background-image: url(../images/bg-green-meatbone-mb.png); // to be replaced with image for pc screen
+  }
+
+  .bg-primary-fish {
+    background-image: url(../images/bg-green-fishbone-pc.png);
+  }
+
+  .bg-secondary-meat {
+    background-image: url(../images/bg-purple-meatbone-mb.png); // to be replaced with image for pc screen
+  }
+
+  .bg-secondary-fish {
+    background-image: url(../images/bg-purple-fishbone-mb.png); // to be replaced with image for pc screen
   }
 }
