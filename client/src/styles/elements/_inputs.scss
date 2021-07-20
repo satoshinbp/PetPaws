@@ -1,6 +1,7 @@
 input,
 .input,
 select {
+  box-sizing: border-box;
   width: $input-width-full;
   height: $input-height-mb;
   border-radius: $input-borderradius;
