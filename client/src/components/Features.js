@@ -1,5 +1,5 @@
 import finderIcon from '../images/finder.svg';
-import trackerIcon from '../images/tracker.svg';
+import trackerIcon from '../images/running-dog.svg';
 
 export default function Features() {
   return (
