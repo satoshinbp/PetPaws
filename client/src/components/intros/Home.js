@@ -4,23 +4,26 @@ export default function Home() {
   return (
     <div className="intro">
       <div className="wrapper">
-        <div className="intro__body">
-          <div className="intro__text">
-            <h2>Welcom to Pet Paws</h2>
-            <p>
-              Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets
-              and pet shops for your convenience.
-            </p>
+        <div>
+          <h2 className="intro__title">Welcom to Pet Paws</h2>
+          <p>
+            Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets and
+            pet shops for your convenience.
+          </p>
+
+          <div className="intro__img-area pc-hidden">
+            {/* icon to be replaced */}
+            <img src={catIcon} alt="two cat and a dog all sitting" />
           </div>
 
-          <div className="intro__btn">
-            <button className="btn-contained--intro">Create free account</button>
+          <div className="intro__btn-area">
+            <button className="btn-contained--intro">Upgrade to Premium</button>
           </div>
         </div>
 
-        <div className="intro__img">
-          {/* to be replaced */}
-          <img src={catIcon} alt="member portrait" />
+        <div className="intro__img-area mb-hidden">
+          {/* icon to be replaced */}
+          <img src={catIcon} alt="two cat and a dog all sitting" />
         </div>
       </div>
     </div>

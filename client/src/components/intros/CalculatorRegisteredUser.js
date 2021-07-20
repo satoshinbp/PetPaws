@@ -1,4 +1,4 @@
-import catIcon from '../../images/cat.svg';
+import catIcon from '../../images/cat.svg'; // to be replaced
 
 export default function CalculatorRegisteredUser() {
   return (
@@ -12,6 +12,7 @@ export default function CalculatorRegisteredUser() {
           </p>
 
           <div className="intro__img-area pc-hidden">
+            {/* icon to be replaced */}
             <img src={catIcon} alt="cat stiting besides cat food" />
           </div>
 
@@ -21,6 +22,7 @@ export default function CalculatorRegisteredUser() {
         </div>
 
         <div className="intro__img-area mb-hidden">
+          {/* icon to be replaced */}
           <img src={catIcon} alt="cat stiting besides cat food" />
         </div>
       </div>
