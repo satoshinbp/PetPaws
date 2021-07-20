@@ -1,4 +1,5 @@
 import React from 'react';
+import signinImg from '../../images/dog-sample.jpg'; // dammy img, to be replaced
 
 export default function petProfileForm(props) {
   const today = new Date();
@@ -8,8 +9,20 @@ export default function petProfileForm(props) {
       {/* This styling is temporary, to be removed */}
       <form onSubmit={(e) => props.handleSubmit(e)} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <div>
-          <input type="file" onChange={(e) => props.changeImage(e.target.files[0])} />
-          <img src={props.imageURL} />
+          <label htmlFor="profImage">
+            <input
+              id="profImage"
+              type="file"
+              className="imageInput"
+              style={{ display: 'none', width: '120px', height: '120px' }}
+              onChange={(e) => props.changeImage(e.target.files[0])}
+            />
+            <img
+              id="profImage"
+              style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover' }}
+              src={props.imageURL || signinImg}
+            />
+          </label>
           <h3>Pet type:</h3>
           <input
             type="radio"
