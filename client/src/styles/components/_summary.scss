@@ -1,15 +1,64 @@
-.meal-form {
+.meal-form-wrapper {
   background-color: $green-color;
 }
 
-.walk-form {
+.walk-form-wrapper {
   background-color: $purple-color;
 }
 
-.walk-form,
-.meal-form {
+.modal {
+  opacity: 0;
+  z-index: 120;
+  transform: scale(0);
+  transition: opacity 0.7s, transform 0s 0.7s;
+}
+
+.modal.isActive {
+  opacity: 1;
+  z-index: 120;
+  transform: scale(1);
+  height: calc(100vh - 83.5px);
+  transition: opacity 0.7s;
+  position: fixed;
+  top: 83.5px; // subtract height of header
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(196, 196, 196, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  padding: 0;
+  // inactivate any kind of click on overlay background area
+  pointer-events: none;
+}
+
+.walk-form-wrapper,
+.meal-form-wrapper {
+  p {
+    margin: 0;
+  }
+  position: absolute;
+  top: calc(50% - 41.7px); // height of header / 2
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  width: calc(100vw - 9px);
   border-radius: $sm-border-radius;
   padding: 1rem;
+  // 4rem = 2rem margin on top and bottom margin respectively
+  // between overlay and form
+  height: calc((100% - 83.5px) - 9px);
+  // Clicking is invalid on overlay background,
+  // therefore "pointer-events: all" is necessary
+  // to click inside form content (e.g. inputs, button)
+  pointer-events: all;
+
+  .meal-form-content {
+    padding-bottom: 3rem;
+    height: calc(100% - 2rem);
+    overflow-y: scroll;
+  }
 
   .input-wrapper {
     display: flex;
@@ -158,6 +207,35 @@
           height: 200px;
         }
       }
+    }
+  }
+
+  .walk-form-wrapper,
+  .meal-form-wrapper {
+    p {
+      margin: 0;
+    }
+    position: absolute;
+    top: calc(50% - 41.7px); // height of header / 2
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: 877px; // temporary * need to be changed
+    border-radius: $sm-border-radius;
+    padding: 1rem;
+    // 4rem = 2rem margin on top and bottom margin respectively
+    // between overlay and form
+    height: calc((100% - 83.5px) - 4rem);
+    // Clicking is invalid on overlay background,
+    // therefore "pointer-events: all" is necessary
+    // to click inside form content (e.g. inputs, button)
+    pointer-events: all;
+
+    .meal-form-content {
+      padding-bottom: 3rem;
+      height: calc(100% - 2.5rem);
+      overflow-y: scroll;
     }
   }
 }

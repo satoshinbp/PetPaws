@@ -26,71 +26,73 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
   };
 
   return (
-    <div className="walk-form">
+    <div className="walk-form-wrapper">
       <p onClick={closeForm}>×</p>
-      <h3>ADD NEW ACTIVITY</h3>
-      {/* Styling to be removed */}
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
-        <div className="input-wrapper">
-          <div>
-            <label htmlFor="name">Activity Name</label>
-            <input
-              type="text"
-              name="name"
-              id="activity-name"
-              value={name}
-              required
-              onChange={(e) => setName(e.target.value)}
-            />
-          </div>
+      <div className="walk-form-content">
+        <h3>ADD NEW ACTIVITY</h3>
+        {/* Styling to be removed */}
+        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+          <div className="input-wrapper">
+            <div>
+              <label htmlFor="name">Activity Name</label>
+              <input
+                type="text"
+                name="name"
+                id="activity-name"
+                value={name}
+                required
+                onChange={(e) => setName(e.target.value)}
+              />
+            </div>
 
-          <div>
-            <label htmlFor="date">Date</label>
-            <input
-              type="date"
-              id="date"
-              name="activity-date"
-              defaultValue={date}
-              required
-              onChange={(e) => setDate(e.target.value)}
-            />
-          </div>
+            <div>
+              <label htmlFor="date">Date</label>
+              <input
+                type="date"
+                id="date"
+                name="activity-date"
+                defaultValue={date}
+                required
+                onChange={(e) => setDate(e.target.value)}
+              />
+            </div>
 
-          <div>
-            <label htmlFor="minute">Duration</label>
-            <input
-              type="number"
-              id="minute"
-              name="minute"
-              value={minute}
-              required
-              onChange={(e) => setMinute(e.target.value)}
-            />
-            min
-          </div>
+            <div>
+              <label htmlFor="minute">Duration</label>
+              <input
+                type="number"
+                id="minute"
+                name="minute"
+                value={minute}
+                required
+                onChange={(e) => setMinute(e.target.value)}
+              />
+              min
+            </div>
 
-          <div>
-            <label htmlFor="amount">Distance</label>
-            <input
-              type="number"
-              id="distance"
-              name="distance"
-              value={distance}
-              min="0"
-              max="10"
-              step="0.1"
-              onChange={(e) => setDistance(e.target.value)}
-            />
-            km
+            <div>
+              <label htmlFor="amount">Distance</label>
+              <input
+                type="number"
+                id="distance"
+                name="distance"
+                value={distance}
+                min="0"
+                max="10"
+                step="0.1"
+                onChange={(e) => setDistance(e.target.value)}
+              />
+              km
+            </div>
           </div>
-        </div>
-        <div className="button-wrapper">
-          <button type="submit" className="btn-contained-green">
-            Create
-          </button>
-          <button className="btn-outlined">Cancel</button>
-        </div>
-      </form>
+          <div className="button-wrapper">
+            <button type="submit" className="btn-contained-green">
+              Create
+            </button>
+            <button className="btn-outlined">Cancel</button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

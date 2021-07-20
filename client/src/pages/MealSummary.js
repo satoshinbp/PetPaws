@@ -32,11 +32,11 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
       <div className="body">
         <div className="body__wrapper">
           {/* form toggled by add button */}
-          {showForm ? (
-            <MealForm petProfile={petProfile} setAllMeals={setAllMeals} closeForm={() => setShowForm(false)} />
-          ) : (
-            ''
-          )}
+          <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
+            {showForm && (
+              <MealForm petProfile={petProfile} setAllMeals={setAllMeals} closeForm={() => setShowForm(false)} />
+            )}
+          </div>
           <div className="meal-week-month-graphs-wrapper">
             <div class="basic-info">
               <h3>MEAL SUMMARY</h3>

@@ -744,48 +744,94 @@ img {
 
 /* TO BE REORGANIZED ======== */
 /* 3.1. Forms =============== */
-.meal-form {
+.meal-form-wrapper {
   background-color: #86e3ce;
 }
 
-.walk-form {
+.walk-form-wrapper {
   background-color: rgba(204, 171, 218, 0.82);
 }
 
-.walk-form,
-.meal-form {
-  border-radius: 10px;
-  padding: 1rem;
+.modal {
+  opacity: 0;
+  z-index: 120;
+  transform: scale(0);
+  transition: opacity 0.7s, transform 0s 0.7s;
 }
 
-.walk-form .input-wrapper,
-.meal-form .input-wrapper {
+.modal.isActive {
+  opacity: 1;
+  z-index: 120;
+  transform: scale(1);
+  height: calc(100vh - 83.5px);
+  transition: opacity 0.7s;
+  position: fixed;
+  top: 83.5px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(196, 196, 196, 0.5);
+  backdrop-filter: blur(4px);
+  z-index: 100;
+  padding: 0;
+  pointer-events: none;
+}
+
+.walk-form-wrapper,
+.meal-form-wrapper {
+  position: absolute;
+  top: calc(50% - 41.7px);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  width: calc(100vw - 9px);
+  border-radius: 10px;
+  padding: 1rem;
+  height: calc((100% - 83.5px) - 9px);
+  pointer-events: all;
+}
+
+.walk-form-wrapper p,
+.meal-form-wrapper p {
+  margin: 0;
+}
+
+.walk-form-wrapper .meal-form-content,
+.meal-form-wrapper .meal-form-content {
+  padding-bottom: 3rem;
+  height: calc(100% - 2rem);
+  overflow-y: scroll;
+}
+
+.walk-form-wrapper .input-wrapper,
+.meal-form-wrapper .input-wrapper {
   display: flex;
   flex-flow: column nowrap;
   gap: 0.7rem;
 }
 
-.walk-form .input-wrapper div,
-.meal-form .input-wrapper div {
+.walk-form-wrapper .input-wrapper div,
+.meal-form-wrapper .input-wrapper div {
   display: flex;
   flex-flow: column nowrap;
   gap: 0.3rem;
 }
 
-.walk-form .input-wrapper div label,
-.meal-form .input-wrapper div label {
+.walk-form-wrapper .input-wrapper div label,
+.meal-form-wrapper .input-wrapper div label {
   font-weight: 700;
 }
 
-.walk-form .button-wrapper,
-.meal-form .button-wrapper {
+.walk-form-wrapper .button-wrapper,
+.meal-form-wrapper .button-wrapper {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
 }
 
-.walk-form .button-wrapper .btn-outlined,
-.meal-form .button-wrapper .btn-outlined {
+.walk-form-wrapper .button-wrapper .btn-outlined,
+.meal-form-wrapper .button-wrapper .btn-outlined {
   border: 1px solid #fff;
   background-color: transparent;
 }
@@ -931,6 +977,30 @@ img {
   .walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-image {
     width: 120px;
     height: 200px;
+  }
+  .walk-form-wrapper,
+  .meal-form-wrapper {
+    position: absolute;
+    top: calc(50% - 41.7px);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: 877px;
+    border-radius: 10px;
+    padding: 1rem;
+    height: calc((100% - 83.5px) - 4rem);
+    pointer-events: all;
+  }
+  .walk-form-wrapper p,
+  .meal-form-wrapper p {
+    margin: 0;
+  }
+  .walk-form-wrapper .meal-form-content,
+  .meal-form-wrapper .meal-form-content {
+    padding-bottom: 3rem;
+    height: calc(100% - 2.5rem);
+    overflow-y: scroll;
   }
 }
 
