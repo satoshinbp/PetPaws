@@ -69,7 +69,6 @@ exports.update = (req, res) => {
   const activity_level = req.body.activityLevel;
   const body_condition = req.body.bodyCondition;
   const imageURL = req.body.url;
-  console.log(imageURL);
 
   const sqlQuery =
     'UPDATE petpaws.pets SET user_id = ?, is_dog = ?, name = ?, breed = ?, birthday = ?, gender = ?, weight = ?, height = ?, is_spayed = ?, activity_level = ?, body_condition = ?, image= ? WHERE id = ?';
