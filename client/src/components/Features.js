@@ -1,4 +1,4 @@
-import finderIcon from '../images/stores-vets-finder.svg';
+import finderIcon from '../images/finder.svg';
 import trackerIcon from '../images/tracker.svg';
 
 export default function Features() {
@@ -65,7 +65,7 @@ export default function Features() {
       </div>
 
       <div className="btn-area">
-        <button className="btn-contained-yellow btn-not-fullwidth">Unlock All Features</button>
+        <button className="btn-contained ">Unlock All Features</button>
       </div>
     </div>
   );

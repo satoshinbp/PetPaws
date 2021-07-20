@@ -1,19 +1,19 @@
 .features {
   width: 100%;
-  max-width: $max-width;
+  max-width: $md-max-width;
   margin: 0 auto;
   padding: 1rem;
-  border-radius: $lg-border-radius;
+  border-radius: $subcomponent-borderradius-mb;
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: $green-color;
+  background-color: $primary-color;
   text-align: center;
 
   .feature {
     padding: 1rem;
-    border-radius: $md-border-radius;
-    background-color: $lighten-color;
+    border-radius: $subcomponent-borderradius-mb;
+    background-color: $primary-color-light;
 
     &__img {
       width: 56px;

@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
-  box-sizing: border-box;
+  box-sizing: content-box;
 }
 
 body {
-  padding-top: $header-height;
+  padding-top: $header-height-mb;
   font-family: $paragraph-fontfamily;
-  font-size: 16px;
-  line-height: 1.3;
-  color: $navy-color;
+  font-size: $standard-fontsize-mb;
+  line-height: 1.5;
+  color: $font-color;
 }
 
 h1,
@@ -20,6 +20,18 @@ h5,
 h6 {
   font-family: $header-fontfamily;
   text-transform: uppercase;
+}
+
+h1 {
+  font-size: $h1-fontsize-mb;
+}
+
+h2 {
+  font-size: $h2-fontsize-mb;
+}
+
+h3 {
+  font-size: $h3-fontsize-mb;
 }
 
 ul {
@@ -40,13 +52,43 @@ img {
   height: auto;
 }
 
+.wrapper {
+  padding: 1.5rem;
+  max-width: $md-max-width;
+  margin: 0 auto;
+}
+
+// for team sub component
+.wrapper-lg {
+  padding: 1.5rem;
+  max-width: $lg-max-width;
+  margin: 0 auto;
+}
+
 .mb-hidden {
   display: none;
 }
 
 @media screen and (min-width: $tb-breakpoint) {
   body {
-    font-size: 18px;
+    padding-top: $header-height-pc;
+    font-size: $standard-fontsize-pc;
+  }
+
+  h1 {
+    font-size: $h1-fontsize-pc;
+  }
+
+  h2 {
+    font-size: $h2-fontsize-pc;
+  }
+
+  h3 {
+    font-size: $h3-fontsize-pc;
+  }
+
+  .wrapper {
+    padding: 3rem;
   }
 
   .mb-hidden {

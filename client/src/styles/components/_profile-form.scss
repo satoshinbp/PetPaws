@@ -1,5 +1,5 @@
 .pet-profile-form {
-  background: $green-color;
+  background: $primary-color;
   padding: 2rem 1rem;
   border-radius: 10px;
 
@@ -43,7 +43,7 @@
       width: 120px;
       height: 120px;
       border-radius: 50%;
-      border: 0.5rem $yellow-color solid;
+      border: 0.5rem $intro-color solid;
       object-fit: cover;
     }
   }
@@ -58,7 +58,7 @@
   border-radius: 10px;
   padding: 2rem;
   text-align: center;
-  background-color: $purple-color;
+  background-color: $secondary-color;
 
   button {
     font-size: 2rem;

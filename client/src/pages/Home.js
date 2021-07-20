@@ -8,10 +8,8 @@ export default function Home() {
       <HomeIntro />
 
       <div className="body">
-        <div className="body__wrapper">
-          <Features />
-          <Team />
-        </div>
+        <Features />
+        <Team />
       </div>
     </>
   );
