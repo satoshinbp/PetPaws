@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import Map from '../components/GoogleMap';
 import storesVetsFinderIcon from '../images/stores-vets-finder.svg'; // dammy img, to be replaced
+import FinderIntro from '../components/intros/Finder';
 
 export default function FindingPetStores() {
   const [shops, setShops] = useState([]);
@@ -32,27 +33,7 @@ export default function FindingPetStores() {
 
   return (
     <>
-      <div className="intro">
-        <div className="intro__wrapper">
-          <div className="intro__body">
-            <div className="intro__text">
-              <h2>Finding Pet Stores / Vets</h2>
-              <p>
-                Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets
-                and pet shops for your convenience.
-              </p>
-            </div>
-
-            <div className="intro__btn">
-              <button className="btn-contained ">Create free account</button>
-            </div>
-          </div>
-
-          <div className="intro__img">
-            <img src={storesVetsFinderIcon} alt="member portrait" />
-          </div>
-        </div>
-      </div>
+      <FinderIntro />
 
       <div className="body">
         <div className="search-form">

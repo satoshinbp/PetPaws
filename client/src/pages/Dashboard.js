@@ -2,11 +2,11 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import LatestCalorieSummary from '../components/charts/LatestCalorieSummary';
 import LatestWalkSummary from '../components/charts/LatestWalkSummary';
-import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
 import MealWeekChart from '../components/charts/MealWeekChart';
 import MealMonthChart from '../components/charts/MealMonthChart';
 import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkMonthChart from '../components/charts/WalkMonthChart';
+import DashboardIntro from '../components/intros/Dashboard';
 
 const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
   // if yes, week graph appears, if no, month graph appears
@@ -14,24 +14,7 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
   const [showWalkWeekGraph, setShowWalkWeekGraph] = useState(true);
   return (
     <div className="dashboard">
-      <div className="intro">
-        <div className="intro__wrapper">
-          <div className="intro__body">
-            <div className="intro__text">
-              <h2>Dashboard</h2>
-              <p>
-                A nutritious, balanced diet is essential to keeping your dog healthy. We provide a feature that allows
-                you to keep track of your pet's meals. Additionally, we offer the ideal nutrition for your pet's weight
-                control.
-              </p>
-            </div>
-          </div>
-
-          <div className="intro__img">
-            <img src={signinImg} alt="member portrait" />
-          </div>
-        </div>
-      </div>
+      <DashboardIntro />
 
       <div className="body">
         <div className="dashboard-pet-profile">

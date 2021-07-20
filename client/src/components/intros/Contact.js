@@ -3,7 +3,7 @@ import contactIcon from '../../images/contact.svg'; // dammy img, to be replaced
 export default function ContactIntro() {
   return (
     <div className="intro">
-      <div className="intro__wrapper">
+      <div className="wrapper">
         <div className="intro__body">
           <div className="intro__text">
             <h2>Ask us a question!</h2>

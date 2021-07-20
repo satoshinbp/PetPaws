@@ -1,15 +1,16 @@
-import storesVetsFinderIcon from '../../images/stores-vets-finder.svg'; // dammy img, to be replaced
+import storesVetsFinderIcon from '../../images/stores-vets-finder.svg';
 
-export default function CalculatorRegisteredUser() {
+export default function WalkSummary() {
   return (
     <div className="intro">
       <div className="wrapper">
         <div className="intro__body">
           <div className="intro__text">
-            <h2>Calorie Calculator</h2>
+            <h2>Activity Tracker</h2>
             <p>
-              Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets
-              and pet shops for your convenience.
+              A nutritious, balanced diet is essential to keeping your dog healthy. We provide a feature that allows you
+              to keep track of your pet's meals. Additionally, we offer the ideal nutrition for your pet's weight
+              control.
             </p>
           </div>
 

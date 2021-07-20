@@ -1,12 +1,12 @@
-import catIcon from '../../images/cat.svg';
+import storesVetsFinderIcon from '../../images/stores-vets-finder.svg';
 
-export default function Home() {
+export default function Finder() {
   return (
     <div className="intro">
       <div className="wrapper">
         <div className="intro__body">
           <div className="intro__text">
-            <h2>Welcom to Pet Paws</h2>
+            <h2>Finding Pet Stores / Vets</h2>
             <p>
               Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets
               and pet shops for your convenience.
@@ -19,8 +19,7 @@ export default function Home() {
         </div>
 
         <div className="intro__img">
-          {/* to be replaced */}
-          <img src={catIcon} alt="member portrait" />
+          <img src={storesVetsFinderIcon} alt="member portrait" />
         </div>
       </div>
     </div>

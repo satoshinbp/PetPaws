@@ -3,7 +3,7 @@ import WalkMonthChart from '../components/charts/WalkMonthChart';
 import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkDayChart from '../components/charts/WalkDayChart';
 import WalkForm from '../components/forms/Walk';
-import trackerIcon from '../images/tracker.svg'; // dammy img, to be replaced
+import WalkSummaryIntro from '../components/intros/WalkSummary';
 
 export default function WalkSummary({ petProfile, allActivities, setAllActivities }) {
   const [showForm, setShowForm] = useState(false);
@@ -11,28 +11,8 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
   const [showWeekGraph, setShowWeekGraph] = useState(true);
   return (
     <>
-      <div className="intro">
-        <div className="intro__wrapper">
-          <div className="intro__body">
-            <div className="intro__text">
-              <h2>Activity Tracker</h2>
-              <p>
-                A nutritious, balanced diet is essential to keeping your dog healthy. We provide a feature that allows
-                you to keep track of your pet's meals. Additionally, we offer the ideal nutrition for your pet's weight
-                control.
-              </p>
-            </div>
+      <WalkSummaryIntro />
 
-            <div className="intro__btn">
-              <button className="btn-contained ">Create free account</button>
-            </div>
-          </div>
-
-          <div className="intro__img">
-            <img src={trackerIcon} alt="member portrait" />
-          </div>
-        </div>
-      </div>
       <div className="body">
         {/* form toggled by add button */}
         {showForm ? (
