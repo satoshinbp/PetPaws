@@ -1,45 +1,65 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 // Colors
-$lighten-color: rgba(255, 255, 255, 0.64);
-$white-color: #fff;
-$yellow-color: #ffdd95;
-$green-color: #86e3ce;
-$lightgreen-color: #dcf7f1;
-$darkgreen-color: darkgreen; // TBD
-$purple-color: rgba(204, 171, 218, 0.82);
-$light-purple: #ccabda;
-$navy-color: #3b3054;
-$pink-color: rgba(252, 136, 123, 0.49);
-$light-pink-color: rgba(252, 136, 123, 0.34);
-$light-green-color: rgba(134, 227, 206, 0.22);
-$footer-color: #f8f3fa;
-$light-black: #373f41;
+$base-color: #fff;
+$disabled-color: #dadada;
+$intro-color: #ffdd95;
+$font-color: #3b3054;
+$primary-color: #a4daea;
+$primary-color-light: #dcf7f1;
+$secondary-color: #ccabda;
+$secondary-color-light: #e4c8f0;
+$btn-backgroundcolor-contained: #ffdd95;
+$btn-backgroundcolor-contained-intro: #fff;
+$btn-bordercolor-outlined: #3b3054;
 
 // Font Family
 $header-fontfamily: 'To Japan', helvetica, arial, sans-serif;
 $paragraph-fontfamily: 'Content', helvetica, arial, sans-serif;
 
 // Font Size
-$sm-fontsize: 0.875em; // 22px in first MockUp
-$md-fontsize: 1em; // 26px in first MockUp
-$lg-fontsize: 1.5em; // 32px in first MockUp
-$xl-fontsize: 4em; // 32px in first MockUp
+$standard-fontsize-mb: 16px;
+$standard-fontsize-pc: 20px;
+$h1-fontsize-mb: 20px;
+$h1-fontsize-pc: 28px;
+$h2-fontsize-mb: 18px;
+$h2-fontsize-pc: 26px;
+$h3-fontsize-mb: 16px;
+$h3-fontsize-pc: 24px;
+$btn-fontsize: 18px;
+$input-fontsize-mb: 14px;
+$input-fontsize-pc: 18px;
+$calc-result-fontsize: 60px;
+
+// Font Weight
+$btn-fontweight: 700;
 
 // Border Radius
-$sm-border-radius: 10px; // 15px in first MockUp
-$md-border-radius: 15px; // 25px in first MockUp
-$lg-border-radius: 30px; // 50px in first MockUp
-$xl-border-radius: 40px; // 65px in first MockUp
+$btn-borderradius: 5px;
+$input-borderradius: 15px;
+$subcomponent-borderradius-mb: 25px;
+$subcomponent-borderradius-pc: 50px; // for sub component with light color background
 
-$toggle-button-radius: 10px; // graoh week month button
+// Border Width
+$btn-borderwidth-outlined: 1px;
 
 // Breakpoints
-$tb-breakpoint: 600px; // TBD
-$pc-breakpoint: 960px; // TBD
+$tb-breakpoint: 600px;
+$pc-breakpoint: 960px;
 
-// Max Width
-$max-width: 1280px;
-
-// Header Height
-$header-height: 84px;
+// Width and Heigh
+$md-max-width: 877px;
+$lg-max-width: 1067px; // for team sub component
+$header-height-mb: 91px;
+$header-height-pc: 94px;
+$footer-height-mb: 70px;
+$footer-height-pc: 80px;
+$btn-width: 252px;
+$btn-width-full: 100%;
+$btn-height-mb: 50px;
+$btn-height-pc: 54px;
+$input-width: 340px;
+$input-width-full: 100%;
+$input-height-mb: 50px;
+$input-height-pc: 54px;
+$input-radio-size: 35px;

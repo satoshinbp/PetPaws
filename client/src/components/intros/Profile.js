@@ -1,16 +1,17 @@
 import storesVetsFinderIcon from '../../images/finder.svg'; // dammy img, to be replaced
 
-export default function CalculatorRegisteredUser() {
+export default function Profile() {
   return (
     <div className="intro">
       <div className="wrapper">
         <div className="intro__body">
           <div className="intro__text">
-            <h2>Calorie Calculator</h2>
+            <h2>Pet Profile</h2>
             <p>
-              Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets
-              and pet shops for your convenience.
+              Let's complete your furry friend detail here. Depending on the age and breed, we will advise the best
+              individual plan for nutrition and walking activities.
             </p>
+            <button className="btn-contained--intro">Go premium</button>
           </div>
         </div>
 

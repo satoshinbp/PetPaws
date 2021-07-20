@@ -1,25 +1,25 @@
 .walk-day-graph-wrapper {
-  background-color: rgba($green-color, 0.5);
+  background-color: rgba($primary-color, 0.5);
 }
 
 .meal-day-graph-wrapper {
-  background-color: $purple-color;
+  background-color: $secondary-color;
 }
 
 .walk-day-graph-wrapper,
 .meal-day-graph-wrapper {
-  border-radius: $sm-border-radius;
+  border-radius: $subcomponent-borderradius-mb;
   padding: 1rem;
   .background-color-wrapper {
-    background-color: $lighten-color;
-    border-radius: $sm-border-radius;
+    background-color: $primary-color-light;
+    border-radius: $subcomponent-borderradius-mb;
     .info {
       padding: 1rem 0.5rem;
       display: flex;
       flex-flow: column nowrap;
       gap: 1.5rem;
       label {
-        font-size: $sm-fontsize;
+        font-size: $standard-fontsize-mb;
       }
       h3 {
         margin: 0;
@@ -28,12 +28,12 @@
         margin: 0;
       }
       .daily-list {
-        border: 1px solid $navy-color;
+        border: 1px solid $font-color;
         padding: 1rem 0.5rem;
-        border-radius: $md-border-radius;
+        border-radius: $subcomponent-borderradius-mb;
         > p:first-of-type {
           font-weight: 300;
-          border-bottom: 1px solid rgba($navy-color, 0.5);
+          border-bottom: 1px solid rgba($font-color, 0.5);
         }
         p {
           padding: 0.5rem 0;
@@ -60,7 +60,7 @@
       .info {
         gap: 2rem;
         label {
-          font-size: $sm-fontsize;
+          font-size: $standard-fontsize-mb;
           display: grid;
           grid-template-columns: 40% 60%;
           align-items: center;

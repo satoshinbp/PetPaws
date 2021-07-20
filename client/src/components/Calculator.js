@@ -229,7 +229,7 @@ export default function Calculator(props) {
           </div>
         </div>
 
-        <button type="submit" className="btn-contained-yellow btn-not-fullwidth">
+        <button type="submit" className="btn-contained ">
           calculate
         </button>
       </form>
@@ -248,7 +248,7 @@ export default function Calculator(props) {
               <input type="text" placeholder="Enter your email" />
 
               <div className="calculator__btn-area">
-                <button className="btn-contained-yellow">Send</button>
+                <button className="btn-contained">Send</button>
               </div>
             </>
           )}

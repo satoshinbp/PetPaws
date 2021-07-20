@@ -3,7 +3,7 @@ import Axios from 'axios';
 import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
-import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
+import ProfileIntro from '../components/intros/Profile';
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -131,51 +131,34 @@ export default function PetProfile({ petProfile }) {
 
   return (
     <>
-      <div className="intro">
-        <div className="intro__wrapper">
-          <div className="intro__body">
-            <div className="intro__text">
-              <h2>Pet Profile</h2>
-              <p>
-                Let's complete your furry friend detail here. Depending on the age and breed, we will advise the best
-                individual plan for nutrition and walking activities.
-              </p>
-              <button className="btn-contained-green">Go premium</button>
-            </div>
-          </div>
-          <div className="intro__img">
-            <img src={signinImg} alt="member portrait" />
-          </div>
-        </div>
-      </div>
+      <ProfileIntro />
+
       <div className="body">
-        <div className="body__wrapper">
-          <PetProfileForm
-            dogBreeds={dogBreeds}
-            catBreeds={catBreeds}
-            isDog={isDog}
-            name={name}
-            breedName={breedName}
-            birthday={birthday}
-            gender={gender}
-            weight={weight}
-            height={height}
-            isSpayed={isSpayed}
-            activityLevel={activityLevel}
-            bodyCondition={bodyCondition}
-            changePetType={changePetType}
-            changeName={changeName}
-            changeBreed={changeBreed}
-            changeGender={changeGender}
-            changeBirthday={changeBirthday}
-            changeWeight={changeWeight}
-            changeHeight={changeHeight}
-            changeIsSpayed={changeIsSpayed}
-            changeActivityLevel={changeActivityLevel}
-            changeBodyCondition={changeBodyCondition}
-            handleSubmit={handleSubmit}
-          />
-        </div>
+        <PetProfileForm
+          dogBreeds={dogBreeds}
+          catBreeds={catBreeds}
+          isDog={isDog}
+          name={name}
+          breedName={breedName}
+          birthday={birthday}
+          gender={gender}
+          weight={weight}
+          height={height}
+          isSpayed={isSpayed}
+          activityLevel={activityLevel}
+          bodyCondition={bodyCondition}
+          changePetType={changePetType}
+          changeName={changeName}
+          changeBreed={changeBreed}
+          changeGender={changeGender}
+          changeBirthday={changeBirthday}
+          changeWeight={changeWeight}
+          changeHeight={changeHeight}
+          changeIsSpayed={changeIsSpayed}
+          changeActivityLevel={changeActivityLevel}
+          changeBodyCondition={changeBodyCondition}
+          handleSubmit={handleSubmit}
+        />
       </div>
     </>
   );
