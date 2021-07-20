@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Axios from 'axios';
+import closeModalIcon from '../../images/close-modal.svg';
 
 export default function MealForm({ petProfile, setAllMeals, closeForm }) {
   const [name, setName] = useState('');
@@ -31,7 +32,8 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
 
   return (
     <div className="meal-form-wrapper">
-      <p onClick={closeForm}>×</p>
+      <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
+
       <div className="meal-form-content">
         <h2>ADD NEW MEAL</h2>
         {/* Styling to be removed */}

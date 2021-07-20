@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import Axios from 'axios';
+import closeModalIcon from '../../images/close-modal.svg';
 
 export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
   const [name, setName] = useState('');
@@ -27,7 +28,7 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
 
   return (
     <div className="walk-form-wrapper">
-      <p onClick={closeForm}>×</p>
+      <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
       <div className="walk-form-content">
         <h3>ADD NEW ACTIVITY</h3>
         {/* Styling to be removed */}

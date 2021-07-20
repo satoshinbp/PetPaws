@@ -792,13 +792,19 @@ img {
   pointer-events: all;
 }
 
-.walk-form-wrapper p,
-.meal-form-wrapper p {
-  margin: 0;
+.walk-form-wrapper .close-modal-icon,
+.meal-form-wrapper .close-modal-icon {
+  width: 35px;
+  padding: 0.6rem;
+  display: block;
+  margin-right: 0;
+  margin-left: auto;
 }
 
 .walk-form-wrapper .meal-form-content,
-.meal-form-wrapper .meal-form-content {
+.walk-form-wrapper .walk-form-content,
+.meal-form-wrapper .meal-form-content,
+.meal-form-wrapper .walk-form-content {
   padding-bottom: 3rem;
   height: calc(100% - 2rem);
   overflow-y: scroll;
