@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 /* 1 Base =================== */
 /* 1.1. Reset =========== */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -8,7 +8,7 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -191,9 +191,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
@@ -201,9 +201,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -212,9 +212,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -264,8 +264,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type='checkbox'],
-[type='radio'] {
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -275,8 +275,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -284,7 +284,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type='search'] {
+[type=search] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -294,7 +294,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type='search']::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -348,7 +348,7 @@ template {
 
 body {
   padding-top: 91px;
-  font-family: 'Content', helvetica, arial, sans-serif;
+  font-family: "Content", helvetica, arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #3b3054;
@@ -360,7 +360,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'To Japan', helvetica, arial, sans-serif;
+  font-family: "To Japan", helvetica, arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -415,15 +415,19 @@ img {
     padding-top: 94px;
     font-size: 20px;
   }
+
   h1 {
     font-size: 28px;
   }
+
   h2 {
     font-size: 26px;
   }
+
   h3 {
     font-size: 24px;
   }
+
   .wrapper {
     padding: 3rem;
   }
@@ -646,7 +650,7 @@ img {
     flex-basis: 30%;
     text-align: right;
   }
-  .features .feature:nth-child(2n + 1) .feature__img {
+  .features .feature:nth-child(2n+1) .feature__img {
     order: -1;
     text-align: left;
   }
@@ -844,29 +848,29 @@ img {
 
 @media screen and (min-width: 600px) {
   .meal-week-month-graphs-wrapper,
-  .walk-week-month-graphs-wrapper {
+.walk-week-month-graphs-wrapper {
     padding: 1rem 2rem;
     display: grid;
     grid-template-columns: 30% 70%;
     gap: 1rem;
   }
   .meal-week-month-graphs-wrapper .basic-info,
-  .walk-week-month-graphs-wrapper .basic-info {
+.walk-week-month-graphs-wrapper .basic-info {
     width: 80%;
     display: grid;
     grid-template-rows: 1fr auto 1fr;
     justify-self: center;
   }
   .meal-week-month-graphs-wrapper .basic-info h3,
-  .walk-week-month-graphs-wrapper .basic-info h3 {
+.walk-week-month-graphs-wrapper .basic-info h3 {
     align-self: start;
   }
   .meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper,
-  .walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper {
+.walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper {
     align-self: start;
   }
   .meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-image,
-  .walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-image {
+.walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-image {
     width: 120px;
     height: 200px;
   }
@@ -950,18 +954,18 @@ img {
     text-align: left;
   }
   .pet-profile-form_area .pet-type,
-  .pet-profile-form_area .spay {
+.pet-profile-form_area .spay {
     width: 100%;
     justify-content: center;
   }
   .pet-profile-form_area .pet-type .pet-type_cat,
-  .pet-profile-form_area .pet-type .pet-type_dog,
-  .pet-profile-form_area .pet-type .spayed,
-  .pet-profile-form_area .pet-type .notSpayed,
-  .pet-profile-form_area .spay .pet-type_cat,
-  .pet-profile-form_area .spay .pet-type_dog,
-  .pet-profile-form_area .spay .spayed,
-  .pet-profile-form_area .spay .notSpayed {
+.pet-profile-form_area .pet-type .pet-type_dog,
+.pet-profile-form_area .pet-type .spayed,
+.pet-profile-form_area .pet-type .notSpayed,
+.pet-profile-form_area .spay .pet-type_cat,
+.pet-profile-form_area .spay .pet-type_dog,
+.pet-profile-form_area .spay .spayed,
+.pet-profile-form_area .spay .notSpayed {
     flex: unset;
     padding: 0 0.5rem;
   }
@@ -1056,28 +1060,28 @@ img {
 
 @media screen and (min-width: 600px) {
   .walk-day-graph-wrapper,
-  .meal-day-graph-wrapper {
+.meal-day-graph-wrapper {
     padding: 2rem;
   }
   .walk-day-graph-wrapper .background-color-wrapper,
-  .meal-day-graph-wrapper .background-color-wrapper {
+.meal-day-graph-wrapper .background-color-wrapper {
     display: grid;
     grid-template-columns: 50% 50%;
     padding: 1rem 3rem 1rem 3rem;
   }
   .walk-day-graph-wrapper .background-color-wrapper .info,
-  .meal-day-graph-wrapper .background-color-wrapper .info {
+.meal-day-graph-wrapper .background-color-wrapper .info {
     gap: 2rem;
   }
   .walk-day-graph-wrapper .background-color-wrapper .info label,
-  .meal-day-graph-wrapper .background-color-wrapper .info label {
+.meal-day-graph-wrapper .background-color-wrapper .info label {
     font-size: 16px;
     display: grid;
     grid-template-columns: 40% 60%;
     align-items: center;
   }
   .walk-day-graph-wrapper .background-color-wrapper .meal-daily-graph,
-  .meal-day-graph-wrapper .background-color-wrapper .meal-daily-graph {
+.meal-day-graph-wrapper .background-color-wrapper .meal-daily-graph {
     display: flex;
     align-self: center;
   }
@@ -1361,7 +1365,7 @@ nav ul {
 }
 @media screen and (min-width: 600px) {
   .dashboard-meal-summary,
-  .dashboard-walk-summary {
+.dashboard-walk-summary {
     display: block;
   }
 }
@@ -1388,20 +1392,23 @@ nav ul {
 /* 3.7. Stores/Vets ========= */
 .search-form {
   padding: 1rem;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
   background-color: #a4daea;
   text-align: center;
 }
 .search-form .search-form-inner {
   padding: 1rem;
-  border-radius: 25px;
   display: flex;
   flex-direction: column;
   gap: 1rem;
   text-align: center;
+}
+.search-form .search-combined-icon {
+  text-align: center;
+}
+@media screen and (min-width: 600px) {
+  .search-form .search-icon-mobile {
+    display: none;
+  }
 }
 .search-form select {
   max-width: 400px;
@@ -1411,7 +1418,6 @@ nav ul {
   .search-form .search-form-background {
     background-color: #dcf7f1;
     border-radius: 25px;
-    margin: 3rem;
     padding: 2rem 1rem;
   }
 }
@@ -1430,7 +1436,6 @@ button {
   text-transform: capitalize;
   cursor: pointer;
 }
-
 @media screen and (min-width: 600px) {
   button {
     width: 252px;
@@ -1494,11 +1499,10 @@ select {
   padding: 0 1rem;
   font-size: 14px;
 }
-
 @media screen and (min-width: 600px) {
   input,
-  .input,
-  select {
+.input,
+select {
     width: 340px;
     height: 54px;
     font-size: 18px;
@@ -1512,14 +1516,13 @@ textarea {
   background-color: #fff;
   border: none;
 }
-
 @media screen and (min-width: 600px) {
   textarea {
     width: 340px;
   }
 }
 
-input[type='radio'] {
+input[type=radio] {
   height: 35px;
 }
 
@@ -1531,5 +1534,4 @@ select:invalid {
 
 label {
   color: #3b3054;
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
