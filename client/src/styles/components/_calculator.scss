@@ -1,7 +1,7 @@
 .calculator {
   padding: 1rem;
-  border-radius: $lg-border-radius;
-  background-color: $green-color;
+  border-radius: $subcomponent-borderradius-mb;
+  background-color: $primary-color;
   text-align: center;
 
   &__form {
@@ -49,13 +49,13 @@
   &__result {
     margin: 1rem 0;
     padding: 1rem;
-    border-radius: $md-border-radius;
-    background-color: $lightgreen-color;
+    border-radius: $subcomponent-borderradius-mb;
+    background-color: $primary-color-light;
   }
 
   &__result-calorie {
-    color: $light-purple;
-    font-size: $xl-fontsize;
+    color: $secondary-color-light;
+    font-size: $calc-result-fontsize;
     font-weight: 900;
   }
 

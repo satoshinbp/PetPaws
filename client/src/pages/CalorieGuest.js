@@ -7,9 +7,7 @@ export default function Calorie() {
       <CalculatorGuestUserIntro />
 
       <div className="body">
-        <div className="body__wrapper">
-          <Calculator />
-        </div>
+        <Calculator />
       </div>
     </>
   );

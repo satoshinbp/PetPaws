@@ -3,7 +3,7 @@ import contactIcon from '../../images/contact.svg'; // dammy img, to be replaced
 export default function ContactIntro() {
   return (
     <div className="intro">
-      <div className="intro__wrapper">
+      <div className="wrapper">
         <div className="intro__body">
           <div className="intro__text">
             <h2>Ask us a question!</h2>
@@ -14,7 +14,7 @@ export default function ContactIntro() {
           </div>
 
           <div className="intro__btn">
-            <button className="btn-contained-white btn-not-fullwidth">Create free account</button>
+            <button className="btn-contained--intro">Create free account</button>
           </div>
         </div>
 

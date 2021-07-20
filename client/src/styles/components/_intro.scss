@@ -1,13 +1,6 @@
 .intro {
-  padding: 1rem;
-  border-radius: $lg-border-radius;
   text-align: center;
-  background-color: $yellow-color;
-
-  &__wrapper {
-    max-width: $max-width;
-    margin: 0 auto;
-  }
+  background-color: $intro-color;
 
   &__img {
     display: none;
@@ -18,14 +11,7 @@
   }
 
   @media screen and (min-width: $tb-breakpoint) {
-    padding: 2rem;
     text-align: left;
-
-    &__wrapper {
-      display: flex;
-      align-items: stretch;
-      gap: 2rem;
-    }
 
     &__body {
       flex-basis: 50%;
@@ -42,14 +28,6 @@
 
     &__btn {
       margin: 0;
-    }
-  }
-
-  @media screen and (min-width: $pc-breakpoint) {
-    padding: 3rem;
-
-    &__wrapper {
-      gap: 3rem;
     }
   }
 }

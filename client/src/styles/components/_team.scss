@@ -1,14 +1,14 @@
 .team {
   width: 100%;
-  max-width: $max-width;
+  max-width: $md-max-width;
   margin: 0 auto;
   padding: 1rem;
-  border-radius: $lg-border-radius;
+  border-radius: $subcomponent-borderradius-mb;
   text-align: center;
-  background-color: $purple-color;
+  background-color: $secondary-color;
 
   &__title {
-    color: $white-color;
+    color: $base-color;
   }
 
   &__members {
@@ -23,12 +23,12 @@
     width: 138px;
     height: 138px;
     margin: 0 auto;
-    border: 2px solid $white-color;
+    border: 2px solid $base-color;
     border-radius: 50%;
   }
 
   &__member-name {
-    font-size: $sm-fontsize;
+    font-size: $standard-fontsize-mb;
   }
 
   @media screen and (min-width: $tb-breakpoint) {

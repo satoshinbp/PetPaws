@@ -1,36 +1,36 @@
-.signup{
+.signup {
   display: flex;
   flex-flow: column nowrap;
-  background: $footer-color;
+  background: $base-color;
 
-  &_description{
+  &_description {
     display: none;
   }
 
-  &_form{
+  &_form {
     padding: 2rem 1rem 3rem;
     margin: 1rem;
     border-radius: 15px;
-    background:$light-pink-color;
+    background: $primary-color-light;
 
-    h2{
+    h2 {
       text-align: center;
     }
 
     label {
       display: block;
-      padding: 1rem 0 .5rem;
+      padding: 1rem 0 0.5rem;
     }
 
-    button{
+    button {
       margin: 2rem 0 0;
     }
 
-    .signin-link-area{
+    .signin-link-area {
       text-align: center;
       padding: 1rem 0;
 
-      &_link{
+      &_link {
         font-weight: 600;
         text-decoration: underline;
       }
@@ -38,13 +38,13 @@
   }
 }
 
-@media screen and (min-width: $tb-breakpoint){
-  .signup{
+@media screen and (min-width: $tb-breakpoint) {
+  .signup {
     padding: 2rem 0;
     flex-flow: row nowrap;
     justify-content: space-evenly;
 
-    &_description{
+    &_description {
       padding: 0 1rem;
       display: flex;
       flex-flow: column;
@@ -52,14 +52,14 @@
       max-width: 600px;
       flex: 70%;
 
-      p{
+      p {
         margin: 0 0 1rem;
       }
 
       ul {
         padding-left: 2rem;
 
-        li{
+        li {
           display: flex;
           padding: 1rem 0;
         }

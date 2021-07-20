@@ -8,15 +8,15 @@
 
 .dashboard-meal-summary {
   @media screen and (min-width: $tb-breakpoint) {
-    background-color: $light-green-color;
-    border-radius: $lg-border-radius;
+    background-color: $primary-color-light;
+    border-radius: $subcomponent-borderradius-mb;
   }
 }
 
 .dashboard-walk-summary {
   @media screen and (min-width: $tb-breakpoint) {
-    background-color: $light-purple;
-    border-radius: $lg-border-radius;
+    background-color: $secondary-color-light;
+    border-radius: $subcomponent-borderradius-mb;
   }
 }
 

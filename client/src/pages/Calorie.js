@@ -7,9 +7,7 @@ export default function Calorie(props) {
       <CalculatorRegisteredUserIntro />
 
       <div className="body">
-        <div className="body__wrapper">
-          <Calculator profile={props.petProfile} />
-        </div>
+        <Calculator profile={props.petProfile} />
       </div>
     </>
   );

@@ -1,15 +1,15 @@
 .dashboard-pet-profile {
-  background-color: $purple-color;
-  border-radius: $lg-border-radius;
+  background-color: $secondary-color;
+  border-radius: $subcomponent-borderradius-mb;
   @media screen and (min-width: $tb-breakpoint) {
     background-color: white;
-    border: 1px solid $navy-color;
+    border: 1px solid $font-color;
   }
 }
 
 .dashboard-pet-profile-wrapper {
-  background-color: $light-purple;
-  border-radius: $lg-border-radius;
+  background-color: $secondary-color-light;
+  border-radius: $subcomponent-borderradius-mb;
   padding: 1rem;
   @media screen and (min-width: $tb-breakpoint) {
     background-color: white;
@@ -26,7 +26,7 @@
     flex-basis: 50%;
   }
   .pet-detail {
-    border-bottom: solid 1.5px $navy-color;
+    border-bottom: solid 1.5px $font-color;
   }
 }
 

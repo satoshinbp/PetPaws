@@ -5,7 +5,7 @@
   text-align: center;
   .activity-avg {
     flex-basis: 50%;
-    border: 1px solid $navy-color;
-    border-radius: $sm-border-radius;
+    border: 1px solid $font-color;
+    border-radius: $subcomponent-borderradius-mb;
   }
 }

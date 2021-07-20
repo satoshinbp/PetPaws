@@ -23,7 +23,7 @@ export default function ContactIntro() {
             <textarea rows="5" placeholder="Type your message" />
           </label>
         </div>
-        <button type="submit" className="btn-contained-yellow">
+        <button type="submit" className="btn-contained">
           Send
         </button>
       </form>

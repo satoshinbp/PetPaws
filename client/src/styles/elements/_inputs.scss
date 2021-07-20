@@ -1,49 +1,43 @@
 input,
 .input,
 select {
-  width: 100%;
-  height: 36px; //45px
-  padding: 0.5rem 1rem;
-  border-radius: $sm-border-radius; //15px
-  background-color: white;
+  width: $input-width-full;
+  height: $input-height-mb;
+  border-radius: $input-borderradius;
+  background-color: $base-color;
   border: none;
+  padding: 0 1rem;
+  font-size: $input-fontsize-mb;
+
+  @media screen and (min-width: $tb-breakpoint) {
+    width: $input-width;
+    height: $input-height-pc;
+    font-size: $input-fontsize-pc;
+  }
 }
 
 textarea {
-  width: 100%;
+  width: $input-width-full;
   padding: 0.5rem 1rem;
-  border-radius: $sm-border-radius; //15px
-  background-color: white;
+  border-radius: $input-borderradius;
+  background-color: $base-color;
   border: none;
+
+  @media screen and (min-width: $tb-breakpoint) {
+    width: $input-width;
+  }
 }
 
 input[type='radio'] {
-  height: 28px; //35px
+  height: $input-radio-size;
 }
 
 input::placeholder,
 textarea::placeholder,
 select:invalid {
-  color: rgba(218, 218, 218, 1);
+  color: $disabled-color;
 }
 
 label {
-  color: $navy-color;
-}
-
-// Laptop
-.input-sm {
-  @media screen and(min-width:$tb-breakpoint) {
-    height: 42px; //54px
-  }
-}
-.input-md {
-  @media screen and(min-width:$tb-breakpoint) {
-    height: 52px; //64px
-  }
-}
-.input-lg {
-  @media screen and(min-width:$tb-breakpoint) {
-    height: 60px; //75px
-  }
+  color: $font-color;
 }

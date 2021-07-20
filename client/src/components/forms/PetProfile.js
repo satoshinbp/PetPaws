@@ -166,13 +166,13 @@ export default function petProfileForm(props) {
           </div>
         </div>
 
-        <button className="btn-contained-yellow btn-not-fullwidth" type="submit">
+        <button className="btn-contained " type="submit">
           Save
         </button>
       </form>
 
       <div className="add-pet">
-        <button className="icon-btn--circle-add">＋</button>
+        <button className="icon-btn-circle">＋</button>
         <p>Add new pet</p>
         <img src={signinImg} alt="" />
       </div>
