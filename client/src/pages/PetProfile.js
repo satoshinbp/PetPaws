@@ -51,25 +51,33 @@ export default function PetProfile({ petProfile }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputImage) {
-      const uploadImage = storage.ref(`images/${inputImage.name}`).put(inputImage);
-      uploadImage.on(
+      unko();
+    } else {
+      savePetData(imageURL);
+    }
+  };
+
+  const unko = async () => {
+    storage
+      .ref(`images/${inputImage.name}`)
+      .put(inputImage)
+      .on(
         'state_changed',
         (snapshot) => {},
         (error) => {
           console.log(error);
         }
-      );
-      storage
-        .ref('images')
-        .child(inputImage.name)
-        .getDownloadURL()
-        .then((url) => {
-          setImageURL(url);
-          savePetData(url);
-        });
-    } else {
-      savePetData(imageURL);
-    }
+      )
+      .then(() => {
+        storage
+          .ref('images')
+          .child(inputImage.name)
+          .getDownloadURL()
+          .then((url) => {
+            setImageURL(url);
+            savePetData(url);
+          });
+      });
   };
 
   const savePetData = (url) => {

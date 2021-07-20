@@ -13,14 +13,9 @@ export default function petProfileForm(props) {
               id="profImage"
               type="file"
               className="imageInput"
-              style={{ display: 'none', width: '120px', height: '120px' }}
               onChange={(e) => props.changeImage(e.target.files[0])}
             />
-            <img
-              id="profImage"
-              style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover' }}
-              src={props.imageURL}
-            />
+            <img id="profImage" src={props.imageURL} />
           </label>
           <h3>Pet type:</h3>
           <input
