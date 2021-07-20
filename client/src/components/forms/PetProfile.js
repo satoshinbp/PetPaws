@@ -1,5 +1,4 @@
 import React from 'react';
-import signinImg from '../../images/dog-sample.jpg'; // dammy img, to be replaced
 
 export default function petProfileForm(props) {
   const today = new Date();
@@ -20,7 +19,7 @@ export default function petProfileForm(props) {
             <img
               id="profImage"
               style={{ width: '120px', height: '120px', borderRadius: '50%', objectFit: 'cover' }}
-              src={props.imageURL || signinImg}
+              src={props.imageURL}
             />
           </label>
           <h3>Pet type:</h3>

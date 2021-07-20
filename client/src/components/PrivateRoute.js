@@ -4,6 +4,7 @@ import Axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
 import calculateAgeFromBirthday from '../functions/calculateAgeFromBirthday';
 import calculateRecommendedCalorie from '../functions/calculateRecommendedCalorie';
+import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
 
 export default function PrivateRoute({ component: Component, ...rest }) {
   const { currentUser } = useAuth();
@@ -20,7 +21,7 @@ export default function PrivateRoute({ component: Component, ...rest }) {
     birthday: new Date().toISOString().slice(0, 10),
     activity_level: 1,
     body_condition: 1,
-    image: '',
+    image: signinImg,
   });
   const [allMeals, setAllMeals] = useState([]);
   const [allActivities, setAllActivities] = useState([]);
@@ -37,7 +38,6 @@ export default function PrivateRoute({ component: Component, ...rest }) {
             if (res.data.length === 0) return;
 
             const fetchedPetProfile = res.data[0];
-            console.log('fetchedPetProfile', fetchedPetProfile);
             setPetProfile({ ...fetchedPetProfile, birthday: fetchedPetProfile.birthday.slice(0, 10) });
 
             Axios.get(`http://localhost:3001/api/meal?pet_id=${fetchedPetProfile.id}`)
