@@ -617,11 +617,12 @@ img {
   background-color: #ffdd95;
 }
 
-.intro__img {
-  display: none;
+.intro .wrapper {
+  display: flex;
+  flex-flow: nowrap column;
 }
 
-.intro__btn {
+.intro__btn-area {
   margin: 1rem 0;
 }
 
@@ -629,19 +630,19 @@ img {
   .intro {
     text-align: left;
   }
-  .intro__body {
-    flex-basis: 50%;
+  .intro .wrapper {
     display: flex;
-    flex-flow: nowrap column;
-    justify-content: space-between;
+    flex-flow: nowrap row;
+    gap: 3rem;
   }
-  .intro__img {
-    flex-basis: 50%;
-    text-align: right;
-    display: block;
-  }
-  .intro__btn {
+  .intro__title {
     margin: 0;
+  }
+  .intro__btn-area {
+    margin: 0;
+  }
+  .intro__img-area {
+    flex: 1 0 auto;
   }
 }
 
