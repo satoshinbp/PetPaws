@@ -114,7 +114,7 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
         </div>
 
         <div className="button-wrapper">
-          <button type="submit" className="btn-contained-yellow">
+          <button type="submit" className="btn-contained">
             Create
           </button>
           <button className="btn-outlined">Cancel</button>

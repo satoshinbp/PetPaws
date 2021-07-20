@@ -3,7 +3,7 @@ import storesVetsFinderIcon from '../../images/stores-vets-finder.svg'; // dammy
 export default function CalculatorRegisteredUser() {
   return (
     <div className="intro">
-      <div className="intro__wrapper">
+      <div className="wrapper">
         <div className="intro__body">
           <div className="intro__text">
             <h2>Calorie Calculator</h2>
@@ -14,7 +14,7 @@ export default function CalculatorRegisteredUser() {
           </div>
 
           <div className="intro__btn">
-            <button className="btn-contained-white btn-not-fullwidth">Create free account</button>
+            <button className="btn-contained ">Create free account</button>
           </div>
         </div>
 

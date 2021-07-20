@@ -140,7 +140,7 @@ export default function PetProfile({ petProfile }) {
                 Let's complete your furry friend detail here. Depending on the age and breed, we will advise the best
                 individual plan for nutrition and walking activities.
               </p>
-              <button className="btn-contained-green">Go premium</button>
+              <button className="btn-contained">Go premium</button>
             </div>
           </div>
           <div className="intro__img">
@@ -149,33 +149,31 @@ export default function PetProfile({ petProfile }) {
         </div>
       </div>
       <div className="body">
-        <div className="body__wrapper">
-          <PetProfileForm
-            dogBreeds={dogBreeds}
-            catBreeds={catBreeds}
-            isDog={isDog}
-            name={name}
-            breedName={breedName}
-            birthday={birthday}
-            gender={gender}
-            weight={weight}
-            height={height}
-            isSpayed={isSpayed}
-            activityLevel={activityLevel}
-            bodyCondition={bodyCondition}
-            changePetType={changePetType}
-            changeName={changeName}
-            changeBreed={changeBreed}
-            changeGender={changeGender}
-            changeBirthday={changeBirthday}
-            changeWeight={changeWeight}
-            changeHeight={changeHeight}
-            changeIsSpayed={changeIsSpayed}
-            changeActivityLevel={changeActivityLevel}
-            changeBodyCondition={changeBodyCondition}
-            handleSubmit={handleSubmit}
-          />
-        </div>
+        <PetProfileForm
+          dogBreeds={dogBreeds}
+          catBreeds={catBreeds}
+          isDog={isDog}
+          name={name}
+          breedName={breedName}
+          birthday={birthday}
+          gender={gender}
+          weight={weight}
+          height={height}
+          isSpayed={isSpayed}
+          activityLevel={activityLevel}
+          bodyCondition={bodyCondition}
+          changePetType={changePetType}
+          changeName={changeName}
+          changeBreed={changeBreed}
+          changeGender={changeGender}
+          changeBirthday={changeBirthday}
+          changeWeight={changeWeight}
+          changeHeight={changeHeight}
+          changeIsSpayed={changeIsSpayed}
+          changeActivityLevel={changeActivityLevel}
+          changeBodyCondition={changeBodyCondition}
+          handleSubmit={handleSubmit}
+        />
       </div>
     </>
   );

@@ -14,7 +14,7 @@ export default function Home() {
           </div>
 
           <div className="intro__btn">
-            <button className="btn-contained-white btn-not-fullwidth">Create free account</button>
+            <button className="btn-contained ">Create free account</button>
           </div>
         </div>
 

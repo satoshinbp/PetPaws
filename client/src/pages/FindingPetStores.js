@@ -44,7 +44,7 @@ export default function FindingPetStores() {
             </div>
 
             <div className="intro__btn">
-              <button className="btn-contained-white btn-not-fullwidth">Create free account</button>
+              <button className="btn-contained ">Create free account</button>
             </div>
           </div>
 
@@ -55,20 +55,18 @@ export default function FindingPetStores() {
       </div>
 
       <div className="body">
-        <div className="body__wrapper">
-          <div className="search-form">
-            <h2>Lets find the best Pet Stores and vets</h2>
-            <div className="search-form-background">
-              <form className="search-form-inner">
-                <label htmlFor="">Choose Pet Stores / Vets</label>
-                <select className="input-md" name="name" id="name" onChange={(e) => onChangeSelect(e)}>
-                  <option value={2}>Both</option>
-                  <option value={0}>Pet store</option>
-                  <option value={1}>Vet</option>
-                </select>
-              </form>
-              <Map shops={shops} />
-            </div>
+        <div className="search-form">
+          <h2>Lets find the best Pet Stores and vets</h2>
+          <div className="search-form-background">
+            <form className="search-form-inner">
+              <label htmlFor="">Choose Pet Stores / Vets</label>
+              <select className="input-md" name="name" id="name" onChange={(e) => onChangeSelect(e)}>
+                <option value={2}>Both</option>
+                <option value={0}>Pet store</option>
+                <option value={1}>Vet</option>
+              </select>
+            </form>
+            <Map shops={shops} />
           </div>
         </div>
       </div>

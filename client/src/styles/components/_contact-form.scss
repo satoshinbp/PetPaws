@@ -1,7 +1,7 @@
 .contact {
   padding: 2rem;
-  border-radius: $lg-border-radius;
-  background-color: $green-color;
+  border-radius: $subcomponent-borderradius-mb;
+  background-color: $primary-color;
 
   &__form {
     display: flex;

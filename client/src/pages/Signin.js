@@ -37,7 +37,7 @@ export default function Signup() {
           <input className="input-md" type="email" ref={emailRef} placeholder="Enter your Email" required />
           <label>Password</label>
           <input className="input-md" type="password" ref={passwordRef} placeholder="Enter your Password" required />
-          <button className="btn--sm btn-contained-purple" disabled={loading} type="submit">
+          <button className="btn--sm btn-contained" disabled={loading} type="submit">
             Sign in
           </button>
         </form>
