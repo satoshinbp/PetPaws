@@ -1,4 +1,9 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@font-face {
+  font-family: 'To Japan';
+  src: url("fonts/tojapan/to-japan.ttf") format("truetype");
+}
+
 /* 1 Base =================== */
 /* 1.1. Reset =========== */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -8,7 +13,6 @@
  * 1. Correct the line height in all browsers.
  * 2. Prevent adjustments of font size after orientation changes in iOS.
  */
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 html {
   line-height: 1.15;
   /* 1 */
@@ -410,6 +414,26 @@ img {
   display: none;
 }
 
+.bg-primary-meat {
+  background-image: url(../images/bg-green-meatbone-mb.png);
+  background-color: #a4eada;
+}
+
+.bg-primary-fish {
+  background-image: url(../images/bg-green-fishbone-mb.png);
+  background-color: #a4eada;
+}
+
+.bg-secondary-meat {
+  background-image: url(../images/bg-purple-meatbone-mb.png);
+  background-color: #ccabda;
+}
+
+.bg-secondary-fish {
+  background-image: url(../images/bg-purple-fishbone-mb.png);
+  background-color: #ccabda;
+}
+
 @media screen and (min-width: 600px) {
   body {
     padding-top: 94px;
@@ -432,6 +456,18 @@ img {
   }
   .pc-hidden {
     display: none;
+  }
+  .bg-primary-meat {
+    background-image: url(../images/bg-green-meatbone-mb.png);
+  }
+  .bg-primary-fish {
+    background-image: url(../images/bg-green-fishbone-pc.png);
+  }
+  .bg-secondary-meat {
+    background-image: url(../images/bg-purple-meatbone-mb.png);
+  }
+  .bg-secondary-fish {
+    background-image: url(../images/bg-purple-fishbone-mb.png);
   }
 }
 
@@ -628,7 +664,7 @@ img {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: #a4daea;
+  background-color: #a4eada;
   text-align: center;
 }
 
@@ -731,7 +767,7 @@ img {
 /* TO BE REORGANIZED ======== */
 /* 3.1. Forms =============== */
 .meal-form {
-  background-color: #a4daea;
+  background-color: #a4eada;
 }
 
 .walk-form {
@@ -839,7 +875,7 @@ img {
 }
 
 .meal-week-month-graphs-wrapper {
-  background-color: rgba(164, 218, 234, 0.5);
+  background-color: rgba(164, 234, 218, 0.5);
   padding: 1rem;
 }
 
@@ -849,19 +885,19 @@ img {
 }
 
 .meal-week-month-graphs-wrapper .button-background {
-  background-color: rgba(164, 218, 234, 0.3);
+  background-color: rgba(164, 234, 218, 0.3);
 }
 
 .meal-week-month-graphs-wrapper .button-background .btn-darkened {
-  background-color: rgba(164, 218, 234, 0.5);
+  background-color: rgba(164, 234, 218, 0.5);
 }
 
 .dashboard-meal-summary .button-background {
-  background-color: rgba(164, 218, 234, 0.3);
+  background-color: rgba(164, 234, 218, 0.3);
 }
 
 .dashboard-meal-summary .button-background .btn-darkened {
-  background-color: rgba(164, 218, 234, 0.5);
+  background-color: rgba(164, 234, 218, 0.5);
 }
 
 .walk-week-month-graphs-wrapper {
@@ -921,7 +957,7 @@ img {
 }
 
 .pet-profile-form {
-  background: #a4daea;
+  background: #a4eada;
   padding: 2rem 1rem;
   border-radius: 10px;
 }
@@ -1033,7 +1069,7 @@ img {
 .contact {
   padding: 2rem;
   border-radius: 25px;
-  background-color: #a4daea;
+  background-color: #a4eada;
 }
 
 .contact__form {
@@ -1057,7 +1093,7 @@ img {
 
 /* 3.2. Charts ============== */
 .walk-day-graph-wrapper {
-  background-color: rgba(164, 218, 234, 0.5);
+  background-color: rgba(164, 234, 218, 0.5);
 }
 
 .meal-day-graph-wrapper {
@@ -1335,9 +1371,7 @@ nav ul {
 /* 3.4. Footer ============== */
 /* 3.5. Calculator ========== */
 .calculator {
-  padding: 1rem;
-  border-radius: 25px;
-  background-color: #a4daea;
+  background-color: #a4eada;
   text-align: center;
 }
 
@@ -1398,12 +1432,6 @@ nav ul {
 
 .calculator__btn-area {
   margin: 1rem 0;
-}
-
-@media screen and (min-width: 600px) {
-  .calculator {
-    padding: 2rem;
-  }
 }
 
 /* 3.6. Dashboard =========== */
@@ -1496,7 +1524,7 @@ nav ul {
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  background-color: #a4daea;
+  background-color: #a4eada;
   text-align: center;
 }
 
@@ -1574,7 +1602,7 @@ button {
   border-radius: 50%;
   width: 84px;
   height: 84px;
-  background-color: #a4daea;
+  background-color: #a4eada;
 }
 
 @media screen and (min-width: 600px) {
