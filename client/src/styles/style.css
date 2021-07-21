@@ -702,6 +702,9 @@ nav ul {
   background-color: #a4eada;
   text-align: center;
 }
+.features h2 {
+  margin: 2rem 0 1rem;
+}
 .features .feature {
   max-width: 877px;
   padding: 1rem;
@@ -718,7 +721,7 @@ nav ul {
 @media screen and (min-width: 600px) {
   .features {
     padding: 2rem;
-    gap: 2rem;
+    gap: 3rem;
   }
   .features .feature {
     padding: 2rem;
@@ -759,7 +762,7 @@ nav ul {
 }
 .team__members {
   border-radius: 25px;
-  padding: 1rem;
+  padding: 3rem 1rem;
   max-width: 1067px;
   display: flex;
   flex-flow: nowrap column;

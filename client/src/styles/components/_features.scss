@@ -9,6 +9,10 @@
   background-color: $primary-color;
   text-align: center;
 
+  h2{
+    margin: 2rem 0 1rem;
+  }
+
   .feature {
     max-width: $md-max-width;
     padding: 1rem;
@@ -27,7 +31,7 @@
 
   @media screen and (min-width: $tb-breakpoint) {
     padding: 2rem;
-    gap: 2rem;
+    gap: 3rem;
 
     .feature {
       padding: 2rem;
