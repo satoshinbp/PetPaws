@@ -1,5 +1,5 @@
 button {
-  width: $btn-width-full;
+  width: 100%;
   height: $btn-height-mb;
   border-radius: $btn-borderradius;
   border: none;
@@ -51,9 +51,6 @@ button {
   }
 }
 
-.profile-img {
-  width: 64px;
-  height: 64px;
-  border: 2px solid $intro-color;
-  border-radius: 50%;
+.btn-area {
+  margin: 1rem 0;
 }

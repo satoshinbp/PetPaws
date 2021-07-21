@@ -1,0 +1,81 @@
+.basic-form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+
+  .radios-area {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    column-gap: 1rem;
+
+    label {
+      width: 100%;
+    }
+  }
+
+  .input-area {
+    text-align: left;
+  }
+
+  .btn-area {
+    margin: 0;
+  }
+
+  // specific for calculator
+  .end-adornment {
+    display: inline-block;
+    width: 100px;
+    margin-left: -140px;
+    text-align: right;
+  }
+
+  .end-adornment--y {
+    display: inline-block;
+    width: 100px;
+    margin-left: -140px;
+    text-align: right;
+  }
+
+  .end-adornment--m {
+    display: inline-block;
+    width: 100px;
+    margin-left: -140px;
+    text-align: right;
+  }
+
+  .input-area--two-column {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  .input-area-half {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: $tb-breakpoint) {
+  .calculator .basic-form,
+  .profile .basic-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+
+    .img-area,
+    .radios-area,
+    .btn-area,
+    .input-area--two-column {
+      grid-column: span 2;
+    }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+    }
+  }
+
+  .contact .basic-form {
+    align-items: center;
+  }
+}

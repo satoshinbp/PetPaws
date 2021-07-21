@@ -2,32 +2,35 @@
   text-align: center;
   background-color: $intro-color;
 
-  &__img {
-    display: none;
+  .wrapper {
+    display: flex;
+    flex-flow: nowrap column;
   }
 
-  &__btn {
+  .btn-area {
     margin: 1rem 0;
   }
 
   @media screen and (min-width: $tb-breakpoint) {
     text-align: left;
 
-    &__body {
-      flex-basis: 50%;
+    .wrapper {
       display: flex;
-      flex-flow: nowrap column;
-      justify-content: space-between;
+      flex-flow: nowrap row;
+      align-items: center;
+      gap: 3rem;
     }
 
-    &__img {
-      flex-basis: 50%;
-      text-align: right;
-      display: block;
-    }
-
-    &__btn {
+    .btn-area {
       margin: 0;
+    }
+
+    &__title {
+      margin: 0;
+    }
+
+    &__img-area {
+      flex: 1 0 auto;
     }
   }
 }

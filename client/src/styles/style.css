@@ -347,7 +347,7 @@ template {
 
 /* 1.2. Base ================ */
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -356,6 +356,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #3b3054;
+  text-align: center;
 }
 
 h1,
@@ -393,19 +394,16 @@ a {
   color: inherit;
 }
 
-img {
-  max-width: 100%;
-  height: auto;
-}
-
 .wrapper {
-  padding: 1.5rem;
+  box-sizing: content-box;
+  padding: 2rem 1.5rem;
   max-width: 877px;
   margin: 0 auto;
 }
 
 .wrapper-lg {
-  padding: 1.5rem;
+  box-sizing: content-box;
+  padding: 2rem 1.5rem;
   max-width: 1067px;
   margin: 0 auto;
 }
@@ -448,8 +446,19 @@ img {
   h3 {
     font-size: 24px;
   }
-  .wrapper {
-    padding: 3rem;
+  .wrapper,
+  .wrapper-lg {
+    padding: 4rem 3rem;
+  }
+  .bg-primary-light {
+    padding: 2rem 1.5rem;
+    border-radius: 50px;
+    background-color: #dcf7f1;
+  }
+  .bg-secondary-light {
+    padding: 2rem 1.5rem;
+    border-radius: 50px;
+    background-color: #e4c8f0;
   }
   .mb-hidden {
     display: initial;
@@ -617,11 +626,12 @@ img {
   background-color: #ffdd95;
 }
 
-.intro__img {
-  display: none;
+.intro .wrapper {
+  display: flex;
+  flex-flow: nowrap column;
 }
 
-.intro__btn {
+.intro .btn-area {
   margin: 1rem 0;
 }
 
@@ -629,19 +639,20 @@ img {
   .intro {
     text-align: left;
   }
-  .intro__body {
-    flex-basis: 50%;
+  .intro .wrapper {
     display: flex;
-    flex-flow: nowrap column;
-    justify-content: space-between;
+    flex-flow: nowrap row;
+    align-items: center;
+    gap: 3rem;
   }
-  .intro__img {
-    flex-basis: 50%;
-    text-align: right;
-    display: block;
-  }
-  .intro__btn {
+  .intro .btn-area {
     margin: 0;
+  }
+  .intro__title {
+    margin: 0;
+  }
+  .intro__img-area {
+    flex: 1 0 auto;
   }
 }
 
@@ -654,7 +665,42 @@ img {
   gap: 4rem;
 }
 
-/* 3.3. Features ============ */
+/* 3.3. Header ============== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 91px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.header__wrapper {
+  width: 100%;
+  max-width: 877px;
+  margin: 0 auto;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 3.4. Footer ============== */
+/* 3.5. Features ============ */
 .features {
   width: 100%;
   max-width: 877px;
@@ -711,7 +757,7 @@ img {
   }
 }
 
-/* 3.4. Team ================ */
+/* 3.6. Team ================ */
 .team {
   width: 100%;
   max-width: 877px;
@@ -764,7 +810,80 @@ img {
   }
 }
 
-/* TO BE REORGANIZED ======== */
+/* 3.7. Calculator ========== */
+.calculator__result {
+  margin-top: 3rem;
+}
+
+.calculator__result-calorie {
+  color: #e4c8f0;
+  font-size: 60px;
+  font-weight: 900;
+}
+
+/* 3.8. Stores/Vets ========= */
+.search-form .search-form-inner {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-form .search-combined-icon {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .search-form .search-combined-icon {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .search-form .search-icon-mobile {
+    display: none;
+  }
+}
+
+.search-form select {
+  align-self: center;
+}
+
+/* 3.9. Profile ========= */
+/* 3.10. Add Pet ========= */
+.add-pet .container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.add-pet .btn-and-label {
+  flex: 0 0 100%;
+}
+
+.add-pet .icon-area {
+  flex: 0 0 20%;
+}
+
+@media screen and (min-width: 600px) {
+  .add-pet .container {
+    flex-flow: row nowrap;
+    gap: 2rem;
+  }
+  .add-pet .btn-and-label {
+    flex: 0 0 112px;
+  }
+  .add-pet .icon-area {
+    flex: initial;
+  }
+  .add-pet .icon-area--dog {
+    order: -1;
+  }
+}
+
+/* ========== TO BE REORGANIZED ========== */
 /* 3.1. Forms =============== */
 .meal-form-wrapper {
   background-color: #a4eada;
@@ -1118,139 +1237,89 @@ img {
   }
 }
 
-.pet-profile-form {
-  background: #a4eada;
-  padding: 2rem 1rem;
-  border-radius: 10px;
-}
-
-.pet-profile-form_area {
+.basic-form {
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
+  gap: 1rem;
 }
 
-.pet-profile-form_area .pet-type,
-.pet-profile-form_area .spay {
+.basic-form .radios-area {
   display: flex;
   flex-flow: row wrap;
-  text-align: center;
+  justify-content: center;
+  column-gap: 1rem;
 }
 
-.pet-profile-form_area .pet-type label,
-.pet-profile-form_area .spay label {
-  padding: 1rem 0;
+.basic-form .radios-area label {
   width: 100%;
 }
 
-.pet-profile-form_area .pet-type .pet-type_cat,
-.pet-profile-form_area .pet-type .pet-type_dog,
-.pet-profile-form_area .pet-type .spayed,
-.pet-profile-form_area .pet-type .notSpayed,
-.pet-profile-form_area .spay .pet-type_cat,
-.pet-profile-form_area .spay .pet-type_dog,
-.pet-profile-form_area .spay .spayed,
-.pet-profile-form_area .spay .notSpayed {
-  flex: 50%;
+.basic-form .input-area {
+  text-align: left;
 }
 
-.pet-profile-form_area .input-area {
-  margin: 0.5rem 0;
+.basic-form .btn-area {
+  margin: 0;
+}
+
+.basic-form .end-adornment {
+  display: inline-block;
+  width: 100px;
+  margin-left: -140px;
+  text-align: right;
+}
+
+.basic-form .end-adornment--y {
+  display: inline-block;
+  width: 100px;
+  margin-left: -140px;
+  text-align: right;
+}
+
+.basic-form .end-adornment--m {
+  display: inline-block;
+  width: 100px;
+  margin-left: -140px;
+  text-align: right;
+}
+
+.basic-form .input-area--two-column {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.basic-form .input-area-half {
   width: 100%;
-}
-
-.pet-profile-form_area .input-area label {
-  display: block;
-  padding: 0.3rem 0;
-}
-
-.pet-profile-form_image img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 0.5rem #ffdd95 solid;
-  object-fit: cover;
-}
-
-.pet-profile-form button {
-  margin: 2rem 0;
-  padding: 0 1rem;
-}
-
-.add-pet {
-  border-radius: 10px;
-  padding: 2rem;
-  text-align: center;
-  background-color: #ccabda;
-}
-
-.add-pet button {
-  font-size: 2rem;
-  font-weight: 700;
 }
 
 @media screen and (min-width: 600px) {
-  .pet-profile-form_area {
-    text-align: center;
-    flex-flow: row wrap;
-    justify-content: center;
+  .calculator .basic-form,
+  .profile .basic-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
   }
-  .pet-profile-form_area .pet-profile-form_image {
+  .calculator .basic-form .img-area,
+  .calculator .basic-form .radios-area,
+  .calculator .basic-form .btn-area,
+  .calculator .basic-form .input-area--two-column,
+  .profile .basic-form .img-area,
+  .profile .basic-form .radios-area,
+  .profile .basic-form .btn-area,
+  .profile .basic-form .input-area--two-column {
+    grid-column: span 2;
+  }
+  .calculator .basic-form input,
+  .calculator .basic-form select,
+  .calculator .basic-form textarea,
+  .profile .basic-form input,
+  .profile .basic-form select,
+  .profile .basic-form textarea {
     width: 100%;
   }
-  .pet-profile-form_area .input-area {
-    flex: 0 0 40%;
-    padding: 0 1rem;
+  .contact .basic-form {
+    align-items: center;
   }
-  .pet-profile-form_area .input-area label {
-    text-align: left;
-  }
-  .pet-profile-form_area .pet-type,
-  .pet-profile-form_area .spay {
-    width: 100%;
-    justify-content: center;
-  }
-  .pet-profile-form_area .pet-type .pet-type_cat,
-  .pet-profile-form_area .pet-type .pet-type_dog,
-  .pet-profile-form_area .pet-type .spayed,
-  .pet-profile-form_area .pet-type .notSpayed,
-  .pet-profile-form_area .spay .pet-type_cat,
-  .pet-profile-form_area .spay .pet-type_dog,
-  .pet-profile-form_area .spay .spayed,
-  .pet-profile-form_area .spay .notSpayed {
-    flex: unset;
-    padding: 0 0.5rem;
-  }
-  .pet-profile-form button {
-    padding: 0 5rem;
-    margin: 2rem auto;
-    display: block;
-  }
-}
-
-.contact {
-  padding: 2rem;
-  border-radius: 25px;
-  background-color: #a4eada;
-}
-
-.contact__form {
-  display: flex;
-  flex-flow: nowrap column;
-  gap: 2rem;
-}
-
-.contact h2 {
-  text-align: center;
-}
-
-.contact input,
-.contact textarea {
-  margin-top: 0.5rem;
-}
-
-.contact label {
-  font-weight: 700;
 }
 
 /* 3.2. Charts ============== */
@@ -1496,106 +1565,6 @@ img {
   border-radius: 25px;
 }
 
-/* 3.3. Header ============== */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 91px;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-  background-color: #fff;
-}
-
-.header__wrapper {
-  width: 100%;
-  max-width: 877px;
-  margin: 0 auto;
-}
-
-.header__menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-nav ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* 3.4. Footer ============== */
-/* 3.5. Calculator ========== */
-.calculator {
-  background-color: #a4eada;
-  text-align: center;
-}
-
-.calculator__form {
-  display: flex;
-  flex-flow: nowrap column;
-  gap: 1rem;
-}
-
-.calculator__radio-options {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-.calculator__params {
-  text-align: left;
-}
-
-.calculator__params--age {
-  display: flex;
-  gap: 1rem;
-}
-
-.calculator__label {
-  margin-bottom: 0.25rem;
-}
-
-.calculator__label--radio {
-  margin: 1rem 0;
-}
-
-.calculator__label--age {
-  flex-basis: 50%;
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.calculator__input-with-endadornment {
-  display: flex;
-  align-items: center;
-  gap: 0.25rem;
-}
-
-.calculator__result {
-  margin: 1rem 0;
-  padding: 1rem;
-  border-radius: 25px;
-  background-color: #dcf7f1;
-}
-
-.calculator__result-calorie {
-  color: #e4c8f0;
-  font-size: 60px;
-  font-weight: 900;
-}
-
-.calculator__btn-area {
-  margin: 1rem 0;
-}
-
 /* 3.6. Dashboard =========== */
 .dashboard-pet-profile {
   background-color: #ccabda;
@@ -1679,41 +1648,7 @@ nav ul {
   margin-top: 3rem;
 }
 
-/* 3.7. Stores/Vets ========= */
-.search-form {
-  padding: 1rem;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: #a4eada;
-  text-align: center;
-}
-
-.search-form .search-form-inner {
-  padding: 1rem;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-align: center;
-}
-
-.search-form select {
-  max-width: 400px;
-  align-self: center;
-}
-
-@media screen and (min-width: 600px) {
-  .search-form .search-form-background {
-    background-color: #dcf7f1;
-    border-radius: 25px;
-    margin: 3rem;
-    padding: 2rem 1rem;
-  }
-}
-
-/* ========================== */
+/* ====================================== */
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
 button {
@@ -1774,11 +1709,8 @@ button {
   }
 }
 
-.profile-img {
-  width: 64px;
-  height: 64px;
-  border: 2px solid #ffdd95;
-  border-radius: 50%;
+.btn-area {
+  margin: 1rem 0;
 }
 
 /* 4.2. Inputs ============== */
@@ -1806,7 +1738,7 @@ select {
 
 textarea {
   width: 100%;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   border-radius: 15px;
   background-color: #fff;
   border: none;
@@ -1820,6 +1752,7 @@ textarea {
 
 input[type='radio'] {
   height: 35px;
+  width: 35px;
 }
 
 input::placeholder,
@@ -1828,7 +1761,35 @@ select:invalid {
   color: #dadada;
 }
 
-label {
+label,
+.label {
+  display: block;
+  margin-bottom: 0.25rem;
   color: #3b3054;
+  font-weight: 700;
+}
+
+/* 4.3. Images ============== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.profile-img {
+  border: solid #ffdd95;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+header .profile-img {
+  width: 64px;
+  height: 64px;
+  border-width: 4px;
+}
+
+.profile .profile-img {
+  width: 128px;
+  height: 128px;
+  border-width: 8px;
 }
 /*# sourceMappingURL=style.css.map */
