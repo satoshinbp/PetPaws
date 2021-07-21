@@ -31,8 +31,8 @@
   padding: 0;
   // inactivate any kind of click on overlay background area
   pointer-events: none;
-  .walk-form-wrapper,
-  .meal-form-wrapper {
+  .walk-form-wrapper.wrapper,
+  .meal-form-wrapper.wrapper {
     border-radius: $subcomponent-borderradius-mb;
     // 4rem = 2rem margin on top and bottom margin respectively
     // between overlay and form
@@ -52,15 +52,20 @@
     padding-bottom: 2rem;
     box-sizing: border-box;
     overflow: hidden;
+    padding-top: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+
     h2 {
       text-align: center;
+      margin: 0;
     }
     .close-modal-icon {
-      width: 22px;
-      padding: 1rem;
+      width: 35px;
+      padding: 0.5rem;
       display: block;
       margin-right: 0;
-      margin-left: auto;
+      margin-left: 0;
       cursor: pointer;
     }
     .meal-form-content,
@@ -70,6 +75,9 @@
       width: 100%;
       box-sizing: border-box;
       overflow-y: scroll;
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 1rem;
     }
     input,
     select,
@@ -82,13 +90,21 @@
       gap: 2rem;
       .input-wrapper {
         display: grid;
-        gap: 0.9rem;
+        gap: 1rem;
         div {
           display: flex;
           flex-flow: column nowrap;
-          gap: 0.3rem;
+          text-align: left;
+          position: relative;
           label {
             font-weight: 700;
+          }
+          input {
+          }
+          .input-unit {
+            position: absolute;
+            top: 25px;
+            right: 1rem;
           }
         }
       }
@@ -267,7 +283,7 @@
     height: calc(100vh - 91px); // subtract height of header
     .walk-form-wrapper.wrapper,
     .meal-form-wrapper.wrapper {
-      padding-top: 0.5rem;
+      padding-top: 1rem;
       // 4rem = 2rem margin on top and bottom margin respectively
       // between overlay and form
       height: calc((100vh - 91px) - 4rem);
@@ -298,6 +314,13 @@
             grid-template-columns: 1fr 1fr;
             column-gap: 1.5rem;
             row-gap: 1rem;
+            div {
+              .input-unit {
+                position: absolute;
+                top: 51px;
+                right: 1rem;
+              }
+            }
           }
           .button-wrapper {
             flex-direction: row-reverse;

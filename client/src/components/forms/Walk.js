@@ -68,7 +68,7 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
                 required
                 onChange={(e) => setMinute(e.target.value)}
               />
-              min
+              <p className="input-unit">min</p>
             </div>
 
             <div>
@@ -83,7 +83,7 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
                 step="0.1"
                 onChange={(e) => setDistance(e.target.value)}
               />
-              km
+              <p className="input-unit">km</p>
             </div>
           </div>
           <div className="button-wrapper">
