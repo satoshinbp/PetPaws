@@ -33,14 +33,12 @@
 // @import 'components/profile'; no specific styling for profile component
 /* 3.10. Add Pet ========= */
 @import 'components/add-pet';
+/* 3.11. Trackers ========= */
+@import 'components/tracker-summary';
+@import 'components/tracker-daily';
 
 /* ========== TO BE REORGANIZED ========== */
-/* 3.1. Forms =============== */
-@import 'components/summary';
-@import 'components/walk-form';
-@import 'components/basic-form'; // for profile, contact and calculator form
 /* 3.2. Charts ============== */
-@import 'components/day-graph';
 @import 'components/week-month-graphs';
 @import 'components/meal-latest-chart';
 @import 'components/walk-latest-chart';
@@ -56,3 +54,6 @@
 @import 'elements/inputs';
 /* 4.3. Images ============== */
 @import 'elements/images';
+/* 4.4. Forms =============== */
+@import 'elements/tracker-form';
+@import 'elements/basic-form'; // for profile, contact and calculator form
