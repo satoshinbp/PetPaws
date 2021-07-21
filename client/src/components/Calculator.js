@@ -102,9 +102,9 @@ export default function Calculator(props) {
   return (
     <div className="calculator bg-primary-meat">
       <div className="wrapper">
-        <h3>Let's Calculate!</h3>
+        <h2>let’s see how many calories your pet needs!</h2>
 
-        <form onSubmit={handleSubmit} className="profile-form">
+        <form onSubmit={handleSubmit} className="profile-form bg-primary-light">
           <div className="radios-area">
             <label>Pet Type</label>
 
@@ -225,7 +225,7 @@ export default function Calculator(props) {
         </form>
 
         {result && (
-          <div className="calculator__result">
+          <div className="calculator__result bg-primary-light">
             <h3>Calculation Done!</h3>
             {currentUser ? (
               <>

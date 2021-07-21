@@ -356,6 +356,7 @@ body {
   font-size: 16px;
   line-height: 1.5;
   color: #3b3054;
+  text-align: center;
 }
 
 h1,
@@ -391,11 +392,6 @@ li {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 .wrapper {
@@ -436,6 +432,18 @@ img {
   background-color: #ccabda;
 }
 
+.bg-primary-light {
+  padding: 2rem 1.5rem;
+  border-radius: 25px;
+  background-color: #dcf7f1;
+}
+
+.bg-secondary-light {
+  padding: 2rem 1.5rem;
+  border-radius: 25px;
+  background-color: #e4c8f0;
+}
+
 @media screen and (min-width: 600px) {
   body {
     padding-top: 94px;
@@ -451,7 +459,9 @@ img {
     font-size: 24px;
   }
   .wrapper,
-  .wrapper-lg {
+  .wrapper-lg,
+  .bg-primary-light,
+  .bg-secondary-light {
     padding: 4rem 3rem;
   }
   .mb-hidden {
@@ -659,7 +669,42 @@ img {
   gap: 4rem;
 }
 
-/* 3.3. Features ============ */
+/* 3.3. Header ============== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 91px;
+  z-index: 1000;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+.header__wrapper {
+  width: 100%;
+  max-width: 877px;
+  margin: 0 auto;
+}
+
+.header__menu {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+nav ul {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 3.4. Footer ============== */
+/* 3.5. Features ============ */
 .features {
   width: 100%;
   max-width: 877px;
@@ -716,7 +761,7 @@ img {
   }
 }
 
-/* 3.4. Team ================ */
+/* 3.6. Team ================ */
 .team {
   width: 100%;
   max-width: 877px;
@@ -769,7 +814,54 @@ img {
   }
 }
 
-/* TO BE REORGANIZED ======== */
+/* 3.7. Calculator ========== */
+.calculator__result {
+  margin-top: 3rem;
+}
+
+.calculator__result-calorie {
+  color: #e4c8f0;
+  font-size: 60px;
+  font-weight: 900;
+}
+
+/* 3.8. Stores/Vets ========= */
+.search-form .search-form-inner {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.search-form .search-combined-icon {
+  display: none;
+}
+
+@media screen and (min-width: 600px) {
+  .search-form .search-combined-icon {
+    display: block;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .search-form .search-icon-mobile {
+    display: none;
+  }
+}
+
+.search-form select {
+  align-self: center;
+}
+
+/* 3.9. Profile ========= */
+/* 3.10. Add Pet ========= */
+.add-pet .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ========== TO BE REORGANIZED ========== */
 /* 3.1. Forms =============== */
 .meal-form {
   background-color: #a4eada;
@@ -977,7 +1069,6 @@ img {
   flex-flow: row wrap;
   justify-content: center;
   column-gap: 1rem;
-  text-align: center;
 }
 
 .profile-form .radios-area label {
@@ -990,7 +1081,6 @@ img {
 
 .profile-form .btn-area {
   margin: 0;
-  text-align: center;
 }
 
 .profile-form .end-adornment {
@@ -1022,21 +1112,6 @@ img {
 
 .profile-form .input-area-half {
   width: 100%;
-}
-
-.profile-img {
-  width: 120px;
-  height: 120px;
-  border-radius: 50%;
-  border: 0.5rem #ffdd95 solid;
-  object-fit: cover;
-}
-
-.add-pet {
-  border-radius: 10px;
-  padding: 2rem;
-  text-align: center;
-  background-color: #ccabda;
 }
 
 @media screen and (min-width: 600px) {
@@ -1320,59 +1395,6 @@ img {
   border-radius: 25px;
 }
 
-/* 3.3. Header ============== */
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 91px;
-  z-index: 1000;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 16px;
-  background-color: #fff;
-}
-
-.header__wrapper {
-  width: 100%;
-  max-width: 877px;
-  margin: 0 auto;
-}
-
-.header__menu {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 1rem;
-}
-
-nav ul {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-/* 3.4. Footer ============== */
-/* 3.5. Calculator ========== */
-.calculator {
-  text-align: center;
-}
-
-.calculator__result {
-  margin-top: 3rem;
-  padding: 1rem;
-  border-radius: 25px;
-  background-color: #dcf7f1;
-}
-
-.calculator__result-calorie {
-  color: #e4c8f0;
-  font-size: 60px;
-  font-weight: 900;
-}
-
 /* 3.6. Dashboard =========== */
 .dashboard-pet-profile {
   background-color: #ccabda;
@@ -1456,50 +1478,7 @@ nav ul {
   margin-top: 3rem;
 }
 
-/* 3.7. Stores/Vets ========= */
-.search-form {
-  background-color: #a4eada;
-  text-align: center;
-}
-
-.search-form .search-form-inner {
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  text-align: center;
-}
-
-.search-form .search-combined-icon {
-  display: none;
-}
-
-@media screen and (min-width: 600px) {
-  .search-form .search-combined-icon {
-    text-align: center;
-    display: block;
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .search-form .search-icon-mobile {
-    display: none;
-  }
-}
-
-.search-form select {
-  align-self: center;
-}
-
-@media screen and (min-width: 600px) {
-  .search-form .search-form-background {
-    background-color: #dcf7f1;
-    border-radius: 25px;
-    padding: 2rem 1rem;
-  }
-}
-
-/* ========================== */
+/* ====================================== */
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
 button {
@@ -1564,13 +1543,6 @@ button {
   margin: 1rem 0;
 }
 
-.profile-img {
-  width: 64px;
-  height: 64px;
-  border: 2px solid #ffdd95;
-  border-radius: 50%;
-}
-
 /* 4.2. Inputs ============== */
 input,
 .input,
@@ -1625,5 +1597,29 @@ label,
   margin-bottom: 0.25rem;
   color: #3b3054;
   font-weight: 700;
+}
+
+/* 4.3. Images ============== */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.profile-img {
+  border: solid #ffdd95;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+header .profile-img {
+  width: 64px;
+  height: 64px;
+  border-width: 4px;
+}
+
+.profile .profile-img {
+  width: 128px;
+  height: 128px;
+  border-width: 8px;
 }
 /*# sourceMappingURL=style.css.map */

@@ -5,7 +5,7 @@ export default function petProfileForm(props) {
   const today = new Date();
 
   return (
-    <form className="profile-form" onSubmit={(e) => props.handleSubmit(e)}>
+    <form className="profile-form bg-primary-light" onSubmit={(e) => props.handleSubmit(e)}>
       <div className="img-area">
         <img src={signinImg} alt="" className="profile-img" />
       </div>

@@ -4,7 +4,7 @@ import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
 import ProfileIntro from '../components/intros/Profile';
-import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
+import catIcon from '../images/cat.svg'; // to be replaced
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -135,8 +135,10 @@ export default function PetProfile({ petProfile }) {
       <ProfileIntro />
 
       <div className="body">
-        <div className="bg-primary-meat">
+        <div className="profile bg-primary-meat">
           <div className="wrapper">
+            <h2>Lets create profile for your pet!</h2>
+
             <PetProfileForm
               dogBreeds={dogBreeds}
               catBreeds={catBreeds}
@@ -165,12 +167,19 @@ export default function PetProfile({ petProfile }) {
           </div>
         </div>
 
-        <div className="bg-primary-meat">
+        <div className="add-pet bg-secondary-fish">
           <div className="wrapper">
-            <div className="add-pet">
-              <button className="icon-btn-circle">＋</button>
-              <p>Add new pet</p>
-              <img src={signinImg} alt="" />
+            <div className="container bg-secondary-light">
+              {/* to be replaced */}
+              <img src={catIcon} alt="a sitting dog" />
+
+              <div>
+                <button className="icon-btn-circle">＋</button>
+                <p>Add new pet</p>
+              </div>
+
+              {/* to be replaced */}
+              <img src={catIcon} alt="a sitting cat" />
             </div>
           </div>
         </div>
