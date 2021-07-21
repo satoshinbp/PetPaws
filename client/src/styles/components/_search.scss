@@ -1,5 +1,4 @@
 .search-form {
-  padding: 1rem;
   background-color: $primary-color;
   text-align: center;
 
@@ -12,7 +11,11 @@
   }
 
   .search-combined-icon {
-    text-align: center;
+    display: none;
+    @media screen and (min-width: $tb-breakpoint) {
+      text-align: center;
+      display: block;
+    }
   }
 
   .search-icon-mobile {
@@ -22,9 +25,9 @@
   }
 
   select {
-    max-width: 400px;
     align-self: center;
   }
+
   .search-form-background {
     @media screen and(min-width:$tb-breakpoint) {
       background-color: $primary-color-light;

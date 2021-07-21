@@ -37,11 +37,11 @@ export default function FindingPetStores() {
       <FinderIntro />
 
       <div className="body">
-        <div className="search-form">
+        <div className="search-form bg-primary-meat ">
           <div className="wrapper">
             <h2>Lets find the best Pet Stores and vets</h2>
             <div className="search-form-background">
-              <div className="intro__img search-combined-icon">
+              <div className="search-combined-icon">
                 <img src={finderCombinedIcon} alt="search page icon" />
               </div>
               <div className="search-icon-mobile">
