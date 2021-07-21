@@ -1,6 +1,8 @@
+.dashboard-summary {
+}
+
 .dashboard-meal-summary,
 .dashboard-walk-summary {
-  display: none;
   @media screen and (min-width: $tb-breakpoint) {
     display: block;
   }
@@ -8,15 +10,15 @@
 
 .dashboard-meal-summary {
   @media screen and (min-width: $tb-breakpoint) {
-    background-color: $primary-color-light;
-    border-radius: $subcomponent-borderradius-mb;
+    // background-color: $primary-color-light;
+    border-radius: 10px;
   }
 }
 
 .dashboard-walk-summary {
   @media screen and (min-width: $tb-breakpoint) {
-    background-color: $secondary-color-light;
-    border-radius: $subcomponent-borderradius-mb;
+    // background-color: $secondary-color-light;
+    border-radius: 10px;
   }
 }
 

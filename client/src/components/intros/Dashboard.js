@@ -7,7 +7,7 @@ export default function Dashboard() {
         <div>
           <h1 className="intro__title">Dashboard</h1>
           <p>
-            Let's check the last week's summary here. You can review your pet's meal and activity habit, and notice
+            Let's check the last week's summary here. You can review your pet's meal and activity habits, and notice
             small changes in your furry friend.
           </p>
 
