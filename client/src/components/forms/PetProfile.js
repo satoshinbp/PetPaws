@@ -8,6 +8,15 @@ export default function petProfileForm(props) {
       {/* This styling is temporary, to be removed */}
       <form onSubmit={(e) => props.handleSubmit(e)} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
         <div>
+          <label htmlFor="profImage">
+            <input
+              id="profImage"
+              type="file"
+              className="imageInput"
+              onChange={(e) => props.changeImage(e.target.files[0])}
+            />
+            <img id="profImage" src={props.imageURL} />
+          </label>
           <h3>Pet type:</h3>
           <input
             type="radio"
