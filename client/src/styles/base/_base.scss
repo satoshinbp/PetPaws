@@ -123,6 +123,10 @@ a {
   .bg-secondary-light {
     padding: 4rem 3rem;
   }
+  .bg-primary-light,
+  .bg-secondary-light {
+    border-radius: $subcomponent-borderradius-pc;
+  }
 
   .mb-hidden {
     display: initial;

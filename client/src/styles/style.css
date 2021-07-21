@@ -464,6 +464,10 @@ a {
   .bg-secondary-light {
     padding: 4rem 3rem;
   }
+  .bg-primary-light,
+  .bg-secondary-light {
+    border-radius: 50px;
+  }
   .mb-hidden {
     display: initial;
   }
