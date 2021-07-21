@@ -87,11 +87,6 @@ a {
   background-color: $secondary-color;
 }
 
-.bg-secondary-light {
-  display: none;
-  padding: 2rem 1.5rem;
-}
-
 @media screen and (min-width: $tb-breakpoint) {
   body {
     padding-top: $header-height-pc;

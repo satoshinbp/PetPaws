@@ -432,11 +432,6 @@ a {
   background-color: #ccabda;
 }
 
-.bg-secondary-light {
-  display: none;
-  padding: 2rem 1.5rem;
-}
-
 @media screen and (min-width: 600px) {
   body {
     padding-top: 94px;
