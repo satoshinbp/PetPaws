@@ -1,57 +1,69 @@
-.pet-profile-form {
-  background: $primary-color;
-  padding: 2rem 1rem;
-  border-radius: 10px;
+.profile-form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
 
-  &_area {
+  input,
+  select {
+    width: 100%;
+  }
+
+  .radios-area {
     display: flex;
-    flex-flow: column nowrap;
-    align-items: center;
+    flex-flow: row wrap;
+    justify-content: center;
+    column-gap: 1rem;
+    text-align: center;
 
-    .pet-type,
-    .spay {
-      display: flex;
-      flex-flow: row wrap;
-      text-align: center;
-
-      label {
-        padding: 1rem 0;
-        width: 100%;
-      }
-
-      .pet-type_cat,
-      .pet-type_dog,
-      .spayed,
-      .notSpayed {
-        flex: 50%;
-      }
-    }
-
-    .input-area {
-      margin: 0.5rem 0;
+    label {
       width: 100%;
-
-      label {
-        display: block;
-        padding: 0.3rem 0;
-      }
     }
   }
 
-  &_image {
-    img {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      border: 0.5rem $intro-color solid;
-      object-fit: cover;
-    }
+  .input-area {
+    text-align: left;
   }
 
-  button {
-    margin: 2rem 0;
-    padding: 0 1rem;
+  // specific for calculator
+  .end-adornment {
+    display: inline-block;
+    width: 100px;
+    margin-left: -140px;
+    text-align: right;
   }
+
+  .end-adornment--y {
+    display: inline-block;
+    width: 100px;
+    margin-left: -140px;
+    text-align: right;
+  }
+
+  .end-adornment--m {
+    display: inline-block;
+    width: 100px;
+    margin-left: -140px;
+    text-align: right;
+  }
+
+  .input-area--two-column {
+    display: flex;
+    align-items: flex-end;
+    gap: 1rem;
+  }
+
+  .input-area-half {
+    width: 100%;
+  }
+}
+
+// shall be reconsidered to style both profile image and profile button on header
+.profile-img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 0.5rem $intro-color solid;
+  object-fit: cover;
 }
 
 .add-pet {
@@ -59,50 +71,18 @@
   padding: 2rem;
   text-align: center;
   background-color: $secondary-color;
-
-  button {
-    font-size: 2rem;
-    font-weight: 700;
-  }
 }
 
 @media screen and (min-width: $tb-breakpoint) {
-  .pet-profile-form {
-    &_area {
-      text-align: center;
-      flex-flow: row wrap;
-      justify-content: center;
-      .pet-profile-form_image {
-        width: 100%;
-      }
+  .profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
 
-      .input-area {
-        flex: 0 0 40%;
-        padding: 0 1rem;
-
-        label {
-          text-align: left;
-        }
-      }
-
-      .pet-type,
-      .spay {
-        width: 100%;
-        justify-content: center;
-
-        .pet-type_cat,
-        .pet-type_dog,
-        .spayed,
-        .notSpayed {
-          flex: unset;
-          padding: 0 0.5rem;
-        }
-      }
-    }
-    button {
-      padding: 0 5rem;
-      margin: 2rem auto;
-      display: block;
+    .img-area,
+    .radios-area,
+    .btn-area,
+    .input-area--two-column {
+      grid-column: span 2;
     }
   }
 }
