@@ -1,8 +1,7 @@
 input,
 .input,
 select {
-  box-sizing: border-box;
-  width: $input-width-full;
+  width: 100%;
   height: $input-height-mb;
   border-radius: $input-borderradius;
   background-color: $base-color;
@@ -18,8 +17,8 @@ select {
 }
 
 textarea {
-  width: $input-width-full;
-  padding: 0.5rem 1rem;
+  width: 100%;
+  padding: 1rem;
   border-radius: $input-borderradius;
   background-color: $base-color;
   border: none;
@@ -31,6 +30,7 @@ textarea {
 
 input[type='radio'] {
   height: $input-radio-size;
+  width: $input-radio-size;
 }
 
 input::placeholder,
@@ -39,6 +39,10 @@ select:invalid {
   color: $disabled-color;
 }
 
-label {
+label,
+.label {
+  display: block;
+  margin-bottom: 0.25rem;
   color: $font-color;
+  font-weight: $label-fontweight;
 }

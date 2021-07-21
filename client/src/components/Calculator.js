@@ -104,26 +104,44 @@ export default function Calculator(props) {
       <div className="wrapper">
         <h3>Let's Calculate!</h3>
 
-        <form onSubmit={handleSubmit} className="calculator__form">
-          <div className="calculator__pet-type">
-            <div className="calculator__label--radio">Pet type</div>
+        <form onSubmit={handleSubmit} className="profile-form">
+          <div className="radios-area">
+            <label>Pet Type</label>
 
-            <div className="calculator__radio-options">
-              <label htmlFor="dog">
-                <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
-                Dog
-              </label>
-              <label htmlFor="cat">
-                <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
-                Cat
-              </label>
+            <div className="radio-area">
+              <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
+              <label htmlFor="dog">Dog</label>
+            </div>
+
+            <div className="radio-area">
+              <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
+              <label htmlFor="cat">Cat</label>
             </div>
           </div>
 
-          <div className="calculator__params">
-            <label htmlFor="breed" className="calculator__label">
-              Breed
-            </label>
+          <div className="input-area input-area--two-column">
+            <div className="input-area-half">
+              <label htmlFor="weight">Age</label>
+              <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
+              <span className="end-adornment--y">years</span>
+            </div>
+
+            <div className="input-area-half">
+              <input
+                type="number"
+                name="ageMonths"
+                value={ageMonths}
+                min={0}
+                max={11}
+                step={1}
+                onChange={changeMonths}
+              />
+              <span className="end-adornment--m">months</span>
+            </div>
+          </div>
+
+          <div className="input-area">
+            <label htmlFor="breed">Breed</label>
             <select name="breed" value={breedName} onChange={changeBreed} required>
               <option value="">Select breed</option>
               {isDog ? (
@@ -146,42 +164,14 @@ export default function Calculator(props) {
             </select>
           </div>
 
-          <div className="calculator__params">
-            <div className="calculator__label">Age</div>
-            <div className="calculator__params--age">
-              <label className="calculator__label--age">
-                <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
-                years
-              </label>
-              <label className="calculator__label--age">
-                <input
-                  type="number"
-                  name="ageMonths"
-                  value={ageMonths}
-                  min={0}
-                  max={11}
-                  step={1}
-                  onChange={changeMonths}
-                />
-                months
-              </label>
-            </div>
+          <div className="input-area">
+            <label htmlFor="weight">Weight</label>
+            <input type="number" name="weight" value={weight} min={0} step={0.1} onChange={changeWeight} />
+            <span className="end-adornment">kg</span>
           </div>
 
-          <div className="calculator__params">
-            <div className="calculator__label">
-              <label htmlFor="weight">Weight</label>
-            </div>
-            <div className="calculator__input-with-endadornment">
-              <input type="number" name="weight" value={weight} min={0} step={0.1} onChange={changeWeight} />
-              kg
-            </div>
-          </div>
-
-          <div className="calculator__params">
-            <div className="calculator__label">
-              <label htmlFor="activityLevel">Activity Level</label>
-            </div>
+          <div className="input-area">
+            <label htmlFor="activityLevel">Activity Level</label>
             <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
               <option value={0}>Inactive</option>
               <option value={1}>Somewhat Active</option>
@@ -190,10 +180,8 @@ export default function Calculator(props) {
             </select>
           </div>
 
-          <div className="calculator__params">
-            <div className="calculator__label">
-              <label htmlFor="bodyCondition">Body Condition</label>
-            </div>
+          <div className="input-area">
+            <label htmlFor="bodyCondition">Body Condition</label>
             <select name="bodyCondition" value={bodyCondition} onChange={changeBodyCondition}>
               <option value={0}>Underweight</option>
               <option value={1}>Ideal</option>
@@ -201,38 +189,39 @@ export default function Calculator(props) {
             </select>
           </div>
 
-          <div className="calculator__pet-type">
-            <div className="calculator__label--radio">Spayed/Neutered</div>
+          <div className="radios-area">
+            <label>Spayed/Neutered</label>
 
-            <div className="calculator__radio-options">
-              <label htmlFor="intact">
-                <input
-                  id="intact"
-                  type="radio"
-                  name="isSpay"
-                  value={0}
-                  checked={isSpayed === 0}
-                  onChange={changeIsSpayed}
-                />
-                No
-              </label>
-              <label htmlFor="spayed">
-                <input
-                  id="spayed"
-                  type="radio"
-                  name="spayed"
-                  value={1}
-                  checked={isSpayed === 1}
-                  onChange={changeIsSpayed}
-                />
-                Yes
-              </label>
+            <div className="radio-area">
+              <input
+                id="intact"
+                type="radio"
+                name="isSpay"
+                value={0}
+                checked={isSpayed === 0}
+                onChange={changeIsSpayed}
+              />
+              <label htmlFor="intact">No</label>
+            </div>
+
+            <div className="radio-area">
+              <input
+                id="spayed"
+                type="radio"
+                name="spayed"
+                value={1}
+                checked={isSpayed === 1}
+                onChange={changeIsSpayed}
+              />
+              <label htmlFor="spayed">Yes</label>
             </div>
           </div>
 
-          <button type="submit" className="btn-contained ">
-            calculate
-          </button>
+          <div className="btn-area">
+            <button type="submit" className="btn-contained">
+              calculate
+            </button>
+          </div>
         </form>
 
         {result && (

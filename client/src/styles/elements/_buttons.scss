@@ -1,5 +1,5 @@
 button {
-  width: $btn-width-full;
+  width: 100%;
   height: $btn-height-mb;
   border-radius: $btn-borderradius;
   border: none;
@@ -51,6 +51,7 @@ button {
   }
 }
 
+// shall be reconsidered to style both profile image and profile button on header
 .profile-img {
   width: 64px;
   height: 64px;
