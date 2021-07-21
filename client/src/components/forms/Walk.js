@@ -27,10 +27,10 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
   };
 
   return (
-    <div className="walk-form-wrapper">
+    <div className="walk-form-wrapper wrapper">
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
       <div className="walk-form-content">
-        <h3>ADD NEW ACTIVITY</h3>
+        <h2>ADD NEW ACTIVITY</h2>
         {/* Styling to be removed */}
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
           <div className="input-wrapper">
@@ -87,10 +87,12 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
             </div>
           </div>
           <div className="button-wrapper">
-            <button type="submit" className="btn-contained-green">
+            <button type="submit" className="btn-contained">
               Create
             </button>
-            <button className="btn-outlined">Cancel</button>
+            <button className="btn-outlined" onClick={closeForm}>
+              Cancel
+            </button>
           </div>
         </form>
       </div>

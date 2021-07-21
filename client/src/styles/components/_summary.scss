@@ -6,6 +6,7 @@
   background-color: $secondary-color;
 }
 
+// modal off
 .modal {
   opacity: 0;
   z-index: 120;
@@ -13,11 +14,11 @@
   transition: opacity 0.7s, transform 0s 0.7s;
 }
 
+// modal on
 .modal.isActive {
   opacity: 1;
   z-index: 120;
   transform: scale(1);
-  height: calc(100vh - 83.5px);
   transition: opacity 0.7s;
   position: fixed;
   top: 83.5px; // subtract height of header
@@ -30,71 +31,82 @@
   padding: 0;
   // inactivate any kind of click on overlay background area
   pointer-events: none;
-}
-
-.walk-form-wrapper,
-.meal-form-wrapper {
-  .close-modal-icon {
-    width: 35px;
-    padding: 0.6rem;
-    display: block;
-    margin-right: 0;
-    margin-left: auto;
-  }
-  position: absolute;
-  top: calc(50% - 41.7px); // height of header / 2
-  left: 50%;
-  transform: translate(-50%, -50%);
-  -webkit-transform: translate(-50%, -50%);
-  -ms-transform: translate(-50%, -50%);
-  width: calc(100vw - 9px);
-  border-radius: $subcomponent-borderradius-mb;
-}
-
-.walk-form,
-.meal-form {
-  border-radius: $subcomponent-borderradius-mb;
-  padding: 1rem;
-  // 4rem = 2rem margin on top and bottom margin respectively
-  // between overlay and form
-  height: calc((100% - 83.5px) - 9px);
-  // Clicking is invalid on overlay background,
-  // therefore "pointer-events: all" is necessary
-  // to click inside form content (e.g. inputs, button)
-  pointer-events: all;
-
-  .meal-form-content,
-  .walk-form-content {
-    padding-bottom: 3rem;
-    height: calc(100% - 2rem);
-    overflow-y: scroll;
-  }
-
-  .input-wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 0.7rem;
-    div {
+  .walk-form-wrapper,
+  .meal-form-wrapper {
+    border-radius: $subcomponent-borderradius-mb;
+    // 4rem = 2rem margin on top and bottom margin respectively
+    // between overlay and form
+    height: calc((100% - 83.5px) - 9px);
+    // Clicking is invalid on overlay background,
+    // therefore "pointer-events: all" is necessary
+    // to click inside form content (e.g. inputs, button)
+    pointer-events: all;
+    position: absolute;
+    top: calc(50% - 41.7px); // height of header / 2
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: calc(100vw - 9px);
+    border-radius: $subcomponent-borderradius-mb;
+    padding-bottom: 2rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    h2 {
+      text-align: center;
+    }
+    .close-modal-icon {
+      width: 22px;
+      padding: 1rem;
+      display: block;
+      margin-right: 0;
+      margin-left: auto;
+    }
+    .meal-form-content,
+    .walk-form-content {
+      padding-bottom: 6rem;
+      height: 100%;
+      width: 100%;
+      box-sizing: border-box;
+      overflow-y: scroll;
+    }
+    input,
+    select,
+    button {
+      box-sizing: border-box;
+    }
+    form {
       display: flex;
       flex-flow: column nowrap;
-      gap: 0.3rem;
-      label {
-        font-weight: 700;
+      gap: 2rem;
+      .input-wrapper {
+        display: grid;
+        gap: 0.9rem;
+        div {
+          display: flex;
+          flex-flow: column nowrap;
+          gap: 0.3rem;
+          label {
+            font-weight: 700;
+          }
+        }
+      }
+      // CREATE, CANCEL BUTTON
+      .button-wrapper {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+        margin: 0;
+
+        .btn-outlined {
+          border: 1px solid $base-color;
+          background-color: transparent;
+        }
       }
     }
   }
-  // CREATE, CANCEL BUTTON
-  .button-wrapper {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1rem;
-
-    .btn-outlined {
-      border: 1px solid $base-color;
-      background-color: transparent;
-    }
-  }
 } // end of form
+
 .meal-week-month-graphs-wrapper,
 .walk-week-month-graphs-wrapper {
   display: flex;
@@ -194,9 +206,10 @@
     }
   }
 }
+
 @media screen and (min-width: $tb-breakpoint) {
-  .meal-week-month-graphs-wrapper,
-  .walk-week-month-graphs-wrapper {
+  .meal-week-month-graphs-wrapper .wrapper,
+  .walk-week-month-graphs-wrapper .wrapper {
     padding: 1rem 2rem;
     display: grid;
     grid-template-columns: 30% 70%;
@@ -232,7 +245,6 @@
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     width: 877px; // temporary * need to be changed
-    padding: 1rem;
     // 4rem = 2rem margin on top and bottom margin respectively
     // between overlay and form
     height: calc((100% - 83.5px) - 4rem);
@@ -247,4 +259,50 @@
       overflow-y: scroll;
     }
   }
+
+  .modal.isActive {
+    top: 91px; // height of header
+    padding: 0;
+    height: calc(100vh - 91px); // subtract height of header
+    .walk-form-wrapper.wrapper,
+    .meal-form-wrapper.wrapper {
+      padding-top: 0.5rem;
+      // 4rem = 2rem margin on top and bottom margin respectively
+      // between overlay and form
+      height: calc((100vh - 91px) - 4rem);
+      top: 50%;
+      max-width: 877px;
+      border-radius: $subcomponent-borderradius-pc;
+      .close-modal-icon {
+      }
+      .meal-form-content,
+      .walk-form-content {
+        padding-bottom: 8rem;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+        h2 {
+          margin: 0;
+        }
+        input,
+        .input,
+        select,
+        button {
+          box-sizing: border-box;
+          width: 100%;
+        }
+        form {
+          .input-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 1.5rem;
+            row-gap: 1rem;
+          }
+          .button-wrapper {
+            flex-direction: row-reverse;
+          }
+        }
+      }
+    }
+  } // end of form
 }
