@@ -5,15 +5,15 @@ export default function petProfileForm(props) {
   const today = new Date();
 
   return (
-    <>
-      <form className="pet-profile-form" onSubmit={(e) => props.handleSubmit(e)}>
-        <div className="pet-profile-form_area">
-          <div className="pet-profile-form_image">
-            <img src={signinImg} alt="" className="" />
+    <div className="bg-primary-meat">
+      <div className="wrapper">
+        <form className="profile-form" onSubmit={(e) => props.handleSubmit(e)}>
+          <div className="img-area">
+            <img src={signinImg} alt="" className="profile-img" />
           </div>
-          <div className="pet-type">
+          <div className="radios-area">
             <label>Pet type</label>
-            <div className="pet-type_cat">
+            <div className="radio-area">
               <input
                 type="radio"
                 name="petType"
@@ -23,7 +23,7 @@ export default function petProfileForm(props) {
               />
               <label htmlFor="cat">Cat</label>
             </div>
-            <div className="pet-type_dog">
+            <div className="radio-area">
               <input
                 type="radio"
                 name="petType"
@@ -139,9 +139,9 @@ export default function petProfileForm(props) {
               <option value={2}>Overweight</option>
             </select>
           </div>
-          <div className="spay">
+          <div className="radios-area">
             <label htmlFor="isSpayed">Spayed/Neutered</label>
-            <div className="notSpayed">
+            <div className="radio-area">
               <input
                 id="notSpayed"
                 type="radio"
@@ -152,7 +152,7 @@ export default function petProfileForm(props) {
               />
               <label htmlFor="notSpayed">No</label>
             </div>
-            <div className="spayed">
+            <div className="radio-area">
               <input
                 id="spayed"
                 type="radio"
@@ -164,18 +164,18 @@ export default function petProfileForm(props) {
               <label htmlFor="spayed">Yes</label>
             </div>
           </div>
+
+          <button className="btn-contained " type="submit">
+            Save
+          </button>
+        </form>
+
+        <div className="add-pet">
+          <button className="icon-btn-circle">＋</button>
+          <p>Add new pet</p>
+          <img src={signinImg} alt="" />
         </div>
-
-        <button className="btn-contained " type="submit">
-          Save
-        </button>
-      </form>
-
-      <div className="add-pet">
-        <button className="icon-btn-circle">＋</button>
-        <p>Add new pet</p>
-        <img src={signinImg} alt="" />
       </div>
-    </>
+    </div>
   );
 }

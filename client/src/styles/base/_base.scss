@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
 
 * {
-  box-sizing: content-box;
+  box-sizing: border-box;
 }
 
 body {
@@ -53,14 +53,16 @@ img {
 }
 
 .wrapper {
-  padding: 1.5rem;
+  box-sizing: content-box;
+  padding: 2rem 1.5rem;
   max-width: $md-max-width;
   margin: 0 auto;
 }
 
 // for team sub component
 .wrapper-lg {
-  padding: 1.5rem;
+  box-sizing: content-box;
+  padding: 2rem 1.5rem;
   max-width: $lg-max-width;
   margin: 0 auto;
 }
@@ -107,8 +109,9 @@ img {
     font-size: $h3-fontsize-pc;
   }
 
-  .wrapper {
-    padding: 3rem;
+  .wrapper,
+  .wrapper-lg {
+    padding: 4rem 3rem;
   }
 
   .mb-hidden {
