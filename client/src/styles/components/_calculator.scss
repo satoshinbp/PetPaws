@@ -1,6 +1,4 @@
 .calculator {
-  padding: 1rem;
-  border-radius: $subcomponent-borderradius-mb;
   background-color: $primary-color;
   text-align: center;
 
@@ -61,13 +59,5 @@
 
   &__btn-area {
     margin: 1rem 0;
-  }
-
-  @media screen and (min-width: $tb-breakpoint) {
-    padding: 2rem;
-    // &__form {
-    //   display: grid;
-    //   grid-template-columns: 1fr 1fr;
-    // }
   }
 }
