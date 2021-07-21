@@ -5,7 +5,7 @@ export default function CalculatorRegisteredUser() {
     <div className="intro">
       <div className="wrapper">
         <div>
-          <h2 className="intro__title">Calorie Calculator</h2>
+          <h1 className="intro__title">Calorie Calculator</h1>
           <p>
             This calculator will help you determine the ideal calorie intake for a pet based on its weight, height, age,
             breed, activity level and body type!
@@ -16,7 +16,7 @@ export default function CalculatorRegisteredUser() {
             <img src={catIcon} alt="cat stiting besides cat food" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Create free account</button>
           </div>
         </div>

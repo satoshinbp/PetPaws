@@ -5,14 +5,14 @@ export default function ContactIntro() {
     <div className="intro">
       <div className="wrapper">
         <div>
-          <h2 className="intro__title">Ask us a question!</h2>
+          <h1 className="intro__title">Ask us a question!</h1>
           <p>Pet Paws Team is always glad to hear your feeback and answer any questions about our services</p>
 
           <div className="intro__img-area pc-hidden">
             <img src={contactIcon} alt="sitting dog with question mark" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Create free account</button>
           </div>
         </div>

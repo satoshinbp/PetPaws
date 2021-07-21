@@ -1,19 +1,11 @@
 .calculator {
-  text-align: center;
-
   &__result {
     margin-top: 3rem;
-    padding: 1rem;
-    border-radius: $subcomponent-borderradius-mb;
-    background-color: $primary-color-light;
   }
 
   &__result-calorie {
     color: $secondary-color-light;
     font-size: $calc-result-fontsize;
     font-weight: 900;
-  }
-
-  @media screen and (min-width: $tb-breakpoint) {
   }
 }

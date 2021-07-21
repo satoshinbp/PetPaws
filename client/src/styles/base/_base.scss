@@ -10,6 +10,7 @@ body {
   font-size: $standard-fontsize-mb;
   line-height: 1.5;
   color: $font-color;
+  text-align: center;
 }
 
 h1,
@@ -45,11 +46,6 @@ li {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 .wrapper {
@@ -110,8 +106,20 @@ img {
   }
 
   .wrapper,
-  .wrapper-lg {
+  .wrapper-lg,
+  .bg-primary-light,
+  .bg-secondary-light {
     padding: 4rem 3rem;
+  }
+
+  .bg-primary-light {
+    border-radius: $subcomponent-borderradius-pc;
+    background-color: $primary-color-light;
+  }
+
+  .bg-secondary-light {
+    border-radius: $subcomponent-borderradius-pc;
+    background-color: $secondary-color-light;
   }
 
   .mb-hidden {

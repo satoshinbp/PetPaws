@@ -5,7 +5,7 @@ export default function Dashboard() {
     <div className="intro">
       <div className="wrapper">
         <div>
-          <h2 className="intro__title">Dashboard</h2>
+          <h1 className="intro__title">Dashboard</h1>
           <p>
             Let's check the last week's summary here. You can review your pet's meal and activity habit, and notice
             small changes in your furry friend.
@@ -15,7 +15,7 @@ export default function Dashboard() {
             <img src={catIcon} alt="cat stiting besides cat food" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Upgrade to Premium</button>
           </div>
         </div>

@@ -5,7 +5,7 @@ export default function Finder() {
     <div className="intro">
       <div className="wrapper">
         <div>
-          <h2 className="intro__title">Finding Pet Stores / Vets</h2>
+          <h1 className="intro__title">Finding Pet Stores / Vets</h1>
           <p>
             Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets and
             pet shops for your convenience.
@@ -15,7 +15,7 @@ export default function Finder() {
             <img src={finderIcon} alt="cat stiting besides cat food" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Create free account</button>
           </div>
         </div>

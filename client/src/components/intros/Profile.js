@@ -5,7 +5,7 @@ export default function Profile() {
     <div className="intro">
       <div className="wrapper">
         <div>
-          <h2 className="intro__title">Pet Profile</h2>
+          <h1 className="intro__title">Pet Profile</h1>
           <p>
             Let's complete your furry friend detail here. Depending on the age and breed, we will advise the best
             individual plan for nutrition and walking activities.
@@ -16,7 +16,7 @@ export default function Profile() {
             <img src={catIcon} alt="a cat and a dog both sitting" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Upgrade to Premium</button>
           </div>
         </div>
