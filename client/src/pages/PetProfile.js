@@ -170,16 +170,20 @@ export default function PetProfile({ petProfile }) {
         <div className="add-pet bg-secondary-fish">
           <div className="wrapper">
             <div className="container bg-secondary-light">
-              {/* to be replaced */}
-              <img src={catIcon} alt="a sitting dog" />
-
-              <div>
+              <div className="btn-and-label">
                 <button className="icon-btn-circle">＋</button>
                 <p>Add new pet</p>
               </div>
 
-              {/* to be replaced */}
-              <img src={catIcon} alt="a sitting cat" />
+              <div className="icon-area icon-area--dog">
+                {/* to be replaced */}
+                <img src={catIcon} alt="a sitting dog" />
+              </div>
+
+              <div className="icon-area icon-area--cat">
+                {/* to be replaced */}
+                <img src={catIcon} alt="a sitting cat" />
+              </div>
             </div>
           </div>
         </div>
