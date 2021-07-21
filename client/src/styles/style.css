@@ -636,6 +636,7 @@ img {
   .intro .wrapper {
     display: flex;
     flex-flow: nowrap row;
+    align-items: center;
     gap: 3rem;
   }
   .intro .btn-area {
@@ -985,6 +986,11 @@ img {
 
 .profile-form .input-area {
   text-align: left;
+}
+
+.profile-form .btn-area {
+  margin: 0;
+  text-align: center;
 }
 
 .profile-form .end-adornment {

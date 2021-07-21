@@ -5,7 +5,7 @@ export default function Profile() {
     <div className="intro">
       <div className="wrapper">
         <div>
-          <h2 className="intro__title">Pet Profile</h2>
+          <h1 className="intro__title">Pet Profile</h1>
           <p>
             Let's complete your furry friend detail here. Depending on the age and breed, we will advise the best
             individual plan for nutrition and walking activities.
