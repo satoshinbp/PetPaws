@@ -16,7 +16,7 @@ export default function Home() {
             <img src={catIcon} alt="two cat and a dog all sitting" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Upgrade to Premium</button>
           </div>
         </div>

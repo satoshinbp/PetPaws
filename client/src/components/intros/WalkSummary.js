@@ -15,7 +15,7 @@ export default function WalkSummary() {
             <img src={runningDogIcon} alt="running dog with smile" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Upgrade to Premium</button>
           </div>
         </div>

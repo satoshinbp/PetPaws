@@ -16,7 +16,7 @@ export default function CalculatorRegisteredUser() {
             <img src={catIcon} alt="cat stiting besides cat food" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Create free account</button>
           </div>
         </div>

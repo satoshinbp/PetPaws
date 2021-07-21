@@ -15,7 +15,7 @@ export default function Dashboard() {
             <img src={catIcon} alt="cat stiting besides cat food" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Upgrade to Premium</button>
           </div>
         </div>

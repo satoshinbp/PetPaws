@@ -12,7 +12,7 @@ export default function ContactIntro() {
             <img src={contactIcon} alt="sitting dog with question mark" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Create free account</button>
           </div>
         </div>

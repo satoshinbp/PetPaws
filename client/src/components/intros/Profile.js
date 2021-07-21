@@ -16,7 +16,7 @@ export default function Profile() {
             <img src={catIcon} alt="a cat and a dog both sitting" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Upgrade to Premium</button>
           </div>
         </div>
