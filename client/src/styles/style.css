@@ -1075,103 +1075,89 @@ nav ul {
   }
 }
 
-.profile-form {
+.basic-form {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
 }
 
-.profile-form input,
-.profile-form select {
-  width: 100%;
-}
-
-.profile-form .radios-area {
+.basic-form .radios-area {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   column-gap: 1rem;
 }
 
-.profile-form .radios-area label {
+.basic-form .radios-area label {
   width: 100%;
 }
 
-.profile-form .input-area {
+.basic-form .input-area {
   text-align: left;
 }
 
-.profile-form .btn-area {
+.basic-form .btn-area {
   margin: 0;
 }
 
-.profile-form .end-adornment {
+.basic-form .end-adornment {
   display: inline-block;
   width: 100px;
   margin-left: -140px;
   text-align: right;
 }
 
-.profile-form .end-adornment--y {
+.basic-form .end-adornment--y {
   display: inline-block;
   width: 100px;
   margin-left: -140px;
   text-align: right;
 }
 
-.profile-form .end-adornment--m {
+.basic-form .end-adornment--m {
   display: inline-block;
   width: 100px;
   margin-left: -140px;
   text-align: right;
 }
 
-.profile-form .input-area--two-column {
+.basic-form .input-area--two-column {
   display: flex;
   align-items: flex-end;
   gap: 1rem;
 }
 
-.profile-form .input-area-half {
+.basic-form .input-area-half {
   width: 100%;
 }
 
 @media screen and (min-width: 600px) {
-  .profile-form {
+  .calculator .basic-form,
+  .profile .basic-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  .profile-form .img-area,
-  .profile-form .radios-area,
-  .profile-form .btn-area,
-  .profile-form .input-area--two-column {
+  .calculator .basic-form .img-area,
+  .calculator .basic-form .radios-area,
+  .calculator .basic-form .btn-area,
+  .calculator .basic-form .input-area--two-column,
+  .profile .basic-form .img-area,
+  .profile .basic-form .radios-area,
+  .profile .basic-form .btn-area,
+  .profile .basic-form .input-area--two-column {
     grid-column: span 2;
   }
-}
-
-.contact {
-  padding: 2rem;
-  border-radius: 25px;
-  background-color: #a4eada;
-}
-
-.contact__form {
-  display: flex;
-  flex-flow: nowrap column;
-  gap: 2rem;
-}
-
-.contact h2 {
-  text-align: center;
-}
-
-.contact input,
-.contact textarea {
-  margin-top: 0.5rem;
-}
-
-.contact label {
-  font-weight: 700;
+  .calculator .basic-form input,
+  .calculator .basic-form select,
+  .calculator .basic-form textarea,
+  .profile .basic-form input,
+  .profile .basic-form select,
+  .profile .basic-form textarea {
+    width: 100%;
+  }
+  .contact .basic-form {
+    align-items: center;
+  }
 }
 
 /* 3.2. Charts ============== */

@@ -1,12 +1,7 @@
-.profile-form {
+.basic-form {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
-
-  input,
-  select {
-    width: 100%;
-  }
 
   .radios-area {
     display: flex;
@@ -61,7 +56,8 @@
 }
 
 @media screen and (min-width: $tb-breakpoint) {
-  .profile-form {
+  .calculator .basic-form,
+  .profile .basic-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -71,5 +67,15 @@
     .input-area--two-column {
       grid-column: span 2;
     }
+
+    input,
+    select,
+    textarea {
+      width: 100%;
+    }
+  }
+
+  .contact .basic-form {
+    align-items: center;
   }
 }

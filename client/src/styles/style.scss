@@ -38,8 +38,7 @@
 /* 3.1. Forms =============== */
 @import 'components/summary';
 @import 'components/walk-form';
-@import 'components/profile-form'; // for profile and calculator page
-@import 'components/contact-form';
+@import 'components/basic-form'; // for profile, contact and calculator form
 /* 3.2. Charts ============== */
 @import 'components/day-graph';
 @import 'components/week-month-graphs';
