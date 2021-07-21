@@ -432,16 +432,9 @@ a {
   background-color: #ccabda;
 }
 
-.bg-primary-light {
-  padding: 2rem 1.5rem;
-  border-radius: 25px;
-  background-color: #dcf7f1;
-}
-
 .bg-secondary-light {
+  display: none;
   padding: 2rem 1.5rem;
-  border-radius: 25px;
-  background-color: #e4c8f0;
 }
 
 @media screen and (min-width: 600px) {
@@ -464,9 +457,13 @@ a {
   .bg-secondary-light {
     padding: 4rem 3rem;
   }
-  .bg-primary-light,
+  .bg-primary-light {
+    border-radius: 50px;
+    background-color: #dcf7f1;
+  }
   .bg-secondary-light {
     border-radius: 50px;
+    background-color: #e4c8f0;
   }
   .mb-hidden {
     display: initial;

@@ -87,16 +87,9 @@ a {
   background-color: $secondary-color;
 }
 
-.bg-primary-light {
-  padding: 2rem 1.5rem;
-  border-radius: $subcomponent-borderradius-mb;
-  background-color: $primary-color-light;
-}
-
 .bg-secondary-light {
+  display: none;
   padding: 2rem 1.5rem;
-  border-radius: $subcomponent-borderradius-mb;
-  background-color: $secondary-color-light;
 }
 
 @media screen and (min-width: $tb-breakpoint) {
@@ -123,9 +116,15 @@ a {
   .bg-secondary-light {
     padding: 4rem 3rem;
   }
-  .bg-primary-light,
+
+  .bg-primary-light {
+    border-radius: $subcomponent-borderradius-pc;
+    background-color: $primary-color-light;
+  }
+
   .bg-secondary-light {
     border-radius: $subcomponent-borderradius-pc;
+    background-color: $secondary-color-light;
   }
 
   .mb-hidden {
