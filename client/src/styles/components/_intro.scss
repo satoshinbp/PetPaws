@@ -7,7 +7,7 @@
     flex-flow: nowrap column;
   }
 
-  &__btn-area {
+  .btn-area {
     margin: 1rem 0;
   }
 
@@ -20,11 +20,11 @@
       gap: 3rem;
     }
 
-    &__title {
+    .btn-area {
       margin: 0;
     }
 
-    &__btn-area {
+    &__title {
       margin: 0;
     }
 

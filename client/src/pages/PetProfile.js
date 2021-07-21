@@ -4,6 +4,7 @@ import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
 import ProfileIntro from '../components/intros/Profile';
+import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -134,31 +135,45 @@ export default function PetProfile({ petProfile }) {
       <ProfileIntro />
 
       <div className="body">
-        <PetProfileForm
-          dogBreeds={dogBreeds}
-          catBreeds={catBreeds}
-          isDog={isDog}
-          name={name}
-          breedName={breedName}
-          birthday={birthday}
-          gender={gender}
-          weight={weight}
-          height={height}
-          isSpayed={isSpayed}
-          activityLevel={activityLevel}
-          bodyCondition={bodyCondition}
-          changePetType={changePetType}
-          changeName={changeName}
-          changeBreed={changeBreed}
-          changeGender={changeGender}
-          changeBirthday={changeBirthday}
-          changeWeight={changeWeight}
-          changeHeight={changeHeight}
-          changeIsSpayed={changeIsSpayed}
-          changeActivityLevel={changeActivityLevel}
-          changeBodyCondition={changeBodyCondition}
-          handleSubmit={handleSubmit}
-        />
+        <div className="bg-primary-meat">
+          <div className="wrapper">
+            <PetProfileForm
+              dogBreeds={dogBreeds}
+              catBreeds={catBreeds}
+              isDog={isDog}
+              name={name}
+              breedName={breedName}
+              birthday={birthday}
+              gender={gender}
+              weight={weight}
+              height={height}
+              isSpayed={isSpayed}
+              activityLevel={activityLevel}
+              bodyCondition={bodyCondition}
+              changePetType={changePetType}
+              changeName={changeName}
+              changeBreed={changeBreed}
+              changeGender={changeGender}
+              changeBirthday={changeBirthday}
+              changeWeight={changeWeight}
+              changeHeight={changeHeight}
+              changeIsSpayed={changeIsSpayed}
+              changeActivityLevel={changeActivityLevel}
+              changeBodyCondition={changeBodyCondition}
+              handleSubmit={handleSubmit}
+            />
+          </div>
+        </div>
+
+        <div className="bg-primary-meat">
+          <div className="wrapper">
+            <div className="add-pet">
+              <button className="icon-btn-circle">＋</button>
+              <p>Add new pet</p>
+              <img src={signinImg} alt="" />
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );

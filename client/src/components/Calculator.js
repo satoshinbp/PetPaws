@@ -237,7 +237,7 @@ export default function Calculator(props) {
                 <p>Enter your email so we could send you the results!</p>
                 <input type="text" placeholder="Enter your email" />
 
-                <div className="calculator__btn-area">
+                <div className="btn-area">
                   <button className="btn-contained">Send</button>
                 </div>
               </>
