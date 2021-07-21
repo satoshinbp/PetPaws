@@ -106,18 +106,18 @@ a {
   }
 
   .wrapper,
-  .wrapper-lg,
-  .bg-primary-light,
-  .bg-secondary-light {
+  .wrapper-lg {
     padding: 4rem 3rem;
   }
 
   .bg-primary-light {
+    padding: 2rem 1.5rem;
     border-radius: $subcomponent-borderradius-pc;
     background-color: $primary-color-light;
   }
 
   .bg-secondary-light {
+    padding: 2rem 1.5rem;
     border-radius: $subcomponent-borderradius-pc;
     background-color: $secondary-color-light;
   }
