@@ -3,7 +3,7 @@ import trackerIcon from '../images/running-dog.svg';
 
 export default function Features() {
   return (
-    <div className="features">
+    <div className="features bg-primary-meat">
       <h2>Our Services</h2>
 
       <div className="feature">

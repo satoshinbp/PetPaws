@@ -16,7 +16,7 @@ export default function Team() {
   }, []);
 
   return (
-    <div className="team">
+    <div className="team bg-secondary-fish">
       <h3 className="team__title">PET PAWS TEAM</h3>
       <div className="team__members">
         {memberList
@@ -25,7 +25,7 @@ export default function Team() {
                 {/* <img src={val.image_url} alt="member portrait" className="team__member-img" /> */}
                 <div className="team__member-img">
                   {/* to be replaced */}
-                  <img src={catIcon} alt="member portrait" />
+                  <img src={val.image_url} alt="member portrait" />
                 </div>
                 <p className="team__member-name">{val.name}</p>
                 <p className="team__member-title">{val.role}</p>
