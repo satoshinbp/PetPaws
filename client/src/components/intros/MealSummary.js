@@ -5,7 +5,7 @@ export default function MealSummary() {
     <div className="intro">
       <div className="wrapper">
         <div>
-          <h2 className="intro__title">Meal Tracker</h2>
+          <h1 className="intro__title">Meal Tracker</h1>
           <p>
             A nutritious, balanced diet is essential to keeping your dog healthy. We provide a feature that allows you
             to keep track of your pet's meals. Additionally, we offer the ideal nutrition for your pet's weight control.
@@ -16,7 +16,7 @@ export default function MealSummary() {
             <img src={catIcon} alt="cat stiting besides cat food" />
           </div>
 
-          <div className="intro__btn-area">
+          <div className="btn-area">
             <button className="btn-contained--intro">Upgrade to Premium</button>
           </div>
         </div>

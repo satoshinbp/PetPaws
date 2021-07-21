@@ -10,6 +10,7 @@ body {
   font-size: $standard-fontsize-mb;
   line-height: 1.5;
   color: $font-color;
+  text-align: center;
 }
 
 h1,
@@ -45,11 +46,6 @@ li {
 a {
   text-decoration: none;
   color: inherit;
-}
-
-img {
-  max-width: 100%;
-  height: auto;
 }
 
 .wrapper {
@@ -91,6 +87,18 @@ img {
   background-color: $secondary-color;
 }
 
+.bg-primary-light {
+  padding: 2rem 1.5rem;
+  border-radius: $subcomponent-borderradius-mb;
+  background-color: $primary-color-light;
+}
+
+.bg-secondary-light {
+  padding: 2rem 1.5rem;
+  border-radius: $subcomponent-borderradius-mb;
+  background-color: $secondary-color-light;
+}
+
 @media screen and (min-width: $tb-breakpoint) {
   body {
     padding-top: $header-height-pc;
@@ -110,7 +118,9 @@ img {
   }
 
   .wrapper,
-  .wrapper-lg {
+  .wrapper-lg,
+  .bg-primary-light,
+  .bg-secondary-light {
     padding: 4rem 3rem;
   }
 
