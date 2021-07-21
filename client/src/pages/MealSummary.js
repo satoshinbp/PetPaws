@@ -7,65 +7,74 @@ import MealSummaryIntro from '../components/intros/MealSummary';
 
 export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) {
   const [showForm, setShowForm] = useState(false);
-  // if yes, week graph appears, if no, month graph appears
-  const [showWeekGraph, setShowWeekGraph] = useState(true);
+  const [showWeekGraph, setShowWeekGraph] = useState(true); // if true, week graph appears, if false, month graph appears
+
   return (
     <>
       <MealSummaryIntro />
+
       <div className="body">
-        {/* form toggled by add button */}
         {showForm ? (
           <MealForm petProfile={petProfile} setAllMeals={setAllMeals} closeForm={() => setShowForm(false)} />
-        ) : (
-          ''
-        )}
-        <div className="meal-week-month-graphs-wrapper">
-          <div class="basic-info">
-            <h3>MEAL SUMMARY</h3>
-            <div className="pet-image-name-wrapper">
-              {/* if there is no pet img uploaded, use default img*/}
-              {petProfile.image ? (
-                <image className="pet-image" src={petProfile.image} />
-              ) : (
-                <p className="pet-image">default image</p>
-              )}
-              {petProfile.name ? <p className="pet-name">{petProfile.name}</p> : <p>Please create your pet profile</p>}
-            </div>
-            {/* ADD Buton: if there is no pet pet pofile, warn to create profile*/}
-            {petProfile.name && (
-              <button className="add-button btn-contained" onClick={() => setShowForm(true)}>
-                Add Meal
-              </button>
-            )}
-          </div>
-          <div className="graphs">
-            <h3 className="graph-title">Weekly/Monthly Charts</h3>
-            <div className="week-month-toggle">
-              <div className="button-background btn-toggle-tab">
-                <button
-                  onClick={() => setShowWeekGraph(true)}
-                  className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                >
-                  Week
-                </button>
-                <button
-                  onClick={() => setShowWeekGraph(false)}
-                  className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                >
-                  Month
-                </button>
+        ) : null}
+
+        <div className="bg-primary-meat">
+          <div className="wrapper">
+            <h2>Meal Summary</h2>
+
+            <div className="bg-primary-light meal-summary">
+              <div class="basic-info">
+                <div className="pet-image-name-wrapper">
+                  {/* if there is no pet img uploaded, use default img */}
+                  {petProfile.image ? (
+                    <image className="pet-image" src={petProfile.image} />
+                  ) : (
+                    <p className="pet-image">default image</p>
+                  )}
+                  {petProfile.name ? (
+                    <p className="pet-name">{petProfile.name}</p>
+                  ) : (
+                    <p>Please create your pet profile</p>
+                  )}
+                </div>
+
+                {/* Warning to be implemented in case there is no pet registered */}
+                {petProfile.name && (
+                  <button className="add-button btn-contained" onClick={() => setShowForm(true)}>
+                    Add Meal
+                  </button>
+                )}
+              </div>
+
+              <div className="graphs">
+                <h3 className="graph-title">Weekly/Monthly Charts</h3>
+                <div className="week-month-toggle">
+                  <div className="button-background btn-toggle-tab">
+                    <button
+                      onClick={() => setShowWeekGraph(true)}
+                      className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                    >
+                      Week
+                    </button>
+                    <button
+                      onClick={() => setShowWeekGraph(false)}
+                      className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                    >
+                      Month
+                    </button>
+                  </div>
+                </div>
+                {showWeekGraph ? (
+                  <MealWeekChart allMeals={allMeals} MER={MER} />
+                ) : (
+                  <MealMonthChart allMeals={allMeals} MER={MER} />
+                )}
               </div>
             </div>
-            {showWeekGraph ? (
-              <MealWeekChart allMeals={allMeals} MER={MER} />
-            ) : (
-              <MealMonthChart allMeals={allMeals} MER={MER} />
-            )}
           </div>
         </div>
-        <div className="meal-day-graph-wrapper">
-          <MealDayChart allMeals={allMeals} MER={MER} />
-        </div>
+
+        <MealDayChart allMeals={allMeals} MER={MER} />
       </div>
     </>
   );
