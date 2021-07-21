@@ -1,7 +1,8 @@
 import { useState, useEffect } from 'react';
 import Axios from 'axios';
 import Map from '../components/GoogleMap';
-import storesVetsFinderIcon from '../images/finder.svg'; // dammy img, to be replaced
+import finderCombinedIcon from '../images/finder-combined-icon.svg';
+import finderIconMobile from '../images/finder-icon-mobile.svg';
 import FinderIntro from '../components/intros/Finder';
 
 export default function FindingPetStores() {
@@ -36,18 +37,26 @@ export default function FindingPetStores() {
       <FinderIntro />
 
       <div className="body">
-        <div className="search-form">
-          <h2>Lets find the best Pet Stores and vets</h2>
-          <div className="search-form-background">
-            <form className="search-form-inner">
-              <label htmlFor="">Choose Pet Stores / Vets</label>
-              <select className="input-md" name="name" id="name" onChange={(e) => onChangeSelect(e)}>
-                <option value={2}>Both</option>
-                <option value={0}>Pet store</option>
-                <option value={1}>Vet</option>
-              </select>
-            </form>
-            <Map shops={shops} />
+        <div className="search-form bg-primary-meat ">
+          <div className="wrapper">
+            <h2>Lets find the best Pet Stores and vets</h2>
+            <div className="search-form-background">
+              <div className="search-combined-icon">
+                <img src={finderCombinedIcon} alt="search page icon" />
+              </div>
+              <div className="search-icon-mobile">
+                <img src={finderIconMobile} alt="search page icon for" />
+              </div>
+              <form className="search-form-inner">
+                <label htmlFor="">Choose Pet Stores / Vets</label>
+                <select name="name" id="name" onChange={(e) => onChangeSelect(e)}>
+                  <option value={2}>Both</option>
+                  <option value={0}>Pet store</option>
+                  <option value={1}>Vet</option>
+                </select>
+              </form>
+              <Map shops={shops} />
+            </div>
           </div>
         </div>
       </div>
