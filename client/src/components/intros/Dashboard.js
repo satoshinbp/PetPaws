@@ -7,8 +7,8 @@ export default function Dashboard() {
         <div>
           <h2 className="intro__title">Dashboard</h2>
           <p>
-            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..." "There is no
-            one who loves pain itself, who seeks after it and wants to have it, simply because it is pain.
+            Let's check the last week's summary here. You can review your pet's meal and activity habit, and notice
+            small changes in your furry friend.
           </p>
 
           <div className="intro__img-area pc-hidden">
