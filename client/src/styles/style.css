@@ -828,6 +828,7 @@ img {
   display: block;
   margin-right: 0;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .modal.isActive .walk-form-wrapper .meal-form-content,

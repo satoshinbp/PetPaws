@@ -24,7 +24,7 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
             />
           )}
         </div>
-        <div className="walk-week-month-graphs-wrapper">
+        <div className="walk-week-month-graphs-wrapper bg-primary-meat">
           <div className="wrapper">
             <div class="basic-info">
               <h3>ACTIVITY SUMMARY</h3>
@@ -74,7 +74,7 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
             </div>
           </div>
         </div>
-        <div className="walk-day-graph-wrapper">
+        <div className="walk-day-graph-wrapper bg-secondary-fish">
           <div className="wrapper">
             <WalkDayChart allActivities={allActivities} />
           </div>

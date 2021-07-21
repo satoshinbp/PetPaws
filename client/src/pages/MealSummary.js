@@ -19,7 +19,7 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
             <MealForm petProfile={petProfile} setAllMeals={setAllMeals} closeForm={() => setShowForm(false)} />
           )}
         </div>
-        <div className="meal-week-month-graphs-wrapper">
+        <div className="meal-week-month-graphs-wrapper bg-primary-meat">
           <div className="wrapper">
             <div class="basic-info">
               <h3>MEAL SUMMARY</h3>
@@ -69,7 +69,7 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
             </div>
           </div>
         </div>
-        <div className="meal-day-graph-wrapper">
+        <div className="meal-day-graph-wrapper bg-secondary-fish">
           <div className="wrapper">
             <MealDayChart allMeals={allMeals} MER={MER} />
           </div>
