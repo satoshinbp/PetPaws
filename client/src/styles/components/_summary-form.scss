@@ -1,0 +1,177 @@
+.meal-form-wrapper {
+  background-color: $primary-color;
+}
+
+.walk-form-wrapper {
+  background-color: $secondary-color;
+}
+
+// modal off
+.modal {
+  opacity: 0;
+  z-index: 120;
+  transform: scale(0);
+  transition: opacity 0.7s, transform 0s 0.7s;
+  &.isActive {
+    // when modal is ON
+    opacity: 1;
+    z-index: 120;
+    transform: scale(1);
+    transition: opacity 0.7s;
+    position: fixed;
+    top: $header-height-mb; // subtract height of header
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(196, 196, 196, 0.5);
+    backdrop-filter: blur(4px);
+    z-index: 100;
+    padding: 0;
+    // inactivate any kind of click on overlay background area
+    pointer-events: none;
+    .walk-form-wrapper.wrapper,
+    .meal-form-wrapper.wrapper {
+      border-radius: $subcomponent-borderradius-mb;
+      // 4rem = 2rem margin on top and bottom margin respectively
+      // between overlay and form
+      height: calc((100% - 91px) - 9px); // (subtract height of header) - 9px
+      // Clicking is invalid on overlay background,
+      // therefore "pointer-events: all" is necessary
+      // to click inside form content (e.g. inputs, button)
+      pointer-events: all;
+      position: absolute;
+      top: calc(50% - 45.5px); // height of header / 2
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      width: calc(100vw - 9px);
+      border-radius: $subcomponent-borderradius-mb;
+      padding-bottom: 2rem;
+      box-sizing: border-box;
+      overflow: hidden;
+      padding-top: 1rem;
+      display: flex;
+      flex-flow: column nowrap;
+
+      h2 {
+        text-align: center;
+        margin: 0;
+      }
+      .close-modal-icon {
+        width: 35px;
+        padding: 0.5rem;
+        display: flex;
+        align-self: flex-end;
+        cursor: pointer;
+      }
+      .meal-form-content,
+      .walk-form-content {
+        padding-bottom: 6rem;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+      }
+      input,
+      select,
+      button {
+        box-sizing: border-box;
+      }
+      form {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+        .input-wrapper {
+          display: grid;
+          gap: 1rem;
+          div {
+            display: flex;
+            flex-flow: column nowrap;
+            text-align: left;
+            position: relative;
+            label {
+              font-weight: 700;
+            }
+            .input-unit {
+              position: absolute;
+              top: 25px; // depends on input size
+              right: 1rem;
+            }
+          }
+        }
+        // CREATE, CANCEL BUTTON
+        .button-wrapper {
+          display: flex;
+          flex-flow: column nowrap;
+          gap: 1rem;
+          margin: 0;
+
+          .btn-outlined {
+            border: 1px solid $base-color;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+// modal on
+
+@media screen and (min-width: $tb-breakpoint) {
+  .modal.isActive {
+    top: $header-height-pc; // height of header
+    padding: 0;
+    height: calc(100vh - 94px); // subtract height of header
+    .walk-form-wrapper.wrapper,
+    .meal-form-wrapper.wrapper {
+      padding-top: 1rem;
+      // 4rem = 2rem margin on top and bottom margin respectively
+      // between overlay and form
+      height: calc((100vh - 94px) - 4rem);
+      top: 50%;
+      max-width: 877px;
+      border-radius: $subcomponent-borderradius-pc;
+      .meal-form-content,
+      .walk-form-content {
+        padding-bottom: 3rem;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+        h2 {
+          margin: 0;
+        }
+        input,
+        .input,
+        select,
+        button {
+          box-sizing: border-box;
+          width: 100%;
+        }
+        form {
+          .input-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 1.5rem;
+            row-gap: 1rem;
+            div {
+              .input-unit {
+                // unit such as kcal, km
+                position: absolute;
+                top: 27px;
+              }
+            }
+          }
+          .button-wrapper {
+            // cancel and create buttons switch
+            flex-direction: row-reverse;
+          }
+        }
+      }
+    }
+  }
+}

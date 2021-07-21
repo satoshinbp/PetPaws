@@ -883,8 +883,179 @@ nav ul {
   }
 }
 
-/* ========== TO BE REORGANIZED ========== */
-/* 3.1. Forms =============== */
+/* 3.11. Trackers ========= */
+.meal-week-month-graphs-wrapper .meal-summary,
+.meal-week-month-graphs-wrapper .walk-summary,
+.walk-week-month-graphs-wrapper .meal-summary,
+.walk-week-month-graphs-wrapper .walk-summary {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}
+
+.meal-week-month-graphs-wrapper .meal-summary .basic-info,
+.meal-week-month-graphs-wrapper .walk-summary .basic-info,
+.walk-week-month-graphs-wrapper .meal-summary .basic-info,
+.walk-week-month-graphs-wrapper .walk-summary .basic-info {
+  width: 100%;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 0 2.5rem 0;
+}
+
+.meal-week-month-graphs-wrapper .meal-summary .basic-info .pet-image-name-wrapper,
+.meal-week-month-graphs-wrapper .walk-summary .basic-info .pet-image-name-wrapper,
+.walk-week-month-graphs-wrapper .meal-summary .basic-info .pet-image-name-wrapper,
+.walk-week-month-graphs-wrapper .walk-summary .basic-info .pet-image-name-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}
+
+.meal-week-month-graphs-wrapper .meal-summary .basic-info .pet-image-name-wrapper .pet-name,
+.meal-week-month-graphs-wrapper .walk-summary .basic-info .pet-image-name-wrapper .pet-name,
+.walk-week-month-graphs-wrapper .meal-summary .basic-info .pet-image-name-wrapper .pet-name,
+.walk-week-month-graphs-wrapper .walk-summary .basic-info .pet-image-name-wrapper .pet-name {
+  padding-top: 0.5rem;
+}
+
+.meal-week-month-graphs-wrapper .meal-summary .basic-info .pet-image,
+.meal-week-month-graphs-wrapper .walk-summary .basic-info .pet-image,
+.walk-week-month-graphs-wrapper .meal-summary .basic-info .pet-image,
+.walk-week-month-graphs-wrapper .walk-summary .basic-info .pet-image {
+  width: 78px;
+  height: 130px;
+  object-fit: cover;
+  background-color: white;
+  border-radius: 25px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  justify-content: center;
+}
+
+.meal-summary .button-background {
+  background-color: rgba(164, 234, 218, 0.3);
+}
+
+.meal-summary .button-background .btn-darkened {
+  background-color: rgba(164, 234, 218, 0.5);
+}
+
+.dashboard-meal-summary .button-background {
+  background-color: rgba(164, 234, 218, 0.3);
+}
+
+.dashboard-meal-summary .button-background .btn-darkened {
+  background-color: rgba(164, 234, 218, 0.5);
+}
+
+.walk-summary .button-background {
+  background-color: rgba(204, 171, 218, 0.2);
+}
+
+.walk-summary .button-background .btn-darkened {
+  background-color: rgba(204, 171, 218, 0.4);
+}
+
+.dashboard-walk-summary .button-background {
+  background-color: rgba(204, 171, 218, 0.2);
+}
+
+.dashboard-walk-summary .button-background .btn-darkened {
+  background-color: rgba(204, 171, 218, 0.4);
+}
+
+@media screen and (min-width: 600px) {
+  .meal-summary,
+  .walk-summary {
+    display: grid;
+    grid-template-columns: 30% 70%;
+    gap: 1rem;
+  }
+  .meal-summary .basic-info,
+  .walk-summary .basic-info {
+    width: 80%;
+    display: grid;
+    grid-template-rows: 1fr auto 1fr;
+    justify-self: center;
+  }
+  .meal-summary .basic-info .pet-image-name-wrapper,
+  .walk-summary .basic-info .pet-image-name-wrapper {
+    align-self: start;
+  }
+  .meal-summary .basic-info .pet-image-name-wrapper .pet-image,
+  .walk-summary .basic-info .pet-image-name-wrapper .pet-image {
+    width: 120px;
+    height: 200px;
+  }
+}
+
+.walk-daily .info,
+.meal-daily .info {
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1.5rem;
+}
+
+.walk-daily .info .daily-list,
+.meal-daily .info .daily-list {
+  border: 1px solid #3b3054;
+  padding: 1rem 0.5rem;
+  border-radius: 25px;
+}
+
+.walk-daily .info .daily-list > p:first-of-type,
+.meal-daily .info .daily-list > p:first-of-type {
+  font-weight: 300;
+  border-bottom: 1px solid rgba(59, 48, 84, 0.5);
+}
+
+.walk-daily .info .daily-list p,
+.meal-daily .info .daily-list p {
+  padding: 0.5rem 0;
+}
+
+.walk-daily .info .daily-list .list-item,
+.meal-daily .info .daily-list .list-item {
+  padding: 0.5rem 0;
+}
+
+.walk-daily .info .daily-list .list-item p,
+.meal-daily .info .daily-list .list-item p {
+  padding: 0;
+}
+
+@media screen and (min-width: 600px) {
+  .walk-daily,
+  .meal-daily {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 1rem 3rem 1rem 3rem;
+  }
+  .walk-daily .info,
+  .meal-daily .info {
+    gap: 2rem;
+  }
+  .walk-daily .info label,
+  .meal-daily .info label {
+    font-size: 16px;
+    display: grid;
+    grid-template-columns: 40% 60%;
+    align-items: center;
+  }
+  .walk-daily .meal-daily-graph,
+  .meal-daily .meal-daily-graph {
+    display: flex;
+    align-self: center;
+  }
+}
+
+/* 3.11. Summary forms ========= */
 .meal-form-wrapper {
   background-color: #a4eada;
 }
@@ -906,7 +1077,7 @@ nav ul {
   transform: scale(1);
   transition: opacity 0.7s;
   position: fixed;
-  top: 83.5px;
+  top: 91px;
   left: 0;
   width: 100%;
   height: 100%;
@@ -920,10 +1091,10 @@ nav ul {
 .modal.isActive .walk-form-wrapper.wrapper,
 .modal.isActive .meal-form-wrapper.wrapper {
   border-radius: 25px;
-  height: calc((100% - 83.5px) - 9px);
+  height: calc((100% - 91px) - 9px);
   pointer-events: all;
   position: absolute;
-  top: calc(50% - 41.7px);
+  top: calc(50% - 45.5px);
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
@@ -948,9 +1119,8 @@ nav ul {
 .modal.isActive .meal-form-wrapper.wrapper .close-modal-icon {
   width: 35px;
   padding: 0.5rem;
-  display: block;
-  margin-right: 0;
-  margin-left: 0;
+  display: flex;
+  align-self: flex-end;
   cursor: pointer;
 }
 
@@ -1024,179 +1194,16 @@ nav ul {
   background-color: transparent;
 }
 
-.meal-week-month-graphs-wrapper,
-.walk-week-month-graphs-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  padding: 1rem;
-  border-radius: 25px;
-}
-
-.meal-week-month-graphs-wrapper h3,
-.walk-week-month-graphs-wrapper h3 {
-  font-size: 16px;
-  text-align: center;
-}
-
-.meal-week-month-graphs-wrapper .basic-info,
-.walk-week-month-graphs-wrapper .basic-info {
-  width: 100%;
-  display: flex;
-  flex-flow: column nowrap;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem 0 2.5rem 0;
-}
-
-.meal-week-month-graphs-wrapper .basic-info h3,
-.walk-week-month-graphs-wrapper .basic-info h3 {
-  margin: 0 auto 0.5rem;
-}
-
-.meal-week-month-graphs-wrapper .basic-info p,
-.walk-week-month-graphs-wrapper .basic-info p {
-  margin: 0;
-  text-align: center;
-}
-
-.meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper,
-.walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  justify-content: center;
-  align-items: center;
-}
-
-.meal-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-name,
-.walk-week-month-graphs-wrapper .basic-info .pet-image-name-wrapper .pet-name {
-  padding-top: 0.5rem;
-}
-
-.meal-week-month-graphs-wrapper .basic-info .pet-image,
-.walk-week-month-graphs-wrapper .basic-info .pet-image {
-  width: 78px;
-  height: 130px;
-  object-fit: cover;
-  background-color: white;
-  border-radius: 25px;
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
-}
-
-.meal-week-month-graphs-wrapper {
-  background-color: rgba(164, 234, 218, 0.5);
-  padding: 1rem;
-}
-
-.meal-week-month-graphs-wrapper h3 {
-  margin: 0;
-  padding: 1.5rem 0;
-}
-
-.meal-week-month-graphs-wrapper .button-background {
-  background-color: rgba(164, 234, 218, 0.3);
-}
-
-.meal-week-month-graphs-wrapper .button-background .btn-darkened {
-  background-color: rgba(164, 234, 218, 0.5);
-}
-
-.dashboard-meal-summary .button-background {
-  background-color: rgba(164, 234, 218, 0.3);
-}
-
-.dashboard-meal-summary .button-background .btn-darkened {
-  background-color: rgba(164, 234, 218, 0.5);
-}
-
-.walk-week-month-graphs-wrapper {
-  background-color: rgba(204, 171, 218, 0.4);
-  padding: 1rem;
-}
-
-.walk-week-month-graphs-wrapper h3 {
-  margin: 0;
-  padding: 1.5rem 0;
-}
-
-.walk-week-month-graphs-wrapper .button-background {
-  background-color: rgba(204, 171, 218, 0.2);
-}
-
-.walk-week-month-graphs-wrapper .button-background .btn-darkened {
-  background-color: rgba(204, 171, 218, 0.4);
-}
-
-.dashboard-walk-summary .button-background {
-  background-color: rgba(204, 171, 218, 0.2);
-}
-
-.dashboard-walk-summary .button-background .btn-darkened {
-  background-color: rgba(204, 171, 218, 0.4);
-}
-
 @media screen and (min-width: 600px) {
-  .meal-week-month-graphs-wrapper .wrapper,
-  .walk-week-month-graphs-wrapper .wrapper {
-    padding: 1rem 2rem;
-    display: grid;
-    grid-template-columns: 30% 70%;
-    gap: 1rem;
-  }
-  .meal-week-month-graphs-wrapper .wrapper .basic-info,
-  .walk-week-month-graphs-wrapper .wrapper .basic-info {
-    width: 80%;
-    display: grid;
-    grid-template-rows: 1fr auto 1fr;
-    justify-self: center;
-  }
-  .meal-week-month-graphs-wrapper .wrapper .basic-info h3,
-  .walk-week-month-graphs-wrapper .wrapper .basic-info h3 {
-    align-self: start;
-  }
-  .meal-week-month-graphs-wrapper .wrapper .basic-info .pet-image-name-wrapper,
-  .walk-week-month-graphs-wrapper .wrapper .basic-info .pet-image-name-wrapper {
-    align-self: start;
-  }
-  .meal-week-month-graphs-wrapper .wrapper .basic-info .pet-image-name-wrapper .pet-image,
-  .walk-week-month-graphs-wrapper .wrapper .basic-info .pet-image-name-wrapper .pet-image {
-    width: 120px;
-    height: 200px;
-  }
-  .walk-form-wrapper,
-  .meal-form-wrapper {
-    position: absolute;
-    top: calc(50% - 41.7px);
-    left: 50%;
-    transform: translate(-50%, -50%);
-    -webkit-transform: translate(-50%, -50%);
-    -ms-transform: translate(-50%, -50%);
-    width: 877px;
-    height: calc((100% - 83.5px) - 4rem);
-    pointer-events: all;
-  }
-  .walk-form-wrapper p,
-  .meal-form-wrapper p {
-    margin: 0;
-  }
-  .walk-form-wrapper .meal-form-content,
-  .meal-form-wrapper .meal-form-content {
-    padding-bottom: 3rem;
-    height: calc(100% - 2.5rem);
-    overflow-y: scroll;
-  }
   .modal.isActive {
-    top: 91px;
+    top: 94px;
     padding: 0;
-    height: calc(100vh - 91px);
+    height: calc(100vh - 94px);
   }
   .modal.isActive .walk-form-wrapper.wrapper,
   .modal.isActive .meal-form-wrapper.wrapper {
     padding-top: 1rem;
-    height: calc((100vh - 91px) - 4rem);
+    height: calc((100vh - 94px) - 4rem);
     top: 50%;
     max-width: 877px;
     border-radius: 50px;
@@ -1205,7 +1212,7 @@ nav ul {
   .modal.isActive .walk-form-wrapper.wrapper .walk-form-content,
   .modal.isActive .meal-form-wrapper.wrapper .meal-form-content,
   .modal.isActive .meal-form-wrapper.wrapper .walk-form-content {
-    padding-bottom: 8rem;
+    padding-bottom: 3rem;
     display: flex;
     flex-flow: column nowrap;
     gap: 2rem;
@@ -1249,8 +1256,7 @@ nav ul {
   .modal.isActive .meal-form-wrapper.wrapper .meal-form-content form .input-wrapper div .input-unit,
   .modal.isActive .meal-form-wrapper.wrapper .walk-form-content form .input-wrapper div .input-unit {
     position: absolute;
-    top: 51px;
-    right: 1rem;
+    top: 27px;
   }
   .modal.isActive .walk-form-wrapper.wrapper .meal-form-content form .button-wrapper,
   .modal.isActive .walk-form-wrapper.wrapper .walk-form-content form .button-wrapper,
@@ -1260,202 +1266,8 @@ nav ul {
   }
 }
 
-.basic-form {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
-}
-
-.basic-form .radios-area {
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: center;
-  column-gap: 1rem;
-}
-
-.basic-form .radios-area label {
-  width: 100%;
-}
-
-.basic-form .input-area {
-  text-align: left;
-}
-
-.basic-form .btn-area {
-  margin: 0;
-}
-
-.basic-form .end-adornment {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
-}
-
-.basic-form .end-adornment--y {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
-}
-
-.basic-form .end-adornment--m {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
-}
-
-.basic-form .input-area--two-column {
-  display: flex;
-  align-items: flex-end;
-  gap: 1rem;
-}
-
-.basic-form .input-area-half {
-  width: 100%;
-}
-
-@media screen and (min-width: 600px) {
-  .calculator .basic-form,
-  .profile .basic-form {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .calculator .basic-form .img-area,
-  .calculator .basic-form .radios-area,
-  .calculator .basic-form .btn-area,
-  .calculator .basic-form .input-area--two-column,
-  .profile .basic-form .img-area,
-  .profile .basic-form .radios-area,
-  .profile .basic-form .btn-area,
-  .profile .basic-form .input-area--two-column {
-    grid-column: span 2;
-  }
-  .calculator .basic-form input,
-  .calculator .basic-form select,
-  .calculator .basic-form textarea,
-  .profile .basic-form input,
-  .profile .basic-form select,
-  .profile .basic-form textarea {
-    width: 100%;
-  }
-  .contact .basic-form {
-    align-items: center;
-  }
-}
-
+/* ========== TO BE REORGANIZED ========== */
 /* 3.2. Charts ============== */
-.walk-day-graph-wrapper {
-  background-color: rgba(164, 234, 218, 0.5);
-}
-
-.meal-day-graph-wrapper {
-  background-color: #ccabda;
-}
-
-.walk-day-graph-wrapper,
-.meal-day-graph-wrapper {
-  border-radius: 25px;
-  padding: 1rem;
-}
-
-.walk-day-graph-wrapper .background-color-wrapper,
-.meal-day-graph-wrapper .background-color-wrapper {
-  background-color: #dcf7f1;
-  border-radius: 25px;
-}
-
-.walk-day-graph-wrapper .background-color-wrapper .info,
-.meal-day-graph-wrapper .background-color-wrapper .info {
-  padding: 1rem 0.5rem;
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1.5rem;
-}
-
-.walk-day-graph-wrapper .background-color-wrapper .info label,
-.meal-day-graph-wrapper .background-color-wrapper .info label {
-  font-size: 16px;
-}
-
-.walk-day-graph-wrapper .background-color-wrapper .info h3,
-.meal-day-graph-wrapper .background-color-wrapper .info h3 {
-  margin: 0;
-}
-
-.walk-day-graph-wrapper .background-color-wrapper .info p,
-.meal-day-graph-wrapper .background-color-wrapper .info p {
-  margin: 0;
-}
-
-.walk-day-graph-wrapper .background-color-wrapper .info .daily-list,
-.meal-day-graph-wrapper .background-color-wrapper .info .daily-list {
-  border: 1px solid #3b3054;
-  padding: 1rem 0.5rem;
-  border-radius: 25px;
-}
-
-.walk-day-graph-wrapper .background-color-wrapper .info .daily-list > p:first-of-type,
-.meal-day-graph-wrapper .background-color-wrapper .info .daily-list > p:first-of-type {
-  font-weight: 300;
-  border-bottom: 1px solid rgba(59, 48, 84, 0.5);
-}
-
-.walk-day-graph-wrapper .background-color-wrapper .info .daily-list p,
-.meal-day-graph-wrapper .background-color-wrapper .info .daily-list p {
-  padding: 0.5rem 0;
-}
-
-.walk-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item,
-.meal-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item {
-  padding: 0.5rem 0;
-}
-
-.walk-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item p,
-.meal-day-graph-wrapper .background-color-wrapper .info .daily-list .list-item p {
-  padding: 0;
-}
-
-@media screen and (min-width: 600px) {
-  .walk-day-graph-wrapper,
-  .meal-day-graph-wrapper {
-    padding: 2rem;
-  }
-  .walk-day-graph-wrapper .background-color-wrapper,
-  .meal-day-graph-wrapper .background-color-wrapper {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding: 1rem 3rem 1rem 3rem;
-  }
-  .walk-day-graph-wrapper .background-color-wrapper .info,
-  .meal-day-graph-wrapper .background-color-wrapper .info {
-    gap: 2rem;
-  }
-  .walk-day-graph-wrapper .background-color-wrapper .info label,
-  .meal-day-graph-wrapper .background-color-wrapper .info label {
-    font-size: 16px;
-    display: grid;
-    grid-template-columns: 40% 60%;
-    align-items: center;
-  }
-  .walk-day-graph-wrapper .background-color-wrapper .meal-daily-graph,
-  .meal-day-graph-wrapper .background-color-wrapper .meal-daily-graph {
-    display: flex;
-    align-self: center;
-  }
-}
-
-.walk-day-graph-wrapper .background-color-wrapper {
-  display: block;
-}
-
-.walk-day-graph-wrapper .background-color-wrapper .info label {
-  margin-right: auto;
-  margin-left: auto;
-  width: 50%;
-}
-
 .graphs {
   width: 100%;
 }
@@ -1814,5 +1626,137 @@ header .profile-img {
   width: 128px;
   height: 128px;
   border-width: 8px;
+}
+
+/* 4.4. Forms =============== */
+.meal-form {
+  background-color: #a4eada;
+}
+
+.walk-form {
+  background-color: #ccabda;
+}
+
+.walk-form,
+.meal-form {
+  border-radius: 25px;
+  padding: 1rem;
+}
+
+.walk-form .input-wrapper,
+.meal-form .input-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.7rem;
+}
+
+.walk-form .input-wrapper div,
+.meal-form .input-wrapper div {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 0.3rem;
+}
+
+.walk-form .input-wrapper div label,
+.meal-form .input-wrapper div label {
+  font-weight: 700;
+}
+
+.walk-form .button-wrapper,
+.meal-form .button-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+.walk-form .button-wrapper .btn-outlined,
+.meal-form .button-wrapper .btn-outlined {
+  border: 1px solid #fff;
+  background-color: transparent;
+}
+
+.basic-form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+}
+
+.basic-form .radios-area {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  column-gap: 1rem;
+}
+
+.basic-form .radios-area label {
+  width: 100%;
+}
+
+.basic-form .input-area {
+  text-align: left;
+}
+
+.basic-form .btn-area {
+  margin: 0;
+}
+
+.basic-form .end-adornment {
+  display: inline-block;
+  width: 100px;
+  margin-left: -140px;
+  text-align: right;
+}
+
+.basic-form .end-adornment--y {
+  display: inline-block;
+  width: 100px;
+  margin-left: -140px;
+  text-align: right;
+}
+
+.basic-form .end-adornment--m {
+  display: inline-block;
+  width: 100px;
+  margin-left: -140px;
+  text-align: right;
+}
+
+.basic-form .input-area--two-column {
+  display: flex;
+  align-items: flex-end;
+  gap: 1rem;
+}
+
+.basic-form .input-area-half {
+  width: 100%;
+}
+
+@media screen and (min-width: 600px) {
+  .calculator .basic-form,
+  .profile .basic-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .calculator .basic-form .img-area,
+  .calculator .basic-form .radios-area,
+  .calculator .basic-form .btn-area,
+  .calculator .basic-form .input-area--two-column,
+  .profile .basic-form .img-area,
+  .profile .basic-form .radios-area,
+  .profile .basic-form .btn-area,
+  .profile .basic-form .input-area--two-column {
+    grid-column: span 2;
+  }
+  .calculator .basic-form input,
+  .calculator .basic-form select,
+  .calculator .basic-form textarea,
+  .profile .basic-form input,
+  .profile .basic-form select,
+  .profile .basic-form textarea {
+    width: 100%;
+  }
+  .contact .basic-form {
+    align-items: center;
+  }
 }
 /*# sourceMappingURL=style.css.map */

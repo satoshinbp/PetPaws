@@ -1,0 +1,38 @@
+.meal-form {
+  background-color: $primary-color;
+}
+
+.walk-form {
+  background-color: $secondary-color;
+}
+
+.walk-form,
+.meal-form {
+  border-radius: $subcomponent-borderradius-mb;
+  padding: 1rem;
+
+  .input-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 0.7rem;
+    div {
+      display: flex;
+      flex-flow: column nowrap;
+      gap: 0.3rem;
+      label {
+        font-weight: 700;
+      }
+    }
+  }
+  // CREATE, CANCEL BUTTON
+  .button-wrapper {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+
+    .btn-outlined {
+      border: 1px solid $base-color;
+      background-color: transparent;
+    }
+  }
+}
