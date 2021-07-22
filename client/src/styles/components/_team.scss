@@ -2,20 +2,8 @@
   display: flex;
   flex-flow: column;
   align-items: center;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1rem;
-  text-align: center;
-  background-color: $secondary-color;
-
-  &__title {
-    color: $base-color;
-  }
 
   &__members {
-    border-radius: $subcomponent-borderradius-mb;
-    padding: 3rem 1rem;;
-    max-width: 1067px;
     display: flex;
     flex-flow: nowrap column;
     align-items: center;
@@ -32,20 +20,12 @@
   }
 
   &__member-name {
-    margin: .5rem 0 0;
+    margin: 0.5rem 0 0;
     font-size: $standard-fontsize-mb;
   }
 
-  &__member-title{
-    margin: 0 0 1rem;
-    font-weight: 700;
-  }
-
   @media screen and (min-width: $tb-breakpoint) {
-    padding: 2rem 2rem 6rem;
-
     &__members {
-      background-color: $secondary-color-light;
       flex-flow: wrap row;
       justify-content: center;
       align-items: flex-start;
