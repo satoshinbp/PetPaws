@@ -35,7 +35,7 @@ export default function Signup() {
       <div className="signup_wrapper">
         <div className="signup_description-area">
           <div className="signup_description-area_text">
-            <h3>By creating your free account,</h3>
+            <h3>By creating your account,</h3>
             <p>　You will be able to :</p>
             <ul>
               <li>

@@ -29,8 +29,8 @@
       padding-left: 1rem;
     }
 
-    &_description-area_text {
-      max-width: 700px;
+    &_text {
+      max-width: $tb-breakpoint;
       margin: auto;
     }
   }
@@ -52,6 +52,8 @@
     }
 
     label {
+      width: 100%;
+      text-align: left;
       display: block;
       padding: 1rem 0 .5rem;
     }
@@ -72,10 +74,14 @@
   }
 }
 
-@media screen and (min-width: 600px){
+@media screen and (min-width: $tb-breakpoint){
   .signup_form {
-    max-width: 600px;
+    max-width: $tb-breakpoint;
     border-radius: 15px;
+
+    label {
+      width: $input-width;
+    }
   }
 }
 
@@ -89,31 +95,13 @@
       flex-flow: row nowrap;
       justify-content: center;
       gap: 1rem;
-          max-width: 1000px;
-          margin: auto;
-
-    }
-
-    &_form {
-      // flex: 0 0 30%;
+      max-width: 1000px;
+      margin: auto;
     }
 
     &_description-area{
-      padding: 0 1rem;
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
       p{
         margin: 0 0 1rem;
-      }
-
-      ul {
-        padding-left: 2rem;
-
-        li{
-          display: flex;
-          padding: 1rem 0;
-        }
       }
     }
   }
