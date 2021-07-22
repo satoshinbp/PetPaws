@@ -1,36 +1,16 @@
 .features {
-  width: 100%;
-  max-width: $md-max-width;
-  margin: 0 auto;
-  padding: 1rem;
-  border-radius: $subcomponent-borderradius-mb;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: $primary-color;
-  text-align: center;
-
   .feature {
-    padding: 1rem;
-    border-radius: $subcomponent-borderradius-mb;
-    background-color: $primary-color-light;
+    margin-bottom: 1.5rem;
 
     &__img {
-      width: 56px;
+      width: 122px;
       margin: 0 auto;
     }
   }
 
-  .btn-area {
-    margin: 1rem 0;
-  }
-
   @media screen and (min-width: $tb-breakpoint) {
-    padding: 2rem;
-    gap: 2rem;
-
     .feature {
-      padding: 2rem;
+      margin-bottom: 3rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -42,8 +22,6 @@
       }
 
       &__img {
-        width: auto;
-        margin: 0;
         flex-basis: 30%;
         text-align: right;
       }

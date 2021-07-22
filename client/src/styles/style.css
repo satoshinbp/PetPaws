@@ -432,6 +432,18 @@ a {
   background-color: #ccabda;
 }
 
+.bg-primary-light-mb-visible {
+  padding: 1.5rem 1rem;
+  border-radius: 50px;
+  background-color: #dcf7f1;
+}
+
+.bg-secondary-light-mb-visible {
+  padding: 1.5rem 1rem;
+  border-radius: 50px;
+  background-color: #e4c8f0;
+}
+
 @media screen and (min-width: 600px) {
   body {
     padding-top: 94px;
@@ -450,12 +462,14 @@ a {
   .wrapper-lg {
     padding: 4rem 3rem;
   }
-  .bg-primary-light {
+  .bg-primary-light,
+  .bg-primary-light-mb-visible {
     padding: 2rem 1.5rem;
     border-radius: 50px;
     background-color: #dcf7f1;
   }
-  .bg-secondary-light {
+  .bg-secondary-light,
+  .bg-secondary-light-mb-visible {
     padding: 2rem 1.5rem;
     border-radius: 50px;
     background-color: #e4c8f0;
@@ -631,10 +645,6 @@ a {
   flex-flow: nowrap column;
 }
 
-.intro .btn-area {
-  margin: 1rem 0;
-}
-
 @media screen and (min-width: 600px) {
   .intro {
     text-align: left;
@@ -701,41 +711,18 @@ nav ul {
 
 /* 3.4. Footer ============== */
 /* 3.5. Features ============ */
-.features {
-  width: 100%;
-  max-width: 877px;
-  margin: 0 auto;
-  padding: 1rem;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: #a4eada;
-  text-align: center;
-}
-
 .features .feature {
-  padding: 1rem;
-  border-radius: 25px;
-  background-color: #dcf7f1;
+  margin-bottom: 1.5rem;
 }
 
 .features .feature__img {
-  width: 56px;
+  width: 122px;
   margin: 0 auto;
 }
 
-.features .btn-area {
-  margin: 1rem 0;
-}
-
 @media screen and (min-width: 600px) {
-  .features {
-    padding: 2rem;
-    gap: 2rem;
-  }
   .features .feature {
-    padding: 2rem;
+    margin-bottom: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -746,8 +733,6 @@ nav ul {
     text-align: left;
   }
   .features .feature__img {
-    width: auto;
-    margin: 0;
     flex-basis: 30%;
     text-align: right;
   }
@@ -758,20 +743,6 @@ nav ul {
 }
 
 /* 3.6. Team ================ */
-.team {
-  width: 100%;
-  max-width: 877px;
-  margin: 0 auto;
-  padding: 1rem;
-  border-radius: 25px;
-  text-align: center;
-  background-color: #ccabda;
-}
-
-.team__title {
-  color: #fff;
-}
-
 .team__members {
   display: flex;
   flex-flow: nowrap column;
@@ -789,17 +760,16 @@ nav ul {
 }
 
 .team__member-name {
+  margin: 0.5rem 0 0;
   font-size: 16px;
 }
 
 @media screen and (min-width: 600px) {
-  .team {
-    padding: 2rem;
-  }
   .team__members {
     flex-flow: wrap row;
     justify-content: center;
     align-items: flex-start;
+    margin: auto;
   }
   .team__member {
     flex: 240px 0 0;
