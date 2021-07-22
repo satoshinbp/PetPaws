@@ -1,7 +1,7 @@
 .team {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
+  // display: flex;
+  // flex-flow: column;
+  // align-items: center;
 
   &__members {
     display: flex;
@@ -29,6 +29,7 @@
       flex-flow: wrap row;
       justify-content: center;
       align-items: flex-start;
+      margin: auto;
     }
 
     &__member {
