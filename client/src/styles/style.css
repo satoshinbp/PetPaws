@@ -1394,50 +1394,11 @@ header .profile-img {
 }
 
 /* 4.4. Forms =============== */
-.meal-form {
-  background-color: #a4eada;
-}
-
-.walk-form {
-  background-color: #ccabda;
-}
-
-.walk-form,
-.meal-form {
-  border-radius: 25px;
-  padding: 1rem;
-}
-
-.walk-form .input-wrapper,
-.meal-form .input-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 0.7rem;
-}
-
-.walk-form .input-wrapper div,
-.meal-form .input-wrapper div {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 0.3rem;
-}
-
-.walk-form .input-wrapper div label,
-.meal-form .input-wrapper div label {
-  font-weight: 700;
-}
-
-.walk-form .button-wrapper,
-.meal-form .button-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
-}
-
-.walk-form .button-wrapper .btn-outlined,
-.meal-form .button-wrapper .btn-outlined {
-  border: 1px solid #fff;
-  background-color: transparent;
+form .end-adornment {
+  display: inline-block;
+  width: 100px;
+  margin-left: -140px;
+  text-align: right;
 }
 
 .basic-form {
@@ -1463,27 +1424,6 @@ header .profile-img {
 
 .basic-form .btn-area {
   margin: 0;
-}
-
-.basic-form .end-adornment {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
-}
-
-.basic-form .end-adornment--y {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
-}
-
-.basic-form .end-adornment--m {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
 }
 
 .basic-form .input-area--two-column {
