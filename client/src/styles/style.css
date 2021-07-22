@@ -506,17 +506,12 @@ a {
 }
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
-.signup {
-  display: flex;
-  flex-flow: column nowrap;
-  background: #ffdd95;
-  justify-content: center;
-}
 .signup_description-area {
   padding: 0 1rem;
   display: flex;
   flex-flow: column;
   justify-content: center;
+  background: #ffdd95;
 }
 .signup_description-area ul {
   padding-left: 2rem;
@@ -532,23 +527,14 @@ a {
   text-align: left;
   padding-left: 1rem;
 }
-.signup_description-area_text {
-  max-width: 600px;
-  margin: auto;
-}
 .signup_form {
   padding: 1rem 2rem;
-  margin: 1rem auto;
   background: #dcf7f1;
 }
 .signup_form form {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-}
-.signup_form h2 {
-  margin: 0;
-  text-align: center;
 }
 .signup_form label {
   width: 100%;
@@ -564,33 +550,39 @@ a {
   padding: 1rem 0;
 }
 .signup_form .signin-link-area_link {
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: underline;
 }
 
 @media screen and (min-width: 600px) {
-  .signup_form {
-    max-width: 600px;
-    border-radius: 15px;
-  }
   .signup_form label {
     width: 340px;
   }
 }
-@media screen and (min-width: 850px) {
+@media screen and (min-width: 700px) {
   .signup {
-    padding: 2rem 1rem;
-  }
-  .signup_wrapper {
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
-    gap: 1rem;
-    max-width: 1000px;
-    margin: auto;
+    background: #ffdd95;
   }
-  .signup_description-area p {
-    margin: 0 0 1rem;
+  .signup_form {
+    padding: 1rem;
+    border-radius: 50px;
+  }
+  .signup_form label {
+    width: 340px;
+  }
+  .signup .wrapper {
+    padding: 4rem 0;
+  }
+  .signup .changeBg {
+    width: unset;
+    padding: 4rem 1rem;
+    background: #ffdd95;
+  }
+  .signup .intro {
+    align-self: center;
   }
 }
 /* 2.2. Sign In ============= */

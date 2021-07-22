@@ -1,50 +1,36 @@
 .signup {
-  display: flex;
-  flex-flow: column nowrap;
-  background: $intro-color;
-  justify-content: center;
-
   &_description-area {
     padding: 0 1rem;
     display: flex;
     flex-flow: column;
     justify-content: center;
+    background: $intro-color;
 
-      ul {
-        padding-left: 2rem;
-        li {
-          display: flex;
-          padding: 0 0 0.5rem;
-          .left-align {
-            text-align: left;
-          }
+    ul {
+      padding-left: 2rem;
+      li {
+        display: flex;
+        padding: 0 0 0.5rem;
+        .left-align {
+          text-align: left;
         }
       }
+    }
+
     p {
       text-align: left;
       padding-left: 1rem;
-    }
-
-    &_text {
-      max-width: $tb-breakpoint;
-      margin: auto;
     }
   }
 
   &_form {
     padding: 1rem 2rem;
-    margin: 1rem auto;
     background: $primary-color-light;
 
     form {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
-    }
-
-    h2 {
-      margin: 0;
-      text-align: center;
     }
 
     label {
@@ -63,7 +49,7 @@
       padding: 1rem 0;
 
       &_link {
-        font-weight: 600;
+        font-weight: $label-fontweight;
         text-decoration: underline;
       }
     }
@@ -71,33 +57,43 @@
 }
 
 @media screen and (min-width: $tb-breakpoint){
-  .signup_form {
-    max-width: $tb-breakpoint;
-    border-radius: 15px;
-
-    label {
-      width: $input-width;
+  .signup {
+    &_form {
+      label {
+        width: $input-width;
+      }
     }
   }
 }
 
-
-@media screen and (min-width: 850px){
+@media screen and (min-width: 700px){
   .signup {
-    padding: 2rem 1rem;
-    &_wrapper {
-      display: flex;
-      flex-flow: row nowrap;
-      justify-content: center;
-      gap: 1rem;
-      max-width: 1000px;
-      margin: auto;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    background: $intro-color;
+
+    &_form {
+      padding: 1rem;
+      border-radius: $subcomponent-borderradius-pc;
+
+      label {
+        width: $input-width;
+      }
     }
 
-    &_description-area {
-      p {
-        margin: 0 0 1rem;
-      }
+    .wrapper{
+      padding: 4rem 0;
+    }
+
+    .changeBg{
+      width: unset;
+      padding: 4rem 1rem;
+      background: $intro-color;
+    }
+
+    .intro{
+      align-self: center;
     }
   }
 }
