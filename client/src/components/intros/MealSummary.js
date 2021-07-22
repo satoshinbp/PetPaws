@@ -1,5 +1,4 @@
-import catIcon from '../../images/cat.svg'; // to be replaced
-
+import mealTrackerIcon from '../../images/meal-tracker.svg';
 export default function MealSummary() {
   return (
     <div className="intro">
@@ -12,8 +11,7 @@ export default function MealSummary() {
           </p>
 
           <div className="intro__img-area pc-hidden">
-            {/* icon to be replaced */}
-            <img src={catIcon} alt="cat stiting besides cat food" />
+            <img src={mealTrackerIcon} alt="cat stiting besides cat food" />
           </div>
 
           <div className="btn-area">
@@ -22,8 +20,7 @@ export default function MealSummary() {
         </div>
 
         <div className="intro__img-area mb-hidden">
-          {/* icon to be replaced */}
-          <img src={catIcon} alt="cat stiting besides cat food" />
+          <img src={mealTrackerIcon} alt="cat stiting besides cat food" />
         </div>
       </div>
     </div>

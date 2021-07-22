@@ -1,4 +1,4 @@
-import runningDogIcon from '../../images/running-dog.svg'; // to be replaced
+import activityTrackerIcon from '../../images/activity-tracker-purple.svg';
 
 export default function WalkSummary() {
   return (
@@ -12,7 +12,7 @@ export default function WalkSummary() {
           </p>
 
           <div className="intro__img-area pc-hidden">
-            <img src={runningDogIcon} alt="running dog with smile" />
+            <img src={activityTrackerIcon} alt="running dog with smile" />
           </div>
 
           <div className="btn-area">
@@ -21,8 +21,7 @@ export default function WalkSummary() {
         </div>
 
         <div className="intro__img-area mb-hidden">
-          {/* icon to be replaced */}
-          <img src={runningDogIcon} alt="running dog with smile" />
+          <img src={activityTrackerIcon} alt="running dog with smile" />
         </div>
       </div>
     </div>
