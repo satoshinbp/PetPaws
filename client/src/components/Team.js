@@ -17,7 +17,8 @@ export default function Team() {
   return (
     <div className="team bg-secondary-fish">
       <div className="wrapper-lg">
-        <h3 className="team__title">PET PAWS TEAM</h3>
+        <h2 className="team__title">PET PAWS TEAM</h2>
+
         <div className="team__members bg-secondary-light">
           {memberList
             ? memberList.map((val) => (

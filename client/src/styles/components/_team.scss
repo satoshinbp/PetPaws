@@ -16,17 +16,11 @@
   }
 
   &__member-name {
-    margin: .5rem 0 0;
+    margin: 0.5rem 0 0;
     font-size: $standard-fontsize-mb;
   }
 
-  &__member-title{
-    margin: 0 0 1rem;
-    font-weight: 700;
-  }
-
   @media screen and (min-width: $tb-breakpoint) {
-
     &__members {
       flex-flow: wrap row;
       justify-content: center;
