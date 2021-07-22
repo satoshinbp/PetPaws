@@ -1,0 +1,161 @@
+.meal-form {
+  background-color: $primary-color;
+}
+
+.walk-form {
+  background-color: $secondary-color;
+}
+
+.modal {
+  opacity: 0; // modal off
+  transform: scale(0);
+  transition: opacity 0.7s, transform 0s 0.7s;
+  &.isActive {
+    opacity: 1;
+    z-index: 120;
+    transform: scale(1);
+    transition: opacity 0.7s;
+    position: fixed;
+    top: $header-height-mb;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: rgba(196, 196, 196, 0.5);
+    backdrop-filter: blur(4px);
+    // inactivate any kind of click on overlay background area
+    pointer-events: none;
+    .walk-form,
+    .meal-form {
+      position: absolute;
+      top: calc(50% - #{$header-height-mb} / 2);
+      left: 50%;
+      transform: translate(-50%, -50%);
+      -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+      height: calc((100% - #{$header-height-mb}) - 9px);
+      width: calc(100vw - 9px);
+      display: flex;
+      flex-flow: column nowrap;
+      padding: 0.5rem 1.5rem 2rem;
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: $subcomponent-borderradius-mb;
+      // Clicking is invalid on overlay background,
+      // therefore "pointer-events: all" is necessary
+      // to click inside form content (e.g. inputs, button)
+      pointer-events: all;
+
+      h2 {
+        text-align: center;
+        margin: 0;
+      }
+      .close-modal-icon {
+        display: flex;
+        align-self: flex-end;
+        width: 35px;
+        padding: 0.5rem;
+        cursor: pointer;
+      }
+      .meal-form-content,
+      .walk-form-content {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        overflow-y: scroll;
+        padding-bottom: 3rem;
+      }
+      input,
+      select,
+      button {
+        box-sizing: border-box;
+      }
+      form {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+        .input-wrapper {
+          display: grid;
+          gap: 1rem;
+          div {
+            position: relative;
+            display: flex;
+            flex-flow: column nowrap;
+            text-align: left;
+            .input-unit {
+              position: absolute; // unit such as kcal, km
+              top: 25px; // depends on input size
+              right: 1rem;
+            }
+          }
+        }
+        // CREATE, CANCEL BUTTON
+        .button-wrapper {
+          display: flex;
+          flex-flow: column nowrap;
+          gap: 1rem;
+          margin: 0;
+
+          .btn-outlined {
+            border: 1px solid $base-color;
+            background-color: transparent;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $tb-breakpoint) {
+  .modal.isActive {
+    top: $header-height-pc;
+    height: calc(100vh - #{$header-height-pc});
+    .walk-form,
+    .meal-form {
+      height: auto;
+      max-height: calc((100vh - #{$header-height-pc}) - 4rem);
+      top: 50%;
+      border-radius: $subcomponent-borderradius-pc;
+      padding: 1rem 3rem 2rem;
+      .meal-form-content,
+      .walk-form-content {
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 2rem;
+        padding-bottom: 3rem;
+        min-height: calc(100%);
+        h2 {
+          margin: 0;
+        }
+        input,
+        .input,
+        select,
+        button {
+          box-sizing: border-box;
+          width: 100%;
+        }
+        form {
+          .input-wrapper {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            column-gap: 1.5rem;
+            row-gap: 1rem;
+            div {
+              .input-unit {
+                position: absolute;
+                top: 27px;
+              }
+            }
+          }
+          .button-wrapper {
+            // cancel and create buttons switch
+            flex-direction: row-reverse;
+          }
+        }
+      }
+    }
+  }
+}
