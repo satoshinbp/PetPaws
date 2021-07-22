@@ -3,9 +3,13 @@
   flex-direction: row;
   gap: 1rem;
   text-align: center;
+  @media screen and (min-width: $pc-breakpoint) {
+    max-width: 390px;
+  }
+
   .activity-avg {
     flex-basis: 50%;
-    border: 1px solid $font-color;
-    border-radius: $subcomponent-borderradius-mb;
+    border: 1px solid $disabled-color;
+    border-radius: $input-borderradius;
   }
 }
