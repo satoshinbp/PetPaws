@@ -65,7 +65,9 @@ export default function Features() {
           </p>
         </div>
 
-        <button className="btn-contained ">Unlock All Features</button>
+        <div className="btn-area">
+          <button className="btn-contained ">Unlock All Features</button>
+        </div>
       </div>
     </div>
   );
