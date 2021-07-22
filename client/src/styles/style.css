@@ -999,6 +999,194 @@ nav ul {
     align-self: center;
   }
 }
+.meal-form {
+  background-color: #a4eada;
+}
+
+.walk-form {
+  background-color: #ccabda;
+}
+
+.modal {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.7s, transform 0s 0.7s;
+}
+.modal.isActive {
+  opacity: 1;
+  z-index: 120;
+  transform: scale(1);
+  transition: opacity 0.7s;
+  position: fixed;
+  top: 91px;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  background-color: rgba(196, 196, 196, 0.5);
+  backdrop-filter: blur(4px);
+  pointer-events: none;
+}
+.modal.isActive .walk-form,
+.modal.isActive .meal-form {
+  position: absolute;
+  top: calc(50% - 91px / 2);
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  height: calc((100% - 91px) - 9px);
+  width: calc(100vw - 9px);
+  display: flex;
+  flex-flow: column nowrap;
+  padding: 0.5rem 1.5rem 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 25px;
+  pointer-events: all;
+}
+.modal.isActive .walk-form h2,
+.modal.isActive .meal-form h2 {
+  text-align: center;
+  margin: 0;
+}
+.modal.isActive .walk-form .close-modal-icon,
+.modal.isActive .meal-form .close-modal-icon {
+  display: flex;
+  align-self: flex-end;
+  width: 35px;
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.modal.isActive .walk-form .meal-form-content,
+.modal.isActive .walk-form .walk-form-content,
+.modal.isActive .meal-form .meal-form-content,
+.modal.isActive .meal-form .walk-form-content {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  height: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-y: scroll;
+  padding-bottom: 3rem;
+}
+.modal.isActive .walk-form input,
+.modal.isActive .walk-form select,
+.modal.isActive .walk-form button,
+.modal.isActive .meal-form input,
+.modal.isActive .meal-form select,
+.modal.isActive .meal-form button {
+  box-sizing: border-box;
+}
+.modal.isActive .walk-form form,
+.modal.isActive .meal-form form {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 2rem;
+}
+.modal.isActive .walk-form form .input-wrapper,
+.modal.isActive .meal-form form .input-wrapper {
+  display: grid;
+  gap: 1rem;
+}
+.modal.isActive .walk-form form .input-wrapper div,
+.modal.isActive .meal-form form .input-wrapper div {
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  text-align: left;
+}
+.modal.isActive .walk-form form .input-wrapper div .input-unit,
+.modal.isActive .meal-form form .input-wrapper div .input-unit {
+  position: absolute;
+  top: 25px;
+  right: 1rem;
+}
+.modal.isActive .walk-form form .button-wrapper,
+.modal.isActive .meal-form form .button-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  margin: 0;
+}
+.modal.isActive .walk-form form .button-wrapper .btn-outlined,
+.modal.isActive .meal-form form .button-wrapper .btn-outlined {
+  border: 1px solid #fff;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 600px) {
+  .modal.isActive {
+    top: 94px;
+    height: calc(100vh - 94px);
+  }
+  .modal.isActive .walk-form,
+.modal.isActive .meal-form {
+    height: auto;
+    max-height: calc((100vh - 94px) - 4rem);
+    top: 50%;
+    border-radius: 50px;
+    padding: 1rem 3rem 2rem;
+  }
+  .modal.isActive .walk-form .meal-form-content,
+.modal.isActive .walk-form .walk-form-content,
+.modal.isActive .meal-form .meal-form-content,
+.modal.isActive .meal-form .walk-form-content {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 2rem;
+    padding-bottom: 3rem;
+    min-height: calc(100%);
+  }
+  .modal.isActive .walk-form .meal-form-content h2,
+.modal.isActive .walk-form .walk-form-content h2,
+.modal.isActive .meal-form .meal-form-content h2,
+.modal.isActive .meal-form .walk-form-content h2 {
+    margin: 0;
+  }
+  .modal.isActive .walk-form .meal-form-content input,
+.modal.isActive .walk-form .meal-form-content .input,
+.modal.isActive .walk-form .meal-form-content select,
+.modal.isActive .walk-form .meal-form-content button,
+.modal.isActive .walk-form .walk-form-content input,
+.modal.isActive .walk-form .walk-form-content .input,
+.modal.isActive .walk-form .walk-form-content select,
+.modal.isActive .walk-form .walk-form-content button,
+.modal.isActive .meal-form .meal-form-content input,
+.modal.isActive .meal-form .meal-form-content .input,
+.modal.isActive .meal-form .meal-form-content select,
+.modal.isActive .meal-form .meal-form-content button,
+.modal.isActive .meal-form .walk-form-content input,
+.modal.isActive .meal-form .walk-form-content .input,
+.modal.isActive .meal-form .walk-form-content select,
+.modal.isActive .meal-form .walk-form-content button {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .modal.isActive .walk-form .meal-form-content form .input-wrapper,
+.modal.isActive .walk-form .walk-form-content form .input-wrapper,
+.modal.isActive .meal-form .meal-form-content form .input-wrapper,
+.modal.isActive .meal-form .walk-form-content form .input-wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 1.5rem;
+    row-gap: 1rem;
+  }
+  .modal.isActive .walk-form .meal-form-content form .input-wrapper div .input-unit,
+.modal.isActive .walk-form .walk-form-content form .input-wrapper div .input-unit,
+.modal.isActive .meal-form .meal-form-content form .input-wrapper div .input-unit,
+.modal.isActive .meal-form .walk-form-content form .input-wrapper div .input-unit {
+    position: absolute;
+    top: 27px;
+  }
+  .modal.isActive .walk-form .meal-form-content form .button-wrapper,
+.modal.isActive .walk-form .walk-form-content form .button-wrapper,
+.modal.isActive .meal-form .meal-form-content form .button-wrapper,
+.modal.isActive .meal-form .walk-form-content form .button-wrapper {
+    flex-direction: row-reverse;
+  }
+}
 /* ========== TO BE REORGANIZED ========== */
 /* 3.2. Charts ============== */
 .graphs {
@@ -1335,52 +1523,26 @@ header .profile-img {
   border-width: 4px;
 }
 
-.profile .profile-img {
+.profile .basic-form .profile-img {
   width: 128px;
   height: 128px;
   border-width: 8px;
 }
+.profile .basic-form .profile-img-input {
+  display: none;
+  width: 128px;
+  height: 128px;
+}
+.profile .basic-form .profile-img-label {
+  display: initial;
+}
 
 /* 4.4. Forms =============== */
-.meal-form {
-  background-color: #a4eada;
-}
-
-.walk-form {
-  background-color: #ccabda;
-}
-
-.walk-form,
-.meal-form {
-  border-radius: 25px;
-  padding: 1rem;
-}
-.walk-form .input-wrapper,
-.meal-form .input-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 0.7rem;
-}
-.walk-form .input-wrapper div,
-.meal-form .input-wrapper div {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 0.3rem;
-}
-.walk-form .input-wrapper div label,
-.meal-form .input-wrapper div label {
-  font-weight: 700;
-}
-.walk-form .button-wrapper,
-.meal-form .button-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
-}
-.walk-form .button-wrapper .btn-outlined,
-.meal-form .button-wrapper .btn-outlined {
-  border: 1px solid #fff;
-  background-color: transparent;
+form .end-adornment {
+  display: inline-block;
+  width: 100px;
+  margin-left: -140px;
+  text-align: right;
 }
 
 .basic-form {
@@ -1402,24 +1564,6 @@ header .profile-img {
 }
 .basic-form .btn-area {
   margin: 0;
-}
-.basic-form .end-adornment {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
-}
-.basic-form .end-adornment--y {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
-}
-.basic-form .end-adornment--m {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
 }
 .basic-form .input-area--two-column {
   display: flex;

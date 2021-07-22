@@ -14,9 +14,11 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
       <MealSummaryIntro />
 
       <div className="body">
-        {showForm ? (
-          <MealForm petProfile={petProfile} setAllMeals={setAllMeals} closeForm={() => setShowForm(false)} />
-        ) : null}
+        <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
+          {showForm && (
+            <MealForm petProfile={petProfile} setAllMeals={setAllMeals} closeForm={() => setShowForm(false)} />
+          )}
+        </div>
 
         <div className="bg-primary-meat">
           <div className="wrapper">

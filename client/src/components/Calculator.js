@@ -123,7 +123,7 @@ export default function Calculator(props) {
             <div className="input-area-half">
               <label htmlFor="weight">Age</label>
               <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
-              <span className="end-adornment--y">years</span>
+              <span className="end-adornment">years</span>
             </div>
 
             <div className="input-area-half">
@@ -136,7 +136,7 @@ export default function Calculator(props) {
                 step={1}
                 onChange={changeMonths}
               />
-              <span className="end-adornment--m">months</span>
+              <span className="end-adornment">months</span>
             </div>
           </div>
 
