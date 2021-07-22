@@ -1,5 +1,4 @@
-import catIcon from '../../images/cat.svg'; // to be replaced
-
+import dashboardHeaderIcon from '../../images/dashboard-header.svg';
 export default function Dashboard() {
   return (
     <div className="intro">
@@ -12,7 +11,7 @@ export default function Dashboard() {
           </p>
 
           <div className="intro__img-area pc-hidden">
-            <img src={catIcon} alt="cat stiting besides cat food" />
+            <img src={dashboardHeaderIcon} alt="cat stiting besides cat food" />
           </div>
 
           <div className="btn-area">
@@ -21,8 +20,7 @@ export default function Dashboard() {
         </div>
 
         <div className="intro__img-area mb-hidden">
-          {/* to be replaced */}
-          <img src={catIcon} alt="a blue cat and a purple cat both sitting" />
+          <img src={dashboardHeaderIcon} alt="a blue cat and a purple cat both sitting" />
         </div>
       </div>
     </div>

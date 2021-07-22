@@ -4,7 +4,8 @@ import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
 import ProfileIntro from '../components/intros/Profile';
-import catIcon from '../images/cat.svg'; // to be replaced
+import dogIcon from '../images/add-pet-dog.svg';
+import catIcon from '../images/add-pet-cat.svg';
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -176,12 +177,10 @@ export default function PetProfile({ petProfile }) {
               </div>
 
               <div className="icon-area icon-area--dog">
-                {/* to be replaced */}
-                <img src={catIcon} alt="a sitting dog" />
+                <img src={dogIcon} alt="a sitting dog" />
               </div>
 
               <div className="icon-area icon-area--cat">
-                {/* to be replaced */}
                 <img src={catIcon} alt="a sitting cat" />
               </div>
             </div>

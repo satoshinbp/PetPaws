@@ -1,5 +1,5 @@
 import finderIcon from '../images/finder.svg';
-import trackerIcon from '../images/running-dog.svg';
+import activityTrackerIcon from '../images/activity-tracker-yellow.svg';
 import calculatorIcon from '../images/calculator.svg';
 
 export default function Features() {
@@ -19,7 +19,7 @@ export default function Features() {
 
           <h3 className="feature__title pc-hidden">Meal and Walk Tracker</h3>
           <div className="feature__img">
-            <img src={trackerIcon} alt="member portrait" />
+            <img src={activityTrackerIcon} alt="member portrait" />
           </div>
           <p className="feature__description pc-hidden">
             With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be healthy

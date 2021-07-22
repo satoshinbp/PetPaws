@@ -1,4 +1,5 @@
-import twoCatsAndDogIcon from '../../images/cats-and-dog.svg';
+import homeIcon from '../../images/home.svg';
+
 export default function Home() {
   return (
     <div className="intro">
@@ -11,7 +12,7 @@ export default function Home() {
           </p>
 
           <div className="intro__img-area pc-hidden">
-            <img src={twoCatsAndDogIcon} alt="two cat and a dog all sitting" />
+            <img src={homeIcon} alt="two cat and a dog all sitting" />
           </div>
 
           <div className="btn-area">
@@ -20,7 +21,7 @@ export default function Home() {
         </div>
 
         <div className="intro__img-area mb-hidden">
-          <img src={twoCatsAndDogIcon} alt="two cat and a dog all sitting" />
+          <img src={homeIcon} alt="two cat and a dog all sitting" />
         </div>
       </div>
     </div>
