@@ -1377,10 +1377,20 @@ header .profile-img {
   border-width: 4px;
 }
 
-.profile .profile-img {
+.profile .basic-form .profile-img {
   width: 128px;
   height: 128px;
   border-width: 8px;
+}
+
+.profile .basic-form .profile-img-input {
+  display: none;
+  width: 128px;
+  height: 128px;
+}
+
+.profile .basic-form .profile-img-label {
+  display: initial;
 }
 
 /* 4.4. Forms =============== */
