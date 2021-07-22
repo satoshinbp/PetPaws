@@ -1,6 +1,9 @@
 .calorie-stats {
-  border: 1px solid $font-color;
-  border-radius: $subcomponent-borderradius-mb;
+  border: 1px solid $disabled-color;
+  border-radius: $input-borderradius;
   padding: 1rem;
   margin-top: 1rem;
+  @media screen and (min-width: $pc-breakpoint) {
+    max-width: 390px;
+  }
 }

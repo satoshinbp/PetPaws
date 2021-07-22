@@ -1,5 +1,4 @@
-import catIcon from '../../images/cat.svg'; // to be replaced
-
+import dashboardHeaderIcon from '../../images/dashboard-header.svg';
 export default function Dashboard() {
   return (
     <div className="intro">
@@ -7,12 +6,12 @@ export default function Dashboard() {
         <div>
           <h1 className="intro__title">Dashboard</h1>
           <p>
-            Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..." "There is no
-            one who loves pain itself, who seeks after it and wants to have it, simply because it is pain.
+            Let's check the last week's summary here. You can review your pet's meal and activity habits, and notice
+            small changes in your furry friend.
           </p>
 
           <div className="intro__img-area pc-hidden">
-            <img src={catIcon} alt="cat stiting besides cat food" />
+            <img src={dashboardHeaderIcon} alt="cat stiting besides cat food" />
           </div>
 
           <div className="btn-area">
@@ -21,8 +20,7 @@ export default function Dashboard() {
         </div>
 
         <div className="intro__img-area mb-hidden">
-          {/* to be replaced */}
-          <img src={catIcon} alt="a blue cat and a purple cat both sitting" />
+          <img src={dashboardHeaderIcon} alt="a blue cat and a purple cat both sitting" />
         </div>
       </div>
     </div>
