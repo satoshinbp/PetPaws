@@ -100,59 +100,33 @@ export default function Calculator(props) {
   };
 
   return (
-    <div className="calculator">
-      <h3>Let's Calculate!</h3>
+    <div className="calculator bg-primary-meat">
+      <div className="wrapper">
+        <h2>let’s see how many calories your pet needs!</h2>
 
-      <form onSubmit={handleSubmit} className="calculator__form">
-        <div className="calculator__pet-type">
-          <div className="calculator__label--radio">Pet type</div>
+        <form onSubmit={handleSubmit} className="basic-form bg-primary-light">
+          <div className="radios-area">
+            <label>Pet Type</label>
 
-          <div className="calculator__radio-options">
-            <label htmlFor="dog">
+            <div className="radio-area">
               <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
-              Dog
-            </label>
-            <label htmlFor="cat">
+              <label htmlFor="dog">Dog</label>
+            </div>
+
+            <div className="radio-area">
               <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
-              Cat
-            </label>
+              <label htmlFor="cat">Cat</label>
+            </div>
           </div>
-        </div>
 
-        <div className="calculator__params">
-          <label htmlFor="breed" className="calculator__label">
-            Breed
-          </label>
-          <select name="breed" value={breedName} onChange={changeBreed} required>
-            <option value="">Select breed</option>
-            {isDog ? (
-              <>
-                {dogBreeds.map((breed) => (
-                  <option value={breed} key={breed}>
-                    {breed}
-                  </option>
-                ))}
-              </>
-            ) : (
-              <>
-                {catBreeds.map((breed) => (
-                  <option value={breed} key={breed}>
-                    {breed}
-                  </option>
-                ))}
-              </>
-            )}
-          </select>
-        </div>
-
-        <div className="calculator__params">
-          <div className="calculator__label">Age</div>
-          <div className="calculator__params--age">
-            <label className="calculator__label--age">
+          <div className="input-area input-area--two-column">
+            <div className="input-area-half">
+              <label htmlFor="weight">Age</label>
               <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
-              years
-            </label>
-            <label className="calculator__label--age">
+              <span className="end-adornment">years</span>
+            </div>
+
+            <div className="input-area-half">
               <input
                 type="number"
                 name="ageMonths"
@@ -162,49 +136,63 @@ export default function Calculator(props) {
                 step={1}
                 onChange={changeMonths}
               />
-              months
-            </label>
+              <span className="end-adornment">months</span>
+            </div>
           </div>
-        </div>
 
-        <div className="calculator__params">
-          <div className="calculator__label">
+          <div className="input-area">
+            <label htmlFor="breed">Breed</label>
+            <select name="breed" value={breedName} onChange={changeBreed} required>
+              <option value="">Select breed</option>
+              {isDog ? (
+                <>
+                  {dogBreeds.map((breed) => (
+                    <option value={breed} key={breed}>
+                      {breed}
+                    </option>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {catBreeds.map((breed) => (
+                    <option value={breed} key={breed}>
+                      {breed}
+                    </option>
+                  ))}
+                </>
+              )}
+            </select>
+          </div>
+
+          <div className="input-area">
             <label htmlFor="weight">Weight</label>
-          </div>
-          <div className="calculator__input-with-endadornment">
             <input type="number" name="weight" value={weight} min={0} step={0.1} onChange={changeWeight} />
-            kg
+            <span className="end-adornment">kg</span>
           </div>
-        </div>
 
-        <div className="calculator__params">
-          <div className="calculator__label">
+          <div className="input-area">
             <label htmlFor="activityLevel">Activity Level</label>
+            <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
+              <option value={0}>Inactive</option>
+              <option value={1}>Somewhat Active</option>
+              <option value={2}>Active</option>
+              <option value={3}>Very Active</option>
+            </select>
           </div>
-          <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
-            <option value={0}>Inactive</option>
-            <option value={1}>Somewhat Active</option>
-            <option value={2}>Active</option>
-            <option value={3}>Very Active</option>
-          </select>
-        </div>
 
-        <div className="calculator__params">
-          <div className="calculator__label">
+          <div className="input-area">
             <label htmlFor="bodyCondition">Body Condition</label>
+            <select name="bodyCondition" value={bodyCondition} onChange={changeBodyCondition}>
+              <option value={0}>Underweight</option>
+              <option value={1}>Ideal</option>
+              <option value={2}>Overweight</option>
+            </select>
           </div>
-          <select name="bodyCondition" value={bodyCondition} onChange={changeBodyCondition}>
-            <option value={0}>Underweight</option>
-            <option value={1}>Ideal</option>
-            <option value={2}>Overweight</option>
-          </select>
-        </div>
 
-        <div className="calculator__pet-type">
-          <div className="calculator__label--radio">Spayed/Neutered</div>
+          <div className="radios-area">
+            <label>Spayed/Neutered</label>
 
-          <div className="calculator__radio-options">
-            <label htmlFor="intact">
+            <div className="radio-area">
               <input
                 id="intact"
                 type="radio"
@@ -213,9 +201,10 @@ export default function Calculator(props) {
                 checked={isSpayed === 0}
                 onChange={changeIsSpayed}
               />
-              No
-            </label>
-            <label htmlFor="spayed">
+              <label htmlFor="intact">No</label>
+            </div>
+
+            <div className="radio-area">
               <input
                 id="spayed"
                 type="radio"
@@ -224,36 +213,38 @@ export default function Calculator(props) {
                 checked={isSpayed === 1}
                 onChange={changeIsSpayed}
               />
-              Yes
-            </label>
+              <label htmlFor="spayed">Yes</label>
+            </div>
           </div>
-        </div>
 
-        <button type="submit" className="btn-contained-yellow btn-not-fullwidth">
-          calculate
-        </button>
-      </form>
+          <div className="btn-area">
+            <button type="submit" className="btn-contained">
+              calculate
+            </button>
+          </div>
+        </form>
 
-      {result && (
-        <div className="calculator__result">
-          <h3>Calculation Done!</h3>
-          {currentUser ? (
-            <>
-              <p>The ideal calorie number for your pet is</p>
-              <p className="calculator__result-calorie">{result}</p>
-            </>
-          ) : (
-            <>
-              <p>Enter your email so we could send you the results!</p>
-              <input type="text" placeholder="Enter your email" />
+        {result && (
+          <div className="calculator__result bg-primary-light">
+            <h3>Calculation Done!</h3>
+            {currentUser ? (
+              <>
+                <p>The ideal calorie number for your pet is</p>
+                <p className="calculator__result-calorie">{result}</p>
+              </>
+            ) : (
+              <>
+                <p>Enter your email so we could send you the results!</p>
+                <input type="text" placeholder="Enter your email" />
 
-              <div className="calculator__btn-area">
-                <button className="btn-contained-yellow">Send</button>
-              </div>
-            </>
-          )}
-        </div>
-      )}
+                <div className="btn-area">
+                  <button className="btn-contained">Send</button>
+                </div>
+              </>
+            )}
+          </div>
+        )}
+      </div>
     </div>
   );
 }

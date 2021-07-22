@@ -17,37 +17,43 @@
 @import 'components/intro';
 /* 3.2. Body ================ */
 @import 'components/body';
-/* 3.3. Features ============ */
-@import 'components/features';
-/* 3.4. Team ================ */
-@import 'components/team';
-
-/* TO BE REORGANIZED ======== */
-/* 3.1. Forms =============== */
-@import 'components/summary';
-@import 'components/walk-form';
-@import 'components/profile-form';
-@import 'components/contact-form';
-/* 3.2. Charts ============== */
-@import 'components/day-graph';
-@import 'components/week-month-graphs';
-@import 'components/meal-latest-chart';
-@import 'components/walk-latest-chart';
 /* 3.3. Header ============== */
 @import 'components/header';
 /* 3.4. Footer ============== */
 @import 'components/footer';
-/* 3.5. Calculator ========== */
+/* 3.5. Features ============ */
+@import 'components/features';
+/* 3.6. Team ================ */
+@import 'components/team';
+/* 3.7. Calculator ========== */
 @import 'components/calculator';
+/* 3.8. Stores/Vets ========= */
+@import 'components/search';
+/* 3.9. Profile ========= */
+// @import 'components/profile'; no specific styling for profile component
+/* 3.10. Add Pet ========= */
+@import 'components/add-pet';
+/* 3.11. Trackers ========= */
+@import 'components/tracker-summary';
+@import 'components/tracker-daily';
+@import 'components/tracker-form';
+
+/* ========== TO BE REORGANIZED ========== */
+/* 3.2. Charts ============== */
+@import 'components/week-month-graphs';
+@import 'components/meal-latest-chart';
+@import 'components/walk-latest-chart';
 /* 3.6. Dashboard =========== */
 @import 'components/dashboard-pet-profile';
 @import 'components/dashboard-summary';
-/* 3.7. Stores/Vets ========= */
-@import 'components/search';
-/* ========================== */
+/* ====================================== */
 
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
 @import 'elements/buttons';
 /* 4.2. Inputs ============== */
 @import 'elements/inputs';
+/* 4.3. Images ============== */
+@import 'elements/images';
+/* 4.4. Forms =============== */
+@import 'elements/forms';

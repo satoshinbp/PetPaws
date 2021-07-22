@@ -84,7 +84,7 @@ export default function Header() {
                     aria-controls={open ? 'menu-list-grow' : undefined}
                     aria-haspopup="true"
                     onClick={handleToggle}
-                    className="icon-btn--circle-profile"
+                    className="profile-img"
                   >
                     Icon
                   </button>

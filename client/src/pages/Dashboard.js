@@ -2,121 +2,116 @@ import { Link } from 'react-router-dom';
 import React, { useState } from 'react';
 import LatestCalorieSummary from '../components/charts/LatestCalorieSummary';
 import LatestWalkSummary from '../components/charts/LatestWalkSummary';
-import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
 import MealWeekChart from '../components/charts/MealWeekChart';
 import MealMonthChart from '../components/charts/MealMonthChart';
 import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkMonthChart from '../components/charts/WalkMonthChart';
+import DashboardIntro from '../components/intros/Dashboard';
 
 const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
   // if yes, week graph appears, if no, month graph appears
   const [showMealWeekGraph, setShowMealWeekGraph] = useState(true);
   const [showWalkWeekGraph, setShowWalkWeekGraph] = useState(true);
+
   return (
     <div className="dashboard">
-      <div className="intro">
-        <div className="intro__wrapper">
-          <div className="intro__body">
-            <div className="intro__text">
-              <h2>Dashboard</h2>
-              <p>
-                A nutritious, balanced diet is essential to keeping your dog healthy. We provide a feature that allows
-                you to keep track of your pet's meals. Additionally, we offer the ideal nutrition for your pet's weight
-                control.
-              </p>
-            </div>
-          </div>
-
-          <div className="intro__img">
-            <img src={signinImg} alt="member portrait" />
-          </div>
-        </div>
-      </div>
+      <DashboardIntro />
 
       <div className="body">
-        <div className="body__wrapper">
-          <div className="dashboard-pet-profile">
-            <div className="dashboard-pet-profile-wrapper">
-              <h3>Pet Details</h3>
-              <div className="pet-details">
-                <p>Pet Name</p>
-                <p className="pet-detail">{petProfile.name} </p>
-                <p>Age</p>
-                <p className="pet-detail">{age} </p>
-                <p>Breed</p>
-                <p className="pet-detail">{petProfile.breed}</p>
-                <p>Weight</p>
-                <p className="pet-detail">{petProfile.weight}kg</p>
-                <p>Height</p>
-                <p className="pet-detail">{petProfile.height}cm</p>
+        <div className="dashboard-pet-profile bg-primary-fish">
+          <div className="wrapper">
+            <h2>Dashboard</h2>
+            <div className="dashboard-pet-profile-wrapper bg-primary-light">
+              <div className="dashboard-profile-container">
+                <h3>Pet Details</h3>
+                <div className="pet-details">
+                  <p>Pet Name</p>
+                  <p className="pet-detail">{petProfile.name} </p>
+                  <p>Age</p>
+                  <p className="pet-detail">{age} </p>
+                  <p>Breed</p>
+                  <p className="pet-detail">{petProfile.breed}</p>
+                  <p>Weight</p>
+                  <p className="pet-detail">{petProfile.weight}kg</p>
+                  <p>Height</p>
+                  <p className="pet-detail">{petProfile.height}cm</p>
+                </div>
               </div>
 
-              <h3>In Last Week</h3>
-              <LatestWalkSummary allActivities={allActivities} />
-              <LatestCalorieSummary allMeals={allMeals} MER={MER} />
+              <div className="dashboard-profile-container">
+                <p className="latest-summary-heading">In Last Week</p>
+                <LatestWalkSummary allActivities={allActivities} />
+                <LatestCalorieSummary allMeals={allMeals} MER={MER} />
+              </div>
             </div>
           </div>
-          <div className="dashboard-meal-summary">
-            <h3>Nutrition Summary</h3>
-            <div className="graphs">
-              <div className="week-month-toggle">
-                <div className="button-background btn-toggle-tab">
-                  <button
-                    onClick={() => setShowMealWeekGraph(true)}
-                    className={showMealWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                  >
-                    Week
-                  </button>
-                  <button
-                    onClick={() => setShowMealWeekGraph(false)}
-                    className={!showMealWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                  >
-                    Month
-                  </button>
+        </div>
+
+        <div className="dashboard-summary bg-secondary-fish">
+          <div className="wrapper summary-wrapper">
+            <div className="dashboard-meal-summary bg-secondary-light">
+              <h3>Nutrition Summary</h3>
+              <div className="graphs">
+                <div className="week-month-toggle">
+                  <div className="button-background btn-toggle-tab">
+                    <button
+                      onClick={() => setShowMealWeekGraph(true)}
+                      className={showMealWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                    >
+                      Week
+                    </button>
+                    <button
+                      onClick={() => setShowMealWeekGraph(false)}
+                      className={!showMealWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                    >
+                      Month
+                    </button>
+                  </div>
                 </div>
+                {showMealWeekGraph ? (
+                  <MealWeekChart allMeals={allMeals} MER={MER} />
+                ) : (
+                  <MealMonthChart allMeals={allMeals} MER={MER} />
+                )}
               </div>
-              {showMealWeekGraph ? (
-                <MealWeekChart allMeals={allMeals} MER={MER} />
-              ) : (
-                <MealMonthChart allMeals={allMeals} MER={MER} />
-              )}
-            </div>
-            <Link to="/mealsummary" MER={MER}>
-              <div className="button-wrapper">
-                <button className="btn-contained-yellow btn-not-fullwidth">Discover More</button>
-              </div>
-            </Link>
-          </div>
-          <div className="dashboard-walk-summary">
-            <h3>Activity Summary</h3>
-            <div className="graphs">
-              <div className="week-month-toggle">
-                <div className="button-background btn-toggle-tab">
-                  <button
-                    onClick={() => setShowWalkWeekGraph(true)}
-                    className={showWalkWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                  >
-                    Week
-                  </button>
-                  <button
-                    onClick={() => setShowWalkWeekGraph(false)}
-                    className={!showWalkWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                  >
-                    Month
-                  </button>
+              <Link to="/mealsummary" MER={MER}>
+                <div className="button-wrapper">
+                  <button className="btn-contained ">Discover More</button>
                 </div>
-              </div>
-              {showWalkWeekGraph ? (
-                <WalkWeekChart allActivities={allActivities} />
-              ) : (
-                <WalkMonthChart allActivities={allActivities} />
-              )}
+              </Link>
             </div>
-            <Link to="/walksummary" MER={MER}>
-              <div className="button-wrapper">
-                <button className="btn-contained-yellow btn-not-fullwidth">Discover More</button>
+
+            <div className="dashboard-walk-summary bg-secondary-light">
+              <h3>Activity Summary</h3>
+              <div className="graphs">
+                <div className="week-month-toggle">
+                  <div className="button-background btn-toggle-tab">
+                    <button
+                      onClick={() => setShowWalkWeekGraph(true)}
+                      className={showWalkWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                    >
+                      Week
+                    </button>
+                    <button
+                      onClick={() => setShowWalkWeekGraph(false)}
+                      className={!showWalkWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
+                    >
+                      Month
+                    </button>
+                  </div>
+                </div>
+                {showWalkWeekGraph ? (
+                  <WalkWeekChart allActivities={allActivities} />
+                ) : (
+                  <WalkMonthChart allActivities={allActivities} />
+                )}
               </div>
-            </Link>
+              <Link to="/walksummary" MER={MER}>
+                <div className="button-wrapper">
+                  <button className="btn-contained ">Discover More</button>
+                </div>
+              </Link>
+            </div>
           </div>
         </div>
       </div>

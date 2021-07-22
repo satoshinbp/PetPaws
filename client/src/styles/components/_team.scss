@@ -1,16 +1,4 @@
 .team {
-  width: 100%;
-  max-width: $max-width;
-  margin: 0 auto;
-  padding: 1rem;
-  border-radius: $lg-border-radius;
-  text-align: center;
-  background-color: $purple-color;
-
-  &__title {
-    color: $white-color;
-  }
-
   &__members {
     display: flex;
     flex-flow: nowrap column;
@@ -23,21 +11,21 @@
     width: 138px;
     height: 138px;
     margin: 0 auto;
-    border: 2px solid $white-color;
+    border: 2px solid $base-color;
     border-radius: 50%;
   }
 
   &__member-name {
-    font-size: $sm-fontsize;
+    margin: 0.5rem 0 0;
+    font-size: $standard-fontsize-mb;
   }
 
   @media screen and (min-width: $tb-breakpoint) {
-    padding: 2rem;
-
     &__members {
       flex-flow: wrap row;
       justify-content: center;
       align-items: flex-start;
+      margin: auto;
     }
 
     &__member {
