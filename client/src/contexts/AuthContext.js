@@ -28,13 +28,13 @@ export function AuthProvider({ children }) {
         user
           .getIdToken()
           .then((idToken) => {
-            Axios.get('http://localhost:3001/api/auth', {
+            Axios.get('https://pet-paws-langara.herokuapp.com/api/auth', {
               headers: {
                 Authorization: idToken,
               },
             })
               .then(() => {
-                Axios.post('http://localhost:3001/api/user', userInitialData);
+                Axios.post('https://pet-paws-langara.herokuapp.com/api/user', userInitialData);
               })
               .catch((err) => {
                 console.error(err);
@@ -53,7 +53,7 @@ export function AuthProvider({ children }) {
       user
         .getIdToken()
         .then((idToken) => {
-          Axios.get('http://localhost:3001/api/auth', {
+          Axios.get('https://pet-paws-langara.herokuapp.com/api/auth', {
             headers: {
               Authorization: idToken,
             },

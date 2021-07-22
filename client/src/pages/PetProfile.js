@@ -103,7 +103,7 @@ export default function PetProfile({ petProfile }) {
         };
 
         if (petProfile.id) {
-          Axios.put(`http://localhost:3001/api/pet/${petProfile.id}`, petData)
+          Axios.put(`https://pet-paws-langara.herokuapp.com/api/pet/${petProfile.id}`, petData)
             .then(() => {
               history.push('/');
             })
@@ -111,7 +111,7 @@ export default function PetProfile({ petProfile }) {
               console.log(err);
             });
         } else {
-          Axios.post('http://localhost:3001/api/pet', petData)
+          Axios.post('https://pet-paws-langara.herokuapp.com/api/pet', petData)
             .then(() => {
               history.push('/');
             })
