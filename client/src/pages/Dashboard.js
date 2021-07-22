@@ -12,6 +12,7 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
   // if yes, week graph appears, if no, month graph appears
   const [showMealWeekGraph, setShowMealWeekGraph] = useState(true);
   const [showWalkWeekGraph, setShowWalkWeekGraph] = useState(true);
+
   return (
     <div className="dashboard">
       <DashboardIntro />
@@ -21,31 +22,34 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
           <div className="wrapper">
             <h2>Dashboard</h2>
             <div className="dashboard-pet-profile-wrapper bg-primary-light">
-              <h3>Pet Details</h3>
-              <div className="pet-details">
-                <p>Pet Name</p>
-                <p className="pet-detail">{petProfile.name} </p>
-                <p>Age</p>
-                <p className="pet-detail">{age} </p>
-                <p>Breed</p>
-                <p className="pet-detail">{petProfile.breed}</p>
-                <p>Weight</p>
-                <p className="pet-detail">{petProfile.weight}kg</p>
-                <p>Height</p>
-                <p className="pet-detail">{petProfile.height}cm</p>
+              <div className="dashboard-profile-container">
+                <h3>Pet Details</h3>
+                <div className="pet-details">
+                  <p>Pet Name</p>
+                  <p className="pet-detail">{petProfile.name} </p>
+                  <p>Age</p>
+                  <p className="pet-detail">{age} </p>
+                  <p>Breed</p>
+                  <p className="pet-detail">{petProfile.breed}</p>
+                  <p>Weight</p>
+                  <p className="pet-detail">{petProfile.weight}kg</p>
+                  <p>Height</p>
+                  <p className="pet-detail">{petProfile.height}cm</p>
+                </div>
               </div>
 
-              <p className="latest-summary-heading">In Last Week</p>
-              <LatestWalkSummary allActivities={allActivities} />
-              <LatestCalorieSummary allMeals={allMeals} MER={MER} />
+              <div className="dashboard-profile-container">
+                <p className="latest-summary-heading">In Last Week</p>
+                <LatestWalkSummary allActivities={allActivities} />
+                <LatestCalorieSummary allMeals={allMeals} MER={MER} />
+              </div>
             </div>
           </div>
         </div>
 
         <div className="dashboard-summary bg-secondary-fish">
-          <div className="wrapper">
-            <div className="dashboard-meal-summary">
-              {/* <div className="wrapper"> */}
+          <div className="summary-wrapper">
+            <div className="dashboard-meal-summary bg-secondary-light">
               <h3>Nutrition Summary</h3>
               <div className="graphs">
                 <div className="week-month-toggle">
@@ -75,11 +79,9 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
                   <button className="btn-contained ">Discover More</button>
                 </div>
               </Link>
-              {/* </div> */}
             </div>
 
-            <div className="dashboard-walk-summary">
-              {/* <div className="wrapper"> */}
+            <div className="dashboard-walk-summary bg-secondary-light">
               <h3>Activity Summary</h3>
               <div className="graphs">
                 <div className="week-month-toggle">
@@ -109,7 +111,6 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
                   <button className="btn-contained ">Discover More</button>
                 </div>
               </Link>
-              {/* </div> */}
             </div>
           </div>
         </div>

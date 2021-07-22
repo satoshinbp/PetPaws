@@ -1,15 +1,12 @@
-// .dashboard-pet-profile {
-//   // @media screen and (min-width: $tb-breakpoint) {
-//   //   .bg-primary-fish {
-//   //     display: none;
-//   //   }
-//   // }
-// }
-
 .dashboard-pet-profile-wrapper {
-  // background-color: $secondary-color-light;
-  // border-radius: $subcomponent-borderradius-mb;
-  // padding: 1rem;
+  @media screen and (min-width: $pc-breakpoint) {
+    display: flex;
+    grid-gap: 3rem;
+    .dashboard-profile-container {
+      flex-basis: 50%;
+    }
+  }
+
   @media screen and (max-width: $tb-breakpoint) {
     border-radius: 10px;
     background-color: $primary-color-light;
@@ -35,14 +32,3 @@
     border-bottom: solid 1.5px $font-color;
   }
 }
-
-// .dashboard-pet-profile {
-//   padding: 1rem;
-// }
-
-// .dashboard-meal-summary {
-//   padding: 1rem;
-// }
-// .dashboard-walk-summary {
-//   padding: 1rem;
-// }
