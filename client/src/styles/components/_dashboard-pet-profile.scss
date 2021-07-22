@@ -1,19 +1,22 @@
-.dashboard-pet-profile {
-  background-color: $secondary-color;
-  border-radius: $subcomponent-borderradius-mb;
-  @media screen and (min-width: $tb-breakpoint) {
-    background-color: white;
-    border: 1px solid $font-color;
+.dashboard-pet-profile-wrapper {
+  @media screen and (min-width: $pc-breakpoint) {
+    display: flex;
+    grid-gap: 3rem;
+    .dashboard-profile-container {
+      flex-basis: 50%;
+    }
+  }
+
+  @media screen and (max-width: $tb-breakpoint) {
+    border-radius: 10px;
+    background-color: $primary-color-light;
+    padding: 1rem;
   }
 }
 
-.dashboard-pet-profile-wrapper {
-  background-color: $secondary-color-light;
-  border-radius: $subcomponent-borderradius-mb;
-  padding: 1rem;
-  @media screen and (min-width: $tb-breakpoint) {
-    background-color: white;
-  }
+.latest-summary-heading {
+  font-weight: $btn-fontweight;
+  text-align: left;
 }
 
 .pet-details {
@@ -28,15 +31,4 @@
   .pet-detail {
     border-bottom: solid 1.5px $font-color;
   }
-}
-
-.dashboard-pet-profile {
-  padding: 1rem;
-}
-
-.dashboard-meal-summary {
-  padding: 1rem;
-}
-.dashboard-walk-summary {
-  padding: 1rem;
 }

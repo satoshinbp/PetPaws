@@ -432,6 +432,18 @@ a {
   background-color: #ccabda;
 }
 
+.bg-primary-light-mb-visible {
+  padding: 1.5rem 1rem;
+  border-radius: 50px;
+  background-color: #dcf7f1;
+}
+
+.bg-secondary-light-mb-visible {
+  padding: 1.5rem 1rem;
+  border-radius: 50px;
+  background-color: #e4c8f0;
+}
+
 @media screen and (min-width: 600px) {
   body {
     padding-top: 94px;
@@ -450,12 +462,14 @@ a {
   .wrapper-lg {
     padding: 4rem 3rem;
   }
-  .bg-primary-light {
+  .bg-primary-light,
+  .bg-primary-light-mb-visible {
     padding: 2rem 1.5rem;
     border-radius: 50px;
     background-color: #dcf7f1;
   }
-  .bg-secondary-light {
+  .bg-secondary-light,
+  .bg-secondary-light-mb-visible {
     padding: 2rem 1.5rem;
     border-radius: 50px;
     background-color: #e4c8f0;
@@ -631,10 +645,6 @@ a {
   flex-flow: nowrap column;
 }
 
-.intro .btn-area {
-  margin: 1rem 0;
-}
-
 @media screen and (min-width: 600px) {
   .intro {
     text-align: left;
@@ -701,41 +711,18 @@ nav ul {
 
 /* 3.4. Footer ============== */
 /* 3.5. Features ============ */
-.features {
-  width: 100%;
-  max-width: 877px;
-  margin: 0 auto;
-  padding: 1rem;
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  background-color: #a4eada;
-  text-align: center;
-}
-
 .features .feature {
-  padding: 1rem;
-  border-radius: 25px;
-  background-color: #dcf7f1;
+  margin-bottom: 1.5rem;
 }
 
 .features .feature__img {
-  width: 56px;
+  width: 122px;
   margin: 0 auto;
 }
 
-.features .btn-area {
-  margin: 1rem 0;
-}
-
 @media screen and (min-width: 600px) {
-  .features {
-    padding: 2rem;
-    gap: 2rem;
-  }
   .features .feature {
-    padding: 2rem;
+    margin-bottom: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -746,8 +733,6 @@ nav ul {
     text-align: left;
   }
   .features .feature__img {
-    width: auto;
-    margin: 0;
     flex-basis: 30%;
     text-align: right;
   }
@@ -758,20 +743,6 @@ nav ul {
 }
 
 /* 3.6. Team ================ */
-.team {
-  width: 100%;
-  max-width: 877px;
-  margin: 0 auto;
-  padding: 1rem;
-  border-radius: 25px;
-  text-align: center;
-  background-color: #ccabda;
-}
-
-.team__title {
-  color: #fff;
-}
-
 .team__members {
   display: flex;
   flex-flow: nowrap column;
@@ -789,17 +760,16 @@ nav ul {
 }
 
 .team__member-name {
+  margin: 0.5rem 0 0;
   font-size: 16px;
 }
 
 @media screen and (min-width: 600px) {
-  .team {
-    padding: 2rem;
-  }
   .team__members {
     flex-flow: wrap row;
     justify-content: center;
     align-items: flex-start;
+    margin: auto;
   }
   .team__member {
     flex: 240px 0 0;
@@ -1068,18 +1038,16 @@ nav ul {
   }
 }
 
-/* 3.11. Summary forms ========= */
-.meal-form-wrapper {
+.meal-form {
   background-color: #a4eada;
 }
 
-.walk-form-wrapper {
+.walk-form {
   background-color: #ccabda;
 }
 
 .modal {
   opacity: 0;
-  z-index: 120;
   transform: scale(0);
   transition: opacity 0.7s, transform 0s 0.7s;
 }
@@ -1094,115 +1062,107 @@ nav ul {
   left: 0;
   width: 100%;
   height: 100%;
+  padding: 0;
   background-color: rgba(196, 196, 196, 0.5);
   backdrop-filter: blur(4px);
-  z-index: 100;
-  padding: 0;
   pointer-events: none;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper,
-.modal.isActive .meal-form-wrapper.wrapper {
-  border-radius: 25px;
-  height: calc((100% - 91px) - 9px);
-  pointer-events: all;
+.modal.isActive .walk-form,
+.modal.isActive .meal-form {
   position: absolute;
-  top: calc(50% - 45.5px);
+  top: calc(50% - 91px / 2);
   left: 50%;
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
+  height: calc((100% - 91px) - 9px);
   width: calc(100vw - 9px);
-  border-radius: 25px;
-  padding-bottom: 2rem;
-  box-sizing: border-box;
-  overflow: hidden;
-  padding-top: 1rem;
   display: flex;
   flex-flow: column nowrap;
+  padding: 0.5rem 1.5rem 2rem;
+  box-sizing: border-box;
+  overflow: hidden;
+  border-radius: 25px;
+  pointer-events: all;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper h2,
-.modal.isActive .meal-form-wrapper.wrapper h2 {
+.modal.isActive .walk-form h2,
+.modal.isActive .meal-form h2 {
   text-align: center;
   margin: 0;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper .close-modal-icon,
-.modal.isActive .meal-form-wrapper.wrapper .close-modal-icon {
-  width: 35px;
-  padding: 0.5rem;
+.modal.isActive .walk-form .close-modal-icon,
+.modal.isActive .meal-form .close-modal-icon {
   display: flex;
   align-self: flex-end;
+  width: 35px;
+  padding: 0.5rem;
   cursor: pointer;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper .meal-form-content,
-.modal.isActive .walk-form-wrapper.wrapper .walk-form-content,
-.modal.isActive .meal-form-wrapper.wrapper .meal-form-content,
-.modal.isActive .meal-form-wrapper.wrapper .walk-form-content {
-  padding-bottom: 6rem;
+.modal.isActive .walk-form .meal-form-content,
+.modal.isActive .walk-form .walk-form-content,
+.modal.isActive .meal-form .meal-form-content,
+.modal.isActive .meal-form .walk-form-content {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
   height: 100%;
   width: 100%;
   box-sizing: border-box;
   overflow-y: scroll;
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
+  padding-bottom: 3rem;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper input,
-.modal.isActive .walk-form-wrapper.wrapper select,
-.modal.isActive .walk-form-wrapper.wrapper button,
-.modal.isActive .meal-form-wrapper.wrapper input,
-.modal.isActive .meal-form-wrapper.wrapper select,
-.modal.isActive .meal-form-wrapper.wrapper button {
+.modal.isActive .walk-form input,
+.modal.isActive .walk-form select,
+.modal.isActive .walk-form button,
+.modal.isActive .meal-form input,
+.modal.isActive .meal-form select,
+.modal.isActive .meal-form button {
   box-sizing: border-box;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper form,
-.modal.isActive .meal-form-wrapper.wrapper form {
+.modal.isActive .walk-form form,
+.modal.isActive .meal-form form {
   display: flex;
   flex-flow: column nowrap;
   gap: 2rem;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper form .input-wrapper,
-.modal.isActive .meal-form-wrapper.wrapper form .input-wrapper {
+.modal.isActive .walk-form form .input-wrapper,
+.modal.isActive .meal-form form .input-wrapper {
   display: grid;
   gap: 1rem;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper form .input-wrapper div,
-.modal.isActive .meal-form-wrapper.wrapper form .input-wrapper div {
+.modal.isActive .walk-form form .input-wrapper div,
+.modal.isActive .meal-form form .input-wrapper div {
+  position: relative;
   display: flex;
   flex-flow: column nowrap;
   text-align: left;
-  position: relative;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper form .input-wrapper div label,
-.modal.isActive .meal-form-wrapper.wrapper form .input-wrapper div label {
-  font-weight: 700;
-}
-
-.modal.isActive .walk-form-wrapper.wrapper form .input-wrapper div .input-unit,
-.modal.isActive .meal-form-wrapper.wrapper form .input-wrapper div .input-unit {
+.modal.isActive .walk-form form .input-wrapper div .input-unit,
+.modal.isActive .meal-form form .input-wrapper div .input-unit {
   position: absolute;
   top: 25px;
   right: 1rem;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper form .button-wrapper,
-.modal.isActive .meal-form-wrapper.wrapper form .button-wrapper {
+.modal.isActive .walk-form form .button-wrapper,
+.modal.isActive .meal-form form .button-wrapper {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
   margin: 0;
 }
 
-.modal.isActive .walk-form-wrapper.wrapper form .button-wrapper .btn-outlined,
-.modal.isActive .meal-form-wrapper.wrapper form .button-wrapper .btn-outlined {
+.modal.isActive .walk-form form .button-wrapper .btn-outlined,
+.modal.isActive .meal-form form .button-wrapper .btn-outlined {
   border: 1px solid #fff;
   background-color: transparent;
 }
@@ -1210,71 +1170,71 @@ nav ul {
 @media screen and (min-width: 600px) {
   .modal.isActive {
     top: 94px;
-    padding: 0;
     height: calc(100vh - 94px);
   }
-  .modal.isActive .walk-form-wrapper.wrapper,
-  .modal.isActive .meal-form-wrapper.wrapper {
-    padding-top: 1rem;
-    height: calc((100vh - 94px) - 4rem);
+  .modal.isActive .walk-form,
+  .modal.isActive .meal-form {
+    height: auto;
+    max-height: calc((100vh - 94px) - 4rem);
     top: 50%;
-    max-width: 877px;
     border-radius: 50px;
+    padding: 1rem 3rem 2rem;
   }
-  .modal.isActive .walk-form-wrapper.wrapper .meal-form-content,
-  .modal.isActive .walk-form-wrapper.wrapper .walk-form-content,
-  .modal.isActive .meal-form-wrapper.wrapper .meal-form-content,
-  .modal.isActive .meal-form-wrapper.wrapper .walk-form-content {
-    padding-bottom: 3rem;
+  .modal.isActive .walk-form .meal-form-content,
+  .modal.isActive .walk-form .walk-form-content,
+  .modal.isActive .meal-form .meal-form-content,
+  .modal.isActive .meal-form .walk-form-content {
     display: flex;
     flex-flow: column nowrap;
     gap: 2rem;
+    padding-bottom: 3rem;
+    min-height: calc(100%);
   }
-  .modal.isActive .walk-form-wrapper.wrapper .meal-form-content h2,
-  .modal.isActive .walk-form-wrapper.wrapper .walk-form-content h2,
-  .modal.isActive .meal-form-wrapper.wrapper .meal-form-content h2,
-  .modal.isActive .meal-form-wrapper.wrapper .walk-form-content h2 {
+  .modal.isActive .walk-form .meal-form-content h2,
+  .modal.isActive .walk-form .walk-form-content h2,
+  .modal.isActive .meal-form .meal-form-content h2,
+  .modal.isActive .meal-form .walk-form-content h2 {
     margin: 0;
   }
-  .modal.isActive .walk-form-wrapper.wrapper .meal-form-content input,
-  .modal.isActive .walk-form-wrapper.wrapper .meal-form-content .input,
-  .modal.isActive .walk-form-wrapper.wrapper .meal-form-content select,
-  .modal.isActive .walk-form-wrapper.wrapper .meal-form-content button,
-  .modal.isActive .walk-form-wrapper.wrapper .walk-form-content input,
-  .modal.isActive .walk-form-wrapper.wrapper .walk-form-content .input,
-  .modal.isActive .walk-form-wrapper.wrapper .walk-form-content select,
-  .modal.isActive .walk-form-wrapper.wrapper .walk-form-content button,
-  .modal.isActive .meal-form-wrapper.wrapper .meal-form-content input,
-  .modal.isActive .meal-form-wrapper.wrapper .meal-form-content .input,
-  .modal.isActive .meal-form-wrapper.wrapper .meal-form-content select,
-  .modal.isActive .meal-form-wrapper.wrapper .meal-form-content button,
-  .modal.isActive .meal-form-wrapper.wrapper .walk-form-content input,
-  .modal.isActive .meal-form-wrapper.wrapper .walk-form-content .input,
-  .modal.isActive .meal-form-wrapper.wrapper .walk-form-content select,
-  .modal.isActive .meal-form-wrapper.wrapper .walk-form-content button {
+  .modal.isActive .walk-form .meal-form-content input,
+  .modal.isActive .walk-form .meal-form-content .input,
+  .modal.isActive .walk-form .meal-form-content select,
+  .modal.isActive .walk-form .meal-form-content button,
+  .modal.isActive .walk-form .walk-form-content input,
+  .modal.isActive .walk-form .walk-form-content .input,
+  .modal.isActive .walk-form .walk-form-content select,
+  .modal.isActive .walk-form .walk-form-content button,
+  .modal.isActive .meal-form .meal-form-content input,
+  .modal.isActive .meal-form .meal-form-content .input,
+  .modal.isActive .meal-form .meal-form-content select,
+  .modal.isActive .meal-form .meal-form-content button,
+  .modal.isActive .meal-form .walk-form-content input,
+  .modal.isActive .meal-form .walk-form-content .input,
+  .modal.isActive .meal-form .walk-form-content select,
+  .modal.isActive .meal-form .walk-form-content button {
     box-sizing: border-box;
     width: 100%;
   }
-  .modal.isActive .walk-form-wrapper.wrapper .meal-form-content form .input-wrapper,
-  .modal.isActive .walk-form-wrapper.wrapper .walk-form-content form .input-wrapper,
-  .modal.isActive .meal-form-wrapper.wrapper .meal-form-content form .input-wrapper,
-  .modal.isActive .meal-form-wrapper.wrapper .walk-form-content form .input-wrapper {
+  .modal.isActive .walk-form .meal-form-content form .input-wrapper,
+  .modal.isActive .walk-form .walk-form-content form .input-wrapper,
+  .modal.isActive .meal-form .meal-form-content form .input-wrapper,
+  .modal.isActive .meal-form .walk-form-content form .input-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1.5rem;
     row-gap: 1rem;
   }
-  .modal.isActive .walk-form-wrapper.wrapper .meal-form-content form .input-wrapper div .input-unit,
-  .modal.isActive .walk-form-wrapper.wrapper .walk-form-content form .input-wrapper div .input-unit,
-  .modal.isActive .meal-form-wrapper.wrapper .meal-form-content form .input-wrapper div .input-unit,
-  .modal.isActive .meal-form-wrapper.wrapper .walk-form-content form .input-wrapper div .input-unit {
+  .modal.isActive .walk-form .meal-form-content form .input-wrapper div .input-unit,
+  .modal.isActive .walk-form .walk-form-content form .input-wrapper div .input-unit,
+  .modal.isActive .meal-form .meal-form-content form .input-wrapper div .input-unit,
+  .modal.isActive .meal-form .walk-form-content form .input-wrapper div .input-unit {
     position: absolute;
     top: 27px;
   }
-  .modal.isActive .walk-form-wrapper.wrapper .meal-form-content form .button-wrapper,
-  .modal.isActive .walk-form-wrapper.wrapper .walk-form-content form .button-wrapper,
-  .modal.isActive .meal-form-wrapper.wrapper .meal-form-content form .button-wrapper,
-  .modal.isActive .meal-form-wrapper.wrapper .walk-form-content form .button-wrapper {
+  .modal.isActive .walk-form .meal-form-content form .button-wrapper,
+  .modal.isActive .walk-form .walk-form-content form .button-wrapper,
+  .modal.isActive .meal-form .meal-form-content form .button-wrapper,
+  .modal.isActive .meal-form .walk-form-content form .button-wrapper {
     flex-direction: row-reverse;
   }
 }
@@ -1394,10 +1354,16 @@ nav ul {
 }
 
 .calorie-stats {
-  border: 1px solid #3b3054;
-  border-radius: 25px;
+  border: 1px solid #dadada;
+  border-radius: 15px;
   padding: 1rem;
   margin-top: 1rem;
+}
+
+@media screen and (min-width: 960px) {
+  .calorie-stats {
+    max-width: 390px;
+  }
 }
 
 .activity-stats {
@@ -1407,35 +1373,40 @@ nav ul {
   text-align: center;
 }
 
+@media screen and (min-width: 960px) {
+  .activity-stats {
+    max-width: 390px;
+  }
+}
+
 .activity-stats .activity-avg {
   flex-basis: 50%;
-  border: 1px solid #3b3054;
-  border-radius: 25px;
+  border: 1px solid #dadada;
+  border-radius: 15px;
 }
 
 /* 3.6. Dashboard =========== */
-.dashboard-pet-profile {
-  background-color: #ccabda;
-  border-radius: 25px;
-}
-
-@media screen and (min-width: 600px) {
-  .dashboard-pet-profile {
-    background-color: white;
-    border: 1px solid #3b3054;
-  }
-}
-
-.dashboard-pet-profile-wrapper {
-  background-color: #e4c8f0;
-  border-radius: 25px;
-  padding: 1rem;
-}
-
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 960px) {
   .dashboard-pet-profile-wrapper {
-    background-color: white;
+    display: flex;
+    grid-gap: 3rem;
   }
+  .dashboard-pet-profile-wrapper .dashboard-profile-container {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .dashboard-pet-profile-wrapper {
+    border-radius: 10px;
+    background-color: #dcf7f1;
+    padding: 1rem;
+  }
+}
+
+.latest-summary-heading {
+  font-weight: 700;
+  text-align: left;
 }
 
 .pet-details {
@@ -1453,21 +1424,35 @@ nav ul {
   border-bottom: solid 1.5px #3b3054;
 }
 
-.dashboard-pet-profile {
-  padding: 1rem;
+@media screen and (min-width: 960px) {
+  .summary-wrapper {
+    max-width: 1300px;
+    display: flex;
+    grid-gap: 3rem;
+  }
 }
 
-.dashboard-meal-summary {
-  padding: 1rem;
+.summary-wrapper .button-wrapper {
+  margin-top: 3rem;
 }
 
-.dashboard-walk-summary {
-  padding: 1rem;
+@media screen and (min-width: 960px) {
+  .summary-wrapper .button-wrapper {
+    text-align: right;
+  }
 }
 
 .dashboard-meal-summary,
 .dashboard-walk-summary {
-  display: none;
+  margin-bottom: 2rem;
+}
+
+@media screen and (min-width: 960px) {
+  .dashboard-meal-summary,
+  .dashboard-walk-summary {
+    margin-bottom: 0;
+    min-width: 0;
+  }
 }
 
 @media screen and (min-width: 600px) {
@@ -1475,25 +1460,6 @@ nav ul {
   .dashboard-walk-summary {
     display: block;
   }
-}
-
-@media screen and (min-width: 600px) {
-  .dashboard-meal-summary {
-    background-color: #dcf7f1;
-    border-radius: 25px;
-  }
-}
-
-@media screen and (min-width: 600px) {
-  .dashboard-walk-summary {
-    background-color: #e4c8f0;
-    border-radius: 25px;
-  }
-}
-
-.button-wrapper {
-  text-align: right;
-  margin-top: 3rem;
 }
 
 /* ====================================== */
@@ -1635,57 +1601,28 @@ header .profile-img {
   border-width: 4px;
 }
 
-.profile .profile-img {
+.profile .basic-form .profile-img {
   width: 128px;
   height: 128px;
   border-width: 8px;
 }
 
+.profile .basic-form .profile-img-input {
+  display: none;
+  width: 128px;
+  height: 128px;
+}
+
+.profile .basic-form .profile-img-label {
+  display: initial;
+}
+
 /* 4.4. Forms =============== */
-.meal-form {
-  background-color: #a4eada;
-}
-
-.walk-form {
-  background-color: #ccabda;
-}
-
-.walk-form,
-.meal-form {
-  border-radius: 25px;
-  padding: 1rem;
-}
-
-.walk-form .input-wrapper,
-.meal-form .input-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 0.7rem;
-}
-
-.walk-form .input-wrapper div,
-.meal-form .input-wrapper div {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 0.3rem;
-}
-
-.walk-form .input-wrapper div label,
-.meal-form .input-wrapper div label {
-  font-weight: 700;
-}
-
-.walk-form .button-wrapper,
-.meal-form .button-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
-}
-
-.walk-form .button-wrapper .btn-outlined,
-.meal-form .button-wrapper .btn-outlined {
-  border: 1px solid #fff;
-  background-color: transparent;
+form .end-adornment {
+  display: inline-block;
+  width: 100px;
+  margin-left: -140px;
+  text-align: right;
 }
 
 .basic-form {
@@ -1711,27 +1648,6 @@ header .profile-img {
 
 .basic-form .btn-area {
   margin: 0;
-}
-
-.basic-form .end-adornment {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
-}
-
-.basic-form .end-adornment--y {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
-}
-
-.basic-form .end-adornment--m {
-  display: inline-block;
-  width: 100px;
-  margin-left: -140px;
-  text-align: right;
 }
 
 .basic-form .input-area--two-column {

@@ -17,10 +17,20 @@ header {
   }
 }
 
-.profile {
+.profile .basic-form {
   .profile-img {
     width: 128px;
     height: 128px;
     border-width: 8px;
+  }
+
+  .profile-img-input {
+    display: none;
+    width: 128px;
+    height: 128px;
+  }
+
+  .profile-img-label {
+    display: initial;
   }
 }

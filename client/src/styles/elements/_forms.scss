@@ -1,3 +1,12 @@
+form {
+  .end-adornment {
+    display: inline-block;
+    width: 100px;
+    margin-left: -140px;
+    text-align: right;
+  }
+}
+
 .basic-form {
   display: flex;
   flex-flow: column nowrap;
@@ -20,28 +29,6 @@
 
   .btn-area {
     margin: 0;
-  }
-
-  // specific for calculator
-  .end-adornment {
-    display: inline-block;
-    width: 100px;
-    margin-left: -140px;
-    text-align: right;
-  }
-
-  .end-adornment--y {
-    display: inline-block;
-    width: 100px;
-    margin-left: -140px;
-    text-align: right;
-  }
-
-  .end-adornment--m {
-    display: inline-block;
-    width: 100px;
-    margin-left: -140px;
-    text-align: right;
   }
 
   .input-area--two-column {

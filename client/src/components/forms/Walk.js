@@ -27,7 +27,7 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
   };
 
   return (
-    <div className="walk-form-wrapper wrapper">
+    <div className="walk-form wrapper">
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
       <div className="walk-form-content">
         <h2>ADD NEW ACTIVITY</h2>
