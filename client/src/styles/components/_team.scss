@@ -1,16 +1,4 @@
 .team {
-  width: 100%;
-  max-width: $md-max-width;
-  margin: 0 auto;
-  padding: 1rem;
-  border-radius: $subcomponent-borderradius-mb;
-  text-align: center;
-  background-color: $secondary-color;
-
-  &__title {
-    color: $base-color;
-  }
-
   &__members {
     display: flex;
     flex-flow: nowrap column;
@@ -28,16 +16,16 @@
   }
 
   &__member-name {
+    margin: 0.5rem 0 0;
     font-size: $standard-fontsize-mb;
   }
 
   @media screen and (min-width: $tb-breakpoint) {
-    padding: 2rem;
-
     &__members {
       flex-flow: wrap row;
       justify-content: center;
       align-items: flex-start;
+      margin: auto;
     }
 
     &__member {
