@@ -1,36 +1,70 @@
-.signup {
+.signup{
   display: flex;
   flex-flow: column nowrap;
-  background: $base-color;
+  background: $intro-color;
+  justify-content: center;
 
-  &_description {
-    display: none;
+  &_description-area {
+    padding: 0 1rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+
+      ul {
+        padding-left: 2rem;
+
+        li{
+          display: flex;
+          padding: 0 0 0.5rem;
+
+          .left-align{
+            text-align: left;
+          }
+
+        }
+      }
+
+    p{
+      text-align: left;
+      padding-left: 1rem;
+    }
+
+    &_description-area_text {
+      max-width: 700px;
+      margin: auto;
+    }
   }
 
   &_form {
-    padding: 2rem 1rem 3rem;
-    margin: 1rem;
-    border-radius: 15px;
+    padding: 1rem 2rem;
+    margin: 1rem auto;
     background: $primary-color-light;
 
-    h2 {
+    form{
+      display: flex;
+      flex-flow: column nowrap;
+      align-items: center;
+    }
+
+    h2{
+      margin: 0;
       text-align: center;
     }
 
     label {
       display: block;
-      padding: 1rem 0 0.5rem;
+      padding: 1rem 0 .5rem;
     }
 
-    button {
+    button{
       margin: 2rem 0 0;
     }
 
-    .signin-link-area {
+    .signin-link-area{
       text-align: center;
       padding: 1rem 0;
 
-      &_link {
+      &_link{
         font-weight: 600;
         text-decoration: underline;
       }
@@ -38,28 +72,45 @@
   }
 }
 
-@media screen and (min-width: $tb-breakpoint) {
-  .signup {
-    padding: 2rem 0;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
+@media screen and (min-width: 600px){
+  .signup_form {
+    max-width: 600px;
+    border-radius: 15px;
+  }
+}
 
-    &_description {
+
+@media screen and (min-width: 850px){
+  .signup{
+    padding: 2rem 1rem;
+
+    &_wrapper{
+      display: flex;
+      flex-flow: row nowrap;
+      justify-content: center;
+      gap: 1rem;
+          max-width: 1000px;
+          margin: auto;
+
+    }
+
+    &_form {
+      // flex: 0 0 30%;
+    }
+
+    &_description-area{
       padding: 0 1rem;
       display: flex;
       flex-flow: column;
       justify-content: center;
-      max-width: 600px;
-      flex: 70%;
-
-      p {
+      p{
         margin: 0 0 1rem;
       }
 
       ul {
         padding-left: 2rem;
 
-        li {
+        li{
           display: flex;
           padding: 1rem 0;
         }
