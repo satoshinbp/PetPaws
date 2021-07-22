@@ -14,16 +14,6 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
       <WalkSummaryIntro />
 
       <div className="body">
-        <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
-          {showForm && (
-            <WalkForm
-              petProfile={petProfile}
-              setAllActivities={setAllActivities}
-              closeForm={() => setShowForm(false)}
-            />
-          )}
-        </div>
-
         <div className="bg-primary-meat">
           <div className="wrapper">
             <h2>Activity Summary</h2>
@@ -51,7 +41,7 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
                 )}
               </div>
               <div className="graphs">
-                <h3 className="graph-title">weekly/monthly charts</h3>
+                <h3 className="graph-title">Calorie Charts</h3>
                 <div className="week-month-toggle">
                   <div className="button-background btn-toggle-tab">
                     <button
@@ -73,6 +63,16 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
                 ) : (
                   <WalkMonthChart allActivities={allActivities} />
                 )}
+                {/* Form */}
+                <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
+                  {showForm && (
+                    <WalkForm
+                      petProfile={petProfile}
+                      setAllActivities={setAllActivities}
+                      closeForm={() => setShowForm(false)}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>

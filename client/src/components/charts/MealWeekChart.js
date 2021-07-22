@@ -123,10 +123,10 @@ const MealWeekChart = ({ allMeals, MER }) => {
       graphDataArray.forEach((meal) => {
         slicedDates.push({
           date: meal.date.slice(8, 10).split('-').join('/'),
-          meal: meal.meal,
-          treat: meal.treat,
-          'average calorie': meal.avgCal,
-          'ideal calorie': meal.idealCal,
+          Meal: meal.meal,
+          Treat: meal.treat,
+          Average: meal.avgCal,
+          Ideal: meal.idealCal,
         });
       });
     };
@@ -221,20 +221,22 @@ const MealWeekChart = ({ allMeals, MER }) => {
             <Legend wrapperStyle={{ bottom: -50, left: 20 }} />
             <Area
               type="monotone"
-              dataKey="average calorie"
+              dataKey="Average"
               stroke="rgba(204, 171, 218, 1)"
               fillOpacity={0.3}
               fill="rgba(0, 172, 237, 0)"
+              unit=" kcal"
             />
             <Area
               type="monotone"
-              dataKey="ideal calorie"
+              dataKey="Ideal"
               stroke="rgba(252, 136, 123, 1)"
               fillOpacity={0.3}
               fill="rgba(0, 172, 237, 0)"
+              unit=" kcal"
             />
-            <Bar barSize={15} fillOpacity={1} dataKey="treat" stackId="intake" fill="#363869" />
-            <Bar barSize={15} fillOpacity={1} dataKey="meal" stackId="intake" fill="#85d6c3" />
+            <Bar barSize={15} fillOpacity={1} dataKey="Treat" stackId="intake" fill="#363869" unit=" kcal" />
+            <Bar barSize={15} fillOpacity={1} dataKey="Meal" stackId="intake" fill="#85d6c3" unit=" kcal" />
           </ComposedChart>
         </ResponsiveContainer>
       </div>

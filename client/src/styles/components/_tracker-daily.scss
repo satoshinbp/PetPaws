@@ -6,6 +6,17 @@
     flex-flow: column nowrap;
     gap: 1.5rem;
 
+    label {
+      font-size: $standard-fontsize-mb;
+      /*
+      display: flex;
+      flex-flow: row wrap;
+      */
+      input {
+        max-width: 300px;
+      }
+    }
+
     .daily-list {
       border: 1px solid $font-color;
       padding: 1rem 0.5rem;
@@ -29,6 +40,9 @@
       }
     }
   }
+  .meal-daily-graph.desktop {
+    display: none;
+  }
 }
 
 @media screen and (min-width: $tb-breakpoint) {
@@ -40,7 +54,9 @@
 
     .info {
       gap: 2rem;
-
+      .meal-daily-graph.mobile {
+        display: none;
+      }
       label {
         font-size: $standard-fontsize-mb;
         display: grid;
@@ -49,7 +65,7 @@
       }
     }
 
-    .meal-daily-graph {
+    .meal-daily-graph.desktop {
       display: flex;
       align-self: center;
     }

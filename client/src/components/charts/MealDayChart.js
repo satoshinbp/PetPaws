@@ -55,6 +55,27 @@ const MealDayChart = ({ allMeals, MER }) => {
                 onChange={(e) => setDate(e.target.value)}
               />
             </label>
+            {totalDailyCalorie && date === totalDailyCalorie[0].date && (
+              <div className="meal-daily-graph mobile" style={{ height: '150px' }}>
+                {/* height is necessary to display graph */}
+                <ResponsiveContainer>
+                  <ComposedChart
+                    layout="vertical"
+                    data={totalDailyCalorie}
+                    margin={{ top: 20, right: 20, bottom: 0, left: 25 }}
+                  >
+                    <XAxis type="number" domain={[0, 'dataMax']} dataKey="calorie" stroke="#3B3054" />
+                    <YAxis type="category" dataKey="label" stroke="#3B3054" />
+                    <Tooltip /> {/* values shown when hovered */}
+                    <Bar dataKey="calorie" barSize={20} fillOpacity={1}>
+                      {totalDailyCalorie.map((entry, index) => (
+                        <Cell key={`cell-${index}`} fill={colors[index]} />
+                      ))}
+                    </Bar>
+                  </ComposedChart>
+                </ResponsiveContainer>
+              </div>
+            )}
             {mealsForDay.length > 0 ? (
               <div className="daily-list">
                 <p>{mealsForDay[0].date.split('-').join('/')}</p>
@@ -72,7 +93,7 @@ const MealDayChart = ({ allMeals, MER }) => {
           </div>
 
           {totalDailyCalorie && date === totalDailyCalorie[0].date && (
-            <div className="meal-daily-graph" style={{ height: '150px' }}>
+            <div className="meal-daily-graph desktop" style={{ height: '150px' }}>
               {/* height is necessary to display graph */}
               <ResponsiveContainer>
                 <ComposedChart

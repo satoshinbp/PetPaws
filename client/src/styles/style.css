@@ -884,19 +884,15 @@ nav ul {
 }
 
 /* 3.11. Trackers ========= */
-.meal-week-month-graphs-wrapper .meal-summary,
-.meal-week-month-graphs-wrapper .walk-summary,
-.walk-week-month-graphs-wrapper .meal-summary,
-.walk-week-month-graphs-wrapper .walk-summary {
+.meal-summary,
+.walk-summary {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
 }
 
-.meal-week-month-graphs-wrapper .meal-summary .basic-info,
-.meal-week-month-graphs-wrapper .walk-summary .basic-info,
-.walk-week-month-graphs-wrapper .meal-summary .basic-info,
-.walk-week-month-graphs-wrapper .walk-summary .basic-info {
+.meal-summary .basic-info,
+.walk-summary .basic-info {
   width: 100%;
   display: flex;
   flex-flow: column nowrap;
@@ -905,27 +901,21 @@ nav ul {
   padding: 1rem 0 2.5rem 0;
 }
 
-.meal-week-month-graphs-wrapper .meal-summary .basic-info .pet-image-name-wrapper,
-.meal-week-month-graphs-wrapper .walk-summary .basic-info .pet-image-name-wrapper,
-.walk-week-month-graphs-wrapper .meal-summary .basic-info .pet-image-name-wrapper,
-.walk-week-month-graphs-wrapper .walk-summary .basic-info .pet-image-name-wrapper {
+.meal-summary .basic-info .pet-image-name-wrapper,
+.walk-summary .basic-info .pet-image-name-wrapper {
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 }
 
-.meal-week-month-graphs-wrapper .meal-summary .basic-info .pet-image-name-wrapper .pet-name,
-.meal-week-month-graphs-wrapper .walk-summary .basic-info .pet-image-name-wrapper .pet-name,
-.walk-week-month-graphs-wrapper .meal-summary .basic-info .pet-image-name-wrapper .pet-name,
-.walk-week-month-graphs-wrapper .walk-summary .basic-info .pet-image-name-wrapper .pet-name {
+.meal-summary .basic-info .pet-image-name-wrapper .pet-name,
+.walk-summary .basic-info .pet-image-name-wrapper .pet-name {
   padding-top: 0.5rem;
 }
 
-.meal-week-month-graphs-wrapper .meal-summary .basic-info .pet-image,
-.meal-week-month-graphs-wrapper .walk-summary .basic-info .pet-image,
-.walk-week-month-graphs-wrapper .meal-summary .basic-info .pet-image,
-.walk-week-month-graphs-wrapper .walk-summary .basic-info .pet-image {
+.meal-summary .basic-info .pet-image-name-wrapper .pet-image,
+.walk-summary .basic-info .pet-image-name-wrapper .pet-image {
   width: 78px;
   height: 130px;
   object-fit: cover;
@@ -1002,6 +992,20 @@ nav ul {
   gap: 1.5rem;
 }
 
+.walk-daily .info label,
+.meal-daily .info label {
+  font-size: 16px;
+  /*
+      display: flex;
+      flex-flow: row wrap;
+      */
+}
+
+.walk-daily .info label input,
+.meal-daily .info label input {
+  max-width: 300px;
+}
+
 .walk-daily .info .daily-list,
 .meal-daily .info .daily-list {
   border: 1px solid #3b3054;
@@ -1030,6 +1034,11 @@ nav ul {
   padding: 0;
 }
 
+.walk-daily .meal-daily-graph.desktop,
+.meal-daily .meal-daily-graph.desktop {
+  display: none;
+}
+
 @media screen and (min-width: 600px) {
   .walk-daily,
   .meal-daily {
@@ -1041,6 +1050,10 @@ nav ul {
   .meal-daily .info {
     gap: 2rem;
   }
+  .walk-daily .info .meal-daily-graph.mobile,
+  .meal-daily .info .meal-daily-graph.mobile {
+    display: none;
+  }
   .walk-daily .info label,
   .meal-daily .info label {
     font-size: 16px;
@@ -1048,8 +1061,8 @@ nav ul {
     grid-template-columns: 40% 60%;
     align-items: center;
   }
-  .walk-daily .meal-daily-graph,
-  .meal-daily .meal-daily-graph {
+  .walk-daily .meal-daily-graph.desktop,
+  .meal-daily .meal-daily-graph.desktop {
     display: flex;
     align-self: center;
   }

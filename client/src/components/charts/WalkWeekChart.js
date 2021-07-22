@@ -127,9 +127,8 @@ const WalkWeekChart = ({ allActivities }) => {
       graphDataArray.forEach((activity) => {
         slicedDates.push({
           date: activity.date.slice(8, 10).split('-').join('/'),
-          minute: activity.minute,
-          distance: activity.distance,
-          'average minute': activity.avgMin,
+          Duration: activity.minute,
+          Average: activity.avgMin,
         });
       });
     };
@@ -224,14 +223,24 @@ const WalkWeekChart = ({ allActivities }) => {
             <YAxis />
             <Tooltip />
             <Legend wrapperStyle={{ bottom: -25, left: 20 }} />
+            <Bar
+              barSize={15}
+              fillOpacity={1}
+              fill="#2250A2"
+              dataKey="Duration"
+              stackId="a"
+              barSize={15}
+              fill="#85d6c3"
+              unit=" minutes"
+            />
             <Area
               type="monotone"
-              dataKey="average minute"
+              dataKey="Average"
               stroke="#00aced"
               fillOpacity={0.3}
               fill="rgba(0, 172, 237, 0)"
+              unit=" minutes"
             />
-            <Bar barSize={15} fillOpacity={1} fill="#2250A2" dataKey="minute" stackId="a" barSize={15} fill="#85d6c3" />
           </ComposedChart>
         </ResponsiveContainer>
         <br></br>

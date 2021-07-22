@@ -14,12 +14,6 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
       <MealSummaryIntro />
 
       <div className="body">
-        <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
-          {showForm && (
-            <MealForm petProfile={petProfile} setAllMeals={setAllMeals} closeForm={() => setShowForm(false)} />
-          )}
-        </div>
-
         <div className="bg-primary-meat">
           <div className="wrapper">
             <h2>Meal Summary</h2>
@@ -49,7 +43,7 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
               </div>
 
               <div className="graphs">
-                <h3 className="graph-title">Weekly/Monthly Charts</h3>
+                <h3 className="graph-title">Calorie Charts</h3>
                 <div className="week-month-toggle">
                   <div className="button-background btn-toggle-tab">
                     <button
@@ -71,6 +65,12 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
                 ) : (
                   <MealMonthChart allMeals={allMeals} MER={MER} />
                 )}
+                {/* form */}
+                <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
+                  {showForm && (
+                    <MealForm petProfile={petProfile} setAllMeals={setAllMeals} closeForm={() => setShowForm(false)} />
+                  )}
+                </div>
               </div>
             </div>
           </div>
