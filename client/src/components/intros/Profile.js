@@ -1,4 +1,4 @@
-import catIcon from '../../images/cat-and-meal.svg'; // to be replaced
+import profileIcon from '../../images/profile.svg';
 
 export default function Profile() {
   return (
@@ -12,8 +12,7 @@ export default function Profile() {
           </p>
 
           <div className="intro__img-area pc-hidden">
-            {/* icon to be replaced */}
-            <img src={catIcon} alt="a cat and a dog both sitting" />
+            <img src={profileIcon} alt="a cat and a dog both sitting" />
           </div>
 
           <div className="btn-area">
@@ -22,8 +21,7 @@ export default function Profile() {
         </div>
 
         <div className="intro__img-area mb-hidden">
-          {/* icon to be replaced */}
-          <img src={catIcon} alt="a cat and a dog both sitting" />
+          <img src={profileIcon} alt="a cat and a dog both sitting" />
         </div>
       </div>
     </div>
