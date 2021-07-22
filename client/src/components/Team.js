@@ -15,24 +15,24 @@ export default function Team() {
   }, []);
 
   return (
-    <div>
-      <h3>Team Members</h3>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat sunt, nostrum recusandae quos perferendis
-        quidem quo alias ex quisquam odio fugiat facere voluptates dignissimos, aspernatur repellendus sapiente quis
-        cumque similique.
-      </p>
+    <div className="team bg-secondary-fish">
+      <div className="wrapper-lg">
+        <h2 className="team__title">PET PAWS TEAM</h2>
 
-      {/* The following part is for testing purpose only. To be removed. */}
-      {memberList
-        ? memberList.map((val) => (
-            <div key={val.id}>
-              <img src={val.image_url} alt="member portrait" />
-              <p>{val.name} </p>
-              <p>{val.role}</p>
-            </div>
-          ))
-        : 'Loading...'}
+        <div className="team__members bg-secondary-light">
+          {memberList
+            ? memberList.map((val) => (
+                <div key={val.id} className="team__member">
+                  <div className="team__member-img">
+                    <img src={val.image_url} alt="member portrait" />
+                  </div>
+                  <p className="team__member-name">{val.name}</p>
+                  <p className="team__member-title">{val.role}</p>
+                </div>
+              ))
+            : 'Loading...'}
+        </div>
+      </div>
     </div>
   );
 }

@@ -1,29 +1,14 @@
-import React, { useState } from 'react';
 import Calculator from '../components/Calculator';
+import CalculatorGuestUserIntro from '../components/intros/CalculatorRegisteredUser';
 
 export default function Calorie() {
-  const [result, setResult] = useState('');
-
   return (
     <>
-      <h3>Welcome to Pet Paws</h3>
-      <p>
-        We recommend the best nutrition plan for your furry friend, monitor their daily routeine, and locate the best
-        vets and pet stores for your convenience.
-      </p>
-      <button>Create free account</button>
+      <CalculatorGuestUserIntro />
 
-      <Calculator setResult={setResult} />
-
-      {result && (
-        <>
-          <h3>The calculation is done!</h3>
-          <h4>Your pet is overweight</h4>
-          <p>Emter your email so we could send you the results!</p>
-
-          <button>Send</button>
-        </>
-      )}
+      <div className="body">
+        <Calculator />
+      </div>
     </>
   );
 }

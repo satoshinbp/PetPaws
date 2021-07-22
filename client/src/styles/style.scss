@@ -1,0 +1,59 @@
+@import 'setting/settings';
+
+/* 1 Base =================== */
+/* 1.1. Reset =========== */
+@import 'base/reset';
+/* 1.2. Base ================ */
+@import 'base/base';
+
+/* 2 Pages ================== */
+/* 2.1. Sign Up ============= */
+@import 'pages/signup';
+/* 2.2. Sign In ============= */
+@import 'pages/signin';
+
+/* 3 Components ============= */
+/* 3.1. Intro =============== */
+@import 'components/intro';
+/* 3.2. Body ================ */
+@import 'components/body';
+/* 3.3. Header ============== */
+@import 'components/header';
+/* 3.4. Footer ============== */
+@import 'components/footer';
+/* 3.5. Features ============ */
+@import 'components/features';
+/* 3.6. Team ================ */
+@import 'components/team';
+/* 3.7. Calculator ========== */
+@import 'components/calculator';
+/* 3.8. Stores/Vets ========= */
+@import 'components/search';
+/* 3.9. Profile ========= */
+// @import 'components/profile'; no specific styling for profile component
+/* 3.10. Add Pet ========= */
+@import 'components/add-pet';
+/* 3.11. Trackers ========= */
+@import 'components/tracker-summary';
+@import 'components/tracker-daily';
+@import 'components/tracker-form';
+
+/* ========== TO BE REORGANIZED ========== */
+/* 3.2. Charts ============== */
+@import 'components/week-month-graphs';
+@import 'components/meal-latest-chart';
+@import 'components/walk-latest-chart';
+/* 3.6. Dashboard =========== */
+@import 'components/dashboard-pet-profile';
+@import 'components/dashboard-summary';
+/* ====================================== */
+
+/* 4 Elements =============== */
+/* 4.1. Buttons ============= */
+@import 'elements/buttons';
+/* 4.2. Inputs ============== */
+@import 'elements/inputs';
+/* 4.3. Images ============== */
+@import 'elements/images';
+/* 4.4. Forms =============== */
+@import 'elements/forms';

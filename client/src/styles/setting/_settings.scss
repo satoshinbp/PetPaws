@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'To Japan';
+  src: url('fonts/tojapan/to-japan.ttf') format('truetype');
+}
+
+// Colors
+$base-color: #fff;
+$disabled-color: #dadada;
+$intro-color: #ffdd95;
+$font-color: #3b3054;
+$primary-color: #a4eada;
+$primary-color-light: #dcf7f1;
+$secondary-color: #ccabda;
+$secondary-color-light: #e4c8f0;
+$btn-backgroundcolor-contained: #ffdd95;
+$btn-backgroundcolor-contained-intro: #fff;
+$btn-bordercolor-outlined: #3b3054;
+
+// Font Family
+$header-fontfamily: 'To Japan', helvetica, arial, sans-serif;
+$paragraph-fontfamily: 'Content', helvetica, arial, sans-serif;
+
+// Font Size
+$standard-fontsize-mb: 16px;
+$standard-fontsize-pc: 20px;
+$h1-fontsize-mb: 20px;
+$h1-fontsize-pc: 28px;
+$h2-fontsize-mb: 18px;
+$h2-fontsize-pc: 26px;
+$h3-fontsize-mb: 16px;
+$h3-fontsize-pc: 24px;
+$btn-fontsize: 18px;
+$input-fontsize-mb: 14px;
+$input-fontsize-pc: 18px;
+$calc-result-fontsize: 60px;
+
+// Font Weight
+$btn-fontweight: 700;
+$label-fontweight: 700;
+
+// Border Radius
+$btn-borderradius: 5px;
+$input-borderradius: 15px;
+$subcomponent-borderradius-mb: 25px;
+$subcomponent-borderradius-pc: 50px; // for sub component with light color background
+
+// Border Width
+$btn-borderwidth-outlined: 1px;
+
+// Breakpoints
+$tb-breakpoint: 600px;
+$pc-breakpoint: 960px;
+
+// Width and Heigh
+$md-max-width: 877px;
+$lg-max-width: 1067px; // for team sub component
+$header-height-mb: 91px;
+$header-height-pc: 94px;
+$footer-height-mb: 70px;
+$footer-height-pc: 80px;
+$btn-width: 252px;
+$btn-height-mb: 50px;
+$btn-height-pc: 54px;
+$input-width: 340px;
+$input-height-mb: 50px;
+$input-height-pc: 54px;
+$input-radio-size: 35px;

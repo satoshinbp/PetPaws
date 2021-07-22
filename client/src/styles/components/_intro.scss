@@ -1,0 +1,32 @@
+.intro {
+  text-align: center;
+  background-color: $intro-color;
+
+  .wrapper {
+    display: flex;
+    flex-flow: nowrap column;
+  }
+
+  @media screen and (min-width: $tb-breakpoint) {
+    text-align: left;
+
+    .wrapper {
+      display: flex;
+      flex-flow: nowrap row;
+      align-items: center;
+      gap: 3rem;
+    }
+
+    .btn-area {
+      margin: 0;
+    }
+
+    &__title {
+      margin: 0;
+    }
+
+    &__img-area {
+      flex: 1 0 auto;
+    }
+  }
+}

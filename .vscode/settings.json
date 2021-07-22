@@ -11,5 +11,13 @@
   "prettier.trailingComma": "es5",
   "prettier.bracketSpacing": true,
   "prettier.jsxBracketSameLine": false,
-  "prettier.arrowParens": "always"
+  "prettier.arrowParens": "always",
+  "liveSassCompile.settings.autoprefix": [],
+  "liveSassCompile.settings.formats": [
+    {
+      "format": "expanded",
+      "extensionName": ".css",
+      "savePath": "/client/src/styles"
+    }
+  ]
 }

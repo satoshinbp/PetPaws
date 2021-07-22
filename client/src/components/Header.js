@@ -47,57 +47,84 @@ export default function Header() {
   }, [open]);
 
   return (
-    <header style={{ display: 'flex', justifyContent: 'space-between' }}>
-      {/* Styling to be removed */}
-      <Link to="/">Logo</Link>
-      {currentUser && (
-        <>
-          <Link to="/mealsummary">Meals Tracker</Link>
-          <Link to="/walksummary">Walks Tracker</Link>
-        </>
-      )}
-      <Link to={currentUser ? '/calorie' : '/calorieguest'}>Calorie Calculator</Link>
-      <Link to="/finding_stores">Finding Pet Stores/Vets</Link>
-      <Link to="/contact">Contact Us</Link>
-      {currentUser ? (
-        <>
-          <button
-            ref={anchorRef}
-            aria-controls={open ? 'menu-list-grow' : undefined}
-            aria-haspopup="true"
-            onClick={handleToggle}
-          >
-            Icon
-          </button>
-          <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
-            {({ TransitionProps, placement }) => (
-              <Grow
-                {...TransitionProps}
-                style={{
-                  transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',
-                }}
-              >
-                <Paper>
-                  <ClickAwayListener onClickAway={handleClose}>
-                    <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                      <MenuItem onClick={handleClose}>
-                        <Link to="/pet_profile">Pet Profile</Link>
-                      </MenuItem>
-                      <MenuItem onClick={handleClose}>My account</MenuItem>
-                      <MenuItem onClick={handleLogout}>Logout</MenuItem>
-                    </MenuList>
-                  </ClickAwayListener>
-                </Paper>
-              </Grow>
-            )}
-          </Popper>
-        </>
-      ) : (
-        <>
-          <Link to="/signin">Sign In</Link>
-          <Link to="/signup">Sign Up</Link>
-        </>
-      )}
+    <header>
+      <div className="header__wrapper">
+        <nav>
+          <ul>
+            <div>
+              <li>
+                <Link to="/">Logo</Link>
+              </li>
+            </div>
+
+            <div className="header__menu">
+              {currentUser && (
+                <>
+                  <li>
+                    <Link to="/mealsummary">Meals Tracker</Link>
+                  </li>
+                  <li>
+                    <Link to="/walksummary">Walks Tracker</Link>
+                  </li>
+                </>
+              )}
+              <li>
+                <Link to={currentUser ? '/calorie' : '/calorieguest'}>Calorie Calculator</Link>
+              </li>
+              <li>
+                <Link to="/finding_stores">Finding Pet Stores/Vets</Link>
+              </li>
+              <li>
+                <Link to="/contact">Contact Us</Link>
+              </li>
+              {currentUser ? (
+                <li>
+                  <button
+                    ref={anchorRef}
+                    aria-controls={open ? 'menu-list-grow' : undefined}
+                    aria-haspopup="true"
+                    onClick={handleToggle}
+                    className="profile-img"
+                  >
+                    Icon
+                  </button>
+                  <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
+                    {({ TransitionProps, placement }) => (
+                      <Grow
+                        {...TransitionProps}
+                        style={{
+                          transformOrigin: placement === 'bottom' ? 'center top' : 'center bottom',
+                        }}
+                      >
+                        <Paper>
+                          <ClickAwayListener onClickAway={handleClose}>
+                            <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
+                              <MenuItem onClick={handleClose}>
+                                <Link to="/pet_profile">Pet Profile</Link>
+                              </MenuItem>
+                              <MenuItem onClick={handleClose}>My account</MenuItem>
+                              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                            </MenuList>
+                          </ClickAwayListener>
+                        </Paper>
+                      </Grow>
+                    )}
+                  </Popper>
+                </li>
+              ) : (
+                <>
+                  <li>
+                    <Link to="/signin">Sign In</Link>
+                  </li>
+                  <li>
+                    <Link to="/signup">Sign Up</Link>
+                  </li>
+                </>
+              )}
+            </div>
+          </ul>
+        </nav>
+      </div>
     </header>
   );
 }

@@ -1,0 +1,56 @@
+button {
+  width: 100%;
+  height: $btn-height-mb;
+  border-radius: $btn-borderradius;
+  border: none;
+  color: $font-color;
+  font-size: $btn-fontsize;
+  font-weight: $btn-fontweight;
+  text-transform: capitalize;
+  cursor: pointer;
+
+  @media screen and (min-width: $tb-breakpoint) {
+    width: $btn-width;
+    height: $btn-height-pc;
+  }
+}
+
+.btn-contained {
+  background-color: $btn-backgroundcolor-contained;
+}
+
+.btn-contained--intro {
+  background-color: $btn-backgroundcolor-contained-intro;
+}
+
+.btn-outlined {
+  border: $btn-borderwidth-outlined solid $btn-bordercolor-outlined;
+}
+
+.btn-toggle-tab {
+  height: 27px;
+  border-radius: $subcomponent-borderradius-mb;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+
+  @media screen and(min-width: $tb-breakpoint) {
+    border-radius: $subcomponent-borderradius-mb + 5px;
+    height: 32px;
+  }
+}
+
+.icon-btn-circle {
+  border-radius: 50%;
+
+  width: 84px;
+  height: 84px;
+  background-color: $primary-color;
+
+  @media screen and(min-width: $tb-breakpoint) {
+    width: 108px;
+    height: 108px;
+  }
+}
+
+.btn-area {
+  margin: 1rem 0;
+}

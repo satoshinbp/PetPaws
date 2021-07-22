@@ -1,0 +1,36 @@
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.profile-img {
+  border: solid $intro-color;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+header {
+  .profile-img {
+    width: 64px;
+    height: 64px;
+    border-width: 4px;
+  }
+}
+
+.profile .basic-form {
+  .profile-img {
+    width: 128px;
+    height: 128px;
+    border-width: 8px;
+  }
+
+  .profile-img-input {
+    display: none;
+    width: 128px;
+    height: 128px;
+  }
+
+  .profile-img-label {
+    display: initial;
+  }
+}

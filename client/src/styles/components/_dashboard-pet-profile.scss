@@ -1,0 +1,34 @@
+.dashboard-pet-profile-wrapper {
+  @media screen and (min-width: $pc-breakpoint) {
+    display: flex;
+    grid-gap: 3rem;
+    .dashboard-profile-container {
+      flex-basis: 50%;
+    }
+  }
+
+  @media screen and (max-width: $tb-breakpoint) {
+    border-radius: 10px;
+    background-color: $primary-color-light;
+    padding: 1rem;
+  }
+}
+
+.latest-summary-heading {
+  font-weight: $btn-fontweight;
+  text-align: left;
+}
+
+.pet-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+
+  p {
+    flex-basis: 50%;
+  }
+  .pet-detail {
+    border-bottom: solid 1.5px $font-color;
+  }
+}

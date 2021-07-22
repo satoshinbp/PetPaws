@@ -1,0 +1,40 @@
+.team {
+  &__members {
+    display: flex;
+    flex-flow: nowrap column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  &__member-img {
+    overflow: hidden;
+    width: 138px;
+    height: 138px;
+    margin: 0 auto;
+    border: 2px solid $base-color;
+    border-radius: 50%;
+  }
+
+  &__member-name {
+    margin: 0.5rem 0 0;
+    font-size: $standard-fontsize-mb;
+  }
+
+  @media screen and (min-width: $tb-breakpoint) {
+    &__members {
+      flex-flow: wrap row;
+      justify-content: center;
+      align-items: flex-start;
+      margin: auto;
+    }
+
+    &__member {
+      flex: 240px 0 0;
+    }
+
+    &__member-img {
+      width: 180px;
+      height: 180px;
+    }
+  }
+}

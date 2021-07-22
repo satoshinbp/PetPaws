@@ -1,0 +1,76 @@
+.graphs {
+  width: 100%;
+  .week-month-toggle {
+    background-color: $primary-color-light;
+    border-top-left-radius: 18px;
+    border-top-right-radius: 18px;
+    .button-background {
+      display: flex;
+      height: 35px;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      padding: 0 1rem;
+      .button-no-accent {
+        background-color: transparent;
+      }
+      button {
+        font-size: $standard-fontsize-mb;
+        color: $font-color;
+      }
+    }
+  }
+
+  .walk-week-graph,
+  .walk-month-graph,
+  .meal-week-graph,
+  .meal-month-graph {
+    background-color: $primary-color-light;
+    border-bottom-left-radius: $subcomponent-borderradius-mb;
+    border-bottom-right-radius: $subcomponent-borderradius-mb;
+    padding-bottom: calc(1rem + 50px);
+    .week-controller,
+    .month-controller {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: center;
+      justify-content: center;
+      button {
+        width: 50px;
+        background-color: transparent;
+      }
+      p {
+        font-size: $standard-fontsize-mb;
+      }
+    }
+    .graph-height {
+      height: 300px;
+      .recharts-default-legend {
+        display: flex;
+        flex-flow: row wrap;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $tb-breakpoint) {
+  .graphs {
+    padding-right: 1rem; // grid gap 1rem affects this padding
+    .graph-title {
+      display: none;
+    }
+    .week-month-toggle {
+      border-top-left-radius: $subcomponent-borderradius-mb + 5px; // adjust radius depending on button radius
+      border-top-right-radius: $subcomponent-borderradius-mb + 5px;
+      .button-background {
+        padding: 0 3rem;
+        height: 45px;
+        .btn-darkened.btn-toggle-tab {
+          border-radius: $subcomponent-borderradius-mb + 2px;
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
+import { useAuth } from '../contexts/AuthContext';
 import calculateAgeFromBirthday from '../functions/calculateAgeFromBirthday';
 import calculateRecommendedCalorie from '../functions/calculateRecommendedCalorie';
 
 export default function Calculator(props) {
-  const { setResult } = props;
+  const { currentUser } = useAuth();
 
   const [dogBreeds, setDogBreeds] = useState([]);
   const [catBreeds, setCatBreeds] = useState([]);
@@ -17,6 +18,7 @@ export default function Calculator(props) {
   const [activityLevel, setActivityLevel] = useState(0); // 0: inactive, 1: somewhat active, 2: active, 3: very active
   const [bodyCondition, setBodyCondition] = useState(0); // 0: underweight, 1: ideal, 2: overweight
   const [initialCalculationDone, setInitialCalculationDone] = useState(false);
+  const [result, setResult] = useState('');
 
   useEffect(() => {
     Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
@@ -98,86 +100,151 @@ export default function Calculator(props) {
   };
 
   return (
-    <>
-      <h2>Calorie Calculator</h2>
-      {/* This styling is temporary, to be removed */}
-      <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-        <div>
-          <h3>Pet type:</h3>
-          <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
-          <label htmlFor="cat">Cat</label>
-          <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
-          <label htmlFor="dog">Dog</label>
-        </div>
-        <div>
-          <label htmlFor="breed">Breed:</label>
-          <select name="breed" value={breedName} onChange={changeBreed} required>
-            <option value="">Select breed</option>
-            {isDog ? (
+    <div className="calculator bg-primary-meat">
+      <div className="wrapper">
+        <h2>let’s see how many calories your pet needs!</h2>
+
+        <form onSubmit={handleSubmit} className="basic-form bg-primary-light">
+          <div className="radios-area">
+            <label>Pet Type</label>
+
+            <div className="radio-area">
+              <input type="radio" name="dog" value={1} checked={isDog} onChange={changePetType} />
+              <label htmlFor="dog">Dog</label>
+            </div>
+
+            <div className="radio-area">
+              <input type="radio" name="cat" value={0} checked={!isDog} onChange={changePetType} />
+              <label htmlFor="cat">Cat</label>
+            </div>
+          </div>
+
+          <div className="input-area input-area--two-column">
+            <div className="input-area-half">
+              <label htmlFor="weight">Age</label>
+              <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
+              <span className="end-adornment--y">years</span>
+            </div>
+
+            <div className="input-area-half">
+              <input
+                type="number"
+                name="ageMonths"
+                value={ageMonths}
+                min={0}
+                max={11}
+                step={1}
+                onChange={changeMonths}
+              />
+              <span className="end-adornment--m">months</span>
+            </div>
+          </div>
+
+          <div className="input-area">
+            <label htmlFor="breed">Breed</label>
+            <select name="breed" value={breedName} onChange={changeBreed} required>
+              <option value="">Select breed</option>
+              {isDog ? (
+                <>
+                  {dogBreeds.map((breed) => (
+                    <option value={breed} key={breed}>
+                      {breed}
+                    </option>
+                  ))}
+                </>
+              ) : (
+                <>
+                  {catBreeds.map((breed) => (
+                    <option value={breed} key={breed}>
+                      {breed}
+                    </option>
+                  ))}
+                </>
+              )}
+            </select>
+          </div>
+
+          <div className="input-area">
+            <label htmlFor="weight">Weight</label>
+            <input type="number" name="weight" value={weight} min={0} step={0.1} onChange={changeWeight} />
+            <span className="end-adornment">kg</span>
+          </div>
+
+          <div className="input-area">
+            <label htmlFor="activityLevel">Activity Level</label>
+            <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
+              <option value={0}>Inactive</option>
+              <option value={1}>Somewhat Active</option>
+              <option value={2}>Active</option>
+              <option value={3}>Very Active</option>
+            </select>
+          </div>
+
+          <div className="input-area">
+            <label htmlFor="bodyCondition">Body Condition</label>
+            <select name="bodyCondition" value={bodyCondition} onChange={changeBodyCondition}>
+              <option value={0}>Underweight</option>
+              <option value={1}>Ideal</option>
+              <option value={2}>Overweight</option>
+            </select>
+          </div>
+
+          <div className="radios-area">
+            <label>Spayed/Neutered</label>
+
+            <div className="radio-area">
+              <input
+                id="intact"
+                type="radio"
+                name="isSpay"
+                value={0}
+                checked={isSpayed === 0}
+                onChange={changeIsSpayed}
+              />
+              <label htmlFor="intact">No</label>
+            </div>
+
+            <div className="radio-area">
+              <input
+                id="spayed"
+                type="radio"
+                name="spayed"
+                value={1}
+                checked={isSpayed === 1}
+                onChange={changeIsSpayed}
+              />
+              <label htmlFor="spayed">Yes</label>
+            </div>
+          </div>
+
+          <div className="btn-area">
+            <button type="submit" className="btn-contained">
+              calculate
+            </button>
+          </div>
+        </form>
+
+        {result && (
+          <div className="calculator__result bg-primary-light">
+            <h3>Calculation Done!</h3>
+            {currentUser ? (
               <>
-                {dogBreeds.map((breed) => (
-                  <option value={breed} key={breed}>
-                    {breed}
-                  </option>
-                ))}
+                <p>The ideal calorie number for your pet is</p>
+                <p className="calculator__result-calorie">{result}</p>
               </>
             ) : (
               <>
-                {catBreeds.map((breed) => (
-                  <option value={breed} key={breed}>
-                    {breed}
-                  </option>
-                ))}
+                <p>Enter your email so we could send you the results!</p>
+                <input type="text" placeholder="Enter your email" />
+
+                <div className="btn-area">
+                  <button className="btn-contained">Send</button>
+                </div>
               </>
             )}
-          </select>
-        </div>
-
-        <div>
-          <label>
-            Age:
-            <input type="number" name="ageYears" value={ageYears} min={0} step={1} onChange={changeYears} />
-            Years
-            <input type="number" name="ageMonths" value={ageMonths} min={0} max={11} step={1} onChange={changeMonths} />
-            Months
-          </label>
-        </div>
-
-        <div>
-          <label htmlFor="weight">Weight:</label>
-          <input type="number" name="weight" value={weight} min={0} step={0.1} onChange={changeWeight} />
-          kg
-        </div>
-
-        <div>
-          <label htmlFor="isSpayed">Signalment:</label>
-          <select name="isSpayed" value={isSpayed} onChange={changeIsSpayed}>
-            <option value={0}>Intact</option>
-            <option value={1}>Spayed/Neutered</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="activityLevel">Activity Level:</label>
-          <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
-            <option value={0}>Inactive</option>
-            <option value={1}>Somewhat Active</option>
-            <option value={2}>Active</option>
-            <option value={3}>Very Active</option>
-          </select>
-        </div>
-
-        <div>
-          <label htmlFor="bodyCondition">Body Condition:</label>
-          <select name="bodyCondition" value={bodyCondition} onChange={changeBodyCondition}>
-            <option value={0}>Underweight</option>
-            <option value={1}>Ideal</option>
-            <option value={2}>Overweight</option>
-          </select>
-        </div>
-
-        <button type="submit">calculate</button>
-      </form>
-    </>
+          </div>
+        )}
+      </div>
+    </div>
   );
 }

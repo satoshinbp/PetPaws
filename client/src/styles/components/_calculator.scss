@@ -1,0 +1,11 @@
+.calculator {
+  &__result {
+    margin-top: 3rem;
+  }
+
+  &__result-calorie {
+    color: $secondary-color-light;
+    font-size: $calc-result-fontsize;
+    font-weight: 900;
+  }
+}

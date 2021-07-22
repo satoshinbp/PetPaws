@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  padding-top: $header-height-mb;
+  font-family: $paragraph-fontfamily;
+  font-size: $standard-fontsize-mb;
+  line-height: 1.5;
+  color: $font-color;
+  text-align: center;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $header-fontfamily;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: $h1-fontsize-mb;
+}
+
+h2 {
+  font-size: $h2-fontsize-mb;
+}
+
+h3 {
+  font-size: $h3-fontsize-mb;
+}
+
+ul {
+  padding-left: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.wrapper {
+  box-sizing: content-box;
+  padding: 2rem 1.5rem;
+  max-width: $md-max-width;
+  margin: 0 auto;
+}
+
+// for team sub component
+.wrapper-lg {
+  box-sizing: content-box;
+  padding: 2rem 1.5rem;
+  max-width: $lg-max-width;
+  margin: 0 auto;
+}
+
+.mb-hidden {
+  display: none;
+}
+
+.bg-primary-meat {
+  background-image: url(../images/bg-green-meatbone-mb.png);
+  background-color: $primary-color;
+}
+
+.bg-primary-fish {
+  background-image: url(../images/bg-green-fishbone-mb.png);
+  background-color: $primary-color;
+}
+
+.bg-secondary-meat {
+  background-image: url(../images/bg-purple-meatbone-mb.png);
+  background-color: $secondary-color;
+}
+
+.bg-secondary-fish {
+  background-image: url(../images/bg-purple-fishbone-mb.png);
+  background-color: $secondary-color;
+}
+
+.bg-primary-light-mb-visible {
+  padding: 1.5rem 1rem;
+  border-radius: $subcomponent-borderradius-pc;
+  background-color: $primary-color-light;
+}
+
+.bg-secondary-light-mb-visible {
+  padding: 1.5rem 1rem;
+  border-radius: $subcomponent-borderradius-pc;
+  background-color: $secondary-color-light;
+}
+
+@media screen and (min-width: $tb-breakpoint) {
+  body {
+    padding-top: $header-height-pc;
+    font-size: $standard-fontsize-pc;
+  }
+
+  h1 {
+    font-size: $h1-fontsize-pc;
+  }
+
+  h2 {
+    font-size: $h2-fontsize-pc;
+  }
+
+  h3 {
+    font-size: $h3-fontsize-pc;
+  }
+
+  .wrapper,
+  .wrapper-lg {
+    padding: 4rem 3rem;
+  }
+
+  .bg-primary-light,
+  .bg-primary-light-mb-visible {
+    padding: 2rem 1.5rem;
+    border-radius: $subcomponent-borderradius-pc;
+    background-color: $primary-color-light;
+  }
+
+  .bg-secondary-light,
+  .bg-secondary-light-mb-visible {
+    padding: 2rem 1.5rem;
+    border-radius: $subcomponent-borderradius-pc;
+    background-color: $secondary-color-light;
+  }
+
+  .mb-hidden {
+    display: initial;
+  }
+
+  .pc-hidden {
+    display: none;
+  }
+
+  .bg-primary-meat {
+    background-image: url(../images/bg-green-meatbone-mb.png); // to be replaced with image for pc screen
+  }
+
+  .bg-primary-fish {
+    background-image: url(../images/bg-green-fishbone-pc.png);
+  }
+
+  .bg-secondary-meat {
+    background-image: url(../images/bg-purple-meatbone-mb.png); // to be replaced with image for pc screen
+  }
+
+  .bg-secondary-fish {
+    background-image: url(../images/bg-purple-fishbone-mb.png); // to be replaced with image for pc screen
+  }
+}

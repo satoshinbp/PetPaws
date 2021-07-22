@@ -1,0 +1,37 @@
+.features {
+  .feature {
+    margin-bottom: 1.5rem;
+
+    &__img {
+      width: 122px;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (min-width: $tb-breakpoint) {
+    .feature {
+      margin-bottom: 3rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 2rem;
+
+      &__text {
+        flex-basis: 70%;
+        text-align: left;
+      }
+
+      &__img {
+        flex-basis: 30%;
+        text-align: right;
+      }
+
+      &:nth-child(2n + 1) {
+        .feature__img {
+          order: -1;
+          text-align: left;
+        }
+      }
+    }
+  }
+}

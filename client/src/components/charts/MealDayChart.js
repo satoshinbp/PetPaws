@@ -15,6 +15,7 @@ const MealDayChart = ({ allMeals, MER }) => {
       const activeDate = allMeals[i].date.slice(0, 10);
       if (date === activeDate) {
         allFood.push({
+          name: allMeals[i].name,
           date: activeDate,
           time: allMeals[i].time.slice(0, 5),
           calorie: allMeals[i].calorie,
@@ -38,50 +39,61 @@ const MealDayChart = ({ allMeals, MER }) => {
   }, [allMeals, date, totalCal, MER]);
 
   return (
-    <div style={{ border: '1px solid' }}>
-      {/* temporary styling */}
-      <h2>Meal Day Chart</h2>
-      {mealsForDay.length > 0 ? (
-        mealsForDay.map((meal) => (
-          <p key={meal.id}>
-            Date:&nbsp;{meal.date}&nbsp;&nbsp;&nbsp; Type:&nbsp;{meal.type}&nbsp;&nbsp;&nbsp; Calorie:&nbsp;
-            {meal.calorie} kcal
-          </p>
-        ))
-      ) : (
-        <p>No meal is added</p>
-      )}
-
-      <input
-        type="date"
-        id="date"
-        name="meal-date"
-        defaultValue={date}
-        required
-        onChange={(e) => setDate(e.target.value)}
-      />
-
-      {totalDailyCalorie && date === totalDailyCalorie[0].date && (
-        <div style={{ height: '150px' }}>
-          {/* height is necessary to display graph */}
-          <ResponsiveContainer>
-            <ComposedChart
-              layout="vertical"
-              data={totalDailyCalorie}
-              margin={{ top: 20, right: 20, bottom: 0, left: 25 }}
-            >
-              <XAxis type="number" domain={[0, 'dataMax']} dataKey="calorie" stroke="#3B3054" />
-              <YAxis type="category" dataKey="label" stroke="#3B3054" />
-              <Tooltip /> {/* values shown when hovered */}
-              <Bar dataKey="calorie" barSize={20} fillOpacity={1}>
-                {totalDailyCalorie.map((entry, index) => (
-                  <Cell key={`cell-${index}`} fill={colors[index]} />
+    <div className="bg-secondary-fish">
+      <div className="wrapper">
+        <h2>Daily Meals</h2>
+        <div className="bg-secondary-light meal-daily">
+          <div className="info">
+            <label>
+              Choose a date:
+              <input
+                type="date"
+                id="date"
+                name="meal-date"
+                defaultValue={date}
+                required
+                onChange={(e) => setDate(e.target.value)}
+              />
+            </label>
+            {mealsForDay.length > 0 ? (
+              <div className="daily-list">
+                <p>{mealsForDay[0].date.split('-').join('/')}</p>
+                {mealsForDay.map((meal) => (
+                  <p key={meal.id}>
+                    Name:&nbsp;{meal.name},&nbsp;&nbsp;&nbsp; Time:&nbsp;
+                    {meal.time}
+                    ,&nbsp;&nbsp;&nbsp; Type:&nbsp;{meal.type}, &nbsp;&nbsp;&nbsp; Calorie:&nbsp;{meal.calorie} kcal
+                  </p>
                 ))}
-              </Bar>
-            </ComposedChart>
-          </ResponsiveContainer>
+              </div>
+            ) : (
+              <p>No meal is added</p>
+            )}
+          </div>
+
+          {totalDailyCalorie && date === totalDailyCalorie[0].date && (
+            <div className="meal-daily-graph" style={{ height: '150px' }}>
+              {/* height is necessary to display graph */}
+              <ResponsiveContainer>
+                <ComposedChart
+                  layout="vertical"
+                  data={totalDailyCalorie}
+                  margin={{ top: 20, right: 20, bottom: 0, left: 25 }}
+                >
+                  <XAxis type="number" domain={[0, 'dataMax']} dataKey="calorie" stroke="#3B3054" />
+                  <YAxis type="category" dataKey="label" stroke="#3B3054" />
+                  <Tooltip /> {/* values shown when hovered */}
+                  <Bar dataKey="calorie" barSize={20} fillOpacity={1}>
+                    {totalDailyCalorie.map((entry, index) => (
+                      <Cell key={`cell-${index}`} fill={colors[index]} />
+                    ))}
+                  </Bar>
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
+          )}
         </div>
-      )}
+      </div>
     </div>
   );
 };

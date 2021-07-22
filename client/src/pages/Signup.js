@@ -31,29 +31,44 @@ export default function Signup() {
   };
 
   return (
-    <div>
-      <img src={singupImg} alt="" />
-
-      <div>
-        <h2>Sign Up</h2>
+    <div className="signup">
+      <div className="signup_description">
+        <h3>By creating your free account,</h3>
+        <p>　You will be able to :</p>
+        <ul>
+          <li>
+            ・
+            <div>
+              keep track of your pet's healthy routines, including their nutritional intake and physical activity levels
+            </div>
+          </li>
+          <li>
+            ・<div className="">Get the optimal amount of calories and activity level for your pet</div>
+          </li>
+        </ul>
+      </div>
+      <div className="signup_form">
+        <h2>Create your Account</h2>
         {error && <div>{error}</div>}
 
         <form onSubmit={handleSubmit}>
           <label id="name">Name</label>
-          <input id="name" type="text" ref={nameRef} required />
+          <input id="name" className="input-md" type="text" ref={nameRef} required />
           <label id="email">Email</label>
-          <input type="email" ref={emailRef} required />
+          <input type="email" className="input-md" ref={emailRef} required />
           <label id="password">Password</label>
-          <input type="password" ref={passwordRef} required />
+          <input type="password" className="input-md" ref={passwordRef} required />
           <label id="password-Confirmation">passwordConfirmation</label>
-          <input type="password" ref={passwordConfirmRef} required />
-          <button disabled={loading} type="submit">
-            Sign Up
+          <input type="password" className="input-md" ref={passwordConfirmRef} required />
+          <button className="btn-contained" disabled={loading} type="submit">
+            Get Started
           </button>
         </form>
-
-        <div>
-          Already have an account? <Link to="/signin">Sign In</Link>
+        <div className="signin-link-area">
+          <p>Already have an account?</p>
+          <Link to="/signin" className="signin-link-area_link">
+            Sign In
+          </Link>
         </div>
       </div>
     </div>

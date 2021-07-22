@@ -1,0 +1,36 @@
+.add-pet {
+  .container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 1rem;
+  }
+
+  .btn-and-label {
+    flex: 0 0 100%;
+  }
+
+  .icon-area {
+    flex: 0 0 20%;
+  }
+
+  @media screen and (min-width: $tb-breakpoint) {
+    .container {
+      flex-flow: row nowrap;
+      gap: 2rem;
+    }
+
+    .btn-and-label {
+      flex: 0 0 112px;
+    }
+
+    .icon-area {
+      flex: initial;
+    }
+
+    .icon-area--dog {
+      order: -1;
+    }
+  }
+}

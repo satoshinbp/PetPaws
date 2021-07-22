@@ -1,5 +1,7 @@
 import React, { useState, useRef, useCallback, useEffect } from 'react';
 import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+import StoreIcon from '../images/finder-marker-store.svg';
+import VetIcon from '../images/finder-marker-vet.svg';
 // import { Link } from 'react-router-dom';
 // import Loading from './Loading';
 // import barIcon from '../assets/icons/beer.svg';
@@ -10,9 +12,9 @@ import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
 
 const containerStyle = {
   width: '100%',
-  height: '550px',
+  height: '350px',
   marginTop: '1rem',
-  borderRadius: '5px',
+  borderRadius: '30px',
 };
 
 const options = {
@@ -73,9 +75,6 @@ function Map(props) {
     }
   }, [shops, bounds]);
 
-  const url_green = 'https://maps.google.com/mapfiles/ms/icons/green-dot.png';
-  const url_orange = 'https://maps.google.com/mapfiles/ms/icons/orange-dot.png';
-
   // if (isLoading) return <Loading />;
 
   return (
@@ -92,7 +91,7 @@ function Map(props) {
           <Marker
             key={shop.id}
             icon={{
-              url: shop.is_vet === 1 ? url_green : url_orange,
+              url: shop.is_vet === 1 ? VetIcon : StoreIcon,
               scaledSize: new window.google.maps.Size(48, 48),
               labelOrigin: new window.google.maps.Point(24, 16),
             }}
