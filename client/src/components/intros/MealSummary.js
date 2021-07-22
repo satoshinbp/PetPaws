@@ -1,4 +1,4 @@
-import catIcon from '../../images/cat.svg'; // to be replaced
+import catIcon from '../../images/cat-and-meal.svg'; // to be replaced
 
 export default function MealSummary() {
   return (

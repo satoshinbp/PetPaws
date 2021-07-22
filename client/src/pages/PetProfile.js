@@ -4,7 +4,7 @@ import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
 import ProfileIntro from '../components/intros/Profile';
-import catIcon from '../images/cat.svg'; // to be replaced
+import catIcon from '../images/cat-and-meal.svg'; // to be replaced
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
