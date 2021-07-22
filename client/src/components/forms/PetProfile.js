@@ -8,6 +8,16 @@ export default function petProfileForm(props) {
     <form className="basic-form bg-primary-light" onSubmit={(e) => props.handleSubmit(e)}>
       <div className="img-area">
         <img src={signinImg} alt="" className="profile-img" />
+
+        <label htmlFor="profImage">
+          <input
+            id="profImage"
+            type="file"
+            className="imageInput"
+            onChange={(e) => props.changeImage(e.target.files[0])}
+          />
+          <img id="profImage" src={props.imageURL} />
+        </label>
       </div>
       <div className="radios-area">
         <label>Pet type</label>

@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import ProfileIntro from '../components/intros/Profile';
 import dogIcon from '../images/add-pet-dog.svg';
 import catIcon from '../images/add-pet-cat.svg';
+import { storage } from '../firebase/index';
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -13,6 +14,8 @@ export default function PetProfile({ petProfile }) {
   const [catBreeds, setCatBreeds] = useState([]);
   const [isDog, setIsDog] = useState(petProfile.is_dog); // 0: cat, 1: dog
   const [name, setName] = useState(petProfile.name);
+  const [inputImage, setInputImage] = useState('');
+  const [imageURL, setImageURL] = useState(petProfile.image);
   const [breedName, setBreedName] = useState(petProfile.breed);
   const [birthday, setBirthday] = useState(petProfile.birthday);
   const [gender, setGender] = useState(petProfile.gender);
@@ -51,7 +54,37 @@ export default function PetProfile({ petProfile }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (inputImage) {
+      unko();
+    } else {
+      savePetData(imageURL);
+    }
+  };
 
+  const unko = async () => {
+    storage
+      .ref(`images/${inputImage.name}`)
+      .put(inputImage)
+      .on(
+        'state_changed',
+        (snapshot) => {},
+        (error) => {
+          console.log(error);
+        }
+      )
+      .then(() => {
+        storage
+          .ref('images')
+          .child(inputImage.name)
+          .getDownloadURL()
+          .then((url) => {
+            setImageURL(url);
+            savePetData(url);
+          });
+      });
+  };
+
+  const savePetData = (url) => {
     Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
       .then((res) => {
         const petData = {
@@ -65,6 +98,7 @@ export default function PetProfile({ petProfile }) {
           isSpayed,
           activityLevel,
           bodyCondition,
+          url: url,
           user_id: res.data[0].id,
         };
 
@@ -97,6 +131,13 @@ export default function PetProfile({ petProfile }) {
 
   const changeName = (value) => {
     setName(value);
+  };
+
+  const changeImage = (value) => {
+    let createObjectURL = (window.URL || window.webkitURL).createObjectURL || window.createObjectURL;
+    let image_url = createObjectURL(value);
+    setImageURL(image_url);
+    setInputImage(value);
   };
 
   const changeBreed = (value) => {
@@ -145,6 +186,8 @@ export default function PetProfile({ petProfile }) {
               catBreeds={catBreeds}
               isDog={isDog}
               name={name}
+              image={inputImage}
+              imageURL={imageURL}
               breedName={breedName}
               birthday={birthday}
               gender={gender}
@@ -155,6 +198,7 @@ export default function PetProfile({ petProfile }) {
               bodyCondition={bodyCondition}
               changePetType={changePetType}
               changeName={changeName}
+              changeImage={changeImage}
               changeBreed={changeBreed}
               changeGender={changeGender}
               changeBirthday={changeBirthday}
