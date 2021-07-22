@@ -1,4 +1,4 @@
-.signup{
+.signup {
   display: flex;
   flex-flow: column nowrap;
   background: $intro-color;
@@ -12,19 +12,15 @@
 
       ul {
         padding-left: 2rem;
-
-        li{
+        li {
           display: flex;
           padding: 0 0 0.5rem;
-
-          .left-align{
+          .left-align {
             text-align: left;
           }
-
         }
       }
-
-    p{
+    p {
       text-align: left;
       padding-left: 1rem;
     }
@@ -40,13 +36,13 @@
     margin: 1rem auto;
     background: $primary-color-light;
 
-    form{
+    form {
       display: flex;
       flex-flow: column nowrap;
       align-items: center;
     }
 
-    h2{
+    h2 {
       margin: 0;
       text-align: center;
     }
@@ -58,15 +54,15 @@
       padding: 1rem 0 .5rem;
     }
 
-    button{
+    button {
       margin: 2rem 0 0;
     }
 
-    .signin-link-area{
+    .signin-link-area {
       text-align: center;
       padding: 1rem 0;
 
-      &_link{
+      &_link {
         font-weight: 600;
         text-decoration: underline;
       }
@@ -87,10 +83,9 @@
 
 
 @media screen and (min-width: 850px){
-  .signup{
+  .signup {
     padding: 2rem 1rem;
-
-    &_wrapper{
+    &_wrapper {
       display: flex;
       flex-flow: row nowrap;
       justify-content: center;
@@ -99,8 +94,8 @@
       margin: auto;
     }
 
-    &_description-area{
-      p{
+    &_description-area {
+      p {
         margin: 0 0 1rem;
       }
     }
