@@ -1,13 +1,4 @@
 .summary-wrapper {
-  box-sizing: content-box;
-  padding: 2rem 1.5rem;
-  max-width: 877px;
-  margin: 0 auto;
-
-  @media screen and (min-width: $tb-breakpoint) {
-    padding: 4rem 3rem;
-  }
-
   @media screen and (min-width: $pc-breakpoint) {
     max-width: 1300px;
     display: flex;
@@ -26,6 +17,7 @@
 .dashboard-walk-summary {
   margin-bottom: 2rem;
   @media screen and (min-width: $pc-breakpoint) {
+    margin-bottom: 0;
     min-width: 0;
   }
   @media screen and (min-width: $tb-breakpoint) {

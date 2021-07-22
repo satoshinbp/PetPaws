@@ -48,7 +48,7 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
         </div>
 
         <div className="dashboard-summary bg-secondary-fish">
-          <div className="summary-wrapper">
+          <div className="wrapper summary-wrapper">
             <div className="dashboard-meal-summary bg-secondary-light">
               <h3>Nutrition Summary</h3>
               <div className="graphs">

@@ -1171,17 +1171,6 @@ nav ul {
   border-bottom: solid 1.5px #3b3054;
 }
 
-.summary-wrapper {
-  box-sizing: content-box;
-  padding: 2rem 1.5rem;
-  max-width: 877px;
-  margin: 0 auto;
-}
-@media screen and (min-width: 600px) {
-  .summary-wrapper {
-    padding: 4rem 3rem;
-  }
-}
 @media screen and (min-width: 960px) {
   .summary-wrapper {
     max-width: 1300px;
@@ -1205,6 +1194,7 @@ nav ul {
 @media screen and (min-width: 960px) {
   .dashboard-meal-summary,
 .dashboard-walk-summary {
+    margin-bottom: 0;
     min-width: 0;
   }
 }
