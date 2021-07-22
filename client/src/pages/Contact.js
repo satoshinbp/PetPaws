@@ -7,9 +7,7 @@ export default function Contact() {
       <ContactIntro />
 
       <div className="body">
-        <div className="body__wrapper">
-          <ContactForm />
-        </div>
+        <ContactForm />
       </div>
     </>
   );

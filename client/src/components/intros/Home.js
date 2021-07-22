@@ -1,26 +1,27 @@
-import catIcon from '../../images/cat.svg';
+import homeIcon from '../../images/home.svg';
 
 export default function Home() {
   return (
     <div className="intro">
-      <div className="intro__wrapper">
-        <div className="intro__body">
-          <div className="intro__text">
-            <h2>Welcom to Pet Paws</h2>
-            <p>
-              Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets
-              and pet shops for your convenience.
-            </p>
+      <div className="wrapper">
+        <div>
+          <h1 className="intro__title">Welcom to Pet Paws</h1>
+          <p>
+            Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets and
+            pet shops for your convenience.
+          </p>
+
+          <div className="intro__img-area pc-hidden">
+            <img src={homeIcon} alt="two cat and a dog all sitting" />
           </div>
 
-          <div className="intro__btn">
-            <button className="btn-contained-white btn-not-fullwidth">Create free account</button>
+          <div className="btn-area">
+            <button className="btn-contained--intro">Upgrade to Premium</button>
           </div>
         </div>
 
-        <div className="intro__img">
-          {/* to be replaced */}
-          <img src={catIcon} alt="member portrait" />
+        <div className="intro__img-area mb-hidden">
+          <img src={homeIcon} alt="two cat and a dog all sitting" />
         </div>
       </div>
     </div>

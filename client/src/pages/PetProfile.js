@@ -3,7 +3,10 @@ import Axios from 'axios';
 import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
-import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
+import ProfileIntro from '../components/intros/Profile';
+import dogIcon from '../images/add-pet-dog.svg';
+import catIcon from '../images/add-pet-cat.svg';
+import { storage } from '../firebase/index';
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -11,6 +14,8 @@ export default function PetProfile({ petProfile }) {
   const [catBreeds, setCatBreeds] = useState([]);
   const [isDog, setIsDog] = useState(petProfile.is_dog); // 0: cat, 1: dog
   const [name, setName] = useState(petProfile.name);
+  const [inputImage, setInputImage] = useState('');
+  const [imageURL, setImageURL] = useState(petProfile.image);
   const [breedName, setBreedName] = useState(petProfile.breed);
   const [birthday, setBirthday] = useState(petProfile.birthday);
   const [gender, setGender] = useState(petProfile.gender);
@@ -49,7 +54,37 @@ export default function PetProfile({ petProfile }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (inputImage) {
+      unko();
+    } else {
+      savePetData(imageURL);
+    }
+  };
 
+  const unko = async () => {
+    storage
+      .ref(`images/${inputImage.name}`)
+      .put(inputImage)
+      .on(
+        'state_changed',
+        (snapshot) => {},
+        (error) => {
+          console.log(error);
+        }
+      )
+      .then(() => {
+        storage
+          .ref('images')
+          .child(inputImage.name)
+          .getDownloadURL()
+          .then((url) => {
+            setImageURL(url);
+            savePetData(url);
+          });
+      });
+  };
+
+  const savePetData = (url) => {
     Axios.get(`https://pet-paws-langara.herokuapp.com/api/user/${currentUser.uid}`)
       .then((res) => {
         const petData = {
@@ -63,6 +98,7 @@ export default function PetProfile({ petProfile }) {
           isSpayed,
           activityLevel,
           bodyCondition,
+          url: url,
           user_id: res.data[0].id,
         };
 
@@ -95,6 +131,13 @@ export default function PetProfile({ petProfile }) {
 
   const changeName = (value) => {
     setName(value);
+  };
+
+  const changeImage = (value) => {
+    let createObjectURL = (window.URL || window.webkitURL).createObjectURL || window.createObjectURL;
+    let image_url = createObjectURL(value);
+    setImageURL(image_url);
+    setInputImage(value);
   };
 
   const changeBreed = (value) => {
@@ -131,50 +174,61 @@ export default function PetProfile({ petProfile }) {
 
   return (
     <>
-      <div className="intro">
-        <div className="intro__wrapper">
-          <div className="intro__body">
-            <div className="intro__text">
-              <h2>Pet Profile</h2>
-              <p>
-                Let's complete your furry friend detail here. Depending on the age and breed, we will advise the best
-                individual plan for nutrition and walking activities.
-              </p>
-              <button className="btn-contained-green">Go premium</button>
-            </div>
-          </div>
-          <div className="intro__img">
-            <img src={signinImg} alt="member portrait" />
+      <ProfileIntro />
+
+      <div className="body">
+        <div className="profile bg-primary-meat">
+          <div className="wrapper">
+            <h2>Lets create profile for your pet!</h2>
+
+            <PetProfileForm
+              dogBreeds={dogBreeds}
+              catBreeds={catBreeds}
+              isDog={isDog}
+              name={name}
+              image={inputImage}
+              imageURL={imageURL}
+              breedName={breedName}
+              birthday={birthday}
+              gender={gender}
+              weight={weight}
+              height={height}
+              isSpayed={isSpayed}
+              activityLevel={activityLevel}
+              bodyCondition={bodyCondition}
+              changePetType={changePetType}
+              changeName={changeName}
+              changeImage={changeImage}
+              changeBreed={changeBreed}
+              changeGender={changeGender}
+              changeBirthday={changeBirthday}
+              changeWeight={changeWeight}
+              changeHeight={changeHeight}
+              changeIsSpayed={changeIsSpayed}
+              changeActivityLevel={changeActivityLevel}
+              changeBodyCondition={changeBodyCondition}
+              handleSubmit={handleSubmit}
+            />
           </div>
         </div>
-      </div>
-      <div className="body">
-        <div className="body__wrapper">
-          <PetProfileForm
-            dogBreeds={dogBreeds}
-            catBreeds={catBreeds}
-            isDog={isDog}
-            name={name}
-            breedName={breedName}
-            birthday={birthday}
-            gender={gender}
-            weight={weight}
-            height={height}
-            isSpayed={isSpayed}
-            activityLevel={activityLevel}
-            bodyCondition={bodyCondition}
-            changePetType={changePetType}
-            changeName={changeName}
-            changeBreed={changeBreed}
-            changeGender={changeGender}
-            changeBirthday={changeBirthday}
-            changeWeight={changeWeight}
-            changeHeight={changeHeight}
-            changeIsSpayed={changeIsSpayed}
-            changeActivityLevel={changeActivityLevel}
-            changeBodyCondition={changeBodyCondition}
-            handleSubmit={handleSubmit}
-          />
+
+        <div className="add-pet bg-secondary-fish">
+          <div className="wrapper">
+            <div className="container bg-secondary-light">
+              <div className="btn-and-label">
+                <button className="icon-btn-circle">＋</button>
+                <p>Add new pet</p>
+              </div>
+
+              <div className="icon-area icon-area--dog">
+                <img src={dogIcon} alt="a sitting dog" />
+              </div>
+
+              <div className="icon-area icon-area--cat">
+                <img src={catIcon} alt="a sitting cat" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </>

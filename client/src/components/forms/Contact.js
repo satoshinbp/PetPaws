@@ -1,32 +1,32 @@
 export default function ContactIntro() {
   return (
-    <div className="contact">
-      <h2>How can we help?</h2>
-      <form className="contact__form">
-        <div>
-          <label htmlFor="">
-            Your name
-            <input type="text" placeholder="Type your name" />
-          </label>
-        </div>
+    <div className="contact bg-primary-meat">
+      <div className="wrapper">
+        <h2>How can we help?</h2>
 
-        <div>
-          <label htmlFor="">
-            Your email
-            <input type="text" placeholder="Type your email" />
-          </label>
-        </div>
+        <form className="basic-form bg-primary-light">
+          <div className="input-area">
+            <label htmlFor="name">Your name</label>
+            <input id="name" name="name" type="text" placeholder="Type your name" />
+          </div>
 
-        <div>
-          <label htmlFor="">
-            Your message
-            <textarea rows="5" placeholder="Type your message" />
-          </label>
-        </div>
-        <button type="submit" className="btn-contained-yellow">
-          Send
-        </button>
-      </form>
+          <div className="input-area">
+            <label htmlFor="email">Your email</label>
+            <input id="email" name="email" type="text" placeholder="Type your email" />
+          </div>
+
+          <div className="input-area">
+            <label htmlFor="message">Your message</label>
+            <textarea id="message" name="message" rows="5" placeholder="Type your message" />
+          </div>
+
+          <div className="btn-area">
+            <button type="submit" className="btn-contained">
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

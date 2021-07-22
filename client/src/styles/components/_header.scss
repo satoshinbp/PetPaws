@@ -3,18 +3,18 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  height: $header-height;
+  height: $header-height-mb;
   z-index: 1000;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: $sm-fontsize;
-  background-color: $white-color;
+  font-size: $standard-fontsize-mb;
+  background-color: $base-color;
 }
 
 .header__wrapper {
   width: 100%;
-  max-width: $max-width;
+  max-width: $md-max-width;
   margin: 0 auto;
 }
 
