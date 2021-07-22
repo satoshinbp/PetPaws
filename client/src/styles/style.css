@@ -728,11 +728,7 @@ nav ul {
   flex-direction: column;
   align-items: center;
   gap: 2rem;
-  background-color: #a4eada;
   text-align: center;
-}
-.features h2 {
-  margin: 2rem 0 1rem;
 }
 .features .feature {
   max-width: 877px;
@@ -748,10 +744,6 @@ nav ul {
   margin: 1rem 0;
 }
 @media screen and (min-width: 600px) {
-  .features {
-    padding: 2rem;
-    gap: 3rem;
-  }
   .features .feature {
     padding: 2rem;
     display: flex;
@@ -776,23 +768,7 @@ nav ul {
 }
 
 /* 3.6. Team ================ */
-.team {
-  display: flex;
-  flex-flow: column;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
-  padding: 1rem;
-  text-align: center;
-  background-color: #ccabda;
-}
-.team__title {
-  color: #fff;
-}
 .team__members {
-  border-radius: 25px;
-  padding: 3rem 1rem;
-  max-width: 1067px;
   display: flex;
   flex-flow: nowrap column;
   align-items: center;
@@ -815,14 +791,11 @@ nav ul {
   font-weight: 700;
 }
 @media screen and (min-width: 600px) {
-  .team {
-    padding: 2rem 2rem 6rem;
-  }
   .team__members {
-    background-color: #e4c8f0;
     flex-flow: wrap row;
     justify-content: center;
     align-items: flex-start;
+    margin: auto;
   }
   .team__member {
     flex: 240px 0 0;
