@@ -1,80 +1,72 @@
-.meal-form-wrapper {
+.meal-form {
   background-color: $primary-color;
 }
 
-.walk-form-wrapper {
+.walk-form {
   background-color: $secondary-color;
 }
 
-// modal off
 .modal {
-  opacity: 0;
-  z-index: 120;
+  opacity: 0; // modal off
   transform: scale(0);
   transition: opacity 0.7s, transform 0s 0.7s;
   &.isActive {
-    // when modal is ON
     opacity: 1;
     z-index: 120;
     transform: scale(1);
     transition: opacity 0.7s;
     position: fixed;
-    top: $header-height-mb; // subtract height of header
+    top: $header-height-mb;
     left: 0;
     width: 100%;
     height: 100%;
+    padding: 0;
     background-color: rgba(196, 196, 196, 0.5);
     backdrop-filter: blur(4px);
-    z-index: 100;
-    padding: 0;
     // inactivate any kind of click on overlay background area
     pointer-events: none;
-    .walk-form-wrapper.wrapper,
-    .meal-form-wrapper.wrapper {
-      border-radius: $subcomponent-borderradius-mb;
-      // 4rem = 2rem margin on top and bottom margin respectively
-      // between overlay and form
-      height: calc((100% - 91px) - 9px); // (subtract height of header) - 9px
-      // Clicking is invalid on overlay background,
-      // therefore "pointer-events: all" is necessary
-      // to click inside form content (e.g. inputs, button)
-      pointer-events: all;
+    .walk-form,
+    .meal-form {
       position: absolute;
-      top: calc(50% - 45.5px); // height of header / 2
+      top: calc(50% - #{$header-height-mb} / 2);
       left: 50%;
       transform: translate(-50%, -50%);
       -webkit-transform: translate(-50%, -50%);
       -ms-transform: translate(-50%, -50%);
+      height: calc((100% - #{$header-height-mb}) - 9px);
       width: calc(100vw - 9px);
-      border-radius: $subcomponent-borderradius-mb;
-      padding-bottom: 2rem;
-      box-sizing: border-box;
-      overflow: hidden;
-      padding-top: 1rem;
       display: flex;
       flex-flow: column nowrap;
+      padding: 0.5rem 1.5rem 2rem;
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: $subcomponent-borderradius-mb;
+      // Clicking is invalid on overlay background,
+      // therefore "pointer-events: all" is necessary
+      // to click inside form content (e.g. inputs, button)
+      pointer-events: all;
 
       h2 {
         text-align: center;
         margin: 0;
       }
       .close-modal-icon {
-        width: 35px;
-        padding: 0.5rem;
         display: flex;
         align-self: flex-end;
+        width: 35px;
+        padding: 0.5rem;
         cursor: pointer;
       }
       .meal-form-content,
       .walk-form-content {
-        padding-bottom: 6rem;
+        display: flex;
+        flex-flow: column nowrap;
+        gap: 1rem;
         height: 100%;
         width: 100%;
         box-sizing: border-box;
         overflow-y: scroll;
-        display: flex;
-        flex-flow: column nowrap;
-        gap: 1rem;
+        padding-bottom: 3rem;
       }
       input,
       select,
@@ -89,15 +81,12 @@
           display: grid;
           gap: 1rem;
           div {
+            position: relative;
             display: flex;
             flex-flow: column nowrap;
             text-align: left;
-            position: relative;
-            label {
-              font-weight: 700;
-            }
             .input-unit {
-              position: absolute;
+              position: absolute; // unit such as kcal, km
               top: 25px; // depends on input size
               right: 1rem;
             }
@@ -120,28 +109,24 @@
   }
 }
 
-// modal on
-
 @media screen and (min-width: $tb-breakpoint) {
   .modal.isActive {
-    top: $header-height-pc; // height of header
-    padding: 0;
-    height: calc(100vh - 94px); // subtract height of header
-    .walk-form-wrapper.wrapper,
-    .meal-form-wrapper.wrapper {
-      padding-top: 1rem;
-      // 4rem = 2rem margin on top and bottom margin respectively
-      // between overlay and form
-      height: calc((100vh - 94px) - 4rem);
+    top: $header-height-pc;
+    height: calc(100vh - #{$header-height-pc});
+    .walk-form,
+    .meal-form {
+      height: auto;
+      max-height: calc((100vh - #{$header-height-pc}) - 4rem);
       top: 50%;
-      max-width: 877px;
       border-radius: $subcomponent-borderradius-pc;
+      padding: 1rem 3rem 2rem;
       .meal-form-content,
       .walk-form-content {
-        padding-bottom: 3rem;
         display: flex;
         flex-flow: column nowrap;
         gap: 2rem;
+        padding-bottom: 3rem;
+        min-height: calc(100%);
         h2 {
           margin: 0;
         }
@@ -160,7 +145,6 @@
             row-gap: 1rem;
             div {
               .input-unit {
-                // unit such as kcal, km
                 position: absolute;
                 top: 27px;
               }

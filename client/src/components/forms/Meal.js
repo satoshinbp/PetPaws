@@ -31,7 +31,7 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
   };
 
   return (
-    <div className="meal-form-wrapper wrapper">
+    <div className="meal-form wrapper">
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
 
       <div className="meal-form-content">
