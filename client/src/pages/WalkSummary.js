@@ -14,9 +14,15 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
       <WalkSummaryIntro />
 
       <div className="body">
-        {showForm ? (
-          <WalkForm petProfile={petProfile} setAllActivities={setAllActivities} closeForm={() => setShowForm(false)} />
-        ) : null}
+        <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
+          {showForm && (
+            <WalkForm
+              petProfile={petProfile}
+              setAllActivities={setAllActivities}
+              closeForm={() => setShowForm(false)}
+            />
+          )}
+        </div>
 
         <div className="bg-primary-meat">
           <div className="wrapper">
