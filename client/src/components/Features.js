@@ -7,7 +7,7 @@ export default function Features() {
     <div className="features bg-primary-meat">
       <h2>Our Services</h2>
 
-      <div className="feature">
+      <div className="feature bg-primary-light">
         <div className="feature__text mb-hidden">
           <h3 className="feature__title">Meal and Walk Tracker</h3>
           <p className="feature__description">
@@ -26,7 +26,7 @@ export default function Features() {
         </p>
       </div>
 
-      <div className="feature">
+      <div className="feature bg-primary-light">
         <div className="feature__text mb-hidden">
           <h3 className="feature__title">Calorie Calculator</h3>
           <p className="feature__description">
@@ -45,7 +45,7 @@ export default function Features() {
         </p>
       </div>
 
-      <div className="feature">
+      <div className="feature bg-primary-light">
         <div className="feature__text mb-hidden">
           <h3 className="feature__title">Pet Stores Finder</h3>
           <p className="feature__description">
