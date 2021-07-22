@@ -1,8 +1,4 @@
 .team {
-  &__title {
-    color: $base-color;
-  }
-
   &__members {
     display: flex;
     flex-flow: nowrap column;

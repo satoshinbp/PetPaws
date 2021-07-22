@@ -739,9 +739,6 @@ nav ul {
 }
 
 /* 3.6. Team ================ */
-.team__title {
-  color: #fff;
-}
 .team__members {
   display: flex;
   flex-flow: nowrap column;
