@@ -102,7 +102,6 @@ export default function Header() {
                               <MenuItem onClick={handleClose}>
                                 <Link to="/pet_profile">Pet Profile</Link>
                               </MenuItem>
-                              <MenuItem onClick={handleClose}>My account</MenuItem>
                               <MenuItem onClick={handleLogout}>Logout</MenuItem>
                             </MenuList>
                           </ClickAwayListener>
