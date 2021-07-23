@@ -219,24 +219,24 @@ const MealWeekChart = ({ allMeals, MER }) => {
             <YAxis />
             <Tooltip />
             <Legend wrapperStyle={{ bottom: -50, left: 20 }} />
-            <Area
-              type="monotone"
-              dataKey="Average"
-              stroke="rgba(204, 171, 218, 1)"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+            <Bar
+              barSize={15}
+              fillOpacity={1}
+              dataKey="Treat"
+              stackId="intake"
+              fill="rgba(59, 48, 84, 0.8)"
               unit=" kcal"
             />
-            <Area
-              type="monotone"
-              dataKey="Ideal"
-              stroke="rgba(252, 136, 123, 1)"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+            <Bar
+              barSize={15}
+              fillOpacity={1}
+              dataKey="Meal"
+              stackId="intake"
+              fill="rgba(204, 171, 218, 0.7)"
               unit=" kcal"
             />
-            <Bar barSize={15} fillOpacity={1} dataKey="Treat" stackId="intake" fill="#363869" unit=" kcal" />
-            <Bar barSize={15} fillOpacity={1} dataKey="Meal" stackId="intake" fill="#85d6c3" unit=" kcal" />
+            <Area type="monotone" dataKey="Average" stroke="rgba(59, 48, 84, 0.6)" fillOpacity={0} unit=" kcal" />
+            <Area type="monotone" dataKey="Ideal" stroke="rgba(252, 136, 123, 1)" fillOpacity={0} unit=" kcal" />
           </ComposedChart>
         </ResponsiveContainer>
       </div>

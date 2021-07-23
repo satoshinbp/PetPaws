@@ -75,17 +75,18 @@
   }
 }
 
-@media screen and (min-width: $tb-breakpoint) {
+@media screen and (min-width: 850px) {
   .meal-summary,
   .walk-summary {
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 40% 60%;
+    grid-auto-columns: minmax(300px, auto) minmax(300px, 1fr);
     gap: 1rem;
 
     .basic-info {
       width: 80%;
       display: grid;
-      grid-template-rows: 1fr auto 1fr;
+      grid-template-rows: 1fr auto;
       justify-self: center;
 
       .pet-image-name-wrapper {
@@ -95,6 +96,10 @@
           width: 120px;
           height: 200px;
         }
+      }
+      button {
+        margin-left: auto;
+        margin-right: auto;
       }
     }
   }

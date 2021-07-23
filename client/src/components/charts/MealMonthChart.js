@@ -110,8 +110,8 @@ const MealMonthChart = ({ allMeals, MER }) => {
         date: meal.date.slice(8, 10).split('-').join('/'), // e.g 2021-07-13 => 07/13
         meal: meal.meal,
         treat: meal.treat,
-        'average calorie': avgCal,
-        'ideal calorie': idealCal,
+        average: avgCal,
+        ideal: idealCal,
       })
     );
     noDataDates.forEach((date) =>
@@ -119,8 +119,8 @@ const MealMonthChart = ({ allMeals, MER }) => {
         date: date.slice(8, 10).split('-').join('/'),
         meal: 0,
         treat: 0,
-        'average calorie': avgCal,
-        'ideal calorie': idealCal,
+        average: avgCal,
+        ideal: idealCal,
       })
     );
 
@@ -244,20 +244,34 @@ const MealMonthChart = ({ allMeals, MER }) => {
             <Tooltip />
             <Area
               type="monotone"
-              dataKey="average calorie"
+              dataKey="meal"
+              stackId="1"
+              fillOpacity={0.8}
+              stroke="rgba(212, 185, 222)"
+              fill="rgba(212, 185, 222)"
+            />
+            <Area
+              type="monotone"
+              dataKey="treat"
+              stackId="1"
+              fillOpacity={0.75}
+              stroke="rgba(59, 48, 84)"
+              fill="rgba(59, 48, 84)"
+            />
+            <Area
+              type="monotone"
+              dataKey="average"
               stroke="rgba(204, 171, 218, 1)"
               fillOpacity={0.3}
               fill="rgba(0, 172, 237, 0)"
             />
             <Area
               type="monotone"
-              dataKey="ideal calorie"
+              dataKey="ideal"
               stroke="rgba(252, 136, 123, 1)"
               fillOpacity={0.3}
               fill="rgba(0, 172, 237, 0)"
             />
-            <Area type="monotone" dataKey="meal" stackId="1" stroke="#8884d8" fill="#8884d8" />
-            <Area type="monotone" dataKey="treat" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
           </AreaChart>
         </ResponsiveContainer>
       </div>

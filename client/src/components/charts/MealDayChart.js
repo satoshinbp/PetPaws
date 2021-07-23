@@ -44,8 +44,8 @@ const MealDayChart = ({ allMeals, MER }) => {
         <h2>Daily Meals</h2>
         <div className="bg-secondary-light meal-daily">
           <div className="info">
-            <label>
-              Choose a date:
+            <div className="date-picker">
+              <label for="date">Choose a date:</label>
               <input
                 type="date"
                 id="date"
@@ -54,9 +54,9 @@ const MealDayChart = ({ allMeals, MER }) => {
                 required
                 onChange={(e) => setDate(e.target.value)}
               />
-            </label>
+            </div>
             {totalDailyCalorie && date === totalDailyCalorie[0].date && (
-              <div className="meal-daily-graph mobile" style={{ height: '150px' }}>
+              <div className="meal-daily-graph mobile" style={{ height: '180px' }}>
                 {/* height is necessary to display graph */}
                 <ResponsiveContainer>
                   <ComposedChart
@@ -80,11 +80,15 @@ const MealDayChart = ({ allMeals, MER }) => {
               <div className="daily-list">
                 <p>{mealsForDay[0].date.split('-').join('/')}</p>
                 {mealsForDay.map((meal) => (
-                  <p key={meal.id}>
-                    Name:&nbsp;{meal.name},&nbsp;&nbsp;&nbsp; Time:&nbsp;
-                    {meal.time}
-                    ,&nbsp;&nbsp;&nbsp; Type:&nbsp;{meal.type}, &nbsp;&nbsp;&nbsp; Calorie:&nbsp;{meal.calorie} kcal
-                  </p>
+                  <div className="list-item">
+                    <p key={meal.id}>Name:&nbsp;{meal.name}</p>
+                    <p key={meal.id}>
+                      Time:&nbsp;
+                      {meal.time}
+                    </p>
+                    <p key={meal.id}>Type:&nbsp;{meal.type}</p>
+                    <p>Calorie:&nbsp;{meal.calorie} kcal</p>
+                  </div>
                 ))}
               </div>
             ) : (

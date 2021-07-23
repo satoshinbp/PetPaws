@@ -4,20 +4,19 @@
     background-color: $primary-color-light;
     border-top-left-radius: 18px;
     border-top-right-radius: 18px;
-    .button-background {
-      display: flex;
-      height: 35px;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: center;
-      padding: 0 1rem;
-      .button-no-accent {
-        background-color: transparent;
-      }
-      button {
-        font-size: $standard-fontsize-mb;
-        color: $font-color;
-      }
+    display: flex;
+    height: $btn-week-month-toggle-mb;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    background-color: rgba(255, 255, 255, 0.46);
+    .button-no-accent {
+      background-color: transparent;
+    }
+    button {
+      font-size: $standard-fontsize-mb;
+      color: $font-color;
     }
   }
 
@@ -25,7 +24,7 @@
   .walk-month-graph,
   .meal-week-graph,
   .meal-month-graph {
-    background-color: $primary-color-light;
+    background-color: rgba(255, 255, 255, 0.46);
     border-bottom-left-radius: $subcomponent-borderradius-mb;
     border-bottom-right-radius: $subcomponent-borderradius-mb;
     padding-bottom: calc(1rem + 50px);
@@ -64,12 +63,10 @@
     .week-month-toggle {
       border-top-left-radius: $subcomponent-borderradius-mb + 5px; // adjust radius depending on button radius
       border-top-right-radius: $subcomponent-borderradius-mb + 5px;
-      .button-background {
-        padding: 0 3rem;
-        height: 45px;
-        .btn-darkened.btn-toggle-tab {
-          border-radius: $subcomponent-borderradius-mb + 2px;
-        }
+      padding: 0 3rem;
+      height: $btn-week-month-toggle-pc;
+      .btn-darkened.btn-toggle-tab {
+        border-radius: $subcomponent-borderradius-mb + 2px;
       }
     }
   }

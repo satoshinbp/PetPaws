@@ -27,14 +27,16 @@ button {
   border: $btn-borderwidth-outlined solid $btn-bordercolor-outlined;
 }
 
-.btn-toggle-tab {
-  height: 27px;
-  border-radius: $subcomponent-borderradius-mb;
-  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+// "Week" "Month" buttons for week month graphs
+.btn-underlined {
+  height: calc(#{$btn-week-month-toggle-mb} - 5px);
+  background-color: transparent;
+  border-radius: 0;
+  border-bottom: 1px solid $btn-bordercolor-outlined;
 
   @media screen and(min-width: $tb-breakpoint) {
-    border-radius: $subcomponent-borderradius-mb + 5px;
-    height: 32px;
+    height: calc(#{$btn-week-month-toggle-pc} - 5px);
+    border-bottom: 3px solid $btn-bordercolor-outlined;
   }
 }
 

@@ -45,20 +45,18 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
               <div className="graphs">
                 <h3 className="graph-title">Calorie Charts</h3>
                 <div className="week-month-toggle">
-                  <div className="button-background btn-toggle-tab">
-                    <button
-                      onClick={() => setShowWeekGraph(true)}
-                      className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                    >
-                      Week
-                    </button>
-                    <button
-                      onClick={() => setShowWeekGraph(false)}
-                      className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                    >
-                      Month
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => setShowWeekGraph(true)}
+                    className={showWeekGraph ? 'btn-underlined' : 'button-no-accent'}
+                  >
+                    Week
+                  </button>
+                  <button
+                    onClick={() => setShowWeekGraph(false)}
+                    className={!showWeekGraph ? 'btn-underlined' : 'button-no-accent'}
+                  >
+                    Month
+                  </button>
                 </div>
                 {showWeekGraph ? (
                   <MealWeekChart allMeals={allMeals} MER={MER} />
