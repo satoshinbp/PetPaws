@@ -1,11 +1,8 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Axios from 'axios';
 import PetProfileForm from '../components/forms/PetProfile';
 import { useAuth } from '../contexts//AuthContext';
 import { useHistory } from 'react-router-dom';
-import ProfileIntro from '../components/intros/Profile';
-import dogIcon from '../images/add-pet-dog.svg';
-import catIcon from '../images/add-pet-cat.svg';
 import { storage } from '../firebase/index';
 
 export default function PetProfile({ petProfile }) {
@@ -39,7 +36,6 @@ export default function PetProfile({ petProfile }) {
   }, []);
 
   useEffect(() => {
-    console.log(petProfile);
     setIsDog(petProfile.is_dog);
     setName(petProfile.name);
     setBreedName(petProfile.breed);
@@ -55,37 +51,29 @@ export default function PetProfile({ petProfile }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (inputImage) {
-      unko();
-    } else {
-      savePetData(imageURL);
-    }
-  };
-
-  const unko = async () => {
-    storage
-      .ref(`images/${inputImage.name}`)
-      .put(inputImage)
-      .on(
+      const uploadImage = storage.ref(`images/${inputImage.name}`).put(inputImage);
+      uploadImage.on(
         'state_changed',
         (snapshot) => {},
         (error) => {
           console.log(error);
         }
-      )
-      .then(() => {
-        storage
-          .ref('images')
-          .child(inputImage.name)
-          .getDownloadURL()
-          .then((url) => {
-            setImageURL(url);
-            savePetData(url);
-          });
-      });
+      );
+      storage
+        .ref('images')
+        .child(inputImage.name)
+        .getDownloadURL()
+        .then((url) => {
+          setImageURL(url);
+          savePetData(url);
+        });
+    } else {
+      savePetData(imageURL);
+    }
   };
 
   const savePetData = (url) => {
-    Axios.get(`https://pet-paws-langara.herokuapp.com/api/user/${currentUser.uid}`)
+    Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`)
       .then((res) => {
         const petData = {
           isDog,
@@ -103,7 +91,7 @@ export default function PetProfile({ petProfile }) {
         };
 
         if (petProfile.id) {
-          Axios.put(`https://pet-paws-langara.herokuapp.com/api/pet/${petProfile.id}`, petData)
+          Axios.put(`http://localhost:3001/api/pet/${petProfile.id}`, petData)
             .then(() => {
               history.push('/');
             })
@@ -111,7 +99,7 @@ export default function PetProfile({ petProfile }) {
               console.log(err);
             });
         } else {
-          Axios.post('https://pet-paws-langara.herokuapp.com/api/pet', petData)
+          Axios.post('http://localhost:3001/api/pet', petData)
             .then(() => {
               history.push('/');
             })
@@ -174,63 +162,35 @@ export default function PetProfile({ petProfile }) {
 
   return (
     <>
-      <ProfileIntro />
-
-      <div className="body">
-        <div className="profile bg-primary-meat">
-          <div className="wrapper">
-            <h2>Lets create profile for your pet!</h2>
-
-            <PetProfileForm
-              dogBreeds={dogBreeds}
-              catBreeds={catBreeds}
-              isDog={isDog}
-              name={name}
-              image={inputImage}
-              imageURL={imageURL}
-              breedName={breedName}
-              birthday={birthday}
-              gender={gender}
-              weight={weight}
-              height={height}
-              isSpayed={isSpayed}
-              activityLevel={activityLevel}
-              bodyCondition={bodyCondition}
-              changePetType={changePetType}
-              changeName={changeName}
-              changeImage={changeImage}
-              changeBreed={changeBreed}
-              changeGender={changeGender}
-              changeBirthday={changeBirthday}
-              changeWeight={changeWeight}
-              changeHeight={changeHeight}
-              changeIsSpayed={changeIsSpayed}
-              changeActivityLevel={changeActivityLevel}
-              changeBodyCondition={changeBodyCondition}
-              handleSubmit={handleSubmit}
-            />
-          </div>
-        </div>
-
-        <div className="add-pet bg-secondary-fish">
-          <div className="wrapper">
-            <div className="container bg-secondary-light">
-              <div className="btn-and-label">
-                <button className="icon-btn-circle">＋</button>
-                <p>Add new pet</p>
-              </div>
-
-              <div className="icon-area icon-area--dog">
-                <img src={dogIcon} alt="a sitting dog" />
-              </div>
-
-              <div className="icon-area icon-area--cat">
-                <img src={catIcon} alt="a sitting cat" />
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <h2>Pet Profile</h2>
+      <PetProfileForm
+        dogBreeds={dogBreeds}
+        catBreeds={catBreeds}
+        isDog={isDog}
+        name={name}
+        image={inputImage}
+        imageURL={imageURL}
+        breedName={breedName}
+        birthday={birthday}
+        gender={gender}
+        weight={weight}
+        height={height}
+        isSpayed={isSpayed}
+        activityLevel={activityLevel}
+        bodyCondition={bodyCondition}
+        changePetType={changePetType}
+        changeName={changeName}
+        changeImage={changeImage}
+        changeBreed={changeBreed}
+        changeGender={changeGender}
+        changeBirthday={changeBirthday}
+        changeWeight={changeWeight}
+        changeHeight={changeHeight}
+        changeIsSpayed={changeIsSpayed}
+        changeActivityLevel={changeActivityLevel}
+        changeBodyCondition={changeBodyCondition}
+        handleSubmit={handleSubmit}
+      />
     </>
   );
 }
