@@ -1,10 +1,10 @@
 .walk-daily,
 .meal-daily {
   .info {
-    padding: 1rem 0.5rem;
     display: flex;
     flex-flow: column nowrap;
     gap: 1.5rem;
+    padding: 1rem 0.5rem;
 
     .date-picker {
       display: flex;
@@ -12,41 +12,41 @@
       justify-content: center;
       align-items: center;
       label {
+        margin-right: 0.5rem;
         font-size: $standard-fontsize-mb;
         font-weight: 400;
-        margin-right: 0.5rem;
       }
       input {
         max-width: 300px;
       }
     }
     .meal-daily-graph.mobile {
-      background-color: rgba(255, 255, 255, 0.46);
-      border-radius: $subcomponent-borderradius-mb;
       padding-bottom: 2rem;
       padding-right: 1rem;
+      background-color: rgba(255, 255, 255, 0.46);
+      border-radius: $graph-bg-borderradius-mb;
     }
 
     .daily-list {
+      padding: 1rem;
       border: 1px solid $font-color;
-      padding: 1rem 0.5rem;
-      border-radius: $subcomponent-borderradius-mb;
+      border-radius: $graph-bg-borderradius-mb;
 
       > p:first-of-type {
-        font-weight: 300;
-        border-bottom: 1px solid rgba($font-color, 0.5);
         padding-bottom: 0.5rem;
         margin: 0;
+        border-bottom: 1px solid rgba($font-color, 0.5);
+        font-weight: 300;
       }
 
       .list-item {
         display: flex;
         flex-flow: row wrap;
-        padding: 0.5rem 0;
         justify-content: center;
+        padding: 0.5rem 0;
         p {
           padding: 0;
-          margin: 0 0.5rem;
+          margin: 0.2rem 0;
         }
       }
     }
@@ -59,10 +59,6 @@
 @media screen and (min-width: $tb-breakpoint) {
   .walk-daily,
   .meal-daily {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    padding: 1rem 3rem 1rem 3rem;
-
     .info {
       gap: 2rem;
       .meal-daily-graph.mobile {
@@ -76,7 +72,6 @@
       .daily-list {
         > p:first-of-type {
           text-align-last: left;
-          margin-left: 0.5rem;
         }
         .list-item {
           justify-content: flex-start;
@@ -87,6 +82,27 @@
     .meal-daily-graph.desktop {
       display: flex;
       align-self: center;
+    }
+  }
+
+  // Meal Summary Only
+  .meal-daily {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 1rem 3rem 1rem 3rem;
+    .info {
+      .daily-list {
+        padding: 1rem;
+      }
+    }
+  }
+  // Activity Summary Only
+  .walk-daily {
+    display: block;
+    .info {
+      .daily-list {
+        padding: 1rem 2rem;
+      }
     }
   }
 }

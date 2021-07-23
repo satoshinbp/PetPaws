@@ -30,8 +30,8 @@ const WalkDayChart = ({ allActivities }) => {
 
         <div className="bg-secondary-light walk-daily">
           <div className="info">
-            <label>
-              Choose a date:
+            <div className="date-picker">
+              <label htmlFor="walk-date">Choose a date:</label>
               <input
                 type="date"
                 id="walk-date"
@@ -40,7 +40,7 @@ const WalkDayChart = ({ allActivities }) => {
                 required
                 onChange={(e) => setDate(e.target.value)}
               />
-            </label>
+            </div>
 
             {activityForDay.length > 0 && date === activityForDay[0].date ? (
               <div className="daily-list">

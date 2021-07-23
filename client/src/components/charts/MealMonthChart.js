@@ -108,19 +108,19 @@ const MealMonthChart = ({ allMeals, MER }) => {
     meals.forEach((meal) =>
       graphDataArray.push({
         date: meal.date.slice(8, 10).split('-').join('/'), // e.g 2021-07-13 => 07/13
-        meal: meal.meal,
-        treat: meal.treat,
-        average: avgCal,
-        ideal: idealCal,
+        Meal: meal.meal,
+        Treat: meal.treat,
+        'Monthly Average': avgCal,
+        Ideal: idealCal,
       })
     );
     noDataDates.forEach((date) =>
       graphDataArray.push({
         date: date.slice(8, 10).split('-').join('/'),
-        meal: 0,
-        treat: 0,
-        average: avgCal,
-        ideal: idealCal,
+        Meal: 0,
+        Treat: 0,
+        'Monthly Average': avgCal,
+        Ideal: idealCal,
       })
     );
 
@@ -244,33 +244,37 @@ const MealMonthChart = ({ allMeals, MER }) => {
             <Tooltip />
             <Area
               type="monotone"
-              dataKey="meal"
+              dataKey="Meal"
               stackId="1"
               fillOpacity={0.8}
               stroke="rgba(212, 185, 222)"
               fill="rgba(212, 185, 222)"
+              unit=" kcal"
             />
             <Area
               type="monotone"
-              dataKey="treat"
+              dataKey="Treat"
               stackId="1"
               fillOpacity={0.75}
               stroke="rgba(59, 48, 84)"
               fill="rgba(59, 48, 84)"
+              unit=" kcal"
             />
             <Area
               type="monotone"
-              dataKey="average"
+              dataKey="Monthly Average"
               stroke="rgba(204, 171, 218, 1)"
               fillOpacity={0.3}
               fill="rgba(0, 172, 237, 0)"
+              unit=" kcal"
             />
             <Area
               type="monotone"
-              dataKey="ideal"
+              dataKey="Ideal"
               stroke="rgba(252, 136, 123, 1)"
               fillOpacity={0.3}
               fill="rgba(0, 172, 237, 0)"
+              unit=" kcal"
             />
           </AreaChart>
         </ResponsiveContainer>

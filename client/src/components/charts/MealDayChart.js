@@ -45,7 +45,7 @@ const MealDayChart = ({ allMeals, MER }) => {
         <div className="bg-secondary-light meal-daily">
           <div className="info">
             <div className="date-picker">
-              <label for="date">Choose a date:</label>
+              <label htmlFor="date">Choose a date:</label>
               <input
                 type="date"
                 id="date"

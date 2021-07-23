@@ -127,18 +127,18 @@ const WalkMonthChart = ({ allActivities }) => {
     activities.forEach((date) =>
       graphDataArray.push({
         date: date.date.slice(8, 10).split('-').join('/'),
-        minute: date.minute,
+        duration: date.minute,
         distance: date.distance,
-        average: avgMin,
+        'Monthly Average': avgMin,
       })
     );
     // inactive dates
     noDataDates.forEach((date) =>
       graphDataArray.push({
         date: date.slice(8, 10).split('-').join('/'),
-        minute: 0,
+        duration: 0,
         distance: 0,
-        average: avgMin,
+        'Monthly Average': avgMin,
       })
     );
 
@@ -257,12 +257,19 @@ const WalkMonthChart = ({ allActivities }) => {
               bottom: 0,
             }}
           >
+            <Area type="monotone" dataKey="duration" stackId="1" stroke="#8884d8" fill="#8884d8" unit=" minutes" />
             <Legend wrapperStyle={{ bottom: -25, left: 20 }} />
             <XAxis dataKey="date" />
             <YAxis />
             <Tooltip />
-            <Area type="monotone" dataKey="average" stroke="#00aced" fillOpacity={0.3} fill="rgba(0, 172, 237, 0)" />
-            <Area type="monotone" dataKey="minute" stackId="1" stroke="#8884d8" fill="#8884d8" />
+            <Area
+              type="monotone"
+              dataKey="Monthly Average"
+              stroke="#00aced"
+              fillOpacity={0.3}
+              fill="rgba(0, 172, 237, 0)"
+              unit=" minutes"
+            />
           </AreaChart>
         </ResponsiveContainer>
         <br></br>

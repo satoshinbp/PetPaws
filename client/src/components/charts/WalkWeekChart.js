@@ -128,7 +128,7 @@ const WalkWeekChart = ({ allActivities }) => {
         slicedDates.push({
           date: activity.date.slice(8, 10).split('-').join('/'),
           Duration: activity.minute,
-          Average: activity.avgMin,
+          'Weekly Average': activity.avgMin,
         });
       });
     };
@@ -230,15 +230,16 @@ const WalkWeekChart = ({ allActivities }) => {
               dataKey="Duration"
               stackId="a"
               barSize={15}
-              fill="#85d6c3"
+              fillOpacity={0.75}
+              fill="rgba(59, 48, 84, 1)"
               unit=" minutes"
             />
             <Area
               type="monotone"
-              dataKey="Average"
-              stroke="#00aced"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+              dataKey="Weekly Average"
+              stroke="rgba(252, 136, 123, 1)"
+              fillOpacity={0}
+              fill="rgba(204, 171, 218, 1))"
               unit=" minutes"
             />
           </ComposedChart>

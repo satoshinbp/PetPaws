@@ -125,7 +125,7 @@ const MealWeekChart = ({ allMeals, MER }) => {
           date: meal.date.slice(8, 10).split('-').join('/'),
           Meal: meal.meal,
           Treat: meal.treat,
-          Average: meal.avgCal,
+          'Weekly Average': meal.avgCal,
           Ideal: meal.idealCal,
         });
       });
@@ -235,7 +235,13 @@ const MealWeekChart = ({ allMeals, MER }) => {
               fill="rgba(204, 171, 218, 0.7)"
               unit=" kcal"
             />
-            <Area type="monotone" dataKey="Average" stroke="rgba(59, 48, 84, 0.6)" fillOpacity={0} unit=" kcal" />
+            <Area
+              type="monotone"
+              dataKey="Weekly Average"
+              stroke="rgba(59, 48, 84, 0.6)"
+              fillOpacity={0}
+              unit=" kcal"
+            />
             <Area type="monotone" dataKey="Ideal" stroke="rgba(252, 136, 123, 1)" fillOpacity={0} unit=" kcal" />
           </ComposedChart>
         </ResponsiveContainer>
