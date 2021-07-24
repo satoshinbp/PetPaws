@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
+import signinImg from '../images/pet-profile-default.jpg'; // dammy img, to be replaced
 
 export default function Signup() {
   const [error, setError] = useState('');
