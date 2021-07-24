@@ -6,7 +6,6 @@ import { useHistory } from 'react-router-dom';
 import ProfileIntro from '../components/intros/Profile';
 import dogIcon from '../images/add-pet-dog.svg';
 import catIcon from '../images/add-pet-cat.svg';
-import { storage } from '../firebase/index';
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -39,7 +38,6 @@ export default function PetProfile({ petProfile }) {
   }, []);
 
   useEffect(() => {
-    console.log(petProfile);
     setIsDog(petProfile.is_dog);
     setName(petProfile.name);
     setBreedName(petProfile.breed);
@@ -54,34 +52,35 @@ export default function PetProfile({ petProfile }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputImage) {
-      unko();
-    } else {
-      savePetData(imageURL);
+    console.log('front やで！');
+    try {
+      if (inputImage !== '') {
+        console.log('front はいった！');
+        // Creating a FormData object
+        let fileData = new FormData();
+        // Setting the 'image' field and the selected file
+        console.log('inputImage', inputImage);
+        console.log('inputImage.lastModified', inputImage.lastModified);
+        console.log('inputImage.name', inputImage.name);
+        fileData.set('image', inputImage, `${inputImage.lastModified}-${inputImage.name}`);
+        console.log('fileData', fileData);
+        // url will be replaced with .env static variable
+        Axios({
+          method: 'post',
+          url: 'http://localhost:3001/api/image',
+          data: fileData,
+          headers: { 'Content-Type': 'multipart/form-data' },
+        });
+      }
+    } catch (error) {
+      // setIsError(true);
     }
-  };
+    // if(inputImage) {
 
-  const unko = async () => {
-    storage
-      .ref(`images/${inputImage.name}`)
-      .put(inputImage)
-      .on(
-        'state_changed',
-        (snapshot) => {},
-        (error) => {
-          console.log(error);
-        }
-      )
-      .then(() => {
-        storage
-          .ref('images')
-          .child(inputImage.name)
-          .getDownloadURL()
-          .then((url) => {
-            setImageURL(url);
-            savePetData(url);
-          });
-      });
+    //   // Axios.post(`http://localhost:3001/api/image`);
+    // } else {
+    //   savePetData(imageURL);
+    // }
   };
 
   const savePetData = (url) => {
