@@ -819,8 +819,83 @@ nav ul {
   align-self: center;
 }
 
-/* 3.9. Profile ========= */
-/* 3.10. Add Pet ========= */
+/* 3.9. Premium Pop-up  ========= */
+.premium {
+  background-color: #ccabda;
+}
+
+.premium-content {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 25px;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  height: calc(100vh - (91px + 9px + 4rem));
+  justify-content: space-around;
+}
+
+.premium-content h2 span {
+  text-transform: capitalize;
+  font-family: "Content", helvetica, arial, sans-serif;
+  display: block;
+}
+
+.premium-content .features-detail {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  gap: 1rem;
+}
+
+.premium-content .features-detail .feature-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: flex-start;
+  gap: 0.7rem;
+  width: 240px;
+}
+
+.premium-content .features-detail .feature-wrapper p {
+  text-align: left;
+  margin: 0;
+  font-weight: 300;
+}
+
+.premium-content .plans-options {
+  display: flex;
+  flex-flow: row nowrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.premium-content .plans-options .plan-wrapper {
+  width: 115px;
+  border: 1px solid #3b3054;
+  border-radius: 22px;
+}
+
+.premium-content .plans-options .plan-wrapper p {
+  margin: 0.8rem 0;
+}
+
+.premium-content .plans-options .plan-wrapper p:nth-of-type(2) {
+  font-size: 20px;
+}
+
+@media screen and (min-width: 350px) {
+  .premium-content {
+    padding: 1rem 1rem;
+  }
+  .premium-content .plans-options .plan-wrapper {
+    width: 125px;
+  }
+}
+
+/* 3.10. Profile ========= */
+/* 3.11. Add Pet ========= */
 .add-pet .container {
   display: flex;
   flex-flow: row wrap;
@@ -853,7 +928,7 @@ nav ul {
   }
 }
 
-/* 3.11. Trackers ========= */
+/* 3.12. Trackers ========= */
 .meal-summary,
 .walk-summary {
   display: flex;
@@ -1106,7 +1181,8 @@ nav ul {
 }
 
 .modal.isActive .walk-form,
-.modal.isActive .meal-form {
+.modal.isActive .meal-form,
+.modal.isActive .premium {
   position: absolute;
   top: calc(50% - 91px / 2);
   left: 50%;
@@ -1117,21 +1193,22 @@ nav ul {
   width: calc(100vw - 9px);
   display: flex;
   flex-flow: column nowrap;
-  padding: 0.5rem 1.5rem 2rem;
+  padding-top: 0.5rem;
   box-sizing: border-box;
   overflow: hidden;
-  border-radius: 25px;
   pointer-events: all;
 }
 
 .modal.isActive .walk-form h2,
-.modal.isActive .meal-form h2 {
+.modal.isActive .meal-form h2,
+.modal.isActive .premium h2 {
   text-align: center;
   margin: 0;
 }
 
 .modal.isActive .walk-form .close-modal-icon,
-.modal.isActive .meal-form .close-modal-icon {
+.modal.isActive .meal-form .close-modal-icon,
+.modal.isActive .premium .close-modal-icon {
   display: flex;
   align-self: flex-end;
   width: 35px;
@@ -1142,7 +1219,9 @@ nav ul {
 .modal.isActive .walk-form .meal-form-content,
 .modal.isActive .walk-form .walk-form-content,
 .modal.isActive .meal-form .meal-form-content,
-.modal.isActive .meal-form .walk-form-content {
+.modal.isActive .meal-form .walk-form-content,
+.modal.isActive .premium .meal-form-content,
+.modal.isActive .premium .walk-form-content {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
@@ -1158,25 +1237,31 @@ nav ul {
 .modal.isActive .walk-form button,
 .modal.isActive .meal-form input,
 .modal.isActive .meal-form select,
-.modal.isActive .meal-form button {
+.modal.isActive .meal-form button,
+.modal.isActive .premium input,
+.modal.isActive .premium select,
+.modal.isActive .premium button {
   box-sizing: border-box;
 }
 
 .modal.isActive .walk-form form,
-.modal.isActive .meal-form form {
+.modal.isActive .meal-form form,
+.modal.isActive .premium form {
   display: flex;
   flex-flow: column nowrap;
   gap: 2rem;
 }
 
 .modal.isActive .walk-form form .input-wrapper,
-.modal.isActive .meal-form form .input-wrapper {
+.modal.isActive .meal-form form .input-wrapper,
+.modal.isActive .premium form .input-wrapper {
   display: grid;
   gap: 1rem;
 }
 
 .modal.isActive .walk-form form .input-wrapper div,
-.modal.isActive .meal-form form .input-wrapper div {
+.modal.isActive .meal-form form .input-wrapper div,
+.modal.isActive .premium form .input-wrapper div {
   position: relative;
   display: flex;
   flex-flow: column nowrap;
@@ -1184,14 +1269,16 @@ nav ul {
 }
 
 .modal.isActive .walk-form form .input-wrapper div .input-unit,
-.modal.isActive .meal-form form .input-wrapper div .input-unit {
+.modal.isActive .meal-form form .input-wrapper div .input-unit,
+.modal.isActive .premium form .input-wrapper div .input-unit {
   position: absolute;
   top: 25px;
   right: 1rem;
 }
 
 .modal.isActive .walk-form form .button-wrapper,
-.modal.isActive .meal-form form .button-wrapper {
+.modal.isActive .meal-form form .button-wrapper,
+.modal.isActive .premium form .button-wrapper {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
@@ -1199,7 +1286,8 @@ nav ul {
 }
 
 .modal.isActive .walk-form form .button-wrapper .btn-outlined,
-.modal.isActive .meal-form form .button-wrapper .btn-outlined {
+.modal.isActive .meal-form form .button-wrapper .btn-outlined,
+.modal.isActive .premium form .button-wrapper .btn-outlined {
   border: 1px solid #fff;
   background-color: transparent;
 }

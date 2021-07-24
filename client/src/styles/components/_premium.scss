@@ -1,0 +1,68 @@
+.premium {
+  background-color: $secondary-color;
+}
+.premium-content {
+  box-sizing: border-box;
+  overflow-y: scroll;
+  background-color: rgba($base-color, 0.4);
+  border-radius: $subcomponent-borderradius-mb;
+  padding: 1rem 0.5rem;
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+  height: calc(100vh - (91px + 9px + 4rem));
+  justify-content: space-around;
+  h2 {
+    & span {
+      text-transform: capitalize;
+      font-family: $paragraph-fontfamily;
+      display: block;
+    }
+  }
+  .features-detail {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1rem;
+    .feature-wrapper {
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: flex-start;
+      gap: 0.7rem;
+      width: 240px;
+      p {
+        text-align: left;
+        margin: 0;
+        font-weight: 300;
+      }
+    }
+  }
+  .plans-options {
+    display: flex;
+    flex-flow: row nowrap;
+    gap: 1rem;
+    justify-content: center;
+    .plan-wrapper {
+      width: 115px;
+      border: 1px solid $btn-bordercolor-outlined;
+      border-radius: 22px;
+      p {
+        margin: 0.8rem 0;
+      }
+      p:nth-of-type(2) {
+        // price
+        font-size: 20px;
+      }
+    }
+  }
+}
+@media screen and (min-width: 350px) {
+  .premium-content {
+    padding: 1rem 1rem;
+    .plans-options {
+      .plan-wrapper {
+        width: 125px;
+      }
+    }
+  }
+}

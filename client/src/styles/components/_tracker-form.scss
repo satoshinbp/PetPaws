@@ -26,7 +26,8 @@
     // inactivate any kind of click on overlay background area
     pointer-events: none;
     .walk-form,
-    .meal-form {
+    .meal-form,
+    .premium {
       position: absolute;
       top: calc(50% - #{$header-height-mb} / 2);
       left: 50%;
@@ -37,10 +38,9 @@
       width: calc(100vw - 9px);
       display: flex;
       flex-flow: column nowrap;
-      padding: 0.5rem 1.5rem 2rem;
+      padding-top: 0.5rem;
       box-sizing: border-box;
       overflow: hidden;
-      border-radius: $subcomponent-borderradius-mb;
       // Clicking is invalid on overlay background,
       // therefore "pointer-events: all" is necessary
       // to click inside form content (e.g. inputs, button)
