@@ -99,6 +99,11 @@ a {
   background-color: $secondary-color-light;
 }
 
+.divider {
+  margin: 1rem;
+  border: 1px solid $font-color;
+}
+
 @media screen and (min-width: $tb-breakpoint) {
   body {
     padding-top: $header-height-pc;

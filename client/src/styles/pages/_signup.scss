@@ -1,69 +1,58 @@
-.signup {
-  display: flex;
-  flex-flow: column nowrap;
-  background: $base-color;
-
-  &_description {
+.signup-page {
+  .mb-hidden {
     display: none;
-  }
 
-  &_form {
-    padding: 2rem 1rem 3rem;
-    margin: 1rem;
-    border-radius: 15px;
-    background: $primary-color-light;
-
-    h2 {
-      text-align: center;
-    }
-
-    label {
-      display: block;
-      padding: 1rem 0 0.5rem;
-    }
-
-    button {
-      margin: 2rem 0 0;
-    }
-
-    .signin-link-area {
-      text-align: center;
-      padding: 1rem 0;
-
-      &_link {
-        font-weight: 600;
-        text-decoration: underline;
-      }
+    @media screen and (min-width: $pc-breakpoint) {
+      display: initial;
     }
   }
-}
 
-@media screen and (min-width: $tb-breakpoint) {
-  .signup {
-    padding: 2rem 0;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
+  .pc-hidden {
+    display: initial;
 
-    &_description {
-      padding: 0 1rem;
-      display: flex;
-      flex-flow: column;
-      justify-content: center;
-      max-width: 600px;
-      flex: 70%;
+    @media screen and (min-width: $pc-breakpoint) {
+      display: none;
+    }
+  }
 
-      p {
-        margin: 0 0 1rem;
-      }
+  .intro {
+    li {
+      text-align: left;
+    }
+  }
 
-      ul {
-        padding-left: 2rem;
+  .link-area {
+    .link {
+      text-decoration: underline;
+    }
+  }
 
-        li {
-          display: flex;
-          padding: 1rem 0;
-        }
-      }
+  .bg-color-intro {
+    background-color: $intro-color;
+  }
+
+  .wrapper {
+    max-width: 1280px;
+  }
+
+  .signup-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
+
+    .discription-area {
+      text-align: left;
+    }
+
+    .signup {
+      border-radius: $subcomponent-borderradius-pc;
+    }
+  }
+
+  .basic-form {
+    @media screen and (min-width: $tb-breakpoint) {
+      align-items: center;
     }
   }
 }
