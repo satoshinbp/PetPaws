@@ -70,21 +70,25 @@ a {
 .bg-primary-meat {
   background-image: url(../images/bg-green-meatbone-mb.png);
   background-color: $primary-color;
+  background-position: center;
 }
 
 .bg-primary-fish {
   background-image: url(../images/bg-green-fishbone-mb.png);
   background-color: $primary-color;
+  background-position: center;
 }
 
 .bg-secondary-meat {
   background-image: url(../images/bg-purple-meatbone-mb.png);
   background-color: $secondary-color;
+  background-position: center;
 }
 
 .bg-secondary-fish {
   background-image: url(../images/bg-purple-fishbone-mb.png);
   background-color: $secondary-color;
+  background-position: center;
 }
 
 .bg-primary-light-mb-visible {
@@ -150,7 +154,7 @@ a {
   }
 
   .bg-primary-meat {
-    background-image: url(../images/bg-green-meatbone-mb.png); // to be replaced with image for pc screen
+    background-image: url(../images/bg-green-meatbone-pc.jpg);
   }
 
   .bg-primary-fish {
@@ -158,10 +162,10 @@ a {
   }
 
   .bg-secondary-meat {
-    background-image: url(../images/bg-purple-meatbone-mb.png); // to be replaced with image for pc screen
+    background-image: url(../images/bg-purple-meatbone-pc.jpg);
   }
 
   .bg-secondary-fish {
-    background-image: url(../images/bg-purple-fishbone-mb.png); // to be replaced with image for pc screen
+    background-image: url(../images/bg-purple-fishbone-pc.jpg);
   }
 }
