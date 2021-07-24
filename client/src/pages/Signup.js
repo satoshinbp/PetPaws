@@ -30,56 +30,84 @@ export default function Signup() {
     setLoading(false);
   };
 
-  return (
-    <>
-      <div className="signup">
-        <div className="intro">
-          <div className="wrapper">
-            <div className="signup_description-area">
-              <h3>By creating your account,</h3>
-              <p>　You will be able to :</p>
-              <ul>
-                <li>
-                  ・<div className="left-align">You can calculate the optimal daily calorie intake for your pet</div>
-                </li>
-                <li>
-                  ・<div className="left-align"> You can keep track of your pet's exercise with Activity Tracker</div>
-                </li>
-                <li>
-                  ・
-                  <div className="left-align">
-                    You can also track your pet's diet and calorie intake by Meal Tracker
-                  </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div className="body changeBg">
-          <div className="signup_form">
-            <h2>Sign UP</h2>
-            {error && <div>{error}</div>}
+  const showDescription = () => {
+    return (
+      <div className="discription-area">
+        <h1>By creating your account</h1>
+        <ul>
+          <li>You can calculate the optimal daily calorie intake for your pet</li>
+          <li>You can keep track of your pet's exercise with Activity Tracker</li>
+          <li>You can also track your pet's diet and calorie intake by Meal Tracker</li>
+        </ul>
+      </div>
+    );
+  };
 
-            <form onSubmit={handleSubmit}>
+  const showForm = () => {
+    return (
+      <div className="signup bg-primary-meat">
+        <div className="wrapper">
+          <h2>Sign Up</h2>
+
+          {error && <div>{error}</div>}
+
+          <form onSubmit={handleSubmit} className="basic-form">
+            <div className="input-area">
               <label id="name">Name</label>
               <input id="name" className="input-md" type="text" ref={nameRef} required />
+            </div>
+            <div className="input-area">
               <label id="email">Email</label>
               <input type="email" className="input-md" ref={emailRef} required />
+            </div>
+            <div className="input-area">
               <label id="password">Password</label>
               <input type="password" className="input-md" ref={passwordRef} required />
+            </div>
+            <div className="input-area">
               <label id="password-Confirmation">Password Confirmation</label>
               <input type="password" className="input-md" ref={passwordConfirmRef} required />
+            </div>
+            <div className="btn-area">
               <button className="btn-contained" disabled={loading} type="submit">
                 Get Started
               </button>
-            </form>
-            <div className="signin-link-area">
-              <p>
-                Already have an account?　
-                <Link to="/signin" className="signin-link-area_link">
-                  Sign In
-                </Link>
-              </p>
+            </div>
+          </form>
+
+          <div className="divider" />
+
+          <div className="link-area">
+            <p>
+              Already have an account?
+              <br />
+              <Link to="/signin" className="link">
+                Sign In
+              </Link>
+            </p>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <>
+      <div className="signup-page">
+        <div className="pc-hidden">
+          <div className="intro">
+            <div className="wrapper">{showDescription()}</div>
+          </div>
+          <div className="body">{showForm()}</div>
+        </div>
+
+        <div className="mb-hidden">
+          <div className="bg-color-intro">
+            <div className="wrapper">
+              <div className="signup-container">
+                {showDescription()}
+                {showForm()}
+              </div>
             </div>
           </div>
         </div>

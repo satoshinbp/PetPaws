@@ -1,99 +1,58 @@
-.signup {
-  &_description-area {
-    padding: 0 1rem;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    background: $intro-color;
+.signup-page {
+  .mb-hidden {
+    display: none;
 
-    ul {
-      padding-left: 2rem;
-      li {
-        display: flex;
-        padding: 0 0 0.5rem;
-        .left-align {
-          text-align: left;
-        }
-      }
+    @media screen and (min-width: $pc-breakpoint) {
+      display: initial;
     }
+  }
 
-    p {
+  .pc-hidden {
+    display: initial;
+
+    @media screen and (min-width: $pc-breakpoint) {
+      display: none;
+    }
+  }
+
+  .intro {
+    li {
       text-align: left;
-      padding-left: 1rem;
     }
   }
 
-  &_form {
-    padding: 1rem 2rem;
-    background: $primary-color-light;
-
-    form {
-      display: flex;
-      flex-flow: column nowrap;
-      align-items: center;
-    }
-
-    label {
-      width: 100%;
-      text-align: left;
-      display: block;
-      padding: 1rem 0 .5rem;
-    }
-
-    button {
-      margin: 2rem 0 0;
-    }
-
-    .signin-link-area {
-      text-align: center;
-      padding: 1rem 0;
-
-      &_link {
-        font-weight: $label-fontweight;
-        text-decoration: underline;
-      }
+  .link-area {
+    .link {
+      text-decoration: underline;
     }
   }
-}
 
-@media screen and (min-width: $tb-breakpoint){
-  .signup {
-    &_form {
-      label {
-        width: $input-width;
-      }
-    }
+  .bg-color-intro {
+    background-color: $intro-color;
   }
-}
 
-@media screen and (min-width: 700px){
-  .signup {
+  .wrapper {
+    max-width: 1280px;
+  }
+
+  .signup-container {
     display: flex;
-    flex-flow: row nowrap;
-    justify-content: center;
-    background: $intro-color;
+    justify-content: space-between;
+    align-items: center;
+    gap: 3rem;
 
-    &_form {
-      padding: 1rem;
+    .discription-area {
+      text-align: left;
+    }
+
+    .signup {
       border-radius: $subcomponent-borderradius-pc;
-
-      label {
-        width: $input-width;
-      }
     }
+  }
 
-    .wrapper{
-      padding: 4rem 0;
-    }
-
-    .changeBg{
-      width: unset;
-      padding: 4rem 1rem;
-      background: $intro-color;
-    }
-
-    .intro{
-      align-self: center;
+  .basic-form {
+    @media screen and (min-width: $tb-breakpoint) {
+      align-items: center;
     }
   }
 }
