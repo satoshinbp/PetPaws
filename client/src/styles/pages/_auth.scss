@@ -1,3 +1,4 @@
+.signin-page,
 .signup-page {
   .mb-hidden {
     display: none;
@@ -35,7 +36,7 @@
     max-width: 1280px;
   }
 
-  .signup-container {
+  .auth-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -45,6 +46,7 @@
       text-align: left;
     }
 
+    .signin,
     .signup {
       border-radius: $subcomponent-borderradius-pc;
     }
