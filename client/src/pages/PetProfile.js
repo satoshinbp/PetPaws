@@ -53,23 +53,21 @@ export default function PetProfile({ petProfile }) {
   const handleSubmit = (e) => {
     e.preventDefault();
     try {
-      if (inputImage !== '') {
+      if (inputImage) {
         let formData = new FormData();
         formData.append('file', inputImage);
         // url will be replaced with .env static variable
         Axios.post('http://localhost:3001/api/image', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
+        }).then((res) => {
+          savePetData(res.data.fileLocation);
         });
+      } else {
+        savePetData(imageURL);
       }
     } catch (error) {
       console.log(error);
     }
-    // if(inputImage) {
-
-    //   // Axios.post(`http://localhost:3001/api/image`);
-    // } else {
-    //   savePetData(imageURL);
-    // }
   };
 
   const savePetData = (url) => {
