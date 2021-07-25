@@ -91,26 +91,24 @@ export default function Signup() {
   };
 
   return (
-    <>
-      <div className="signup-page">
-        <div className="pc-hidden">
-          <div className="intro">
-            <div className="wrapper">{showDescription()}</div>
-          </div>
-          <div className="body">{showForm()}</div>
+    <div className="signup-page">
+      <div className="pc-hidden">
+        <div className="intro">
+          <div className="wrapper">{showDescription()}</div>
         </div>
+        <div className="body">{showForm()}</div>
+      </div>
 
-        <div className="mb-hidden">
-          <div className="bg-color-intro">
-            <div className="wrapper">
-              <div className="signup-container">
-                {showDescription()}
-                {showForm()}
-              </div>
+      <div className="mb-hidden">
+        <div className="bg-color-intro">
+          <div className="wrapper">
+            <div className="signup-container">
+              {showDescription()}
+              {showForm()}
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
