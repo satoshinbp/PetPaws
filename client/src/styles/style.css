@@ -604,8 +604,12 @@ a {
   .intro__title {
     margin: 0;
   }
-  .intro__img-area {
+  .intro__img-area.mb-hidden {
     flex: 1 0 auto;
+    min-height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 }
 
