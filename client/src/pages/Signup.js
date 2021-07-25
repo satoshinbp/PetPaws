@@ -48,24 +48,22 @@ export default function Signup() {
         <div className="wrapper">
           <h2>Sign Up</h2>
 
-          {error && <div>{error}</div>}
-
           <form onSubmit={handleSubmit} className="basic-form">
             <div className="input-area">
               <label id="name">Name</label>
-              <input id="name" className="input-md" type="text" ref={nameRef} required />
+              <input id="name" type="text" ref={nameRef} required />
             </div>
             <div className="input-area">
               <label id="email">Email</label>
-              <input type="email" className="input-md" ref={emailRef} required />
+              <input type="email" ref={emailRef} required />
             </div>
             <div className="input-area">
               <label id="password">Password</label>
-              <input type="password" className="input-md" ref={passwordRef} required />
+              <input type="password" ref={passwordRef} required />
             </div>
             <div className="input-area">
               <label id="password-Confirmation">Password Confirmation</label>
-              <input type="password" className="input-md" ref={passwordConfirmRef} required />
+              <input type="password" ref={passwordConfirmRef} required />
             </div>
             <div className="btn-area">
               <button className="btn-contained" disabled={loading} type="submit">
@@ -73,6 +71,8 @@ export default function Signup() {
               </button>
             </div>
           </form>
+
+          {error && <div>{error}</div>}
 
           <div className="divider" />
 
@@ -102,7 +102,7 @@ export default function Signup() {
       <div className="mb-hidden">
         <div className="bg-color-intro">
           <div className="wrapper">
-            <div className="signup-container">
+            <div className="auth-container">
               {showDescription()}
               {showForm()}
             </div>
