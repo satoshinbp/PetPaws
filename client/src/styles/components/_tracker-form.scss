@@ -114,12 +114,12 @@
     top: $header-height-pc;
     height: calc(100vh - #{$header-height-pc});
     .walk-form,
-    .meal-form {
+    .meal-form,
+    .premium {
       height: auto;
       max-height: calc((100vh - #{$header-height-pc}) - 4rem);
       top: 50%;
-      border-radius: $subcomponent-borderradius-pc;
-      padding: 1rem 3rem 2rem;
+      padding: 0.5rem 3rem 2rem;
       .meal-form-content,
       .walk-form-content {
         display: flex;

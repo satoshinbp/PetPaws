@@ -1,17 +1,20 @@
 .premium {
   background-color: $secondary-color;
+  overflow-y: scroll;
 }
 .premium-content {
-  box-sizing: border-box;
-  overflow-y: scroll;
   background-color: rgba($base-color, 0.4);
   border-radius: $subcomponent-borderradius-mb;
   padding: 1rem 0.5rem;
   display: flex;
   flex-flow: column nowrap;
-  gap: 1rem;
-  height: calc(100vh - (91px + 9px + 4rem));
-  justify-content: space-around;
+  gap: 5%;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow-y: scroll;
   h2 {
     & span {
       text-transform: capitalize;
@@ -27,7 +30,6 @@
     .feature-wrapper {
       display: flex;
       flex-flow: row nowrap;
-      align-items: flex-start;
       gap: 0.7rem;
       width: 240px;
       p {
@@ -43,17 +45,27 @@
     gap: 1rem;
     justify-content: center;
     .plan-wrapper {
+      display: flex;
+      flex-flow: column;
+      align-items: center;
       width: 115px;
       border: 1px solid $btn-bordercolor-outlined;
       border-radius: 22px;
+      padding: 0.5rem;
       p {
-        margin: 0.8rem 0;
+        margin: 0.4rem 0;
       }
       p:nth-of-type(2) {
         // price
         font-size: 20px;
       }
     }
+  }
+  .button-wrapper {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    width: 100%;
   }
 }
 @media screen and (min-width: 350px) {
@@ -63,6 +75,35 @@
       .plan-wrapper {
         width: 125px;
       }
+    }
+  }
+}
+
+@media screen and (min-width: $tb-breakpoint) {
+  .premium {
+    display: grid;
+    gap: 0 !important;
+    grid-gap: 0 !important;
+    border-radius: 0;
+  }
+  .premium-content {
+    //background-color: transparent;
+    gap: 2rem;
+    justify-content: flex-start;
+    padding-bottom: 3rem;
+    padding: 0;
+    background-color: transparent;
+    .features-detail {
+      flex-flow: row wrap;
+    }
+    .plans-options {
+      gap: 2rem;
+      .plan-wrapper {
+        width: 192px;
+      }
+    }
+    button {
+      height: 60px;
     }
   }
 }

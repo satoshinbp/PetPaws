@@ -822,19 +822,22 @@ nav ul {
 /* 3.9. Premium Pop-up  ========= */
 .premium {
   background-color: #ccabda;
+  overflow-y: scroll;
 }
 
 .premium-content {
-  box-sizing: border-box;
-  overflow-y: scroll;
   background-color: rgba(255, 255, 255, 0.4);
   border-radius: 25px;
   padding: 1rem 0.5rem;
   display: flex;
   flex-flow: column nowrap;
-  gap: 1rem;
-  height: calc(100vh - (91px + 9px + 4rem));
-  justify-content: space-around;
+  gap: 5%;
+  height: 100%;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  overflow-y: scroll;
 }
 
 .premium-content h2 span {
@@ -853,7 +856,6 @@ nav ul {
 .premium-content .features-detail .feature-wrapper {
   display: flex;
   flex-flow: row nowrap;
-  align-items: flex-start;
   gap: 0.7rem;
   width: 240px;
 }
@@ -872,17 +874,28 @@ nav ul {
 }
 
 .premium-content .plans-options .plan-wrapper {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
   width: 115px;
   border: 1px solid #3b3054;
   border-radius: 22px;
+  padding: 0.5rem;
 }
 
 .premium-content .plans-options .plan-wrapper p {
-  margin: 0.8rem 0;
+  margin: 0.4rem 0;
 }
 
 .premium-content .plans-options .plan-wrapper p:nth-of-type(2) {
   font-size: 20px;
+}
+
+.premium-content .button-wrapper {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+  width: 100%;
 }
 
 @media screen and (min-width: 350px) {
@@ -891,6 +904,34 @@ nav ul {
   }
   .premium-content .plans-options .plan-wrapper {
     width: 125px;
+  }
+}
+
+@media screen and (min-width: 600px) {
+  .premium {
+    display: grid;
+    gap: 0 !important;
+    grid-gap: 0 !important;
+    border-radius: 0;
+  }
+  .premium-content {
+    gap: 2rem;
+    justify-content: flex-start;
+    padding-bottom: 3rem;
+    padding: 0;
+    background-color: transparent;
+  }
+  .premium-content .features-detail {
+    flex-flow: row wrap;
+  }
+  .premium-content .plans-options {
+    gap: 2rem;
+  }
+  .premium-content .plans-options .plan-wrapper {
+    width: 192px;
+  }
+  .premium-content button {
+    height: 60px;
   }
 }
 
@@ -1298,17 +1339,19 @@ nav ul {
     height: calc(100vh - 94px);
   }
   .modal.isActive .walk-form,
-  .modal.isActive .meal-form {
+  .modal.isActive .meal-form,
+  .modal.isActive .premium {
     height: auto;
     max-height: calc((100vh - 94px) - 4rem);
     top: 50%;
-    border-radius: 50px;
-    padding: 1rem 3rem 2rem;
+    padding: 0.5rem 3rem 2rem;
   }
   .modal.isActive .walk-form .meal-form-content,
   .modal.isActive .walk-form .walk-form-content,
   .modal.isActive .meal-form .meal-form-content,
-  .modal.isActive .meal-form .walk-form-content {
+  .modal.isActive .meal-form .walk-form-content,
+  .modal.isActive .premium .meal-form-content,
+  .modal.isActive .premium .walk-form-content {
     display: flex;
     flex-flow: column nowrap;
     gap: 2rem;
@@ -1318,7 +1361,9 @@ nav ul {
   .modal.isActive .walk-form .meal-form-content h2,
   .modal.isActive .walk-form .walk-form-content h2,
   .modal.isActive .meal-form .meal-form-content h2,
-  .modal.isActive .meal-form .walk-form-content h2 {
+  .modal.isActive .meal-form .walk-form-content h2,
+  .modal.isActive .premium .meal-form-content h2,
+  .modal.isActive .premium .walk-form-content h2 {
     margin: 0;
   }
   .modal.isActive .walk-form .meal-form-content input,
@@ -1336,14 +1381,24 @@ nav ul {
   .modal.isActive .meal-form .walk-form-content input,
   .modal.isActive .meal-form .walk-form-content .input,
   .modal.isActive .meal-form .walk-form-content select,
-  .modal.isActive .meal-form .walk-form-content button {
+  .modal.isActive .meal-form .walk-form-content button,
+  .modal.isActive .premium .meal-form-content input,
+  .modal.isActive .premium .meal-form-content .input,
+  .modal.isActive .premium .meal-form-content select,
+  .modal.isActive .premium .meal-form-content button,
+  .modal.isActive .premium .walk-form-content input,
+  .modal.isActive .premium .walk-form-content .input,
+  .modal.isActive .premium .walk-form-content select,
+  .modal.isActive .premium .walk-form-content button {
     box-sizing: border-box;
     width: 100%;
   }
   .modal.isActive .walk-form .meal-form-content form .input-wrapper,
   .modal.isActive .walk-form .walk-form-content form .input-wrapper,
   .modal.isActive .meal-form .meal-form-content form .input-wrapper,
-  .modal.isActive .meal-form .walk-form-content form .input-wrapper {
+  .modal.isActive .meal-form .walk-form-content form .input-wrapper,
+  .modal.isActive .premium .meal-form-content form .input-wrapper,
+  .modal.isActive .premium .walk-form-content form .input-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1.5rem;
@@ -1352,14 +1407,18 @@ nav ul {
   .modal.isActive .walk-form .meal-form-content form .input-wrapper div .input-unit,
   .modal.isActive .walk-form .walk-form-content form .input-wrapper div .input-unit,
   .modal.isActive .meal-form .meal-form-content form .input-wrapper div .input-unit,
-  .modal.isActive .meal-form .walk-form-content form .input-wrapper div .input-unit {
+  .modal.isActive .meal-form .walk-form-content form .input-wrapper div .input-unit,
+  .modal.isActive .premium .meal-form-content form .input-wrapper div .input-unit,
+  .modal.isActive .premium .walk-form-content form .input-wrapper div .input-unit {
     position: absolute;
     top: 27px;
   }
   .modal.isActive .walk-form .meal-form-content form .button-wrapper,
   .modal.isActive .walk-form .walk-form-content form .button-wrapper,
   .modal.isActive .meal-form .meal-form-content form .button-wrapper,
-  .modal.isActive .meal-form .walk-form-content form .button-wrapper {
+  .modal.isActive .meal-form .walk-form-content form .button-wrapper,
+  .modal.isActive .premium .meal-form-content form .button-wrapper,
+  .modal.isActive .premium .walk-form-content form .button-wrapper {
     flex-direction: row-reverse;
   }
 }

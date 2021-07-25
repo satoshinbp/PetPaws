@@ -32,7 +32,9 @@ const Premium = ({ closeForm }) => {
             <p>per year</p>
           </div>
         </div>
-        <button className="btn-contained ">Continue</button>
+        <div className="button-wrapper">
+          <button className="btn-contained ">Continue</button>
+        </div>
       </div>
     </div>
   );
