@@ -85,6 +85,17 @@ export default function Signup() {
         </div>
         <div className="body">{showForm()}</div>
       </div>
+
+      <div className="mb-hidden">
+        <div className="bg-color-intro">
+          <div className="wrapper">
+            <div className="auth-container">
+              {showDescription()}
+              {showForm()}
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
