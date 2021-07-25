@@ -415,21 +415,25 @@ a {
 .bg-primary-meat {
   background-image: url(../images/bg-green-meatbone-mb.png);
   background-color: #a4eada;
+  background-position: center;
 }
 
 .bg-primary-fish {
   background-image: url(../images/bg-green-fishbone-mb.png);
   background-color: #a4eada;
+  background-position: center;
 }
 
 .bg-secondary-meat {
   background-image: url(../images/bg-purple-meatbone-mb.png);
   background-color: #ccabda;
+  background-position: center;
 }
 
 .bg-secondary-fish {
   background-image: url(../images/bg-purple-fishbone-mb.png);
   background-color: #ccabda;
+  background-position: center;
 }
 
 .bg-primary-light-mb-visible {
@@ -442,6 +446,11 @@ a {
   padding: 1.5rem 1rem;
   border-radius: 50px;
   background-color: #e4c8f0;
+}
+
+.divider {
+  margin: 1rem;
+  border: 1px solid #3b3054;
 }
 
 @media screen and (min-width: 600px) {
@@ -481,84 +490,75 @@ a {
     display: none;
   }
   .bg-primary-meat {
-    background-image: url(../images/bg-green-meatbone-mb.png);
+    background-image: url(../images/bg-green-meatbone-pc.jpg);
   }
   .bg-primary-fish {
     background-image: url(../images/bg-green-fishbone-pc.png);
   }
   .bg-secondary-meat {
-    background-image: url(../images/bg-purple-meatbone-mb.png);
+    background-image: url(../images/bg-purple-meatbone-pc.jpg);
   }
   .bg-secondary-fish {
-    background-image: url(../images/bg-purple-fishbone-mb.png);
+    background-image: url(../images/bg-purple-fishbone-pc.jpg);
   }
 }
 
 /* 2 Pages ================== */
 /* 2.1. Sign Up ============= */
-.signup {
-  display: flex;
-  flex-flow: column nowrap;
-  background: #fff;
-}
-
-.signup_description {
+.signup-page .mb-hidden {
   display: none;
 }
 
-.signup_form {
-  padding: 2rem 1rem 3rem;
-  margin: 1rem;
-  border-radius: 15px;
-  background: #dcf7f1;
+@media screen and (min-width: 960px) {
+  .signup-page .mb-hidden {
+    display: initial;
+  }
 }
 
-.signup_form h2 {
-  text-align: center;
+.signup-page .pc-hidden {
+  display: initial;
 }
 
-.signup_form label {
-  display: block;
-  padding: 1rem 0 0.5rem;
+@media screen and (min-width: 960px) {
+  .signup-page .pc-hidden {
+    display: none;
+  }
 }
 
-.signup_form button {
-  margin: 2rem 0 0;
+.signup-page .intro li {
+  text-align: left;
 }
 
-.signup_form .signin-link-area {
-  text-align: center;
-  padding: 1rem 0;
-}
-
-.signup_form .signin-link-area_link {
-  font-weight: 600;
+.signup-page .link-area .link {
   text-decoration: underline;
 }
 
+.signup-page .bg-color-intro {
+  background-color: #ffdd95;
+}
+
+.signup-page .wrapper {
+  max-width: 1280px;
+}
+
+.signup-page .signup-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 3rem;
+}
+
+.signup-page .signup-container .discription-area {
+  text-align: left;
+}
+
+.signup-page .signup-container .signup {
+  border-radius: 50px;
+}
+
 @media screen and (min-width: 600px) {
-  .signup {
-    padding: 2rem 0;
-    flex-flow: row nowrap;
-    justify-content: space-evenly;
-  }
-  .signup_description {
-    padding: 0 1rem;
-    display: flex;
-    flex-flow: column;
-    justify-content: center;
-    max-width: 600px;
-    flex: 70%;
-  }
-  .signup_description p {
-    margin: 0 0 1rem;
-  }
-  .signup_description ul {
-    padding-left: 2rem;
-  }
-  .signup_description ul li {
-    display: flex;
-    padding: 1rem 0;
+  .signup-page .basic-form {
+    align-items: center;
   }
 }
 
@@ -1682,10 +1682,6 @@ form .end-adornment {
 
 .basic-form .input-area {
   text-align: left;
-}
-
-.basic-form .btn-area {
-  margin: 0;
 }
 
 .basic-form .input-area--two-column {
