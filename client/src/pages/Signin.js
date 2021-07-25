@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import signinImg from '../images/pet-profile-default.jpg'; // dammy img, to be replaced
 
 export default function Signup() {
   const [error, setError] = useState('');
@@ -27,9 +26,6 @@ export default function Signup() {
 
   return (
     <div className="signin">
-      <div className="image-area">
-        <img src={signinImg} alt="" />
-      </div>
       <div className="signin_form">
         <h2>SIGN IN TO YOUR ACCOUNT</h2>
         <form onSubmit={hanleSubmit}>
