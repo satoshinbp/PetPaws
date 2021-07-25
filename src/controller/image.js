@@ -8,26 +8,21 @@ const storage = new Storage({
 
 const bucket = storage.bucket(process.env.FIREBASE_STORAGE_BUCKET);
 
-const uploader = multer({
+exports.uploader = multer({
   storage: multer.memoryStorage(),
   limits: {
-    fileSize: 5 * 1024 * 1024, // keep images size < 5 MB
+    fileSize: 5 * 1024 * 1024,
   },
 });
 
-exports.create = (req, res) => {
-  console.log(req);
-
-  uploader.single('image');
+exports.create = async (req, res, next) => {
   try {
     if (!req.file) {
-      console.log('unkounko');
-      res.status(400).send('No file uploaded.');
+      res.status(400).send('Error, could not upload file');
       return;
     }
-    console.log('kiteruuuu');
 
-    // This is where we'll upload our file to Cloud Storage
+    // Create new blob in the bucket referencing the file
     const blob = bucket.file(req.file.originalname);
 
     // Create writable stream and specifying file mimetype
@@ -52,7 +47,6 @@ exports.create = (req, res) => {
     // When there is no more data to be consumed from the stream
     blobWriter.end(req.file.buffer);
   } catch (error) {
-    console.log('bag,', error);
     res.status(400).send(`Error, could not upload file: ${error}`);
     return;
   }

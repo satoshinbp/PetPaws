@@ -52,28 +52,17 @@ export default function PetProfile({ petProfile }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('front やで！');
     try {
       if (inputImage !== '') {
-        console.log('front はいった！');
-        // Creating a FormData object
-        let fileData = new FormData();
-        // Setting the 'image' field and the selected file
-        console.log('inputImage', inputImage);
-        console.log('inputImage.lastModified', inputImage.lastModified);
-        console.log('inputImage.name', inputImage.name);
-        fileData.set('image', inputImage, `${inputImage.lastModified}-${inputImage.name}`);
-        console.log('fileData', fileData);
+        let formData = new FormData();
+        formData.append('file', inputImage);
         // url will be replaced with .env static variable
-        Axios({
-          method: 'post',
-          url: 'http://localhost:3001/api/image',
-          data: fileData,
+        Axios.post('http://localhost:3001/api/image', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         });
       }
     } catch (error) {
-      // setIsError(true);
+      console.log(error);
     }
     // if(inputImage) {
 
