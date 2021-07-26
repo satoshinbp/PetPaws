@@ -1,5 +1,10 @@
 import mealTrackerIcon from '../../images/meal-tracker.svg';
+import React, { useState } from 'react';
+import Premium from '../Premium';
+
 export default function MealSummary() {
+  const [showPremium, setShowPremium] = useState(false);
+
   return (
     <div className="intro">
       <div className="wrapper">
@@ -15,13 +20,18 @@ export default function MealSummary() {
           </div>
 
           <div className="btn-area">
-            <button className="btn-contained--intro">Upgrade to Premium</button>
+            <button className="btn-contained--intro" onClick={() => setShowPremium(true)}>
+              Upgrade to Premium
+            </button>
           </div>
         </div>
 
         <div className="intro__img-area mb-hidden">
           <img src={mealTrackerIcon} alt="cat stiting besides cat food" />
         </div>
+      </div>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
+        {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>
   );

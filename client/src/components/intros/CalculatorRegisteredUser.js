@@ -1,6 +1,10 @@
 import calculatorIcon from '../../images/calculator.svg';
+import React, { useState } from 'react';
+import Premium from '../Premium';
 
 export default function CalculatorRegisteredUser() {
+  const [showPremium, setShowPremium] = useState(false);
+
   return (
     <div className="intro">
       <div className="wrapper">
@@ -16,13 +20,18 @@ export default function CalculatorRegisteredUser() {
           </div>
 
           <div className="btn-area">
-            <button className="btn-contained--intro">Create free account</button>
+            <button className="btn-contained--intro" onClick={() => setShowPremium(true)}>
+              Upgrade to Premium
+            </button>
           </div>
         </div>
 
         <div className="intro__img-area mb-hidden">
           <img src={calculatorIcon} alt="cat stiting besides cat food" />
         </div>
+      </div>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
+        {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>
   );

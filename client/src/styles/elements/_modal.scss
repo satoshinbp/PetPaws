@@ -1,0 +1,82 @@
+.overlay {
+  opacity: 0;
+  transform: scale(0);
+  transition: opacity 0.5s, transform 0s 0.5s;
+
+  &.isActive {
+    opacity: 1;
+    z-index: 120;
+    transform: scale(1);
+    transition: opacity 0.5s;
+    position: fixed;
+    top: $header-height-mb;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: rgba(196, 196, 196, 0.5);
+    backdrop-filter: blur(4px);
+    // inactivate any kind of click on overlay background area
+    pointer-events: none;
+  }
+
+  .modal {
+    position: absolute;
+    top: calc(50% - #{$header-height-mb} / 2);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: calc(100vw - 20px);
+    max-height: calc((100% - #{$header-height-mb}) - 20px);
+    max-width: $md-max-width;
+    padding: 1rem;
+    display: flex;
+    flex-flow: column nowrap;
+    border-radius: $subcomponent-borderradius-mb;
+    box-sizing: border-box;
+    // Clicking is invalid on overlay background,
+    // therefore "pointer-events: all" is necessary
+    // to click inside form content (e.g. inputs, button)
+    pointer-events: all;
+
+    .close-modal-icon {
+      display: flex;
+      align-self: flex-end;
+      width: 35px;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+
+    .modal-content {
+      overflow-y: scroll;
+    }
+  }
+}
+
+.meal-modal {
+  background-color: $primary-color;
+}
+
+.walk-modal {
+  background-color: $secondary-color;
+}
+
+.premium-modal {
+  background-color: $secondary-color;
+}
+
+@media screen and (min-width: $tb-breakpoint) {
+  .overlay.isActive {
+    top: $header-height-pc;
+    height: calc(100vh - #{$header-height-pc});
+
+    .walk-modal,
+    .meal-modal,
+    .premium-modal {
+      max-height: calc((100vh - #{$header-height-pc}) - 4rem);
+      top: 50%;
+      padding: 0.5rem 3rem 2rem;
+    }
+  }
+}

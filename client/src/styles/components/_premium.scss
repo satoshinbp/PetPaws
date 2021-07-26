@@ -1,0 +1,82 @@
+.premium-modal-wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.premium-content {
+  display: flex;
+  flex-flow: column nowrap;
+  gap: 1rem;
+
+  h2 span {
+    text-transform: capitalize;
+    font-family: $paragraph-fontfamily;
+    display: block;
+  }
+
+  .features {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    gap: 1rem;
+
+    .feature-area {
+      align-self: flex-start;
+      display: flex;
+      flex-flow: row nowrap;
+      align-items: start;
+      gap: 0.75rem;
+      text-align: left;
+
+      p {
+        margin: 0;
+      }
+    }
+  }
+
+  .plans {
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: space-between;
+    gap: 1rem;
+
+    .plan-area {
+      flex: 1 0 0;
+      display: flex;
+      flex-flow: column;
+      align-items: center;
+      border: 1px solid $btn-bordercolor-outlined;
+      border-radius: $subcomponent-borderradius-mb;
+      padding: 0.5rem;
+
+      p {
+        margin: 0.5rem 0;
+      }
+
+      //price
+      p:nth-of-type(2) {
+        font-size: 20px;
+      }
+
+      // Annual Plan
+      &:nth-of-type(2) {
+        background-color: $secondary-color-light;
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $tb-breakpoint) {
+  .premium-content {
+    gap: 1.5rem;
+
+    .plans {
+      gap: 2rem;
+
+      p {
+        margin: 0.25rem;
+      }
+    }
+  }
+}
