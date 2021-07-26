@@ -99,15 +99,8 @@ export default function petProfileForm(props) {
       </div>
       <div className="input-area">
         <label htmlFor="weight">Weight</label>
-        <input
-          type="number"
-          name="weight"
-          value={props.weight}
-          min={0}
-          step={0.1}
-          onChange={(e) => props.changeWeight(e.target.value)}
-          placeholder="Weight in kg"
-        />
+        <input type="number" name="weight" value={props.weight} min={0} step={0.1} />
+        <span className="end-adornment">kg</span>
       </div>
       <div className="input-area">
         <label htmlFor="height">Height</label>
@@ -118,8 +111,8 @@ export default function petProfileForm(props) {
           min={0}
           step={0.1}
           onChange={(e) => props.changeHeight(e.target.value)}
-          placeholder="Height in cm"
         />
+        <span className="end-adornment">cm</span>
       </div>
       <div className="input-area">
         <label htmlFor="activityLevel">Activity Level</label>
