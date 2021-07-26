@@ -48,6 +48,11 @@ button {
   width: 100px;
 }
 
+.btn-mobile-menu {
+  background-color: $secondary-color-light;
+  color: $font-color;
+}
+
 .btn-toggle-tab {
   height: 27px;
   border-radius: $subcomponent-borderradius-mb;

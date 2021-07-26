@@ -34,3 +34,16 @@ nav ul {
   justify-content: space-between;
   align-items: center;
 }
+
+@media screen and (max-width: $pc-breakpoint) {
+  .site-logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .header__menu {
+    display: none;
+  }
+}

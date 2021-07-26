@@ -8,9 +8,22 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+// import Button from '@material-ui/core/Button';
+// import Dialog from '@material-ui/core/Dialog';
+// import ListItemText from '@material-ui/core/ListItemText';
+// import ListItem from '@material-ui/core/ListItem';
+// import List from '@material-ui/core/List';
+// import Divider from '@material-ui/core/Divider';
+// import AppBar from '@material-ui/core/AppBar';
+// import Toolbar from '@material-ui/core/Toolbar';
+// import IconButton from '@material-ui/core/IconButton';
+// import Typography from '@material-ui/core/Typography';
+// import CloseIcon from '@material-ui/icons/Close';
+// import Slide from '@material-ui/core/Slide';
 import Logo from '../images/header.svg';
 import Line from '../images/line.svg';
 import closeButton from '../images/close-button.svg';
+import MobileMenu from './HeaderMenu';
 
 const useStyles = makeStyles({
   customWidth: {
@@ -74,7 +87,8 @@ export default function Header() {
       <div className="header__wrapper">
         <nav>
           <ul>
-            <div>
+            <MobileMenu currentUser={currentUser} />
+            <div className="site-logo">
               <li>
                 <img src={Logo} alt="site logo" />
               </li>

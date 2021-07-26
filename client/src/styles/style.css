@@ -656,6 +656,45 @@ nav ul {
   align-items: center;
 }
 
+@media screen and (max-width: 960px) {
+  .site-logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .header__menu {
+    display: none;
+  }
+}
+.mobile-menu {
+  z-index: 10;
+  padding: 2rem 1.5rem;
+}
+@media screen and (min-width: 600px) {
+  .mobile-menu {
+    padding: 4rem 3rem;
+  }
+}
+
+.btn-mobile-menu {
+  width: 80%;
+}
+
+.btn-mobile-menu:hover {
+  background-color: white;
+}
+
+.btn-mobile-menu a {
+  display: block;
+}
+
+@media screen and (min-width: 960px) {
+  .mobile-menu {
+    display: none;
+  }
+}
 /* 3.4. Footer ============== */
 .footer__wrapper {
   width: 90%;
@@ -1402,6 +1441,11 @@ button {
   font-size: 16px;
   height: 40px;
   width: 100px;
+}
+
+.btn-mobile-menu {
+  background-color: #e4c8f0;
+  color: #3b3054;
 }
 
 .btn-toggle-tab {
