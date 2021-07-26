@@ -6,9 +6,11 @@ export default function petProfileForm(props) {
   return (
     <form className="basic-form bg-primary-light" onSubmit={(e) => props.handleSubmit(e)}>
       <div className="img-area">
+        <div className="errorMessage">{props.errorMessage && props.errorMessage}</div>
         <input
           id="profImage"
           type="file"
+          accept="image/*"
           className="profile-img-input"
           onChange={(e) => props.changeImage(e.target.files[0])}
         />

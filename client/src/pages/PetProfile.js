@@ -23,7 +23,9 @@ export default function PetProfile({ petProfile }) {
   const [isSpayed, setIsSpayed] = useState(petProfile.is_spayed); // 0: intact, 1: spayed/neutered
   const [activityLevel, setActivityLevel] = useState(petProfile.activity_level); // 0: inactive, 1: somewhat active, 2: active, 3: very active
   const [bodyCondition, setBodyCondition] = useState(petProfile.body_condition); // 0: underweight, 1: ideal, 2: overweight
+  const [errorMessage, setErrorMessage] = useState('');
   const history = useHistory();
+  const sizeLimit = 1024 * 1024 * 1;
 
   useEffect(() => {
     Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
@@ -120,6 +122,12 @@ export default function PetProfile({ petProfile }) {
   };
 
   const changeImage = (value) => {
+    if (errorMessage) {
+      setErrorMessage('');
+    }
+    if (value.size > sizeLimit) {
+      return setErrorMessage('File size should be lower than 1MB');
+    }
     let createObjectURL = (window.URL || window.webkitURL).createObjectURL || window.createObjectURL;
     let image_url = createObjectURL(value);
     setImageURL(image_url);
@@ -182,6 +190,7 @@ export default function PetProfile({ petProfile }) {
               isSpayed={isSpayed}
               activityLevel={activityLevel}
               bodyCondition={bodyCondition}
+              errorMessage={errorMessage}
               changePetType={changePetType}
               changeName={changeName}
               changeImage={changeImage}
