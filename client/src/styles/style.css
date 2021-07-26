@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @font-face {
   font-family: 'To Japan';
-  src: url('fonts/tojapan/to-japan.ttf') format('truetype');
+  src: url("fonts/tojapan/to-japan.ttf") format("truetype");
 }
 
 /* 1 Base =================== */
@@ -352,7 +352,7 @@ template {
 
 body {
   padding-top: 91px;
-  font-family: 'Content', helvetica, arial, sans-serif;
+  font-family: "Content", helvetica, arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #3b3054;
@@ -365,7 +365,7 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: 'To Japan', helvetica, arial, sans-serif;
+  font-family: "To Japan", helvetica, arial, sans-serif;
   text-transform: uppercase;
 }
 
@@ -806,7 +806,7 @@ nav ul {
 
 .premium-content h2 span {
   text-transform: capitalize;
-  font-family: 'Content', helvetica, arial, sans-serif;
+  font-family: "Content", helvetica, arial, sans-serif;
   display: block;
 }
 
@@ -1762,13 +1762,13 @@ form .btn-area {
 }
 
 /* 4.4. Modal =============== */
-.modal {
+.overlay {
   opacity: 0;
   transform: scale(0);
   transition: opacity 0.7s, transform 0s 0.7s;
 }
 
-.modal.isActive {
+.overlay.isActive {
   opacity: 1;
   z-index: 120;
   transform: scale(1);
@@ -1784,9 +1784,9 @@ form .btn-area {
   pointer-events: none;
 }
 
-.modal .walk-form,
-.modal .meal-form,
-.modal .premium {
+.overlay .walk-form,
+.overlay .meal-form,
+.overlay .premium {
   position: absolute;
   top: calc(50% - 91px / 2);
   left: 50%;
@@ -1802,15 +1802,15 @@ form .btn-area {
   pointer-events: all;
 }
 
-.modal .walk-form h2,
-.modal .meal-form h2,
-.modal .premium h2 {
+.overlay .walk-form h2,
+.overlay .meal-form h2,
+.overlay .premium h2 {
   margin: 0;
 }
 
-.modal .walk-form .close-modal-icon,
-.modal .meal-form .close-modal-icon,
-.modal .premium .close-modal-icon {
+.overlay .walk-form .close-modal-icon,
+.overlay .meal-form .close-modal-icon,
+.overlay .premium .close-modal-icon {
   display: flex;
   align-self: flex-end;
   width: 35px;

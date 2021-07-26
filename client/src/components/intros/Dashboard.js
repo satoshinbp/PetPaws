@@ -30,7 +30,7 @@ export default function Dashboard() {
           <img src={dashboardHeaderIcon} alt="a blue cat and a purple cat both sitting" />
         </div>
       </div>
-      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>

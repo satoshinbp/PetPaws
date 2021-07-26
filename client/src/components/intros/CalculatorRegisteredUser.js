@@ -4,6 +4,7 @@ import Premium from '../../pages/Premium';
 
 export default function CalculatorRegisteredUser() {
   const [showPremium, setShowPremium] = useState(false);
+
   return (
     <div className="intro">
       <div className="wrapper">
@@ -29,7 +30,7 @@ export default function CalculatorRegisteredUser() {
           <img src={calculatorIcon} alt="cat stiting besides cat food" />
         </div>
       </div>
-      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>

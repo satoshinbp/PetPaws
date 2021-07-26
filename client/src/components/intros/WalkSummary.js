@@ -29,7 +29,7 @@ export default function WalkSummary() {
           <img src={activityTrackerIcon} alt="running dog with smile" />
         </div>
       </div>
-      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>

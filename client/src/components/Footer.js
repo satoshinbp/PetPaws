@@ -6,7 +6,7 @@ import footerIcon from '../images/footer.svg';
 import Premium from '../pages/Premium';
 
 export default function Footer() {
-  const { currentUser, logout } = useAuth();
+  const { currentUser } = useAuth();
   const [showPremium, setShowPremium] = useState(false);
 
   return (
@@ -45,7 +45,8 @@ export default function Footer() {
           </ul>
         </nav>
       </div>
-      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </footer>
