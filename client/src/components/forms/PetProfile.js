@@ -4,7 +4,7 @@ export default function petProfileForm(props) {
   const today = new Date();
 
   return (
-    <form className="basic-form bg-primary-light" onSubmit={(e) => props.handleSubmit(e)}>
+    <form className="bg-primary-light" onSubmit={(e) => props.handleSubmit(e)}>
       <div className="img-area">
         <div className="errorMessage">{props.errorMessage && props.errorMessage}</div>
         <input

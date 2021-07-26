@@ -1,4 +1,4 @@
-.basic-form {
+form {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
@@ -27,11 +27,16 @@
   .input-area-half {
     width: 100%;
   }
+
+  .btn-area {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+  }
 }
 
 @media screen and (min-width: $tb-breakpoint) {
-  .calculator .basic-form,
-  .profile .basic-form {
+  form {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -51,5 +56,16 @@
 
   .contact .basic-form {
     align-items: center;
+  }
+
+  .meal-form,
+  .walk-form {
+    .btn-area {
+      flex-direction: row-reverse;
+
+      button {
+        width: 100%;
+      }
+    }
   }
 }
