@@ -35,9 +35,9 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
 
       <div className="meal-form-content">
-        <h2>ADD NEW MEAL</h2>
-        {/* Styling to be removed */}
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
+        <h2>Add New Meal</h2>
+
+        <form onSubmit={handleSubmit}>
           <div className="input-wrapper">
             <div>
               <label htmlFor="name">Meal Name</label>

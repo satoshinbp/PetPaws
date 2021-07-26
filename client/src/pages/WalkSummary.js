@@ -22,13 +22,11 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
             <div className="bg-primary-light walk-summary">
               <div class="basic-info">
                 <div className="pet-image-name-wrapper">
-                  {/* if there is no pet img uploaded, use default img*/}
                   {petProfile.image ? (
                     <img className="pet-image" src={petProfile.image} />
                   ) : (
                     <img className="pet-image" src={defaultPetImg} />
                   )}
-                  {/* if there is no pet pet pofile, warn to create profile*/}
                   {petProfile.name ? (
                     <p className="pet-name">{petProfile.name}</p>
                   ) : (

@@ -5,7 +5,6 @@ import MealDayChart from '../components/charts/MealDayChart';
 import MealForm from '../components/forms/Meal';
 import MealSummaryIntro from '../components/intros/MealSummary';
 import defaultPetImg from '../images/pet-profile-default.jpg';
-import closeModalIcon from '../images/close-modal.svg';
 
 export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) {
   const [showForm, setShowForm] = useState(false);
@@ -23,13 +22,11 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
             <div className="bg-primary-light meal-summary">
               <div className="basic-info">
                 <div className="pet-image-name-wrapper">
-                  {/* if there is no pet img uploaded, use default img */}
                   {petProfile.image ? (
                     <img className="pet-image" src={petProfile.image} />
                   ) : (
                     <img className="pet-image" src={defaultPetImg} />
                   )}
-                  {/* if there is no pet profile, show warning */}
                   {petProfile.name ? (
                     <p className="pet-name">{petProfile.name}</p>
                   ) : (
