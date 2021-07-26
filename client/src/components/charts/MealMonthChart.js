@@ -208,7 +208,7 @@ const MealMonthChart = ({ allMeals, MER }) => {
         </button>
         {graphData.length > 0 ? (
           <p>
-            {month[0].split('-').join(' ')} to {month[month.length - 1].split('-').join(' ')}
+            {month[0].split('-').join('/')} to {month[month.length - 1].split('-').join('/')}
           </p>
         ) : (
           ''

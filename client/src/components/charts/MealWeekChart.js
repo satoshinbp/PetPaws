@@ -195,7 +195,7 @@ const MealWeekChart = ({ allMeals, MER }) => {
         </button>
         {graphData.length > 0 ? (
           <p>
-            {week[6].split('-').join(' ')} to {week[0].split('-').join(' ')}
+            {week[6].split('-').join('/')} to {week[0].split('-').join('/')}
           </p>
         ) : (
           ''
