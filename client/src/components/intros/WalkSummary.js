@@ -19,18 +19,18 @@ export default function WalkSummary() {
           </div>
 
           <div className="btn-area">
-            <button onClick={() => setShowPremium(true)} className="btn-contained--intro">
+            <button className="btn-contained--intro" onClick={() => setShowPremium(true)}>
               Upgrade to Premium
             </button>
-          </div>
-          <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
-            {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
           </div>
         </div>
 
         <div className="intro__img-area mb-hidden">
           <img src={activityTrackerIcon} alt="running dog with smile" />
         </div>
+      </div>
+      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+        {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>
   );

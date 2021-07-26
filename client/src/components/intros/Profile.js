@@ -4,6 +4,7 @@ import Premium from '../../pages/Premium';
 
 export default function Profile() {
   const [showPremium, setShowPremium] = useState(false);
+
   return (
     <div className="intro">
       <div className="wrapper">
@@ -19,18 +20,18 @@ export default function Profile() {
           </div>
 
           <div className="btn-area">
-            <button onClick={() => setShowPremium(true)} className="btn-contained--intro">
+            <button className="btn-contained--intro" onClick={() => setShowPremium(true)}>
               Upgrade to Premium
             </button>
-          </div>
-          <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
-            {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
           </div>
         </div>
 
         <div className="intro__img-area mb-hidden">
           <img src={profileIcon} alt="a cat and a dog both sitting" />
         </div>
+      </div>
+      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+        {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>
   );
