@@ -16,7 +16,7 @@ export default function CalculatorRegisteredUser() {
           </div>
 
           <div className="btn-area">
-            <button className="btn-contained--intro">Create free account</button>
+            <button className="btn-contained--intro">Upgrade to Premium</button>
           </div>
         </div>
 

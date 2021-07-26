@@ -1,6 +1,9 @@
+import { useAuth } from '../../contexts/AuthContext';
 import finderIcon from '../../images/finder.svg';
 
 export default function Finder() {
+  const { currentUser } = useAuth();
+
   return (
     <div className="intro">
       <div className="wrapper">
@@ -16,7 +19,9 @@ export default function Finder() {
           </div>
 
           <div className="btn-area">
-            <button className="btn-contained--intro">Create free account</button>
+            <button className="btn-contained--intro">
+              {currentUser ? 'Upgrade to Premium' : 'Create Free Account'}
+            </button>
           </div>
         </div>
 
