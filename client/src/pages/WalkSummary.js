@@ -4,6 +4,7 @@ import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkDayChart from '../components/charts/WalkDayChart';
 import WalkForm from '../components/forms/Walk';
 import WalkSummaryIntro from '../components/intros/WalkSummary';
+import defaultPetImg from '../images/pet-profile-default.jpg';
 
 export default function WalkSummary({ petProfile, allActivities, setAllActivities }) {
   const [showForm, setShowForm] = useState(false);
@@ -14,16 +15,6 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
       <WalkSummaryIntro />
 
       <div className="body">
-        <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
-          {showForm && (
-            <WalkForm
-              petProfile={petProfile}
-              setAllActivities={setAllActivities}
-              closeForm={() => setShowForm(false)}
-            />
-          )}
-        </div>
-
         <div className="bg-primary-meat">
           <div className="wrapper">
             <h2>Activity Summary</h2>
@@ -33,17 +24,17 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
                 <div className="pet-image-name-wrapper">
                   {/* if there is no pet img uploaded, use default img*/}
                   {petProfile.image ? (
-                    <image className="pet-image" src={petProfile.image} />
+                    <img className="pet-image" src={petProfile.image} />
                   ) : (
-                    <p className="pet-image">default image</p>
+                    <img className="pet-image" src={defaultPetImg} />
                   )}
+                  {/* if there is no pet pet pofile, warn to create profile*/}
                   {petProfile.name ? (
                     <p className="pet-name">{petProfile.name}</p>
                   ) : (
                     <p>Please create your pet profile</p>
                   )}
                 </div>
-                {/* if there is no pet pet pofile, warn to create profile*/}
                 {petProfile.name && (
                   <button className="add-button btn-contained" onClick={() => setShowForm(true)}>
                     Add Activity
@@ -51,28 +42,36 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
                 )}
               </div>
               <div className="graphs">
-                <h3 className="graph-title">weekly/monthly charts</h3>
+                <h3 className="graph-title">Activity Charts</h3>
                 <div className="week-month-toggle">
-                  <div className="button-background btn-toggle-tab">
-                    <button
-                      onClick={() => setShowWeekGraph(true)}
-                      className={showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                    >
-                      Week
-                    </button>
-                    <button
-                      onClick={() => setShowWeekGraph(false)}
-                      className={!showWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                    >
-                      Month
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => setShowWeekGraph(true)}
+                    className={showWeekGraph ? 'btn-underlined' : 'button-no-accent'}
+                  >
+                    Week
+                  </button>
+                  <button
+                    onClick={() => setShowWeekGraph(false)}
+                    className={!showWeekGraph ? 'btn-underlined' : 'button-no-accent'}
+                  >
+                    Month
+                  </button>
                 </div>
                 {showWeekGraph ? (
                   <WalkWeekChart allActivities={allActivities} />
                 ) : (
                   <WalkMonthChart allActivities={allActivities} />
                 )}
+                {/* Form */}
+                <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
+                  {showForm && (
+                    <WalkForm
+                      petProfile={petProfile}
+                      setAllActivities={setAllActivities}
+                      closeForm={() => setShowForm(false)}
+                    />
+                  )}
+                </div>
               </div>
             </div>
           </div>

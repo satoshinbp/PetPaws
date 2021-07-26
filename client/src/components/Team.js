@@ -7,12 +7,20 @@ export default function Team() {
   useEffect(() => {
     Axios.get('http://localhost:3001/api/team')
       .then((res) => {
-        setMemberList(res.data);
+        setMemberList(shuffle(res.data));
       })
       .catch((err) => {
         console.log(err);
       });
   }, []);
+
+  const shuffle = ([...array]) => {
+    for (let i = array.length - 1; i >= 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
+  };
 
   return (
     <div className="team bg-secondary-fish">

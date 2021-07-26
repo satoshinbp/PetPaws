@@ -53,20 +53,18 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
               <h3>Nutrition Summary</h3>
               <div className="graphs">
                 <div className="week-month-toggle">
-                  <div className="button-background btn-toggle-tab">
-                    <button
-                      onClick={() => setShowMealWeekGraph(true)}
-                      className={showMealWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                    >
-                      Week
-                    </button>
-                    <button
-                      onClick={() => setShowMealWeekGraph(false)}
-                      className={!showMealWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                    >
-                      Month
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => setShowMealWeekGraph(true)}
+                    className={showMealWeekGraph ? 'btn-underlined' : 'button-no-accent'}
+                  >
+                    Week
+                  </button>
+                  <button
+                    onClick={() => setShowMealWeekGraph(false)}
+                    className={!showMealWeekGraph ? 'btn-underlined' : 'button-no-accent'}
+                  >
+                    Month
+                  </button>
                 </div>
                 {showMealWeekGraph ? (
                   <MealWeekChart allMeals={allMeals} MER={MER} />
@@ -85,20 +83,18 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
               <h3>Activity Summary</h3>
               <div className="graphs">
                 <div className="week-month-toggle">
-                  <div className="button-background btn-toggle-tab">
-                    <button
-                      onClick={() => setShowWalkWeekGraph(true)}
-                      className={showWalkWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                    >
-                      Week
-                    </button>
-                    <button
-                      onClick={() => setShowWalkWeekGraph(false)}
-                      className={!showWalkWeekGraph ? 'btn-toggle-tab btn-darkened' : 'button-no-accent'}
-                    >
-                      Month
-                    </button>
-                  </div>
+                  <button
+                    onClick={() => setShowWalkWeekGraph(true)}
+                    className={showWalkWeekGraph ? 'btn-underlined' : 'button-no-accent'}
+                  >
+                    Week
+                  </button>
+                  <button
+                    onClick={() => setShowWalkWeekGraph(false)}
+                    className={!showWalkWeekGraph ? 'btn-underlined' : 'button-no-accent'}
+                  >
+                    Month
+                  </button>
                 </div>
                 {showWalkWeekGraph ? (
                   <WalkWeekChart allActivities={allActivities} />
