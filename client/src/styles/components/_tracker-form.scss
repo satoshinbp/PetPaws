@@ -8,55 +8,39 @@
 
 .walk-form,
 .meal-form {
-  .meal-form-content,
-  .walk-form-content {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 1rem;
-    height: 100%;
-    width: 100%;
-    box-sizing: border-box;
-    overflow-y: scroll;
-  }
-  input,
-  select,
-  button {
-    box-sizing: border-box;
-  }
-  form {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 2rem;
-    .input-wrapper {
-      display: grid;
-      gap: 1rem;
-      div {
-        position: relative;
-        display: flex;
-        flex-flow: column nowrap;
-        text-align: left;
-        .input-unit {
-          position: absolute; // unit such as kcal, km
-          top: 25px; // depends on input size
-          right: 1rem;
-        }
-      }
-    }
-    // CREATE, CANCEL BUTTON
-    .button-wrapper {
-      display: flex;
-      flex-flow: column nowrap;
-      gap: 1rem;
-      margin: 0;
-    }
-  }
+  // form {
+  //   display: flex;
+  //   flex-flow: column nowrap;
+  //   gap: 2rem;
+  //   .input-wrapper {
+  //     display: grid;
+  //     gap: 1rem;
+  //     div {
+  //       position: relative;
+  //       display: flex;
+  //       flex-flow: column nowrap;
+  //       text-align: left;
+  //       .input-unit {
+  //         position: absolute; // unit such as kcal, km
+  //         top: 25px; // depends on input size
+  //         right: 1rem;
+  //       }
+  //     }
+  //   }
+  //   // CREATE, CANCEL BUTTON
+  //   .button-wrapper {
+  //     display: flex;
+  //     flex-flow: column nowrap;
+  //     gap: 1rem;
+  //     margin: 0;
+  //   }
+  // }
 }
 
 @media screen and (min-width: $tb-breakpoint) {
   .walk-form,
   .meal-form {
-    .meal-form-content,
-    .walk-form-content {
+    .modal-content {
       display: flex;
       flex-flow: column nowrap;
       gap: 2rem;

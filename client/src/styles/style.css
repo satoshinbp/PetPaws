@@ -1176,120 +1176,44 @@ nav ul {
   background-color: #ccabda;
 }
 
-.walk-form .meal-form-content,
-.walk-form .walk-form-content,
-.meal-form .meal-form-content,
-.meal-form .walk-form-content {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-y: scroll;
-}
-
-.walk-form input,
-.walk-form select,
-.walk-form button,
-.meal-form input,
-.meal-form select,
-.meal-form button {
-  box-sizing: border-box;
-}
-
-.walk-form form,
-.meal-form form {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 2rem;
-}
-
-.walk-form form .input-wrapper,
-.meal-form form .input-wrapper {
-  display: grid;
-  gap: 1rem;
-}
-
-.walk-form form .input-wrapper div,
-.meal-form form .input-wrapper div {
-  position: relative;
-  display: flex;
-  flex-flow: column nowrap;
-  text-align: left;
-}
-
-.walk-form form .input-wrapper div .input-unit,
-.meal-form form .input-wrapper div .input-unit {
-  position: absolute;
-  top: 25px;
-  right: 1rem;
-}
-
-.walk-form form .button-wrapper,
-.meal-form form .button-wrapper {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
-  margin: 0;
-}
-
 @media screen and (min-width: 600px) {
-  .walk-form .meal-form-content,
-  .walk-form .walk-form-content,
-  .meal-form .meal-form-content,
-  .meal-form .walk-form-content {
+  .walk-form .modal-content,
+  .meal-form .modal-content {
     display: flex;
     flex-flow: column nowrap;
     gap: 2rem;
     padding-bottom: 3rem;
     min-height: calc(100%);
   }
-  .walk-form .meal-form-content h2,
-  .walk-form .walk-form-content h2,
-  .meal-form .meal-form-content h2,
-  .meal-form .walk-form-content h2 {
+  .walk-form .modal-content h2,
+  .meal-form .modal-content h2 {
     margin: 0;
   }
-  .walk-form .meal-form-content input,
-  .walk-form .meal-form-content .input,
-  .walk-form .meal-form-content select,
-  .walk-form .meal-form-content button,
-  .walk-form .walk-form-content input,
-  .walk-form .walk-form-content .input,
-  .walk-form .walk-form-content select,
-  .walk-form .walk-form-content button,
-  .meal-form .meal-form-content input,
-  .meal-form .meal-form-content .input,
-  .meal-form .meal-form-content select,
-  .meal-form .meal-form-content button,
-  .meal-form .walk-form-content input,
-  .meal-form .walk-form-content .input,
-  .meal-form .walk-form-content select,
-  .meal-form .walk-form-content button {
+  .walk-form .modal-content input,
+  .walk-form .modal-content .input,
+  .walk-form .modal-content select,
+  .walk-form .modal-content button,
+  .meal-form .modal-content input,
+  .meal-form .modal-content .input,
+  .meal-form .modal-content select,
+  .meal-form .modal-content button {
     box-sizing: border-box;
     width: 100%;
   }
-  .walk-form .meal-form-content form .input-wrapper,
-  .walk-form .walk-form-content form .input-wrapper,
-  .meal-form .meal-form-content form .input-wrapper,
-  .meal-form .walk-form-content form .input-wrapper {
+  .walk-form .modal-content form .input-wrapper,
+  .meal-form .modal-content form .input-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1.5rem;
     row-gap: 1rem;
   }
-  .walk-form .meal-form-content form .input-wrapper div .input-unit,
-  .walk-form .walk-form-content form .input-wrapper div .input-unit,
-  .meal-form .meal-form-content form .input-wrapper div .input-unit,
-  .meal-form .walk-form-content form .input-wrapper div .input-unit {
+  .walk-form .modal-content form .input-wrapper div .input-unit,
+  .meal-form .modal-content form .input-wrapper div .input-unit {
     position: absolute;
     top: 27px;
   }
-  .walk-form .meal-form-content form .button-wrapper,
-  .walk-form .walk-form-content form .button-wrapper,
-  .meal-form .meal-form-content form .button-wrapper,
-  .meal-form .walk-form-content form .button-wrapper {
+  .walk-form .modal-content form .button-wrapper,
+  .meal-form .modal-content form .button-wrapper {
     flex-direction: row-reverse;
   }
 }
@@ -1778,12 +1702,6 @@ form .btn-area {
 }
 
 .overlay .modal {
-  padding: 1rem;
-}
-
-.overlay .walk-form,
-.overlay .meal-form,
-.overlay .premium {
   position: absolute;
   top: calc(50% - 91px / 2);
   left: 50%;
@@ -1791,6 +1709,7 @@ form .btn-area {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   width: calc(100vw - 20px);
+  padding: 1rem;
   display: flex;
   flex-flow: column nowrap;
   border-radius: 25px;
@@ -1798,15 +1717,7 @@ form .btn-area {
   pointer-events: all;
 }
 
-.overlay .walk-form h2,
-.overlay .meal-form h2,
-.overlay .premium h2 {
-  margin: 0;
-}
-
-.overlay .walk-form .close-modal-icon,
-.overlay .meal-form .close-modal-icon,
-.overlay .premium .close-modal-icon {
+.overlay .modal .close-modal-icon {
   display: flex;
   align-self: flex-end;
   width: 35px;
@@ -1814,9 +1725,14 @@ form .btn-area {
   cursor: pointer;
 }
 
+.overlay .modal .modal-content {
+  box-sizing: border-box;
+  overflow-y: scroll;
+}
+
 .walk-form,
 .meal-form {
-  height: calc((100% - 91px) - 9px);
+  height: calc((100% - 91px) - 20px);
 }
 
 .premium {

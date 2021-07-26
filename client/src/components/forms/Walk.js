@@ -30,11 +30,11 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
     <div className="modal walk-form">
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
 
-      <div className="walk-form-content">
+      <div className="modal-content">
         <h2>Add New Activity</h2>
 
         <form onSubmit={handleSubmit}>
-          <div>
+          <div className="input-area">
             <label htmlFor="name">Activity Name</label>
             <input
               type="text"
@@ -46,7 +46,7 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
             />
           </div>
 
-          <div>
+          <div className="input-area">
             <label htmlFor="date">Date</label>
             <input
               type="date"
@@ -58,7 +58,7 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
             />
           </div>
 
-          <div>
+          <div className="input-area">
             <label htmlFor="minute">Duration</label>
             <input
               type="number"
@@ -71,7 +71,7 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
             <span className="end-adornment">min</span>
           </div>
 
-          <div>
+          <div className="input-area">
             <label htmlFor="amount">Distance</label>
             <input
               type="number"

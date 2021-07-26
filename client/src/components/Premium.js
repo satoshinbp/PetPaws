@@ -4,7 +4,7 @@ import closeModalIcon from '../images/close-modal.svg';
 
 const Premium = ({ closeForm }) => {
   return (
-    <div className="modal">
+    <div className="modal premium">
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
       <div className="premium-content">
         <h2>

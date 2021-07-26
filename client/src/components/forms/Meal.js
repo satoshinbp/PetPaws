@@ -34,7 +34,7 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
     <div className="modal meal-form">
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
 
-      <div className="meal-form-content">
+      <div className="modal-content">
         <h2>Add New Meal</h2>
 
         <form onSubmit={handleSubmit}>
