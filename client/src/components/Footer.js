@@ -1,10 +1,13 @@
 import React from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import footerIcon from '../images/footer.svg';
+import Premium from './Premium';
 
 export default function Footer() {
-  const { currentUser, logout } = useAuth();
+  const { currentUser } = useAuth();
+  const [showPremium, setShowPremium] = useState(false);
 
   return (
     <footer>
@@ -24,7 +27,9 @@ export default function Footer() {
               {currentUser ? (
                 <>
                   <li>
-                    <button className="btn-contained--footer ">Go premium</button>
+                    <button className="btn-contained--footer " onClick={() => setShowPremium(true)}>
+                      Go premium
+                    </button>
                   </li>
                 </>
               ) : (
@@ -39,6 +44,10 @@ export default function Footer() {
             </div>
           </ul>
         </nav>
+      </div>
+
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
+        {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </footer>
   );

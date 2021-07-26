@@ -38,6 +38,7 @@ button {
 
 .btn-outlined {
   border: $btn-borderwidth-outlined solid $btn-bordercolor-outlined;
+  background-color: transparent;
 }
 
 .btn-outlined--header {

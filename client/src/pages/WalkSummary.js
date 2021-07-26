@@ -22,19 +22,18 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
             <div className="bg-primary-light walk-summary">
               <div class="basic-info">
                 <div className="pet-image-name-wrapper">
-                  {/* if there is no pet img uploaded, use default img*/}
                   {petProfile.image ? (
                     <img className="pet-image" src={petProfile.image} />
                   ) : (
                     <img className="pet-image" src={defaultPetImg} />
                   )}
-                  {/* if there is no pet pet pofile, warn to create profile*/}
                   {petProfile.name ? (
                     <p className="pet-name">{petProfile.name}</p>
                   ) : (
                     <p>Please create your pet profile</p>
                   )}
                 </div>
+
                 {petProfile.name && (
                   <button className="add-button btn-contained" onClick={() => setShowForm(true)}>
                     Add Activity
@@ -57,13 +56,14 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
                     Month
                   </button>
                 </div>
+
                 {showWeekGraph ? (
                   <WalkWeekChart allActivities={allActivities} />
                 ) : (
                   <WalkMonthChart allActivities={allActivities} />
                 )}
-                {/* Form */}
-                <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
+
+                <div className={`overlay ${showForm ? 'isActive' : ''}`}>
                   {showForm && (
                     <WalkForm
                       petProfile={petProfile}

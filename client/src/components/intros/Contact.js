@@ -1,7 +1,10 @@
 import { useAuth } from '../../contexts/AuthContext';
 import contactIcon from '../../images/contact.svg';
+import React, { useState } from 'react';
+import Premium from '../Premium';
 
 export default function ContactIntro() {
+  const [showPremium, setShowPremium] = useState(false);
   const { currentUser } = useAuth();
 
   return (
@@ -16,15 +19,23 @@ export default function ContactIntro() {
           </div>
 
           <div className="btn-area">
-            <button className="btn-contained--intro">
-              {currentUser ? 'Upgrade to Premium' : 'Create Free Account'}
-            </button>
+            {currentUser ? (
+              <button className="btn-contained--intro" onClick={() => setShowPremium(true)}>
+                Upgrade to Premium
+              </button>
+            ) : (
+              <button className="btn-contained--intro">Create Free Account</button>
+            )}
           </div>
         </div>
 
         <div className="intro__img-area mb-hidden">
           <img src={contactIcon} alt="sitting dog with question mark" />
         </div>
+      </div>
+
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
+        {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>
   );

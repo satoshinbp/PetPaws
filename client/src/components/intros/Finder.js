@@ -1,8 +1,11 @@
 import { useAuth } from '../../contexts/AuthContext';
 import finderIcon from '../../images/finder.svg';
+import React, { useState } from 'react';
+import Premium from '../Premium';
 
 export default function Finder() {
   const { currentUser } = useAuth();
+  const [showPremium, setShowPremium] = useState(false);
 
   return (
     <div className="intro">
@@ -19,15 +22,22 @@ export default function Finder() {
           </div>
 
           <div className="btn-area">
-            <button className="btn-contained--intro">
-              {currentUser ? 'Upgrade to Premium' : 'Create Free Account'}
-            </button>
+            {currentUser ? (
+              <button className="btn-contained--intro" onClick={() => setShowPremium(true)}>
+                Upgrade to Premium
+              </button>
+            ) : (
+              <button className="btn-contained--intro">Create Free Account</button>
+            )}
           </div>
         </div>
 
         <div className="intro__img-area mb-hidden">
           <img src={finderIcon} alt="cat stiting besides cat food" />
         </div>
+      </div>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
+        {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>
   );
