@@ -36,7 +36,10 @@ form {
 }
 
 @media screen and (min-width: $tb-breakpoint) {
-  form {
+  .calculator-form,
+  .profile-form,
+  .meal-form,
+  .walk-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -47,6 +50,10 @@ form {
       grid-column: span 2;
     }
 
+    .btn-area {
+      align-items: center;
+    }
+
     input,
     select,
     textarea {
@@ -54,7 +61,7 @@ form {
     }
   }
 
-  .contact .basic-form {
+  .contact-form {
     align-items: center;
   }
 

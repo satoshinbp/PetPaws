@@ -793,15 +793,16 @@ nav ul {
 }
 
 /* 3.9. Premium Pop-up  ========= */
+.premium-modal-wrapper {
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
 .premium-content {
   display: flex;
   flex-flow: column nowrap;
-  align-items: center;
   gap: 1rem;
-  height: 100%;
-  width: 100%;
-  box-sizing: border-box;
-  overflow-y: scroll;
 }
 
 .premium-content h2 span {
@@ -810,87 +811,64 @@ nav ul {
   display: block;
 }
 
-.premium-content .features-detail {
+.premium-content .features {
   display: flex;
   flex-flow: column nowrap;
   align-items: center;
-  gap: 0.5rem;
-}
-
-.premium-content .features-detail .feature-wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-  gap: 0.7rem;
-  width: 240px;
-}
-
-.premium-content .features-detail .feature-wrapper p {
-  text-align: left;
-  margin: 0;
-  font-weight: 300;
-}
-
-.premium-content .plans-options {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
   gap: 1rem;
 }
 
-.premium-content .plans-options .plan-wrapper {
+.premium-content .features .feature-area {
+  align-self: flex-start;
+  display: flex;
+  flex-flow: row nowrap;
+  align-items: start;
+  gap: 0.75rem;
+  text-align: left;
+}
+
+.premium-content .features .feature-area p {
+  margin: 0;
+}
+
+.premium-content .plans {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.premium-content .plans .plan-area {
+  flex: 1 0 0;
   display: flex;
   flex-flow: column;
   align-items: center;
-  width: 120px;
   border: 1px solid #3b3054;
   border-radius: 25px;
   padding: 0.5rem;
 }
 
-.premium-content .plans-options .plan-wrapper p {
-  margin: 0.4rem 0;
+.premium-content .plans .plan-area p {
+  margin: 0.5rem 0;
 }
 
-.premium-content .plans-options .plan-wrapper p:nth-of-type(2) {
+.premium-content .plans .plan-area p:nth-of-type(2) {
   font-size: 20px;
 }
 
-.premium-content .plans-options .plan-wrapper:nth-of-type(2) {
+.premium-content .plans .plan-area:nth-of-type(2) {
   background-color: #e4c8f0;
 }
 
-.premium-content .button-wrapper {
-  display: flex;
-  flex-flow: row nowrap;
-  justify-content: center;
-  width: 100%;
-}
-
 @media screen and (min-width: 600px) {
-  .premium {
-    display: grid;
-    grid-gap: 0 !important;
-  }
   .premium-content {
-    justify-content: flex-start;
     gap: 1.5rem;
-    padding: 0;
-    background-color: transparent;
   }
-  .premium-content .features-detail {
-    flex-flow: row wrap;
-  }
-  .premium-content .plans-options {
+  .premium-content .plans {
     gap: 2rem;
   }
-  .premium-content .plans-options .plan-wrapper {
-    width: 192px;
-  }
-  .premium-content .plans-options .plan-wrapper p {
-    margin: 0.2rem;
-  }
-  .premium-content button {
-    height: 60px;
+  .premium-content .plans p {
+    margin: 0.25rem;
   }
 }
 
@@ -1165,56 +1143,6 @@ nav ul {
   }
   .walk-daily .info .daily-list {
     padding: 1rem 2rem;
-  }
-}
-
-.meal-form {
-  background-color: #a4eada;
-}
-
-.walk-form {
-  background-color: #ccabda;
-}
-
-@media screen and (min-width: 600px) {
-  .walk-form .modal-content,
-  .meal-form .modal-content {
-    display: flex;
-    flex-flow: column nowrap;
-    gap: 2rem;
-    padding-bottom: 3rem;
-    min-height: calc(100%);
-  }
-  .walk-form .modal-content h2,
-  .meal-form .modal-content h2 {
-    margin: 0;
-  }
-  .walk-form .modal-content input,
-  .walk-form .modal-content .input,
-  .walk-form .modal-content select,
-  .walk-form .modal-content button,
-  .meal-form .modal-content input,
-  .meal-form .modal-content .input,
-  .meal-form .modal-content select,
-  .meal-form .modal-content button {
-    box-sizing: border-box;
-    width: 100%;
-  }
-  .walk-form .modal-content form .input-wrapper,
-  .meal-form .modal-content form .input-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 1.5rem;
-    row-gap: 1rem;
-  }
-  .walk-form .modal-content form .input-wrapper div .input-unit,
-  .meal-form .modal-content form .input-wrapper div .input-unit {
-    position: absolute;
-    top: 27px;
-  }
-  .walk-form .modal-content form .button-wrapper,
-  .meal-form .modal-content form .button-wrapper {
-    flex-direction: row-reverse;
   }
 }
 
@@ -1595,19 +1523,19 @@ header .profile-img {
   border-width: 4px;
 }
 
-.profile .basic-form .profile-img {
+.profile-form .profile-img {
   width: 128px;
   height: 128px;
   border-width: 8px;
 }
 
-.profile .basic-form .profile-img-input {
+.profile-form .profile-img-input {
   display: none;
   width: 128px;
   height: 128px;
 }
 
-.profile .basic-form .profile-img-label {
+.profile-form .profile-img-label {
   display: initial;
 }
 
@@ -1650,22 +1578,52 @@ form .btn-area {
 }
 
 @media screen and (min-width: 600px) {
-  form {
+  .calculator-form,
+  .profile-form,
+  .meal-form,
+  .walk-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
-  form .img-area,
-  form .radios-area,
-  form .btn-area,
-  form .input-area--two-column {
+  .calculator-form .img-area,
+  .calculator-form .radios-area,
+  .calculator-form .btn-area,
+  .calculator-form .input-area--two-column,
+  .profile-form .img-area,
+  .profile-form .radios-area,
+  .profile-form .btn-area,
+  .profile-form .input-area--two-column,
+  .meal-form .img-area,
+  .meal-form .radios-area,
+  .meal-form .btn-area,
+  .meal-form .input-area--two-column,
+  .walk-form .img-area,
+  .walk-form .radios-area,
+  .walk-form .btn-area,
+  .walk-form .input-area--two-column {
     grid-column: span 2;
   }
-  form input,
-  form select,
-  form textarea {
+  .calculator-form .btn-area,
+  .profile-form .btn-area,
+  .meal-form .btn-area,
+  .walk-form .btn-area {
+    align-items: center;
+  }
+  .calculator-form input,
+  .calculator-form select,
+  .calculator-form textarea,
+  .profile-form input,
+  .profile-form select,
+  .profile-form textarea,
+  .meal-form input,
+  .meal-form select,
+  .meal-form textarea,
+  .walk-form input,
+  .walk-form select,
+  .walk-form textarea {
     width: 100%;
   }
-  .contact .basic-form {
+  .contact-form {
     align-items: center;
   }
   .meal-form .btn-area,
@@ -1682,14 +1640,14 @@ form .btn-area {
 .overlay {
   opacity: 0;
   transform: scale(0);
-  transition: opacity 0.7s, transform 0s 0.7s;
+  transition: opacity 0.5s, transform 0s 0.5s;
 }
 
 .overlay.isActive {
   opacity: 1;
   z-index: 120;
   transform: scale(1);
-  transition: opacity 0.7s;
+  transition: opacity 0.5s;
   position: fixed;
   top: 91px;
   left: 0;
@@ -1709,6 +1667,8 @@ form .btn-area {
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
   width: calc(100vw - 20px);
+  max-height: calc((100% - 91px) - 20px);
+  max-width: 877px;
   padding: 1rem;
   display: flex;
   flex-flow: column nowrap;
@@ -1726,20 +1686,19 @@ form .btn-area {
 }
 
 .overlay .modal .modal-content {
-  box-sizing: border-box;
   overflow-y: scroll;
 }
 
-.walk-form,
-.meal-form {
-  height: calc((100% - 91px) - 20px);
+.meal-modal {
+  background-color: #a4eada;
 }
 
-.premium {
-  height: auto;
-  max-height: calc((100% - 91px) - 9px);
+.walk-modal {
   background-color: #ccabda;
-  overflow-y: scroll;
+}
+
+.premium-modal {
+  background-color: #ccabda;
 }
 
 @media screen and (min-width: 600px) {
@@ -1747,10 +1706,9 @@ form .btn-area {
     top: 94px;
     height: calc(100vh - 94px);
   }
-  .overlay.isActive .walk-form,
-  .overlay.isActive .meal-form,
-  .overlay.isActive .premium {
-    height: auto;
+  .overlay.isActive .walk-modal,
+  .overlay.isActive .meal-modal,
+  .overlay.isActive .premium-modal {
     max-height: calc((100vh - 94px) - 4rem);
     top: 50%;
     padding: 0.5rem 3rem 2rem;

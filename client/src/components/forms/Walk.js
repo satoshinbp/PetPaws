@@ -27,13 +27,13 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
   };
 
   return (
-    <div className="modal walk-form">
+    <div className="modal walk-modal">
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
 
       <div className="modal-content">
         <h2>Add New Activity</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="walk-form">
           <div className="input-area">
             <label htmlFor="name">Activity Name</label>
             <input

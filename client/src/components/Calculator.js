@@ -104,7 +104,7 @@ export default function Calculator(props) {
       <div className="wrapper">
         <h2>let’s see how many calories your pet needs!</h2>
 
-        <form onSubmit={handleSubmit} className="bg-primary-light">
+        <form onSubmit={handleSubmit} className="calculator-form bg-primary-light">
           <div className="radios-area">
             <label>Pet Type</label>
 

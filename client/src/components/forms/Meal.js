@@ -31,13 +31,13 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
   };
 
   return (
-    <div className="modal meal-form">
+    <div className="modal meal-modal">
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
 
       <div className="modal-content">
         <h2>Add New Meal</h2>
 
-        <form onSubmit={handleSubmit}>
+        <form onSubmit={handleSubmit} className="meal-form">
           <div className="input-area">
             <label htmlFor="name">Meal Name</label>
             <input
@@ -111,7 +111,7 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
               required
               onChange={(e) => setCalorie(e.target.value)}
             />
-            <span className="end-adornment">kCal / 100g</span>
+            <span className="end-adornment">kcal / 100g</span>
           </div>
 
           <div className="btn-area">

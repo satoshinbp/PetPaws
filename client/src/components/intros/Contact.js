@@ -33,6 +33,7 @@ export default function ContactIntro() {
           <img src={contactIcon} alt="sitting dog with question mark" />
         </div>
       </div>
+
       <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>

@@ -1,13 +1,13 @@
 .overlay {
   opacity: 0;
   transform: scale(0);
-  transition: opacity 0.7s, transform 0s 0.7s;
+  transition: opacity 0.5s, transform 0s 0.5s;
 
   &.isActive {
     opacity: 1;
     z-index: 120;
     transform: scale(1);
-    transition: opacity 0.7s;
+    transition: opacity 0.5s;
     position: fixed;
     top: $header-height-mb;
     left: 0;
@@ -28,6 +28,8 @@
     -webkit-transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
     width: calc(100vw - 20px);
+    max-height: calc((100% - #{$header-height-mb}) - 20px);
+    max-width: $md-max-width;
     padding: 1rem;
     display: flex;
     flex-flow: column nowrap;
@@ -47,31 +49,31 @@
     }
 
     .modal-content {
-      box-sizing: border-box;
       overflow-y: scroll;
     }
   }
 }
 
-.walk-form,
-.meal-form {
-  height: calc((100% - #{$header-height-mb}) - 20px);
+.meal-modal {
+  background-color: $primary-color;
 }
 
-.premium {
-  height: auto;
-  max-height: calc((100% - 91px) - 9px);
+.walk-modal {
   background-color: $secondary-color;
-  overflow-y: scroll;
 }
+
+.premium-modal {
+  background-color: $secondary-color;
+}
+
 @media screen and (min-width: $tb-breakpoint) {
   .overlay.isActive {
     top: $header-height-pc;
     height: calc(100vh - #{$header-height-pc});
-    .walk-form,
-    .meal-form,
-    .premium {
-      height: auto;
+
+    .walk-modal,
+    .meal-modal,
+    .premium-modal {
       max-height: calc((100vh - #{$header-height-pc}) - 4rem);
       top: 50%;
       padding: 0.5rem 3rem 2rem;
