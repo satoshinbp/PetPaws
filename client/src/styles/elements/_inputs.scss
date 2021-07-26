@@ -46,3 +46,10 @@ label,
   color: $font-color;
   font-weight: $label-fontweight;
 }
+
+.end-adornment {
+  display: inline-block;
+  width: 100px;
+  margin-left: -140px;
+  text-align: right;
+}
