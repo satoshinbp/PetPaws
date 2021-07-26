@@ -39,6 +39,7 @@
       display: flex;
       flex-flow: column nowrap;
       padding-top: 0.5rem;
+      border-radius: $subcomponent-borderradius-mb;
       box-sizing: border-box;
       overflow: hidden;
       // Clicking is invalid on overlay background,

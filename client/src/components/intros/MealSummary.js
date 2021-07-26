@@ -22,13 +22,13 @@ export default function MealSummary() {
               Upgrade to Premium
             </button>
           </div>
+          <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+            {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
+          </div>
         </div>
 
         <div className="intro__img-area mb-hidden">
           <img src={mealTrackerIcon} alt="cat stiting besides cat food" />
-        </div>
-        <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
-          {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
         </div>
       </div>
     </div>

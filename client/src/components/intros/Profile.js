@@ -1,6 +1,9 @@
 import profileIcon from '../../images/profile.svg';
+import React, { useState } from 'react';
+import Premium from '../../pages/Premium';
 
 export default function Profile() {
+  const [showPremium, setShowPremium] = useState(false);
   return (
     <div className="intro">
       <div className="wrapper">
@@ -16,7 +19,12 @@ export default function Profile() {
           </div>
 
           <div className="btn-area">
-            <button className="btn-contained--intro">Upgrade to Premium</button>
+            <button onClick={() => setShowPremium(true)} className="btn-contained--intro">
+              Upgrade to Premium
+            </button>
+          </div>
+          <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+            {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
           </div>
         </div>
 

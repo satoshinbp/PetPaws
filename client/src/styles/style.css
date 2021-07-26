@@ -826,8 +826,6 @@ nav ul {
 }
 
 .premium-content {
-  background-color: rgba(255, 255, 255, 0.4);
-  border-radius: 25px;
   padding: 1rem 0.5rem;
   display: flex;
   flex-flow: column nowrap;
@@ -891,6 +889,10 @@ nav ul {
   font-size: 20px;
 }
 
+.premium-content .plans-options .plan-wrapper:nth-of-type(2) {
+  background-color: #e4c8f0;
+}
+
 .premium-content .button-wrapper {
   display: flex;
   flex-flow: row nowrap;
@@ -910,12 +912,10 @@ nav ul {
 @media screen and (min-width: 600px) {
   .premium {
     display: grid;
-    gap: 0 !important;
     grid-gap: 0 !important;
-    border-radius: 0;
   }
   .premium-content {
-    gap: 2rem;
+    gap: 1.5rem;
     justify-content: flex-start;
     padding-bottom: 3rem;
     padding: 0;
@@ -929,6 +929,9 @@ nav ul {
   }
   .premium-content .plans-options .plan-wrapper {
     width: 192px;
+  }
+  .premium-content .plans-options .plan-wrapper p {
+    margin: 0.2rem;
   }
   .premium-content button {
     height: 60px;
@@ -1235,6 +1238,7 @@ nav ul {
   display: flex;
   flex-flow: column nowrap;
   padding-top: 0.5rem;
+  border-radius: 25px;
   box-sizing: border-box;
   overflow: hidden;
   pointer-events: all;
