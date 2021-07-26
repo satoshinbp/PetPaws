@@ -1,7 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import singupImg from '../images/pet-profile-default.jpg'; // dammy img, to be replaced
 
 export default function Signup() {
   const [error, setError] = useState('');
@@ -49,24 +48,22 @@ export default function Signup() {
         <div className="wrapper">
           <h2>Sign Up</h2>
 
-          {error && <div>{error}</div>}
-
           <form onSubmit={handleSubmit} className="basic-form">
             <div className="input-area">
               <label id="name">Name</label>
-              <input id="name" className="input-md" type="text" ref={nameRef} required />
+              <input id="name" type="text" ref={nameRef} required />
             </div>
             <div className="input-area">
               <label id="email">Email</label>
-              <input type="email" className="input-md" ref={emailRef} required />
+              <input type="email" ref={emailRef} required />
             </div>
             <div className="input-area">
               <label id="password">Password</label>
-              <input type="password" className="input-md" ref={passwordRef} required />
+              <input type="password" ref={passwordRef} required />
             </div>
             <div className="input-area">
               <label id="password-Confirmation">Password Confirmation</label>
-              <input type="password" className="input-md" ref={passwordConfirmRef} required />
+              <input type="password" ref={passwordConfirmRef} required />
             </div>
             <div className="btn-area">
               <button className="btn-contained" disabled={loading} type="submit">
@@ -74,6 +71,8 @@ export default function Signup() {
               </button>
             </div>
           </form>
+
+          {error && <div>{error}</div>}
 
           <div className="divider" />
 
@@ -92,26 +91,24 @@ export default function Signup() {
   };
 
   return (
-    <>
-      <div className="signup-page">
-        <div className="pc-hidden">
-          <div className="intro">
-            <div className="wrapper">{showDescription()}</div>
-          </div>
-          <div className="body">{showForm()}</div>
+    <div className="signup-page">
+      <div className="pc-hidden">
+        <div className="intro">
+          <div className="wrapper">{showDescription()}</div>
         </div>
+        <div className="body">{showForm()}</div>
+      </div>
 
-        <div className="mb-hidden">
-          <div className="bg-color-intro">
-            <div className="wrapper">
-              <div className="signup-container">
-                {showDescription()}
-                {showForm()}
-              </div>
+      <div className="mb-hidden">
+        <div className="bg-color-intro">
+          <div className="wrapper">
+            <div className="auth-container">
+              {showDescription()}
+              {showForm()}
             </div>
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }

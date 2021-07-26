@@ -23,6 +23,12 @@ button {
   background-color: $btn-backgroundcolor-contained-intro;
 }
 
+.btn-contained--footer {
+  background-color: $btn-backgroundcolor-contained;
+  height: 40px;
+  width: 127px;
+}
+
 .btn-outlined {
   border: $btn-borderwidth-outlined solid $btn-bordercolor-outlined;
 }

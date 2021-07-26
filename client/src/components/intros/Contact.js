@@ -1,6 +1,9 @@
+import { useAuth } from '../../contexts/AuthContext';
 import contactIcon from '../../images/contact.svg';
 
 export default function ContactIntro() {
+  const { currentUser } = useAuth();
+
   return (
     <div className="intro">
       <div className="wrapper">
@@ -13,7 +16,9 @@ export default function ContactIntro() {
           </div>
 
           <div className="btn-area">
-            <button className="btn-contained--intro">Create free account</button>
+            <button className="btn-contained--intro">
+              {currentUser ? 'Upgrade to Premium' : 'Create Free Account'}
+            </button>
           </div>
         </div>
 
