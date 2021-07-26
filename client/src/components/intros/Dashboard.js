@@ -1,6 +1,6 @@
 import dashboardHeaderIcon from '../../images/dashboard-header.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function Dashboard() {
   const [showPremium, setShowPremium] = useState(false);
@@ -30,7 +30,7 @@ export default function Dashboard() {
           <img src={dashboardHeaderIcon} alt="a blue cat and a purple cat both sitting" />
         </div>
       </div>
-      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>

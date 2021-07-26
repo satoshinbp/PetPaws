@@ -1,7 +1,7 @@
 import { useAuth } from '../../contexts/AuthContext';
 import contactIcon from '../../images/contact.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function ContactIntro() {
   const [showPremium, setShowPremium] = useState(false);
@@ -33,7 +33,8 @@ export default function ContactIntro() {
           <img src={contactIcon} alt="sitting dog with question mark" />
         </div>
       </div>
-      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>

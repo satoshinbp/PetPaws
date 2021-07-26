@@ -1,13 +1,4 @@
 form {
-  .end-adornment {
-    display: inline-block;
-    width: 100px;
-    margin-left: -140px;
-    text-align: right;
-  }
-}
-
-.basic-form {
   display: flex;
   flex-flow: column nowrap;
   gap: 1rem;
@@ -36,11 +27,19 @@ form {
   .input-area-half {
     width: 100%;
   }
+
+  .btn-area {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+  }
 }
 
 @media screen and (min-width: $tb-breakpoint) {
-  .calculator .basic-form,
-  .profile .basic-form {
+  .calculator-form,
+  .profile-form,
+  .meal-form,
+  .walk-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
 
@@ -51,6 +50,10 @@ form {
       grid-column: span 2;
     }
 
+    .btn-area {
+      align-items: center;
+    }
+
     input,
     select,
     textarea {
@@ -58,7 +61,18 @@ form {
     }
   }
 
-  .contact .basic-form {
+  .contact-form {
     align-items: center;
+  }
+
+  .meal-form,
+  .walk-form {
+    .btn-area {
+      flex-direction: row-reverse;
+
+      button {
+        width: 100%;
+      }
+    }
   }
 }

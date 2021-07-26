@@ -31,6 +31,7 @@ button {
 
 .btn-outlined {
   border: $btn-borderwidth-outlined solid $btn-bordercolor-outlined;
+  background-color: transparent;
 }
 
 // "Week" "Month" buttons for week month graphs

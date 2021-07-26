@@ -1,6 +1,6 @@
 import activityTrackerIcon from '../../images/activity-tracker-purple.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function WalkSummary() {
   const [showPremium, setShowPremium] = useState(false);
@@ -29,7 +29,7 @@ export default function WalkSummary() {
           <img src={activityTrackerIcon} alt="running dog with smile" />
         </div>
       </div>
-      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>

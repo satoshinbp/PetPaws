@@ -1,6 +1,6 @@
 import profileIcon from '../../images/profile.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function Profile() {
   const [showPremium, setShowPremium] = useState(false);
@@ -30,7 +30,7 @@ export default function Profile() {
           <img src={profileIcon} alt="a cat and a dog both sitting" />
         </div>
       </div>
-      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>

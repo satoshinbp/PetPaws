@@ -1,7 +1,7 @@
 import { useAuth } from '../../contexts/AuthContext';
 import finderIcon from '../../images/finder.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function Finder() {
   const { currentUser } = useAuth();
@@ -36,7 +36,7 @@ export default function Finder() {
           <img src={finderIcon} alt="cat stiting besides cat food" />
         </div>
       </div>
-      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>

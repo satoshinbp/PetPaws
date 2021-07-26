@@ -1,6 +1,6 @@
 import mealTrackerIcon from '../../images/meal-tracker.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function MealSummary() {
   const [showPremium, setShowPremium] = useState(false);
@@ -30,7 +30,7 @@ export default function MealSummary() {
           <img src={mealTrackerIcon} alt="cat stiting besides cat food" />
         </div>
       </div>
-      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+      <div className={`overlay ${showPremium ? 'isActive' : ''}`}>
         {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>
