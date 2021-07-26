@@ -33,6 +33,7 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
                     <p>Please create your pet profile</p>
                   )}
                 </div>
+
                 {petProfile.name && (
                   <button className="add-button btn-contained" onClick={() => setShowForm(true)}>
                     Add Meal
@@ -56,13 +57,14 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
                     Month
                   </button>
                 </div>
+
                 {showWeekGraph ? (
                   <MealWeekChart allMeals={allMeals} MER={MER} />
                 ) : (
                   <MealMonthChart allMeals={allMeals} MER={MER} />
                 )}
-                {/* form */}
-                <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
+
+                <div className={`overlay ${showForm ? 'isActive' : ''}`}>
                   {showForm && (
                     <MealForm petProfile={petProfile} setAllMeals={setAllMeals} closeForm={() => setShowForm(false)} />
                   )}

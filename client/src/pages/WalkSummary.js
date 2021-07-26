@@ -33,6 +33,7 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
                     <p>Please create your pet profile</p>
                   )}
                 </div>
+
                 {petProfile.name && (
                   <button className="add-button btn-contained" onClick={() => setShowForm(true)}>
                     Add Activity
@@ -55,13 +56,14 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
                     Month
                   </button>
                 </div>
+
                 {showWeekGraph ? (
                   <WalkWeekChart allActivities={allActivities} />
                 ) : (
                   <WalkMonthChart allActivities={allActivities} />
                 )}
-                {/* Form */}
-                <div className={`modal ${showForm ? 'isActive overlay' : ''}`}>
+
+                <div className={`overlay ${showForm ? 'isActive' : ''}`}>
                   {showForm && (
                     <WalkForm
                       petProfile={petProfile}

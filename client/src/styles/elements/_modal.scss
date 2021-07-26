@@ -63,7 +63,7 @@
   overflow-y: scroll;
 }
 @media screen and (min-width: $tb-breakpoint) {
-  .modal.isActive {
+  .overlay.isActive {
     top: $header-height-pc;
     height: calc(100vh - #{$header-height-pc});
     .walk-form,
