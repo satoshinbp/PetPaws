@@ -1235,12 +1235,6 @@ nav ul {
   margin: 0;
 }
 
-.walk-form form .button-wrapper .btn-outlined,
-.meal-form form .button-wrapper .btn-outlined {
-  border: 1px solid #fff;
-  background-color: transparent;
-}
-
 @media screen and (min-width: 600px) {
   .walk-form .meal-form-content,
   .walk-form .walk-form-content,
@@ -1831,13 +1825,13 @@ form .btn-area {
 }
 
 @media screen and (min-width: 600px) {
-  .modal.isActive {
+  .overlay.isActive {
     top: 94px;
     height: calc(100vh - 94px);
   }
-  .modal.isActive .walk-form,
-  .modal.isActive .meal-form,
-  .modal.isActive .premium {
+  .overlay.isActive .walk-form,
+  .overlay.isActive .meal-form,
+  .overlay.isActive .premium {
     height: auto;
     max-height: calc((100vh - 94px) - 4rem);
     top: 50%;
