@@ -14,5 +14,6 @@ require('./routes/user')(app);
 require('./routes/auth')(app);
 require('./routes/meal')(app);
 require('./routes/activity')(app);
+require('./routes/image')(app);
 
 module.exports = app;
