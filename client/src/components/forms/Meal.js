@@ -97,7 +97,7 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
                 required
                 onChange={(e) => setAmount(e.target.value)}
               />
-              <p className="input-unit">g</p>
+              <span className="end-adornment">g</span>
             </div>
 
             <div>
@@ -112,7 +112,7 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
                 required
                 onChange={(e) => setCalorie(e.target.value)}
               />
-              <p className="input-unit">kCal / 100g</p>
+              <span className="end-adornment">kCal / 100g</span>
             </div>
           </div>
 
