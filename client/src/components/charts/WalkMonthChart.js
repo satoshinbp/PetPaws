@@ -257,7 +257,15 @@ const WalkMonthChart = ({ allActivities }) => {
               bottom: 0,
             }}
           >
-            <Area type="monotone" dataKey="duration" stackId="1" stroke="#8884d8" fill="#8884d8" unit=" minutes" />
+            <Area
+              type="monotone"
+              dataKey="duration"
+              stackId="1"
+              fillOpacity={0.75}
+              stroke="#rgba(59, 48, 84, 0.7)"
+              fill="rgba(59, 48, 84, 1)"
+              unit=" minutes"
+            />
             <Legend wrapperStyle={{ bottom: -25, left: 20 }} />
             <XAxis dataKey="date" />
             <YAxis />
@@ -265,9 +273,8 @@ const WalkMonthChart = ({ allActivities }) => {
             <Area
               type="monotone"
               dataKey="Monthly Average"
-              stroke="#00aced"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+              stroke="rgba(252, 136, 123, 1)"
+              fillOpacity={0}
               unit=" minutes"
             />
           </AreaChart>

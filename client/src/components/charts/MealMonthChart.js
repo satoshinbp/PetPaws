@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, AreaChart } from 'recharts';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
+
 const MealMonthChart = ({ allMeals, MER }) => {
   const createWeekDates = (startDay, endDay) => {
     let tempWeek = [];
@@ -263,19 +264,11 @@ const MealMonthChart = ({ allMeals, MER }) => {
             <Area
               type="monotone"
               dataKey="Monthly Average"
-              stroke="rgba(204, 171, 218, 1)"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+              stroke="rgba(59, 48, 84, 0.6)"
+              fillOpacity={0}
               unit=" kcal"
             />
-            <Area
-              type="monotone"
-              dataKey="Ideal"
-              stroke="rgba(252, 136, 123, 1)"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
-              unit=" kcal"
-            />
+            <Area type="monotone" dataKey="Ideal" stroke="rgba(252, 136, 123, 1)" fillOpacity={0} unit=" kcal" />
           </AreaChart>
         </ResponsiveContainer>
       </div>

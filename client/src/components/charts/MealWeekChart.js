@@ -222,17 +222,17 @@ const MealWeekChart = ({ allMeals, MER }) => {
             <Bar
               barSize={15}
               fillOpacity={1}
-              dataKey="Treat"
+              dataKey="Meal"
               stackId="intake"
-              fill="rgba(59, 48, 84, 0.8)"
+              fill="rgba(204, 171, 218, 0.7)"
               unit=" kcal"
             />
             <Bar
               barSize={15}
               fillOpacity={1}
-              dataKey="Meal"
+              dataKey="Treat"
               stackId="intake"
-              fill="rgba(204, 171, 218, 0.7)"
+              fill="rgba(59, 48, 84, 0.8)"
               unit=" kcal"
             />
             <Area

@@ -1,8 +1,10 @@
 import { useState, useEffect } from 'react';
+import format from 'date-fns/format';
 
 const WalkDayChart = ({ allActivities }) => {
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10));
   const [activityForDay, setActivityForDay] = useState([]); // each input on the date
+  const [dateToDisplay, setDateToDisplay] = useState(null);
 
   useEffect(() => {
     let allWalk = [];
@@ -18,6 +20,10 @@ const WalkDayChart = ({ allActivities }) => {
           distance: allActivities[i].distance,
           name: allActivities[i].name,
         });
+        // format time to display in the daily activity list
+        const rawDateData = new Date(allActivities[i].date);
+        const formattedDate = format(rawDateData, 'dd-MMMM-yyyy');
+        setDateToDisplay(formattedDate.replace('-', ' ').replace('-', ', '));
       }
     }
     setActivityForDay(allWalk);
@@ -29,27 +35,26 @@ const WalkDayChart = ({ allActivities }) => {
         <h2>Daily Activities</h2>
 
         <div className="bg-secondary-light walk-daily">
+          <div className="date-picker">
+            <label htmlFor="walk-date">Choose a date:</label>
+            <input
+              type="date"
+              id="walk-date"
+              name="walk-date"
+              defaultValue={date}
+              required
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </div>
           <div className="info">
-            <div className="date-picker">
-              <label htmlFor="walk-date">Choose a date:</label>
-              <input
-                type="date"
-                id="walk-date"
-                name="walk-date"
-                defaultValue={date}
-                required
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </div>
-
             {activityForDay.length > 0 && date === activityForDay[0].date ? (
               <div className="daily-list">
-                <p>{activityForDay[0].date.split('-').join('/')}</p>
+                <p>{dateToDisplay}</p>
                 {activityForDay.map((activity) => (
-                  <div className="list-item">
-                    <p key={activity.id}>Activity Name:&nbsp;{activity.name},</p>
-                    <p key={activity.id}>Duratinon:&nbsp;{activity.minute} min,</p>
-                    <p key={activity.id}>
+                  <div className="list-item" key={activity.id}>
+                    <p>Activity Name:&nbsp;{activity.name},</p>
+                    <p>Duratinon:&nbsp;{activity.minute} min,</p>
+                    <p>
                       Distance:&nbsp;
                       {activity.distance ? activity.distance + 'km' : 'no data entered'}
                     </p>
@@ -57,7 +62,7 @@ const WalkDayChart = ({ allActivities }) => {
                 ))}
               </div>
             ) : (
-              <p>No activity is added</p>
+              <p>No activity is added on the day</p>
             )}
           </div>
         </div>

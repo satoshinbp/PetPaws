@@ -4,6 +4,7 @@ import WalkWeekChart from '../components/charts/WalkWeekChart';
 import WalkDayChart from '../components/charts/WalkDayChart';
 import WalkForm from '../components/forms/Walk';
 import WalkSummaryIntro from '../components/intros/WalkSummary';
+import defaultPetImg from '../images/pet-profile-default.jpg';
 
 export default function WalkSummary({ petProfile, allActivities, setAllActivities }) {
   const [showForm, setShowForm] = useState(false);
@@ -27,13 +28,13 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
                   ) : (
                     <p className="pet-image">default image</p>
                   )}
+                  {/* if there is no pet pet pofile, warn to create profile*/}
                   {petProfile.name ? (
                     <p className="pet-name">{petProfile.name}</p>
                   ) : (
                     <p>Please create your pet profile</p>
                   )}
                 </div>
-                {/* if there is no pet pet pofile, warn to create profile*/}
                 {petProfile.name && (
                   <button className="add-button btn-contained" onClick={() => setShowForm(true)}>
                     Add Activity
@@ -41,7 +42,7 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
                 )}
               </div>
               <div className="graphs">
-                <h3 className="graph-title">Calorie Charts</h3>
+                <h3 className="graph-title">Activity Charts</h3>
                 <div className="week-month-toggle">
                   <button
                     onClick={() => setShowWeekGraph(true)}
