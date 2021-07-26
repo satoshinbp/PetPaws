@@ -29,8 +29,23 @@ button {
   width: 127px;
 }
 
+.btn-contained--header {
+  background-color: $btn-backgroundcolor-contained;
+  font-size: $standard-fontsize-mb;
+  height: 40px;
+  width: 100px;
+}
+
 .btn-outlined {
   border: $btn-borderwidth-outlined solid $btn-bordercolor-outlined;
+}
+
+.btn-outlined--header {
+  border: $btn-borderwidth-outlined solid $btn-bordercolor-outlined;
+  background-color: white;
+  font-size: $standard-fontsize-mb;
+  height: 40px;
+  width: 100px;
 }
 
 .btn-toggle-tab {

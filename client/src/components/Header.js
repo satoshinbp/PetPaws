@@ -1,12 +1,33 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import { makeStyles } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import Logo from '../images/header.svg';
+import Line from '../images/line.svg';
+import closeButton from '../images/close-button.svg';
+
+const useStyles = makeStyles({
+  customWidth: {
+    display: 'block',
+    width: '350px',
+    background: '#CCABDA',
+  },
+  hover: {
+    display: 'block',
+    '&:hover': {
+      background: 'white',
+    },
+  },
+  close: {
+    textAlign: 'center',
+  },
+});
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -14,6 +35,8 @@ export default function Header() {
   const anchorRef = useRef(null);
   const history = useHistory();
   const { currentUser, logout } = useAuth();
+
+  const classes = useStyles();
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -53,7 +76,7 @@ export default function Header() {
           <ul>
             <div>
               <li>
-                <Link to="/">Logo</Link>
+                <img src={Logo} alt="site logo" />
               </li>
             </div>
 
@@ -72,10 +95,10 @@ export default function Header() {
                 <Link to={currentUser ? '/calorie' : '/calorieguest'}>Calorie Calculator</Link>
               </li>
               <li>
-                <Link to="/finding_stores">Finding Pet Stores/Vets</Link>
+                <Link to="/finding_stores">Stores and Vet</Link>
               </li>
               <li>
-                <Link to="/contact">Contact Us</Link>
+                <Link to="/contact">Contact</Link>
               </li>
               {currentUser ? (
                 <li>
@@ -98,11 +121,21 @@ export default function Header() {
                       >
                         <Paper>
                           <ClickAwayListener onClickAway={handleClose}>
-                            <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                              <MenuItem onClick={handleClose}>
+                            <MenuList
+                              className={classes.customWidth}
+                              autoFocusItem={open}
+                              id="menu-list-grow"
+                              onKeyDown={handleListKeyDown}
+                            >
+                              <MenuItem className={`${classes.hover} ${classes.close}`} onClick={handleClose}>
+                                <img src={closeButton} />
+                              </MenuItem>
+                              <MenuItem className={classes.hover} onClick={handleClose}>
                                 <Link to="/pet_profile">Pet Profile</Link>
                               </MenuItem>
-                              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                              <MenuItem className={classes.hover} onClick={handleLogout}>
+                                Logout
+                              </MenuItem>
                             </MenuList>
                           </ClickAwayListener>
                         </Paper>
@@ -113,10 +146,17 @@ export default function Header() {
               ) : (
                 <>
                   <li>
-                    <Link to="/signin">Sign In</Link>
+                    <Link to="/signin">
+                      <button className="btn-outlined--header ">Sign In</button>
+                    </Link>
                   </li>
                   <li>
-                    <Link to="/signup">Sign Up</Link>
+                    <img src={Line} />
+                  </li>
+                  <li>
+                    <Link to="/signup">
+                      <button className="btn-contained--header ">Sign Up</button>
+                    </Link>
                   </li>
                 </>
               )}

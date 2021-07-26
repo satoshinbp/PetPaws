@@ -1,9 +1,8 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @font-face {
-  font-family: 'To Japan';
+  font-family: "To Japan";
   src: url("fonts/tojapan/to-japan.ttf") format("truetype");
 }
-
 /* 1 Base =================== */
 /* 1.1. Reset =========== */
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -195,9 +194,9 @@ select {
  * Correct the inability to style clickable types in iOS and Safari.
  */
 button,
-[type='button'],
-[type='reset'],
-[type='submit'] {
+[type=button],
+[type=reset],
+[type=submit] {
   -webkit-appearance: button;
 }
 
@@ -205,9 +204,9 @@ button,
  * Remove the inner border and padding in Firefox.
  */
 button::-moz-focus-inner,
-[type='button']::-moz-focus-inner,
-[type='reset']::-moz-focus-inner,
-[type='submit']::-moz-focus-inner {
+[type=button]::-moz-focus-inner,
+[type=reset]::-moz-focus-inner,
+[type=submit]::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -216,9 +215,9 @@ button::-moz-focus-inner,
  * Restore the focus styles unset by the previous rule.
  */
 button:-moz-focusring,
-[type='button']:-moz-focusring,
-[type='reset']:-moz-focusring,
-[type='submit']:-moz-focusring {
+[type=button]:-moz-focusring,
+[type=reset]:-moz-focusring,
+[type=submit]:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -268,8 +267,8 @@ textarea {
  * 1. Add the correct box sizing in IE 10.
  * 2. Remove the padding in IE 10.
  */
-[type='checkbox'],
-[type='radio'] {
+[type=checkbox],
+[type=radio] {
   box-sizing: border-box;
   /* 1 */
   padding: 0;
@@ -279,8 +278,8 @@ textarea {
 /**
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
-[type='number']::-webkit-inner-spin-button,
-[type='number']::-webkit-outer-spin-button {
+[type=number]::-webkit-inner-spin-button,
+[type=number]::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -288,7 +287,7 @@ textarea {
  * 1. Correct the odd appearance in Chrome and Safari.
  * 2. Correct the outline style in Safari.
  */
-[type='search'] {
+[type=search] {
   -webkit-appearance: textfield;
   /* 1 */
   outline-offset: -2px;
@@ -298,7 +297,7 @@ textarea {
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
-[type='search']::-webkit-search-decoration {
+[type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -458,97 +457,100 @@ a {
     padding-top: 94px;
     font-size: 20px;
   }
+
   h1 {
     font-size: 28px;
   }
+
   h2 {
     font-size: 26px;
   }
+
   h3 {
     font-size: 24px;
   }
+
   .wrapper,
-  .wrapper-lg {
+.wrapper-lg {
     padding: 4rem 3rem;
   }
+
   .bg-primary-light,
-  .bg-primary-light-mb-visible {
+.bg-primary-light-mb-visible {
     padding: 2rem 1.5rem;
     border-radius: 50px;
     background-color: #dcf7f1;
   }
+
   .bg-secondary-light,
-  .bg-secondary-light-mb-visible {
+.bg-secondary-light-mb-visible {
     padding: 2rem 1.5rem;
     border-radius: 50px;
     background-color: #e4c8f0;
   }
+
   .mb-hidden {
     display: initial;
   }
+
   .pc-hidden {
     display: none;
   }
+
   .bg-primary-meat {
     background-image: url(../images/bg-green-meatbone-pc.jpg);
   }
+
   .bg-primary-fish {
     background-image: url(../images/bg-green-fishbone-pc.png);
   }
+
   .bg-secondary-meat {
     background-image: url(../images/bg-purple-meatbone-pc.jpg);
   }
+
   .bg-secondary-fish {
     background-image: url(../images/bg-purple-fishbone-pc.jpg);
   }
 }
-
 /* 2 Pages ================== */
 /* 2.1. Sign Up / Sign In ============= */
 .signin-page .mb-hidden,
 .signup-page .mb-hidden {
   display: none;
 }
-
 @media screen and (min-width: 960px) {
   .signin-page .mb-hidden,
-  .signup-page .mb-hidden {
+.signup-page .mb-hidden {
     display: initial;
   }
 }
-
 .signin-page .pc-hidden,
 .signup-page .pc-hidden {
   display: initial;
 }
-
 @media screen and (min-width: 960px) {
   .signin-page .pc-hidden,
-  .signup-page .pc-hidden {
+.signup-page .pc-hidden {
     display: none;
   }
 }
-
 .signin-page .intro li,
 .signup-page .intro li {
   text-align: left;
 }
-
 .signin-page .link-area .link,
 .signup-page .link-area .link {
   text-decoration: underline;
 }
-
 .signin-page .bg-color-intro,
 .signup-page .bg-color-intro {
   background-color: #ffdd95;
 }
-
 .signin-page .wrapper,
 .signup-page .wrapper {
   max-width: 1280px;
 }
-
 .signin-page .auth-container,
 .signup-page .auth-container {
   display: flex;
@@ -556,22 +558,19 @@ a {
   align-items: center;
   gap: 3rem;
 }
-
 .signin-page .auth-container .discription-area,
 .signup-page .auth-container .discription-area {
   text-align: left;
 }
-
 .signin-page .auth-container .signin,
 .signin-page .auth-container .signup,
 .signup-page .auth-container .signin,
 .signup-page .auth-container .signup {
   border-radius: 50px;
 }
-
 @media screen and (min-width: 600px) {
   .signin-page .basic-form,
-  .signup-page .basic-form {
+.signup-page .basic-form {
     align-items: center;
   }
 }
@@ -582,12 +581,10 @@ a {
   text-align: center;
   background-color: #ffdd95;
 }
-
 .intro .wrapper {
   display: flex;
   flex-flow: nowrap column;
 }
-
 @media screen and (min-width: 600px) {
   .intro {
     text-align: left;
@@ -636,6 +633,9 @@ header {
   font-size: 16px;
   background-color: #fff;
 }
+header a {
+  display: block;
+}
 
 .header__wrapper {
   width: 100%;
@@ -678,21 +678,19 @@ nav ul {
   footer nav ul {
     display: block;
   }
+
   .footer-btn {
     display: none;
   }
 }
-
 /* 3.5. Features ============ */
 .features .feature {
   margin-bottom: 1.5rem;
 }
-
 .features .feature__img {
   width: 122px;
   margin: 0 auto;
 }
-
 @media screen and (min-width: 600px) {
   .features .feature {
     margin-bottom: 3rem;
@@ -709,7 +707,7 @@ nav ul {
     flex-basis: 30%;
     text-align: right;
   }
-  .features .feature:nth-child(2n + 1) .feature__img {
+  .features .feature:nth-child(2n+1) .feature__img {
     order: -1;
     text-align: left;
   }
@@ -722,7 +720,6 @@ nav ul {
   align-items: center;
   gap: 1rem;
 }
-
 .team__member-img {
   overflow: hidden;
   width: 138px;
@@ -731,12 +728,10 @@ nav ul {
   border: 2px solid #fff;
   border-radius: 50%;
 }
-
 .team__member-name {
   margin: 0.5rem 0 0;
   font-size: 16px;
 }
-
 @media screen and (min-width: 600px) {
   .team__members {
     flex-flow: wrap row;
@@ -757,7 +752,6 @@ nav ul {
 .calculator__result {
   margin-top: 3rem;
 }
-
 .calculator__result-calorie {
   color: #e4c8f0;
   font-size: 60px;
@@ -771,23 +765,19 @@ nav ul {
   flex-direction: column;
   gap: 1rem;
 }
-
 .search-form .search-combined-icon {
   display: none;
 }
-
 @media screen and (min-width: 600px) {
   .search-form .search-combined-icon {
     display: block;
   }
 }
-
 @media screen and (min-width: 600px) {
   .search-form .search-icon-mobile {
     display: none;
   }
 }
-
 .search-form select {
   align-self: center;
 }
@@ -801,15 +791,12 @@ nav ul {
   align-items: center;
   column-gap: 1rem;
 }
-
 .add-pet .btn-and-label {
   flex: 0 0 100%;
 }
-
 .add-pet .icon-area {
   flex: 0 0 20%;
 }
-
 @media screen and (min-width: 600px) {
   .add-pet .container {
     flex-flow: row nowrap;
@@ -833,7 +820,6 @@ nav ul {
   flex-flow: column nowrap;
   align-items: center;
 }
-
 .meal-summary .basic-info,
 .walk-summary .basic-info {
   width: 100%;
@@ -843,7 +829,6 @@ nav ul {
   gap: 1rem;
   padding: 1rem 0 2.5rem 0;
 }
-
 .meal-summary .basic-info .pet-image-name-wrapper,
 .walk-summary .basic-info .pet-image-name-wrapper {
   display: flex;
@@ -851,12 +836,10 @@ nav ul {
   justify-content: center;
   align-items: center;
 }
-
 .meal-summary .basic-info .pet-image-name-wrapper .pet-name,
 .walk-summary .basic-info .pet-image-name-wrapper .pet-name {
   padding-top: 0.5rem;
 }
-
 .meal-summary .basic-info .pet-image,
 .walk-summary .basic-info .pet-image {
   width: 78px;
@@ -873,7 +856,6 @@ nav ul {
 .meal-summary .button-background {
   background-color: rgba(164, 234, 218, 0.3);
 }
-
 .meal-summary .button-background .btn-darkened {
   background-color: rgba(164, 234, 218, 0.5);
 }
@@ -881,7 +863,6 @@ nav ul {
 .dashboard-meal-summary .button-background {
   background-color: rgba(164, 234, 218, 0.3);
 }
-
 .dashboard-meal-summary .button-background .btn-darkened {
   background-color: rgba(164, 234, 218, 0.5);
 }
@@ -889,7 +870,6 @@ nav ul {
 .walk-summary .button-background {
   background-color: rgba(204, 171, 218, 0.2);
 }
-
 .walk-summary .button-background .btn-darkened {
   background-color: rgba(204, 171, 218, 0.4);
 }
@@ -897,36 +877,34 @@ nav ul {
 .dashboard-walk-summary .button-background {
   background-color: rgba(204, 171, 218, 0.2);
 }
-
 .dashboard-walk-summary .button-background .btn-darkened {
   background-color: rgba(204, 171, 218, 0.4);
 }
 
 @media screen and (min-width: 600px) {
   .meal-summary,
-  .walk-summary {
+.walk-summary {
     display: grid;
     grid-template-columns: 30% 70%;
     gap: 1rem;
   }
   .meal-summary .basic-info,
-  .walk-summary .basic-info {
+.walk-summary .basic-info {
     width: 80%;
     display: grid;
     grid-template-rows: 1fr auto 1fr;
     justify-self: center;
   }
   .meal-summary .basic-info .pet-image-name-wrapper,
-  .walk-summary .basic-info .pet-image-name-wrapper {
+.walk-summary .basic-info .pet-image-name-wrapper {
     align-self: start;
   }
   .meal-summary .basic-info .pet-image-name-wrapper .pet-image,
-  .walk-summary .basic-info .pet-image-name-wrapper .pet-image {
+.walk-summary .basic-info .pet-image-name-wrapper .pet-image {
     width: 120px;
     height: 200px;
   }
 }
-
 .walk-daily .info,
 .meal-daily .info {
   padding: 1rem 0.5rem;
@@ -934,30 +912,25 @@ nav ul {
   flex-flow: column nowrap;
   gap: 1.5rem;
 }
-
 .walk-daily .info .daily-list,
 .meal-daily .info .daily-list {
   border: 1px solid #3b3054;
   padding: 1rem 0.5rem;
   border-radius: 25px;
 }
-
 .walk-daily .info .daily-list > p:first-of-type,
 .meal-daily .info .daily-list > p:first-of-type {
   font-weight: 300;
   border-bottom: 1px solid rgba(59, 48, 84, 0.5);
 }
-
 .walk-daily .info .daily-list p,
 .meal-daily .info .daily-list p {
   padding: 0.5rem 0;
 }
-
 .walk-daily .info .daily-list .list-item,
 .meal-daily .info .daily-list .list-item {
   padding: 0.5rem 0;
 }
-
 .walk-daily .info .daily-list .list-item p,
 .meal-daily .info .daily-list .list-item p {
   padding: 0;
@@ -965,29 +938,28 @@ nav ul {
 
 @media screen and (min-width: 600px) {
   .walk-daily,
-  .meal-daily {
+.meal-daily {
     display: grid;
     grid-template-columns: 50% 50%;
     padding: 1rem 3rem 1rem 3rem;
   }
   .walk-daily .info,
-  .meal-daily .info {
+.meal-daily .info {
     gap: 2rem;
   }
   .walk-daily .info label,
-  .meal-daily .info label {
+.meal-daily .info label {
     font-size: 16px;
     display: grid;
     grid-template-columns: 40% 60%;
     align-items: center;
   }
   .walk-daily .meal-daily-graph,
-  .meal-daily .meal-daily-graph {
+.meal-daily .meal-daily-graph {
     display: flex;
     align-self: center;
   }
 }
-
 .meal-form {
   background-color: #a4eada;
 }
@@ -1001,7 +973,6 @@ nav ul {
   transform: scale(0);
   transition: opacity 0.7s, transform 0s 0.7s;
 }
-
 .modal.isActive {
   opacity: 1;
   z-index: 120;
@@ -1017,7 +988,6 @@ nav ul {
   backdrop-filter: blur(4px);
   pointer-events: none;
 }
-
 .modal.isActive .walk-form,
 .modal.isActive .meal-form {
   position: absolute;
@@ -1036,13 +1006,11 @@ nav ul {
   border-radius: 25px;
   pointer-events: all;
 }
-
 .modal.isActive .walk-form h2,
 .modal.isActive .meal-form h2 {
   text-align: center;
   margin: 0;
 }
-
 .modal.isActive .walk-form .close-modal-icon,
 .modal.isActive .meal-form .close-modal-icon {
   display: flex;
@@ -1051,7 +1019,6 @@ nav ul {
   padding: 0.5rem;
   cursor: pointer;
 }
-
 .modal.isActive .walk-form .meal-form-content,
 .modal.isActive .walk-form .walk-form-content,
 .modal.isActive .meal-form .meal-form-content,
@@ -1065,7 +1032,6 @@ nav ul {
   overflow-y: scroll;
   padding-bottom: 3rem;
 }
-
 .modal.isActive .walk-form input,
 .modal.isActive .walk-form select,
 .modal.isActive .walk-form button,
@@ -1074,20 +1040,17 @@ nav ul {
 .modal.isActive .meal-form button {
   box-sizing: border-box;
 }
-
 .modal.isActive .walk-form form,
 .modal.isActive .meal-form form {
   display: flex;
   flex-flow: column nowrap;
   gap: 2rem;
 }
-
 .modal.isActive .walk-form form .input-wrapper,
 .modal.isActive .meal-form form .input-wrapper {
   display: grid;
   gap: 1rem;
 }
-
 .modal.isActive .walk-form form .input-wrapper div,
 .modal.isActive .meal-form form .input-wrapper div {
   position: relative;
@@ -1095,14 +1058,12 @@ nav ul {
   flex-flow: column nowrap;
   text-align: left;
 }
-
 .modal.isActive .walk-form form .input-wrapper div .input-unit,
 .modal.isActive .meal-form form .input-wrapper div .input-unit {
   position: absolute;
   top: 25px;
   right: 1rem;
 }
-
 .modal.isActive .walk-form form .button-wrapper,
 .modal.isActive .meal-form form .button-wrapper {
   display: flex;
@@ -1110,7 +1071,6 @@ nav ul {
   gap: 1rem;
   margin: 0;
 }
-
 .modal.isActive .walk-form form .button-wrapper .btn-outlined,
 .modal.isActive .meal-form form .button-wrapper .btn-outlined {
   border: 1px solid #fff;
@@ -1123,7 +1083,7 @@ nav ul {
     height: calc(100vh - 94px);
   }
   .modal.isActive .walk-form,
-  .modal.isActive .meal-form {
+.modal.isActive .meal-form {
     height: auto;
     max-height: calc((100vh - 94px) - 4rem);
     top: 50%;
@@ -1131,9 +1091,9 @@ nav ul {
     padding: 1rem 3rem 2rem;
   }
   .modal.isActive .walk-form .meal-form-content,
-  .modal.isActive .walk-form .walk-form-content,
-  .modal.isActive .meal-form .meal-form-content,
-  .modal.isActive .meal-form .walk-form-content {
+.modal.isActive .walk-form .walk-form-content,
+.modal.isActive .meal-form .meal-form-content,
+.modal.isActive .meal-form .walk-form-content {
     display: flex;
     flex-flow: column nowrap;
     gap: 2rem;
@@ -1141,66 +1101,63 @@ nav ul {
     min-height: calc(100%);
   }
   .modal.isActive .walk-form .meal-form-content h2,
-  .modal.isActive .walk-form .walk-form-content h2,
-  .modal.isActive .meal-form .meal-form-content h2,
-  .modal.isActive .meal-form .walk-form-content h2 {
+.modal.isActive .walk-form .walk-form-content h2,
+.modal.isActive .meal-form .meal-form-content h2,
+.modal.isActive .meal-form .walk-form-content h2 {
     margin: 0;
   }
   .modal.isActive .walk-form .meal-form-content input,
-  .modal.isActive .walk-form .meal-form-content .input,
-  .modal.isActive .walk-form .meal-form-content select,
-  .modal.isActive .walk-form .meal-form-content button,
-  .modal.isActive .walk-form .walk-form-content input,
-  .modal.isActive .walk-form .walk-form-content .input,
-  .modal.isActive .walk-form .walk-form-content select,
-  .modal.isActive .walk-form .walk-form-content button,
-  .modal.isActive .meal-form .meal-form-content input,
-  .modal.isActive .meal-form .meal-form-content .input,
-  .modal.isActive .meal-form .meal-form-content select,
-  .modal.isActive .meal-form .meal-form-content button,
-  .modal.isActive .meal-form .walk-form-content input,
-  .modal.isActive .meal-form .walk-form-content .input,
-  .modal.isActive .meal-form .walk-form-content select,
-  .modal.isActive .meal-form .walk-form-content button {
+.modal.isActive .walk-form .meal-form-content .input,
+.modal.isActive .walk-form .meal-form-content select,
+.modal.isActive .walk-form .meal-form-content button,
+.modal.isActive .walk-form .walk-form-content input,
+.modal.isActive .walk-form .walk-form-content .input,
+.modal.isActive .walk-form .walk-form-content select,
+.modal.isActive .walk-form .walk-form-content button,
+.modal.isActive .meal-form .meal-form-content input,
+.modal.isActive .meal-form .meal-form-content .input,
+.modal.isActive .meal-form .meal-form-content select,
+.modal.isActive .meal-form .meal-form-content button,
+.modal.isActive .meal-form .walk-form-content input,
+.modal.isActive .meal-form .walk-form-content .input,
+.modal.isActive .meal-form .walk-form-content select,
+.modal.isActive .meal-form .walk-form-content button {
     box-sizing: border-box;
     width: 100%;
   }
   .modal.isActive .walk-form .meal-form-content form .input-wrapper,
-  .modal.isActive .walk-form .walk-form-content form .input-wrapper,
-  .modal.isActive .meal-form .meal-form-content form .input-wrapper,
-  .modal.isActive .meal-form .walk-form-content form .input-wrapper {
+.modal.isActive .walk-form .walk-form-content form .input-wrapper,
+.modal.isActive .meal-form .meal-form-content form .input-wrapper,
+.modal.isActive .meal-form .walk-form-content form .input-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
     column-gap: 1.5rem;
     row-gap: 1rem;
   }
   .modal.isActive .walk-form .meal-form-content form .input-wrapper div .input-unit,
-  .modal.isActive .walk-form .walk-form-content form .input-wrapper div .input-unit,
-  .modal.isActive .meal-form .meal-form-content form .input-wrapper div .input-unit,
-  .modal.isActive .meal-form .walk-form-content form .input-wrapper div .input-unit {
+.modal.isActive .walk-form .walk-form-content form .input-wrapper div .input-unit,
+.modal.isActive .meal-form .meal-form-content form .input-wrapper div .input-unit,
+.modal.isActive .meal-form .walk-form-content form .input-wrapper div .input-unit {
     position: absolute;
     top: 27px;
   }
   .modal.isActive .walk-form .meal-form-content form .button-wrapper,
-  .modal.isActive .walk-form .walk-form-content form .button-wrapper,
-  .modal.isActive .meal-form .meal-form-content form .button-wrapper,
-  .modal.isActive .meal-form .walk-form-content form .button-wrapper {
+.modal.isActive .walk-form .walk-form-content form .button-wrapper,
+.modal.isActive .meal-form .meal-form-content form .button-wrapper,
+.modal.isActive .meal-form .walk-form-content form .button-wrapper {
     flex-direction: row-reverse;
   }
 }
-
 /* ========== TO BE REORGANIZED ========== */
 /* 3.2. Charts ============== */
 .graphs {
   width: 100%;
 }
-
 .graphs .week-month-toggle {
   background-color: #dcf7f1;
   border-top-left-radius: 18px;
   border-top-right-radius: 18px;
 }
-
 .graphs .week-month-toggle .button-background {
   display: flex;
   height: 35px;
@@ -1209,16 +1166,13 @@ nav ul {
   justify-content: center;
   padding: 0 1rem;
 }
-
 .graphs .week-month-toggle .button-background .button-no-accent {
   background-color: transparent;
 }
-
 .graphs .week-month-toggle .button-background button {
   font-size: 16px;
   color: #3b3054;
 }
-
 .graphs .walk-week-graph,
 .graphs .walk-month-graph,
 .graphs .meal-week-graph,
@@ -1228,7 +1182,6 @@ nav ul {
   border-bottom-right-radius: 25px;
   padding-bottom: calc(1rem + 50px);
 }
-
 .graphs .walk-week-graph .week-controller,
 .graphs .walk-week-graph .month-controller,
 .graphs .walk-month-graph .week-controller,
@@ -1242,7 +1195,6 @@ nav ul {
   align-items: center;
   justify-content: center;
 }
-
 .graphs .walk-week-graph .week-controller button,
 .graphs .walk-week-graph .month-controller button,
 .graphs .walk-month-graph .week-controller button,
@@ -1254,7 +1206,6 @@ nav ul {
   width: 50px;
   background-color: transparent;
 }
-
 .graphs .walk-week-graph .week-controller p,
 .graphs .walk-week-graph .month-controller p,
 .graphs .walk-month-graph .week-controller p,
@@ -1265,14 +1216,12 @@ nav ul {
 .graphs .meal-month-graph .month-controller p {
   font-size: 16px;
 }
-
 .graphs .walk-week-graph .graph-height,
 .graphs .walk-month-graph .graph-height,
 .graphs .meal-week-graph .graph-height,
 .graphs .meal-month-graph .graph-height {
   height: 300px;
 }
-
 .graphs .walk-week-graph .graph-height .recharts-default-legend,
 .graphs .walk-month-graph .graph-height .recharts-default-legend,
 .graphs .meal-week-graph .graph-height .recharts-default-legend,
@@ -1302,14 +1251,12 @@ nav ul {
     border-radius: 27px;
   }
 }
-
 .calorie-stats {
   border: 1px solid #dadada;
   border-radius: 15px;
   padding: 1rem;
   margin-top: 1rem;
 }
-
 @media screen and (min-width: 960px) {
   .calorie-stats {
     max-width: 390px;
@@ -1322,13 +1269,11 @@ nav ul {
   gap: 1rem;
   text-align: center;
 }
-
 @media screen and (min-width: 960px) {
   .activity-stats {
     max-width: 390px;
   }
 }
-
 .activity-stats .activity-avg {
   flex-basis: 50%;
   border: 1px solid #dadada;
@@ -1345,7 +1290,6 @@ nav ul {
     flex-basis: 50%;
   }
 }
-
 @media screen and (max-width: 600px) {
   .dashboard-pet-profile-wrapper {
     border-radius: 10px;
@@ -1365,11 +1309,9 @@ nav ul {
   flex-wrap: wrap;
   text-align: center;
 }
-
 .pet-details p {
   flex-basis: 50%;
 }
-
 .pet-details .pet-detail {
   border-bottom: solid 1.5px #3b3054;
 }
@@ -1381,11 +1323,9 @@ nav ul {
     grid-gap: 3rem;
   }
 }
-
 .summary-wrapper .button-wrapper {
   margin-top: 3rem;
 }
-
 @media screen and (min-width: 960px) {
   .summary-wrapper .button-wrapper {
     text-align: right;
@@ -1396,18 +1336,16 @@ nav ul {
 .dashboard-walk-summary {
   margin-bottom: 2rem;
 }
-
 @media screen and (min-width: 960px) {
   .dashboard-meal-summary,
-  .dashboard-walk-summary {
+.dashboard-walk-summary {
     margin-bottom: 0;
     min-width: 0;
   }
 }
-
 @media screen and (min-width: 600px) {
   .dashboard-meal-summary,
-  .dashboard-walk-summary {
+.dashboard-walk-summary {
     display: block;
   }
 }
@@ -1426,7 +1364,6 @@ button {
   text-transform: capitalize;
   cursor: pointer;
 }
-
 @media screen and (min-width: 600px) {
   button {
     width: 252px;
@@ -1448,8 +1385,23 @@ button {
   width: 127px;
 }
 
+.btn-contained--header {
+  background-color: #ffdd95;
+  font-size: 16px;
+  height: 40px;
+  width: 100px;
+}
+
 .btn-outlined {
   border: 1px solid #3b3054;
+}
+
+.btn-outlined--header {
+  border: 1px solid #3b3054;
+  background-color: white;
+  font-size: 16px;
+  height: 40px;
+  width: 100px;
 }
 
 .btn-toggle-tab {
@@ -1457,7 +1409,6 @@ button {
   border-radius: 25px;
   box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
-
 @media screen and (min-width: 600px) {
   .btn-toggle-tab {
     border-radius: 30px;
@@ -1471,7 +1422,6 @@ button {
   height: 84px;
   background-color: #a4eada;
 }
-
 @media screen and (min-width: 600px) {
   .icon-btn-circle {
     width: 108px;
@@ -1495,11 +1445,10 @@ select {
   padding: 0 1rem;
   font-size: 14px;
 }
-
 @media screen and (min-width: 600px) {
   input,
-  .input,
-  select {
+.input,
+select {
     width: 340px;
     height: 54px;
     font-size: 18px;
@@ -1513,14 +1462,13 @@ textarea {
   background-color: #fff;
   border: none;
 }
-
 @media screen and (min-width: 600px) {
   textarea {
     width: 340px;
   }
 }
 
-input[type='radio'] {
+input[type=radio] {
   height: 35px;
   width: 35px;
 }
@@ -1562,13 +1510,11 @@ header .profile-img {
   height: 128px;
   border-width: 8px;
 }
-
 .profile .basic-form .profile-img-input {
   display: none;
   width: 128px;
   height: 128px;
 }
-
 .profile .basic-form .profile-img-label {
   display: initial;
 }
@@ -1586,58 +1532,53 @@ form .end-adornment {
   flex-flow: column nowrap;
   gap: 1rem;
 }
-
 .basic-form .radios-area {
   display: flex;
   flex-flow: row wrap;
   justify-content: center;
   column-gap: 1rem;
 }
-
 .basic-form .radios-area label {
   width: 100%;
 }
-
 .basic-form .input-area {
   text-align: left;
 }
-
 .basic-form .input-area--two-column {
   display: flex;
   align-items: flex-end;
   gap: 1rem;
 }
-
 .basic-form .input-area-half {
   width: 100%;
 }
 
 @media screen and (min-width: 600px) {
   .calculator .basic-form,
-  .profile .basic-form {
+.profile .basic-form {
     display: grid;
     grid-template-columns: 1fr 1fr;
   }
   .calculator .basic-form .img-area,
-  .calculator .basic-form .radios-area,
-  .calculator .basic-form .btn-area,
-  .calculator .basic-form .input-area--two-column,
-  .profile .basic-form .img-area,
-  .profile .basic-form .radios-area,
-  .profile .basic-form .btn-area,
-  .profile .basic-form .input-area--two-column {
+.calculator .basic-form .radios-area,
+.calculator .basic-form .btn-area,
+.calculator .basic-form .input-area--two-column,
+.profile .basic-form .img-area,
+.profile .basic-form .radios-area,
+.profile .basic-form .btn-area,
+.profile .basic-form .input-area--two-column {
     grid-column: span 2;
   }
   .calculator .basic-form input,
-  .calculator .basic-form select,
-  .calculator .basic-form textarea,
-  .profile .basic-form input,
-  .profile .basic-form select,
-  .profile .basic-form textarea {
+.calculator .basic-form select,
+.calculator .basic-form textarea,
+.profile .basic-form input,
+.profile .basic-form select,
+.profile .basic-form textarea {
     width: 100%;
   }
+
   .contact .basic-form {
     align-items: center;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
