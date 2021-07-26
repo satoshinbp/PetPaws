@@ -35,6 +35,11 @@ nav ul {
   align-items: center;
 }
 
+.icon-list {
+  padding: 2rem 1.5rem;
+  z-index: 10;
+}
+
 @media screen and (max-width: $pc-breakpoint) {
   .site-logo {
     position: absolute;
@@ -43,7 +48,7 @@ nav ul {
     margin: auto;
   }
 
-  .header__menu {
+  .header-list {
     display: none;
   }
 }

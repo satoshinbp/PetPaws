@@ -97,25 +97,25 @@ export default function Header() {
             <div className="header__menu">
               {currentUser && (
                 <>
-                  <li>
+                  <li className="header-list">
                     <Link to="/mealsummary">Meals Tracker</Link>
                   </li>
-                  <li>
+                  <li className="header-list">
                     <Link to="/walksummary">Walks Tracker</Link>
                   </li>
                 </>
               )}
-              <li>
+              <li className="header-list">
                 <Link to={currentUser ? '/calorie' : '/calorieguest'}>Calorie Calculator</Link>
               </li>
-              <li>
+              <li className="header-list">
                 <Link to="/finding_stores">Stores and Vet</Link>
               </li>
-              <li>
+              <li className="header-list">
                 <Link to="/contact">Contact</Link>
               </li>
               {currentUser ? (
-                <li>
+                <li className="icon-list">
                   <button
                     ref={anchorRef}
                     aria-controls={open ? 'menu-list-grow' : undefined}
@@ -159,15 +159,15 @@ export default function Header() {
                 </li>
               ) : (
                 <>
-                  <li>
+                  <li className="header-list">
                     <Link to="/signin">
                       <button className="btn-outlined--header ">Sign In</button>
                     </Link>
                   </li>
-                  <li>
+                  <li className="header-list">
                     <img src={Line} />
                   </li>
-                  <li>
+                  <li className="header-list">
                     <Link to="/signup">
                       <button className="btn-contained--header ">Sign Up</button>
                     </Link>
