@@ -1,6 +1,6 @@
 import mealTrackerIcon from '../../images/meal-tracker.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function MealSummary() {
   const [showPremium, setShowPremium] = useState(false);

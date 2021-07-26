@@ -1,6 +1,6 @@
 import dashboardHeaderIcon from '../../images/dashboard-header.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function Dashboard() {
   const [showPremium, setShowPremium] = useState(false);

@@ -27,67 +27,66 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
   };
 
   return (
-    <div className="walk-form wrapper">
+    <div className="modal walk-form">
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
 
       <div className="walk-form-content">
         <h2>Add New Activity</h2>
 
         <form onSubmit={handleSubmit}>
-          <div className="input-wrapper">
-            <div>
-              <label htmlFor="name">Activity Name</label>
-              <input
-                type="text"
-                name="name"
-                id="activity-name"
-                value={name}
-                required
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="date">Date</label>
-              <input
-                type="date"
-                id="date"
-                name="activity-date"
-                defaultValue={date}
-                required
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="minute">Duration</label>
-              <input
-                type="number"
-                id="minute"
-                name="minute"
-                value={minute}
-                required
-                onChange={(e) => setMinute(e.target.value)}
-              />
-              <span className="end-adornment">min</span>
-            </div>
-
-            <div>
-              <label htmlFor="amount">Distance</label>
-              <input
-                type="number"
-                id="distance"
-                name="distance"
-                value={distance}
-                min="0"
-                max="10"
-                step="0.1"
-                onChange={(e) => setDistance(e.target.value)}
-              />
-              <span className="end-adornment">km</span>
-            </div>
+          <div>
+            <label htmlFor="name">Activity Name</label>
+            <input
+              type="text"
+              name="name"
+              id="activity-name"
+              value={name}
+              required
+              onChange={(e) => setName(e.target.value)}
+            />
           </div>
-          <div className="button-wrapper">
+
+          <div>
+            <label htmlFor="date">Date</label>
+            <input
+              type="date"
+              id="date"
+              name="activity-date"
+              defaultValue={date}
+              required
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </div>
+
+          <div>
+            <label htmlFor="minute">Duration</label>
+            <input
+              type="number"
+              id="minute"
+              name="minute"
+              value={minute}
+              required
+              onChange={(e) => setMinute(e.target.value)}
+            />
+            <span className="end-adornment">min</span>
+          </div>
+
+          <div>
+            <label htmlFor="amount">Distance</label>
+            <input
+              type="number"
+              id="distance"
+              name="distance"
+              value={distance}
+              min="0"
+              max="10"
+              step="0.1"
+              onChange={(e) => setDistance(e.target.value)}
+            />
+            <span className="end-adornment">km</span>
+          </div>
+
+          <div className="btn-area">
             <button type="submit" className="btn-contained">
               Create
             </button>

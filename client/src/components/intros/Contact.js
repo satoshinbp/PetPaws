@@ -1,7 +1,7 @@
 import { useAuth } from '../../contexts/AuthContext';
 import contactIcon from '../../images/contact.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function ContactIntro() {
   const [showPremium, setShowPremium] = useState(false);

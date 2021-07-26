@@ -1,6 +1,6 @@
 import calculatorIcon from '../../images/calculator.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function CalculatorRegisteredUser() {
   const [showPremium, setShowPremium] = useState(false);

@@ -1,7 +1,7 @@
 import { useAuth } from '../../contexts/AuthContext';
 import finderIcon from '../../images/finder.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function Finder() {
   const { currentUser } = useAuth();

@@ -1,6 +1,6 @@
 import activityTrackerIcon from '../../images/activity-tracker-purple.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function WalkSummary() {
   const [showPremium, setShowPremium] = useState(false);

@@ -1,6 +1,6 @@
 import profileIcon from '../../images/profile.svg';
 import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
+import Premium from '../Premium';
 
 export default function Profile() {
   const [showPremium, setShowPremium] = useState(false);

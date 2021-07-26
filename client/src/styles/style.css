@@ -1187,7 +1187,6 @@ nav ul {
   width: 100%;
   box-sizing: border-box;
   overflow-y: scroll;
-  padding-bottom: 3rem;
 }
 
 .walk-form input,
@@ -1778,6 +1777,10 @@ form .btn-area {
   pointer-events: none;
 }
 
+.overlay .modal {
+  padding: 1rem;
+}
+
 .overlay .walk-form,
 .overlay .meal-form,
 .overlay .premium {
@@ -1787,10 +1790,9 @@ form .btn-area {
   transform: translate(-50%, -50%);
   -webkit-transform: translate(-50%, -50%);
   -ms-transform: translate(-50%, -50%);
-  width: calc(100vw - 9px);
+  width: calc(100vw - 20px);
   display: flex;
   flex-flow: column nowrap;
-  padding-top: 0.5rem;
   border-radius: 25px;
   box-sizing: border-box;
   pointer-events: all;
