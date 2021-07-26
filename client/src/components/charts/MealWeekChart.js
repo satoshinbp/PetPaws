@@ -123,10 +123,10 @@ const MealWeekChart = ({ allMeals, MER }) => {
       graphDataArray.forEach((meal) => {
         slicedDates.push({
           date: meal.date.slice(8, 10).split('-').join('/'),
-          meal: meal.meal,
-          treat: meal.treat,
-          'average calorie': meal.avgCal,
-          'ideal calorie': meal.idealCal,
+          Meal: meal.meal,
+          Treat: meal.treat,
+          'Weekly Average': meal.avgCal,
+          Ideal: meal.idealCal,
         });
       });
     };
@@ -184,10 +184,6 @@ const MealWeekChart = ({ allMeals, MER }) => {
 
   return (
     <div className="meal-week-graph">
-      {/* 確認用 */}
-      {/*graphData.map((meal) => (
-                <p key={meal.date}>{meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}</p>
-            ))*/}
       <div className="week-controller">
         <button
           onClick={() => {
@@ -199,7 +195,7 @@ const MealWeekChart = ({ allMeals, MER }) => {
         </button>
         {graphData.length > 0 ? (
           <p>
-            {week[6].split('-').join(' ')} to {week[0].split('-').join(' ')}
+            {week[6].split('-').join('/')} to {week[0].split('-').join('/')}
           </p>
         ) : (
           ''
@@ -219,22 +215,30 @@ const MealWeekChart = ({ allMeals, MER }) => {
             <YAxis />
             <Tooltip />
             <Legend wrapperStyle={{ bottom: -50, left: 20 }} />
-            <Area
-              type="monotone"
-              dataKey="average calorie"
-              stroke="rgba(204, 171, 218, 1)"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+            <Bar
+              barSize={15}
+              fillOpacity={1}
+              dataKey="Meal"
+              stackId="intake"
+              fill="rgba(204, 171, 218, 0.7)"
+              unit=" kcal"
+            />
+            <Bar
+              barSize={15}
+              fillOpacity={1}
+              dataKey="Treat"
+              stackId="intake"
+              fill="rgba(59, 48, 84, 0.8)"
+              unit=" kcal"
             />
             <Area
               type="monotone"
-              dataKey="ideal calorie"
-              stroke="rgba(252, 136, 123, 1)"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+              dataKey="Weekly Average"
+              stroke="rgba(59, 48, 84, 0.6)"
+              fillOpacity={0}
+              unit=" kcal"
             />
-            <Bar barSize={15} fillOpacity={1} dataKey="treat" stackId="intake" fill="#363869" />
-            <Bar barSize={15} fillOpacity={1} dataKey="meal" stackId="intake" fill="#85d6c3" />
+            <Area type="monotone" dataKey="Ideal" stroke="rgba(252, 136, 123, 1)" fillOpacity={0} unit=" kcal" />
           </ComposedChart>
         </ResponsiveContainer>
       </div>
