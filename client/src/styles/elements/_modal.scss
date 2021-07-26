@@ -1,0 +1,77 @@
+.modal {
+  opacity: 0; // modal off
+  transform: scale(0);
+  transition: opacity 0.7s, transform 0s 0.7s;
+  &.isActive {
+    opacity: 1;
+    z-index: 120;
+    transform: scale(1);
+    transition: opacity 0.7s;
+    position: fixed;
+    top: $header-height-mb;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    background-color: rgba(196, 196, 196, 0.5);
+    backdrop-filter: blur(4px);
+    // inactivate any kind of click on overlay background area
+    pointer-events: none;
+  }
+  .walk-form,
+  .meal-form,
+  .premium {
+    position: absolute;
+    top: calc(50% - #{$header-height-mb} / 2);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    width: calc(100vw - 9px);
+    display: flex;
+    flex-flow: column nowrap;
+    padding-top: 0.5rem;
+    border-radius: $subcomponent-borderradius-mb;
+    box-sizing: border-box;
+    // Clicking is invalid on overlay background,
+    // therefore "pointer-events: all" is necessary
+    // to click inside form content (e.g. inputs, button)
+    pointer-events: all;
+    h2 {
+      margin: 0;
+    }
+    .close-modal-icon {
+      display: flex;
+      align-self: flex-end;
+      width: 35px;
+      padding: 0.5rem;
+      cursor: pointer;
+    }
+  }
+}
+
+.walk-form,
+.meal-form {
+  height: calc((100% - #{$header-height-mb}) - 9px);
+}
+
+.premium {
+  height: auto;
+  max-height: calc((100% - 91px) - 9px);
+  background-color: $secondary-color;
+  overflow-y: scroll;
+}
+@media screen and (min-width: $tb-breakpoint) {
+  .modal.isActive {
+    top: $header-height-pc;
+    height: calc(100vh - #{$header-height-pc});
+    .walk-form,
+    .meal-form,
+    .premium {
+      height: auto;
+      max-height: calc((100vh - #{$header-height-pc}) - 4rem);
+      top: 50%;
+      padding: 0.5rem 3rem 2rem;
+    }
+  }
+}

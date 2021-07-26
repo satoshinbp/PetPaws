@@ -1,5 +1,4 @@
 import homeIcon from '../../images/home.svg';
-
 export default function Home() {
   return (
     <div className="intro">

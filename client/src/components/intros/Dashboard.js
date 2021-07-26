@@ -1,5 +1,10 @@
 import dashboardHeaderIcon from '../../images/dashboard-header.svg';
+import React, { useState } from 'react';
+import Premium from '../../pages/Premium';
+
 export default function Dashboard() {
+  const [showPremium, setShowPremium] = useState(false);
+
   return (
     <div className="intro">
       <div className="wrapper">
@@ -15,13 +20,18 @@ export default function Dashboard() {
           </div>
 
           <div className="btn-area">
-            <button className="btn-contained--intro">Upgrade to Premium</button>
+            <button className="btn-contained--intro" onClick={() => setShowPremium(true)}>
+              Upgrade to Premium
+            </button>
           </div>
         </div>
 
         <div className="intro__img-area mb-hidden">
           <img src={dashboardHeaderIcon} alt="a blue cat and a purple cat both sitting" />
         </div>
+      </div>
+      <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
+        {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
       </div>
     </div>
   );
