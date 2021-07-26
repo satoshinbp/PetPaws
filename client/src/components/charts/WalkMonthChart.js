@@ -127,7 +127,7 @@ const WalkMonthChart = ({ allActivities }) => {
     activities.forEach((date) =>
       graphDataArray.push({
         date: date.date.slice(8, 10).split('-').join('/'),
-        duration: date.minute,
+        Duration: date.minute,
         distance: date.distance,
         'Monthly Average': avgMin,
       })
@@ -136,7 +136,7 @@ const WalkMonthChart = ({ allActivities }) => {
     noDataDates.forEach((date) =>
       graphDataArray.push({
         date: date.slice(8, 10).split('-').join('/'),
-        duration: 0,
+        Duration: 0,
         distance: 0,
         'Monthly Average': avgMin,
       })
@@ -217,11 +217,6 @@ const WalkMonthChart = ({ allActivities }) => {
 
   return (
     <div className="walk-month-graph">
-      {/* MUST set height to display chart */}
-      {/* 確認用 */}
-      {/*graphData.map((meal) => (
-                <p key={meal.date}>{meal.date}, minute: {meal.minute}, distance: {meal.distance} avgMin: {meal.avgMin}</p>
-            ))*/}
       <div className="month-controller">
         <button
           onClick={() => {
@@ -259,7 +254,7 @@ const WalkMonthChart = ({ allActivities }) => {
           >
             <Area
               type="monotone"
-              dataKey="duration"
+              dataKey="Duration"
               stackId="1"
               fillOpacity={0.75}
               stroke="#rgba(59, 48, 84, 0.7)"

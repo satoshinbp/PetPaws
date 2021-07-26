@@ -184,10 +184,6 @@ const MealWeekChart = ({ allMeals, MER }) => {
 
   return (
     <div className="meal-week-graph">
-      {/* 確認用 */}
-      {/*graphData.map((meal) => (
-                <p key={meal.date}>{meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}</p>
-            ))*/}
       <div className="week-controller">
         <button
           onClick={() => {

@@ -187,11 +187,6 @@ const WalkWeekChart = ({ allActivities }) => {
 
   return (
     <div className="walk-week-graph">
-      {/* MUST set height to display chart */}
-      {/* 確認用 */}
-      {/*graphData.map((meal) => (
-                <p key={meal.date}>{meal.date}, minute: {meal.minute}, distance: {meal.distance} avgMin: {meal.avgMin}</p>
-            ))*/}
       <div className="week-controller">
         <button
           onClick={() => {

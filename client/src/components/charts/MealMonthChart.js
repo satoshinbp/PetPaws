@@ -197,13 +197,6 @@ const MealMonthChart = ({ allMeals, MER }) => {
 
   return (
     <div className="meal-month-graph">
-      {/* MUST set height to display chart */}
-      {/* 確認用 */}
-      {/*graphData.map((meal) => (
-          <p key={meal.date}>
-            {meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}
-          </p>
-        ))*/}
       <div className="month-controller">
         <button
           onClick={() => {
