@@ -74,7 +74,7 @@ const LatestWalkSummary = ({ allActivities }) => {
 
     // get average time and distance of a day
     const averageTime = Math.round(timeSum / walks.length);
-    const averageDistance = distanceSum / walks.length;
+    const averageDistance = Math.round((distanceSum / walks.length) * 10) / 10;
     setAvgMin(averageTime);
     setAvgDistance(averageDistance);
   };

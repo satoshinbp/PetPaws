@@ -127,7 +127,7 @@ const WalkMonthChart = ({ allActivities }) => {
     activities.forEach((date) =>
       graphDataArray.push({
         date: date.date.slice(8, 10).split('-').join('/'),
-        duration: date.minute,
+        Duration: date.minute,
         distance: date.distance,
         'Monthly Average': avgMin,
       })
@@ -136,7 +136,7 @@ const WalkMonthChart = ({ allActivities }) => {
     noDataDates.forEach((date) =>
       graphDataArray.push({
         date: date.slice(8, 10).split('-').join('/'),
-        duration: 0,
+        Duration: 0,
         distance: 0,
         'Monthly Average': avgMin,
       })
@@ -217,11 +217,6 @@ const WalkMonthChart = ({ allActivities }) => {
 
   return (
     <div className="walk-month-graph">
-      {/* MUST set height to display chart */}
-      {/* 確認用 */}
-      {/*graphData.map((meal) => (
-                <p key={meal.date}>{meal.date}, minute: {meal.minute}, distance: {meal.distance} avgMin: {meal.avgMin}</p>
-            ))*/}
       <div className="month-controller">
         <button
           onClick={() => {
@@ -233,7 +228,7 @@ const WalkMonthChart = ({ allActivities }) => {
         </button>
         {graphData.length > 0 ? (
           <p>
-            {month[0].split('-').join(' ')} to {month[month.length - 1].split('-').join(' ')}
+            {month[0].split('-').join('/')} to {month[month.length - 1].split('-').join('/')}
           </p>
         ) : (
           ''
@@ -257,7 +252,15 @@ const WalkMonthChart = ({ allActivities }) => {
               bottom: 0,
             }}
           >
-            <Area type="monotone" dataKey="duration" stackId="1" stroke="#8884d8" fill="#8884d8" unit=" minutes" />
+            <Area
+              type="monotone"
+              dataKey="Duration"
+              stackId="1"
+              fillOpacity={0.75}
+              stroke="#rgba(59, 48, 84, 0.7)"
+              fill="rgba(59, 48, 84, 1)"
+              unit=" minutes"
+            />
             <Legend wrapperStyle={{ bottom: -25, left: 20 }} />
             <XAxis dataKey="date" />
             <YAxis />
@@ -265,9 +268,8 @@ const WalkMonthChart = ({ allActivities }) => {
             <Area
               type="monotone"
               dataKey="Monthly Average"
-              stroke="#00aced"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+              stroke="rgba(252, 136, 123, 1)"
+              fillOpacity={0}
               unit=" minutes"
             />
           </AreaChart>

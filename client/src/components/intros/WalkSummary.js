@@ -8,7 +8,7 @@ export default function WalkSummary() {
     <div className="intro">
       <div className="wrapper">
         <div>
-          <h1 className="intro__title">Meal Tracker</h1>
+          <h1 className="intro__title">Activity Tracker</h1>
           <p>
             A nutritious, balanced diet is essential to keeping your dog healthy. We provide a feature that allows you
             to keep track of your pet's meals. Additionally, we offer the ideal nutrition for your pet's weight control.

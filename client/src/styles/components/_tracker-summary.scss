@@ -22,14 +22,9 @@
         padding-top: 0.5rem;
       }
       .pet-image {
-        display: flex;
-        align-items: center;
-        text-align: center;
-        justify-content: center;
         object-fit: cover;
         width: 78px;
         height: 130px;
-        background-color: white;
         border-radius: 20px;
       }
     }

@@ -1,9 +1,5 @@
 import homeIcon from '../../images/home.svg';
-import React, { useState } from 'react';
-import Premium from '../../pages/Premium';
-
 export default function Home() {
-  const [showPremium, setShowPremium] = useState(false);
   return (
     <div className="intro">
       <div className="wrapper">
@@ -19,12 +15,7 @@ export default function Home() {
           </div>
 
           <div className="btn-area">
-            <button onClick={() => setShowPremium(true)} className="btn-contained--intro">
-              Upgrade to Premium
-            </button>
-          </div>
-          <div className={`modal ${showPremium ? 'isActive overlay' : ''}`}>
-            {showPremium && <Premium closeForm={() => setShowPremium(false)} />}
+            <button className="btn-contained--intro">Create Free Account</button>
           </div>
         </div>
 

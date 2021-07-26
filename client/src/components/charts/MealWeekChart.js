@@ -184,10 +184,6 @@ const MealWeekChart = ({ allMeals, MER }) => {
 
   return (
     <div className="meal-week-graph">
-      {/* 確認用 */}
-      {/*graphData.map((meal) => (
-                <p key={meal.date}>{meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}</p>
-            ))*/}
       <div className="week-controller">
         <button
           onClick={() => {
@@ -199,7 +195,7 @@ const MealWeekChart = ({ allMeals, MER }) => {
         </button>
         {graphData.length > 0 ? (
           <p>
-            {week[6].split('-').join(' ')} to {week[0].split('-').join(' ')}
+            {week[6].split('-').join('/')} to {week[0].split('-').join('/')}
           </p>
         ) : (
           ''
@@ -222,17 +218,17 @@ const MealWeekChart = ({ allMeals, MER }) => {
             <Bar
               barSize={15}
               fillOpacity={1}
-              dataKey="Treat"
+              dataKey="Meal"
               stackId="intake"
-              fill="rgba(59, 48, 84, 0.8)"
+              fill="rgba(204, 171, 218, 0.7)"
               unit=" kcal"
             />
             <Bar
               barSize={15}
               fillOpacity={1}
-              dataKey="Meal"
+              dataKey="Treat"
               stackId="intake"
-              fill="rgba(204, 171, 218, 0.7)"
+              fill="rgba(59, 48, 84, 0.8)"
               unit=" kcal"
             />
             <Area
