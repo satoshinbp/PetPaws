@@ -27,11 +27,13 @@
 @import 'components/calculator';
 /* 3.8. Stores/Vets ========= */
 @import 'components/search';
-/* 3.9. Profile ========= */
+/* 3.9. Premium Pop-up  ========= */
+@import 'components/premium';
+/* 3.10. Profile ========= */
 // @import 'components/profile'; no specific styling for profile component
-/* 3.10. Add Pet ========= */
+/* 3.11. Add Pet ========= */
 @import 'components/add-pet';
-/* 3.11. Trackers ========= */
+/* 3.12. Trackers ========= */
 @import 'components/tracker-summary';
 @import 'components/tracker-daily';
 @import 'components/tracker-form';
@@ -55,3 +57,5 @@
 @import 'elements/images';
 /* 4.4. Forms =============== */
 @import 'elements/forms';
+/* 4.4. Modal =============== */
+@import 'elements/modal';
