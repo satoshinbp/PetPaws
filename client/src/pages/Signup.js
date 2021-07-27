@@ -5,23 +5,28 @@ import { useAuth } from '../contexts/AuthContext';
 export default function Signup() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [passConfirm, setPassConfirm] = useState('');
   const history = useHistory();
   const { signup } = useAuth();
+
+  const handleNameChange = (e) => setName(e.target.value);
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePassChange = (e) => setPass(e.target.value);
+  const handlePassConfirmChange = (e) => setPassConfirm(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+    if (pass !== passConfirm) {
       return setError('passwords do not match');
     }
     try {
       setError('');
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value, nameRef.current.value);
+      await signup(email, pass, name);
       history.push('/pet_profile');
     } catch {
       setError('Failed to sign in');
@@ -51,19 +56,19 @@ export default function Signup() {
           <form onSubmit={handleSubmit} className="basic-form">
             <div className="input-area">
               <label id="name">Name</label>
-              <input id="name" type="text" ref={nameRef} required />
+              <input id="name" type="text" required onChange={handleNameChange} />
             </div>
             <div className="input-area">
               <label id="email">Email</label>
-              <input type="email" ref={emailRef} required />
+              <input type="email" required onChange={handleEmailChange} />
             </div>
             <div className="input-area">
               <label id="password">Password</label>
-              <input type="password" ref={passwordRef} required />
+              <input type="password" required onChange={handlePassChange} />
             </div>
             <div className="input-area">
               <label id="password-Confirmation">Password Confirmation</label>
-              <input type="password" ref={passwordConfirmRef} required />
+              <input type="password" required onChange={handlePassConfirmChange} />
             </div>
             <div className="btn-area">
               <button className="btn-contained" disabled={loading} type="submit">

@@ -1,5 +1,5 @@
 import Calculator from '../components/Calculator';
-import CalculatorGuestUserIntro from '../components/intros/CalculatorRegisteredUser';
+import CalculatorGuestUserIntro from '../components/intros/CalculatorGuestUser';
 
 export default function Calorie() {
   return (

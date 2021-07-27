@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import calculatorIcon from '../../images/calculator.svg';
 
 export default function CalculatorRegisteredUser() {
@@ -16,7 +17,9 @@ export default function CalculatorRegisteredUser() {
           </div>
 
           <div className="btn-area">
-            <button className="btn-contained--intro">Create Free Account</button>
+            <Link className="btn btn--link btn-contained--intro" to="/signup">
+              Create Free Account
+            </Link>
           </div>
         </div>
 
