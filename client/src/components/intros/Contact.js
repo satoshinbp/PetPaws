@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
 import contactIcon from '../../images/contact.svg';
 import React, { useState } from 'react';
@@ -24,7 +25,11 @@ export default function ContactIntro() {
                 Upgrade to Premium
               </button>
             ) : (
-              <button className="btn-contained--intro">Create Free Account</button>
+              <div className="btn-area">
+                <Link className="btn btn--link btn-contained--intro" to="/signup">
+                  Create Free Account
+                </Link>
+              </div>
             )}
           </div>
         </div>

@@ -5,10 +5,13 @@ import { useAuth } from '../contexts/AuthContext';
 export default function Signup() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const emailRef = useRef();
-  const passwordRef = useRef();
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
   const history = useHistory();
   const { login } = useAuth();
+
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePassChange = (e) => setPass(e.target.value);
 
   async function handleSubmit(e) {
     e.preventDefault();
@@ -16,9 +19,10 @@ export default function Signup() {
     try {
       setError('');
       setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
+
+      await login(email, pass);
       history.push('/dashboard');
-    } catch {
+    } catch (e) {
       setError('Failed to sign in');
     }
     setLoading(false);
@@ -46,11 +50,11 @@ export default function Signup() {
           <form onSubmit={handleSubmit} className="basic-form">
             <div className="input-area">
               <label>Email</label>
-              <input type="email" ref={emailRef} placeholder="Enter your Email" required />
+              <input type="email" placeholder="Enter Your Email" required onChange={handleEmailChange} />
             </div>
             <div className="input-area">
               <label>Password</label>
-              <input type="password" ref={passwordRef} placeholder="Enter your Password" required />
+              <input type="password" laceholder="Enter Your Password" required onChange={handlePassChange} />
             </div>
             <div className="btn-area">
               <button className="btn-contained" disabled={loading} type="submit">
