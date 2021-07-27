@@ -3,7 +3,7 @@ const db = require('../config/connection');
 exports.findAll = (req, res) => {
   const pet_id = req.query.pet_id;
 
-  const sqlQuery = 'SELECT id, date, time, type, calorie FROM meals WHERE pet_id = ?';
+  const sqlQuery = 'SELECT id, name, date, time, type, calorie FROM meals WHERE pet_id = ?';
   db.query(sqlQuery, [pet_id], (err, data) => {
     if (err) {
       throw err;
