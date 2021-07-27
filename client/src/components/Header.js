@@ -90,7 +90,9 @@ export default function Header() {
             <MobileMenu currentUser={currentUser} />
             <div className="site-logo">
               <li>
-                <img src={Logo} alt="site logo" />
+                <Link to="/">
+                  <img src={Logo} alt="site logo" />
+                </Link>
               </li>
             </div>
 
