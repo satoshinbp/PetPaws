@@ -4,11 +4,13 @@ export default function petProfileForm(props) {
   const today = new Date();
 
   return (
-    <form className="basic-form bg-primary-light" onSubmit={(e) => props.handleSubmit(e)}>
+    <form className="profile-form bg-primary-light" onSubmit={(e) => props.handleSubmit(e)}>
       <div className="img-area">
+        <div className="errorMessage">{props.errorMessage && props.errorMessage}</div>
         <input
           id="profImage"
           type="file"
+          accept="image/*"
           className="profile-img-input"
           onChange={(e) => props.changeImage(e.target.files[0])}
         />
@@ -97,15 +99,8 @@ export default function petProfileForm(props) {
       </div>
       <div className="input-area">
         <label htmlFor="weight">Weight</label>
-        <input
-          type="number"
-          name="weight"
-          value={props.weight}
-          min={0}
-          step={0.1}
-          onChange={(e) => props.changeWeight(e.target.value)}
-          placeholder="Weight in kg"
-        />
+        <input type="number" name="weight" value={props.weight} min={0} step={0.1} />
+        <span className="end-adornment">kg</span>
       </div>
       <div className="input-area">
         <label htmlFor="height">Height</label>
@@ -116,8 +111,8 @@ export default function petProfileForm(props) {
           min={0}
           step={0.1}
           onChange={(e) => props.changeHeight(e.target.value)}
-          placeholder="Height in cm"
         />
+        <span className="end-adornment">cm</span>
       </div>
       <div className="input-area">
         <label htmlFor="activityLevel">Activity Level</label>

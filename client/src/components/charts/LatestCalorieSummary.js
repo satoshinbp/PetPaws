@@ -131,7 +131,7 @@ const LatestCalorieSummary = ({ allMeals, MER }) => {
               <XAxis type="number" domain={[0, 'dataMax']} axisLine={false} tick={false} />
               <YAxis type="category" dataKey="value" axisLine={false} />
               <Tooltip /> {/* values shown when hovered */}
-              <Bar dataKey="calorie" barSize={20} fillOpacity={1}>
+              <Bar dataKey="calorie" barSize={20} fillOpacity={1} unit=" kcal">
                 {graphData.map((entry, index) => (
                   <Cell key={`cell-${index}`} fill={colors[index]} />
                 ))}
