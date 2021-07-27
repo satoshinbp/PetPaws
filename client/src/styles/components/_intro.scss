@@ -2,7 +2,7 @@
   text-align: center;
   background-color: $intro-color;
 
-  .wrapper {
+  .intro-container {
     display: flex;
     flex-flow: nowrap column;
   }
@@ -10,7 +10,7 @@
   @media screen and (min-width: $tb-breakpoint) {
     text-align: left;
 
-    .wrapper {
+    .intro-container {
       display: flex;
       flex-flow: nowrap row;
       align-items: center;

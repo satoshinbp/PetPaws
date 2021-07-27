@@ -30,11 +30,36 @@ button,
   width: 127px;
 }
 
+.btn-contained--header {
+  background-color: $btn-backgroundcolor-contained;
+  font-size: $standard-fontsize-mb;
+  height: 40px;
+  width: 100px;
+}
+
 .btn-outlined {
   border: $btn-borderwidth-outlined solid $btn-bordercolor-outlined;
   background-color: transparent;
 }
 
+.btn-outlined--header {
+  border: $btn-borderwidth-outlined solid $btn-bordercolor-outlined;
+  background-color: white;
+  font-size: $standard-fontsize-mb;
+  height: 40px;
+  width: 100px;
+}
+
+.btn-mobile-menu {
+  background-color: $secondary-color-light;
+  color: $font-color;
+}
+
+.btn-toggle-tab {
+  height: 27px;
+  border-radius: $subcomponent-borderradius-mb;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
 // "Week" "Month" buttons for week month graphs
 .btn-underlined {
   height: calc(#{$btn-week-month-toggle-mb} - 5px);

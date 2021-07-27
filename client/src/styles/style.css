@@ -583,7 +583,7 @@ a {
   background-color: #ffdd95;
 }
 
-.intro .wrapper {
+.intro .intro-container {
   display: flex;
   flex-flow: nowrap column;
 }
@@ -592,7 +592,7 @@ a {
   .intro {
     text-align: left;
   }
-  .intro .wrapper {
+  .intro .intro-container {
     display: flex;
     flex-flow: nowrap row;
     align-items: center;
@@ -637,6 +637,10 @@ header {
   background-color: #fff;
 }
 
+header a {
+  display: block;
+}
+
 .header__wrapper {
   width: 100%;
   max-width: 877px;
@@ -654,6 +658,52 @@ nav ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.icon-list {
+  padding: 2rem 1.5rem;
+  z-index: 10;
+}
+
+@media screen and (max-width: 960px) {
+  .site-logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  .header-list {
+    display: none;
+  }
+}
+
+.mobile-menu {
+  z-index: 10;
+  padding: 2rem 1.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .mobile-menu {
+    padding: 4rem 3rem;
+  }
+}
+
+.btn-mobile-menu {
+  width: 80%;
+}
+
+.btn-mobile-menu:hover {
+  background-color: white;
+}
+
+.btn-mobile-menu a {
+  display: block;
+}
+
+@media screen and (min-width: 960px) {
+  .mobile-menu {
+    display: none;
+  }
 }
 
 /* 3.4. Footer ============== */
@@ -1407,9 +1457,35 @@ button,
   width: 127px;
 }
 
+.btn-contained--header {
+  background-color: #ffdd95;
+  font-size: 16px;
+  height: 40px;
+  width: 100px;
+}
+
 .btn-outlined {
   border: 1px solid #3b3054;
   background-color: transparent;
+}
+
+.btn-outlined--header {
+  border: 1px solid #3b3054;
+  background-color: white;
+  font-size: 16px;
+  height: 40px;
+  width: 100px;
+}
+
+.btn-mobile-menu {
+  background-color: #e4c8f0;
+  color: #3b3054;
+}
+
+.btn-toggle-tab {
+  height: 27px;
+  border-radius: 25px;
+  box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .btn-underlined {
