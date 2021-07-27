@@ -1,4 +1,5 @@
-button {
+button,
+.btn {
   width: 100%;
   height: $btn-height-mb;
   border-radius: $btn-borderradius;
@@ -62,4 +63,10 @@ button {
 
 .btn-area {
   margin: 1rem 0;
+}
+
+.btn--link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

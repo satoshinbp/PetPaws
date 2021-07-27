@@ -1372,7 +1372,8 @@ nav ul {
 /* ====================================== */
 /* 4 Elements =============== */
 /* 4.1. Buttons ============= */
-button {
+button,
+.btn {
   width: 100%;
   height: 50px;
   border-radius: 5px;
@@ -1385,7 +1386,8 @@ button {
 }
 
 @media screen and (min-width: 600px) {
-  button {
+  button,
+  .btn {
     width: 252px;
     height: 54px;
   }
@@ -1440,6 +1442,12 @@ button {
 
 .btn-area {
   margin: 1rem 0;
+}
+
+.btn--link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* 4.2. Inputs ============== */
