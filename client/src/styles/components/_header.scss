@@ -40,6 +40,12 @@ nav ul {
   z-index: 10;
 }
 
+.active {
+  font-weight: $btn-fontweight;
+  border-bottom: 3px solid;
+  border-color: $intro-color;
+}
+
 @media screen and (max-width: $pc-breakpoint) {
   .site-logo {
     position: absolute;
