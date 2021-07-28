@@ -16,9 +16,6 @@ import menuClose from '../images/header-menu-close.svg';
 import { Link, useHistory } from 'react-router-dom';
 
 const useStyles = makeStyles((theme) => ({
-  appBar: {
-    position: 'relative',
-  },
   title: {
     marginLeft: theme.spacing(2),
     flex: 1,
@@ -49,24 +46,16 @@ export default function FullScreenDialog(props) {
     <div className="mobile-menu ">
       <img src={headerMenu} onClick={handleClickMenuOpen} />
       <Dialog fullScreen open={menuOpen} onClose={handleMenuClose} TransitionComponent={Transition}>
-        <AppBar className={classes.appBar}>
-          <Toolbar>
-            <IconButton edge="start" color="inherit" onClick={handleMenuClose} aria-label="close">
-              <img src={menuClose} />
-            </IconButton>
-          </Toolbar>
-        </AppBar>
+        <div className="menu-btn-wrapper" onClick={handleMenuClose} aria-label="close">
+          <img src={menuClose} />
+        </div>
+
         <div className="btn-area">
           <button className="btn-mobile-menu" onClick={handleMenuClose}>
-            <Link to="/finding_stores">Stores and Vet</Link>
+            <Link to="/">Home</Link>
           </button>
         </div>
-        <div className="btn-area">
-          <button className="btn-mobile-menu" onClick={handleMenuClose}>
-            <Link to={props.currentUser ? '/calorie' : '/calorieguest'}>Calorie Calculator</Link>
-          </button>
-        </div>
-        {props.currentUser ? (
+        {props.currentUser && (
           <>
             <div className="btn-area">
               <button className="btn-mobile-menu" onClick={handleMenuClose}>
@@ -79,7 +68,25 @@ export default function FullScreenDialog(props) {
               </button>
             </div>
           </>
-        ) : (
+        )}
+        <div className="btn-area">
+          <button className="btn-mobile-menu" onClick={handleMenuClose}>
+            <Link to={props.currentUser ? '/calorie' : '/calorieguest'}>Calorie Calculator</Link>
+          </button>
+        </div>
+
+        <div className="btn-area">
+          <button className="btn-mobile-menu" onClick={handleMenuClose}>
+            <Link to="/finding_stores">Stores and Vet</Link>
+          </button>
+        </div>
+
+        <div className="btn-area">
+          <button className="btn-mobile-menu" onClick={handleMenuClose}>
+            <Link to="/contact">Contact</Link>
+          </button>
+        </div>
+        {!props.currentUser && (
           <>
             <div className="btn-area">
               <button className="btn-mobile-menu " onClick={handleMenuClose}>
