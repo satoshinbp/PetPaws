@@ -59,7 +59,7 @@ export default function PetProfile({ petProfile }) {
         let formData = new FormData();
         formData.append('file', inputImage);
         // url will be replaced with .env static variable
-        Axios.post('http://localhost:3001/api/image', formData, {
+        Axios.post('https://pet-paws-langara.herokuapp.com/api/image', formData, {
           headers: { 'Content-Type': 'multipart/form-data' },
         }).then((res) => {
           savePetData(res.data.fileLocation);
