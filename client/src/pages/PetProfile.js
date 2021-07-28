@@ -50,6 +50,7 @@ export default function PetProfile({ petProfile }) {
     setIsSpayed(petProfile.is_spayed);
     setActivityLevel(petProfile.activity_level);
     setBodyCondition(petProfile.body_condition);
+    setImageURL(petProfile.image);
   }, [petProfile]);
 
   const handleSubmit = (e) => {

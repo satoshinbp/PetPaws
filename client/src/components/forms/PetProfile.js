@@ -99,7 +99,14 @@ export default function petProfileForm(props) {
       </div>
       <div className="input-area">
         <label htmlFor="weight">Weight</label>
-        <input type="number" name="weight" value={props.weight} min={0} step={0.1} />
+        <input
+          type="number"
+          name="weight"
+          value={props.weight}
+          min={0}
+          step={0.1}
+          onChange={(e) => props.changeWeight(e.target.value)}
+        />
         <span className="end-adornment">kg</span>
       </div>
       <div className="input-area">
