@@ -1,4 +1,4 @@
-import finderIcon from '../images/finder.svg';
+import finderIcon from '../images/finder-for-bg-green.svg';
 import activityTrackerIcon from '../images/activity-tracker-yellow.svg';
 import calculatorIcon from '../images/calculator.svg';
 
