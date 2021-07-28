@@ -701,6 +701,23 @@ nav ul {
   display: block;
 }
 
+.MuiAppBar-colorPrimary {
+  background-image: url(../images/bg-purple-fishbone-mb.png) !important;
+  background-color: #ccabda !important;
+  background-position: center !important;
+}
+
+.MuiDialog-paperFullScreen {
+  background-image: url(../images/bg-purple-fishbone-mb.png) !important;
+  background-color: #ccabda !important;
+  background-position: center !important;
+}
+
+.menu-btn-wrapper {
+  display: flex;
+  padding: 1rem 3rem;
+}
+
 @media screen and (min-width: 960px) {
   .mobile-menu {
     display: none;
