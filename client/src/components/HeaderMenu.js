@@ -58,6 +58,11 @@ export default function FullScreenDialog(props) {
         </AppBar>
         <div className="btn-area">
           <button className="btn-mobile-menu" onClick={handleMenuClose}>
+            <Link to="/">Home</Link>
+          </button>
+        </div>
+        <div className="btn-area">
+          <button className="btn-mobile-menu" onClick={handleMenuClose}>
             <Link to="/finding_stores">Stores and Vet</Link>
           </button>
         </div>
@@ -94,6 +99,11 @@ export default function FullScreenDialog(props) {
             </div>
           </>
         )}
+        <div className="btn-area">
+          <button className="btn-mobile-menu" onClick={handleMenuClose}>
+            <Link to="/contact">Contact</Link>
+          </button>
+        </div>
       </Dialog>
     </div>
   );
