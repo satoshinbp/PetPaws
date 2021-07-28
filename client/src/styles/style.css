@@ -588,6 +588,15 @@ a {
   flex-flow: nowrap column;
 }
 
+.intro__img-area.pc-hidden {
+  height: 180px;
+}
+
+.intro__img-area.pc-hidden img {
+  height: 100%;
+  width: auto;
+}
+
 @media screen and (min-width: 600px) {
   .intro {
     text-align: left;
@@ -605,11 +614,14 @@ a {
     margin: 0;
   }
   .intro__img-area.mb-hidden {
-    flex: 1 0 auto;
+    flex: 0 0 30%;
     min-height: 300px;
     display: flex;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
+  }
+  .intro__img-area.mb-hidden img {
+    width: 100%;
   }
 }
 

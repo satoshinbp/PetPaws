@@ -1,6 +1,7 @@
-import finderIcon from '../images/finder.svg';
-import activityTrackerIcon from '../images/dog-and-clock.svg';
+import finderIcon from '../images/finder-for-bg-green.svg';
+import activityTrackerIcon from '../images/activity-tracker-yellow.svg';
 import calculatorIcon from '../images/calculator.svg';
+import { Link } from 'react-router-dom';
 
 export default function Features() {
   return (
@@ -66,7 +67,9 @@ export default function Features() {
         </div>
 
         <div className="btn-area">
-          <button className="btn-contained">Unlock All Features</button>
+          <Link to="/signup">
+            <button className="btn-contained">Unlock All Features</button>
+          </Link>
         </div>
       </div>
     </div>
