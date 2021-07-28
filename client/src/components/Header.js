@@ -162,13 +162,14 @@ export default function Header() {
               ) : (
                 <>
                   <li className="header-list">
+                    <img src={Line} />
+                  </li>
+                  <li className="header-list">
                     <Link to="/signin">
                       <button className="btn-outlined--header ">Sign In</button>
                     </Link>
                   </li>
-                  <li className="header-list">
-                    <img src={Line} />
-                  </li>
+
                   <li className="header-list">
                     <Link to="/signup">
                       <button className="btn-contained--header ">Sign Up</button>
