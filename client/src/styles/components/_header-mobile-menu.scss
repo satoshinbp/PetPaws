@@ -35,6 +35,10 @@
   padding: 1rem 3rem;
 }
 
+.active-mobile {
+  background-color: white !important;
+}
+
 @media screen and (min-width: $pc-breakpoint) {
   .mobile-menu {
     display: none;

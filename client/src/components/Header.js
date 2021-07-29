@@ -77,7 +77,7 @@ export default function Header() {
       <div className="header__wrapper">
         <nav>
           <ul>
-            <MobileMenu currentUser={currentUser} />
+            <MobileMenu currentUser={currentUser} currentLocation={currentLocation} />
             <div className="site-logo">
               <li>
                 <Link to="/">
