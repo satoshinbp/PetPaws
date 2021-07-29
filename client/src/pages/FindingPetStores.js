@@ -4,6 +4,7 @@ import Map from '../components/GoogleMap';
 import finderCombinedIcon from '../images/finder-combined-icon.svg';
 import finderIconMobile from '../images/finder-icon-mobile.svg';
 import FinderIntro from '../components/intros/Finder';
+import Header from '../components/Header';
 
 export default function FindingPetStores() {
   const [shops, setShops] = useState([]);
@@ -34,6 +35,7 @@ export default function FindingPetStores() {
 
   return (
     <>
+      <Header />
       <FinderIntro />
 
       <div className="body">

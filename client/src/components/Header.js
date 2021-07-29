@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link, useHistory, useLocation } from 'react-router-dom';
+import Axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
 import { makeStyles } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
@@ -12,6 +13,7 @@ import Logo from '../images/header.svg';
 import Line from '../images/line.svg';
 import closeButton from '../images/close-button.svg';
 import MobileMenu from './HeaderMenu';
+import signinImg from '../images/pet-profile-default.jpg';
 
 const useStyles = makeStyles({
   customWidth: {
@@ -40,6 +42,9 @@ export default function Header() {
   const currentLocation = location.pathname;
 
   const classes = useStyles();
+  const [petProfile, setPetProfile] = useState({
+    image: signinImg,
+  });
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -71,6 +76,27 @@ export default function Header() {
     }
     prevOpen.current = open;
   }, [open]);
+
+  useEffect(() => {
+    if (currentUser) {
+      Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`).then((res) => {
+        if (res.data.length > 0) {
+          const user_id = res.data[0].id;
+
+          Axios.get(`http://localhost:3001/api/pet?user_id=${user_id}`)
+            .then((res) => {
+              if (res.data.length === 0) return;
+
+              const fetchedPetProfile = res.data[0];
+              setPetProfile({ ...fetchedPetProfile, birthday: fetchedPetProfile.birthday.slice(0, 10) });
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      });
+    }
+  }, []);
 
   return (
     <header>
@@ -123,15 +149,17 @@ export default function Header() {
               </li>
               {currentUser ? (
                 <li className="icon-list">
-                  <button
-                    ref={anchorRef}
-                    aria-controls={open ? 'menu-list-grow' : undefined}
-                    aria-haspopup="true"
-                    onClick={handleToggle}
-                    className="profile-img"
-                  >
-                    Icon
-                  </button>
+                  {petProfile.image && (
+                    <img
+                      className={`${'pet-image'} ${'profile-img'}`}
+                      src={petProfile.image}
+                      ref={anchorRef}
+                      aria-controls={open ? 'menu-list-grow' : undefined}
+                      aria-haspopup="true"
+                      onClick={handleToggle}
+                    />
+                  )}
+
                   <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                     {({ TransitionProps, placement }) => (
                       <Grow
