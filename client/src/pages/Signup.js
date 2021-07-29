@@ -1,6 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
+import Header from '../components/Header';
 
 export default function Signup() {
   const [error, setError] = useState('');
@@ -96,24 +97,27 @@ export default function Signup() {
   };
 
   return (
-    <div className="signup-page">
-      <div className="pc-hidden">
-        <div className="intro">
-          <div className="wrapper">{showDescription()}</div>
+    <>
+      <Header />
+      <div className="signup-page">
+        <div className="pc-hidden">
+          <div className="intro">
+            <div className="wrapper">{showDescription()}</div>
+          </div>
+          <div className="body">{showForm()}</div>
         </div>
-        <div className="body">{showForm()}</div>
-      </div>
 
-      <div className="mb-hidden">
-        <div className="bg-color-intro">
-          <div className="wrapper">
-            <div className="auth-container">
-              {showDescription()}
-              {showForm()}
+        <div className="mb-hidden">
+          <div className="bg-color-intro">
+            <div className="wrapper">
+              <div className="auth-container">
+                {showDescription()}
+                {showForm()}
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 }

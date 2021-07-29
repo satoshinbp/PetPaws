@@ -24,6 +24,7 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
         setTime('00:00');
         setAmount(0);
         setCalorie(0);
+        closeForm();
       })
       .catch((err) => {
         console.log(err);
@@ -52,11 +53,13 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
 
           <div className="input-area">
             <label htmlFor="type">Meal Type</label>
-            <select id="type" name="meal-type" value={type} onChange={(e) => setType(e.target.value)}>
-              <option value="Wet">Wet</option>
-              <option value="Dry">Dry</option>
-              <option value="Treat">Treat</option>
-            </select>
+            <div class="select-wrapper">
+              <select id="type" name="meal-type" value={type} onChange={(e) => setType(e.target.value)}>
+                <option value="Wet">Wet</option>
+                <option value="Dry">Dry</option>
+                <option value="Treat">Treat</option>
+              </select>
+            </div>
           </div>
 
           <div className="input-area">

@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useAuth } from '../../contexts/AuthContext';
-import finderIcon from '../../images/finder.svg';
+import finderIcon from '../../images/finder-for-bg-yellow.svg';
 import React, { useState } from 'react';
 import Premium from '../Premium';
 
@@ -15,13 +15,10 @@ export default function Finder() {
           <div className="intro-container">
             <div>
               <h1 className="intro__title">Finding Pet Stores / Vets</h1>
-              <p>
-                Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets
-                and pet shops for your convenience.
-              </p>
+              <p>We locate the best vets and pet shops based on your location for your convenience.</p>
 
               <div className="intro__img-area pc-hidden">
-                <img src={finderIcon} alt="cat stiting besides cat food" />
+                <img src={finderIcon} alt="stores and vets" />
               </div>
 
               <div className="btn-area">
@@ -40,7 +37,7 @@ export default function Finder() {
             </div>
 
             <div className="intro__img-area mb-hidden">
-              <img src={finderIcon} alt="cat stiting besides cat food" />
+              <img src={finderIcon} alt="stores and vets" />
             </div>
           </div>
         </div>

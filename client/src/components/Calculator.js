@@ -142,26 +142,28 @@ export default function Calculator(props) {
 
           <div className="input-area">
             <label htmlFor="breed">Breed</label>
-            <select name="breed" value={breedName} onChange={changeBreed} required>
-              <option value="">Select breed</option>
-              {isDog ? (
-                <>
-                  {dogBreeds.map((breed) => (
-                    <option value={breed} key={breed}>
-                      {breed}
-                    </option>
-                  ))}
-                </>
-              ) : (
-                <>
-                  {catBreeds.map((breed) => (
-                    <option value={breed} key={breed}>
-                      {breed}
-                    </option>
-                  ))}
-                </>
-              )}
-            </select>
+            <div class="select-wrapper">
+              <select name="breed" value={breedName} onChange={changeBreed} required>
+                <option value="">Select breed</option>
+                {isDog ? (
+                  <>
+                    {dogBreeds.map((breed) => (
+                      <option value={breed} key={breed}>
+                        {breed}
+                      </option>
+                    ))}
+                  </>
+                ) : (
+                  <>
+                    {catBreeds.map((breed) => (
+                      <option value={breed} key={breed}>
+                        {breed}
+                      </option>
+                    ))}
+                  </>
+                )}
+              </select>
+            </div>
           </div>
 
           <div className="input-area">
@@ -172,21 +174,25 @@ export default function Calculator(props) {
 
           <div className="input-area">
             <label htmlFor="activityLevel">Activity Level</label>
-            <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
-              <option value={0}>Inactive</option>
-              <option value={1}>Somewhat Active</option>
-              <option value={2}>Active</option>
-              <option value={3}>Very Active</option>
-            </select>
+            <div class="select-wrapper">
+              <select name="activityLevel" value={activityLevel} onChange={changeActivityLevel}>
+                <option value={0}>Inactive</option>
+                <option value={1}>Somewhat Active</option>
+                <option value={2}>Active</option>
+                <option value={3}>Very Active</option>
+              </select>
+            </div>
           </div>
 
           <div className="input-area">
             <label htmlFor="bodyCondition">Body Condition</label>
-            <select name="bodyCondition" value={bodyCondition} onChange={changeBodyCondition}>
-              <option value={0}>Underweight</option>
-              <option value={1}>Ideal</option>
-              <option value={2}>Overweight</option>
-            </select>
+            <div class="select-wrapper">
+              <select name="bodyCondition" value={bodyCondition} onChange={changeBodyCondition}>
+                <option value={0}>Underweight</option>
+                <option value={1}>Ideal</option>
+                <option value={2}>Overweight</option>
+              </select>
+            </div>
           </div>
 
           <div className="radios-area">

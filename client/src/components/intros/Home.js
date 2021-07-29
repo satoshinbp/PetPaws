@@ -1,4 +1,5 @@
 import homeIcon from '../../images/home.svg';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   return (
@@ -17,7 +18,9 @@ export default function Home() {
             </div>
 
             <div className="btn-area">
-              <button className="btn-contained--intro">Create Free Account</button>
+              <Link className="btn btn--link btn-contained--intro" to="/signup">
+                Create Free Account
+              </Link>
             </div>
           </div>
 
