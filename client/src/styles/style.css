@@ -728,6 +728,10 @@ nav ul {
   padding: 1rem 3rem;
 }
 
+.active-mobile {
+  background-color: white !important;
+}
+
 @media screen and (min-width: 960px) {
   .mobile-menu {
     display: none;
