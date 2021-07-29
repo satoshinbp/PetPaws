@@ -30,9 +30,19 @@
   background-position: center !important;
 }
 
-.menu-btn-wrapper {
+.menu-btn-container {
   display: flex;
-  padding: 1rem 3rem;
+  justify-content: space-between;
+  align-items: center;
+  height: 91px;
+}
+
+.menu-btn-wrapper {
+  padding: 2rem 1.5rem;
+  display: flex;
+  @media screen and (min-width: $tb-breakpoint) {
+    padding: 4rem 3rem;
+  }
 }
 
 .active-mobile {

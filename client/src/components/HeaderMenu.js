@@ -46,8 +46,10 @@ export default function FullScreenDialog(props) {
     <div className="mobile-menu ">
       <img src={headerMenu} onClick={handleClickMenuOpen} />
       <Dialog fullScreen open={menuOpen} onClose={handleMenuClose} TransitionComponent={Transition}>
-        <div className="menu-btn-wrapper" onClick={handleMenuClose} aria-label="close">
-          <img src={menuClose} />
+        <div className={'menu-btn-container'}>
+          <div className="menu-btn-wrapper" onClick={handleMenuClose} aria-label="close">
+            <img src={menuClose} />
+          </div>
         </div>
 
         <div className="btn-area">
