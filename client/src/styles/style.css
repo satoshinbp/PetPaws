@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @font-face {
   font-family: 'To Japan';
@@ -894,8 +895,9 @@ nav ul {
   }
 }
 
-.search-form select {
+.search-form .select-wrapper {
   align-self: center;
+  width: 340px;
 }
 
 /* 3.9. Premium Pop-up  ========= */
@@ -1603,6 +1605,23 @@ select {
     height: 54px;
     font-size: 18px;
   }
+}
+
+select {
+  appearance: none;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  font-size: 1rem;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 textarea {
