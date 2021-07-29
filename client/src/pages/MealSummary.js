@@ -5,6 +5,7 @@ import MealDayChart from '../components/charts/MealDayChart';
 import MealForm from '../components/forms/Meal';
 import MealSummaryIntro from '../components/intros/MealSummary';
 import defaultPetImg from '../images/pet-profile-default.jpg';
+import Header from '../components/Header';
 
 export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) {
   const [showForm, setShowForm] = useState(false);
@@ -12,6 +13,7 @@ export default function MealSummary({ petProfile, allMeals, setAllMeals, MER }) 
 
   return (
     <>
+      <Header />
       <MealSummaryIntro />
 
       <div className="body">

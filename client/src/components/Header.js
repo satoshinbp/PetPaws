@@ -80,21 +80,23 @@ export default function Header() {
   useEffect(() => {
     if (currentUser) {
       Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`).then((res) => {
-        const user_id = res.data[0].id;
+        if (res.data.length > 0) {
+          const user_id = res.data[0].id;
 
-        Axios.get(`http://localhost:3001/api/pet?user_id=${user_id}`)
-          .then((res) => {
-            if (res.data.length === 0) return;
+          Axios.get(`http://localhost:3001/api/pet?user_id=${user_id}`)
+            .then((res) => {
+              if (res.data.length === 0) return;
 
-            const fetchedPetProfile = res.data[0];
-            setPetProfile({ ...fetchedPetProfile, birthday: fetchedPetProfile.birthday.slice(0, 10) });
-          })
-          .catch((err) => {
-            console.log(err);
-          });
+              const fetchedPetProfile = res.data[0];
+              setPetProfile({ ...fetchedPetProfile, birthday: fetchedPetProfile.birthday.slice(0, 10) });
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
       });
     }
-  }, [petProfile]);
+  }, []);
 
   return (
     <header>
@@ -147,19 +149,10 @@ export default function Header() {
               </li>
               {currentUser ? (
                 <li className="icon-list">
-                  {petProfile.image ? (
+                  {petProfile.image && (
                     <img
                       className={`${'pet-image'} ${'profile-img'}`}
                       src={petProfile.image}
-                      ref={anchorRef}
-                      aria-controls={open ? 'menu-list-grow' : undefined}
-                      aria-haspopup="true"
-                      onClick={handleToggle}
-                    />
-                  ) : (
-                    <img
-                      className={`${'pet-image'} ${'profile-img'}`}
-                      src={signinImg}
                       ref={anchorRef}
                       aria-controls={open ? 'menu-list-grow' : undefined}
                       aria-haspopup="true"

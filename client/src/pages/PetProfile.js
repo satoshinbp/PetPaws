@@ -6,6 +6,7 @@ import { useHistory } from 'react-router-dom';
 import ProfileIntro from '../components/intros/Profile';
 import dogIcon from '../images/add-pet-dog.svg';
 import catIcon from '../images/add-pet-cat.svg';
+import Header from '../components/Header';
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -169,8 +170,8 @@ export default function PetProfile({ petProfile }) {
 
   return (
     <>
+      <Header />
       <ProfileIntro />
-
       <div className="body">
         <div className="profile bg-primary-meat">
           <div className="wrapper">
