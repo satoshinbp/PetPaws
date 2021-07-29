@@ -20,6 +20,7 @@ export default function WalkForm({ petProfile, setAllActivities, closeForm }) {
         setDate(new Date().toISOString().slice(0, 10));
         setMinute(0);
         setDistance(0);
+        closeForm();
       })
       .catch((err) => {
         console.log(err);

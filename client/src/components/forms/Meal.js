@@ -24,6 +24,7 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
         setTime('00:00');
         setAmount(0);
         setCalorie(0);
+        closeForm();
       })
       .catch((err) => {
         console.log(err);
