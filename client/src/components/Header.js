@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
 import { makeStyles } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
@@ -8,18 +8,6 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
-// import Button from '@material-ui/core/Button';
-// import Dialog from '@material-ui/core/Dialog';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import ListItem from '@material-ui/core/ListItem';
-// import List from '@material-ui/core/List';
-// import Divider from '@material-ui/core/Divider';
-// import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
-// import IconButton from '@material-ui/core/IconButton';
-// import Typography from '@material-ui/core/Typography';
-// import CloseIcon from '@material-ui/icons/Close';
-// import Slide from '@material-ui/core/Slide';
 import Logo from '../images/header.svg';
 import Line from '../images/line.svg';
 import closeButton from '../images/close-button.svg';
@@ -48,6 +36,8 @@ export default function Header() {
   const anchorRef = useRef(null);
   const history = useHistory();
   const { currentUser, logout } = useAuth();
+  const location = useLocation();
+  const currentLocation = location.pathname;
 
   const classes = useStyles();
 
@@ -87,7 +77,7 @@ export default function Header() {
       <div className="header__wrapper">
         <nav>
           <ul>
-            <MobileMenu currentUser={currentUser} />
+            <MobileMenu currentUser={currentUser} currentLocation={currentLocation} />
             <div className="site-logo">
               <li>
                 <Link to="/">
@@ -100,21 +90,36 @@ export default function Header() {
               {currentUser && (
                 <>
                   <li className="header-list">
-                    <Link to="/mealsummary">Meals Tracker</Link>
+                    <Link to="/mealsummary" className={currentLocation == '/mealsummary' ? 'active' : ''}>
+                      Meals Tracker
+                    </Link>
                   </li>
                   <li className="header-list">
-                    <Link to="/walksummary">Walks Tracker</Link>
+                    <Link to="/walksummary" className={currentLocation == '/walksummary' ? 'active' : ''}>
+                      Walks Tracker
+                    </Link>
                   </li>
                 </>
               )}
               <li className="header-list">
-                <Link to={currentUser ? '/calorie' : '/calorieguest'}>Calorie Calculator</Link>
+                <Link
+                  to={currentUser ? '/calorie' : '/calorieguest'}
+                  className={`${currentLocation == '/calorieguest' ? 'active' : ''} ${
+                    currentLocation == '/calorie' ? 'active' : ''
+                  } `}
+                >
+                  Calorie Calculator
+                </Link>
               </li>
               <li className="header-list">
-                <Link to="/finding_stores">Stores and Vet</Link>
+                <Link to="/finding_stores" className={currentLocation == '/finding_stores' ? 'active' : ''}>
+                  Stores and Vet
+                </Link>
               </li>
               <li className="header-list">
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact" className={currentLocation == '/contact' ? 'active' : ''}>
+                  Contact
+                </Link>
               </li>
               {currentUser ? (
                 <li className="icon-list">
@@ -162,13 +167,14 @@ export default function Header() {
               ) : (
                 <>
                   <li className="header-list">
+                    <img src={Line} />
+                  </li>
+                  <li className="header-list">
                     <Link to="/signin">
                       <button className="btn-outlined--header ">Sign In</button>
                     </Link>
                   </li>
-                  <li className="header-list">
-                    <img src={Line} />
-                  </li>
+
                   <li className="header-list">
                     <Link to="/signup">
                       <button className="btn-contained--header ">Sign Up</button>
