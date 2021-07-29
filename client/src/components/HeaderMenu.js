@@ -54,10 +54,12 @@ export default function FullScreenDialog(props) {
 
         <div className="btn-area">
           <button
-            className={`${'btn-mobile-menu'} ${props.currentLocation == '/' && 'active-mobile'}`}
+            className={`${'btn-mobile-menu'} ${props.currentLocation == '/' && 'active-mobile'} ${
+              props.currentLocation == '/dashboard' && 'active-mobile'
+            }`}
             onClick={handleMenuClose}
           >
-            <Link to="/">Home</Link>
+            <Link to="/">{props.currentUser ? 'Dashboard' : 'Home'}</Link>
           </button>
         </div>
         {props.currentUser && (
