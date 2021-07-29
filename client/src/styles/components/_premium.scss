@@ -1,13 +1,18 @@
 .premium-modal-wrapper {
-  max-width: 480px;
-  margin: 0 auto;
   padding: 0 1rem;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .premium-content {
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
   gap: 1rem;
+
+  h2 {
+    margin: 0;
+  }
 
   h2 span {
     text-transform: capitalize;
@@ -20,6 +25,7 @@
     flex-flow: column nowrap;
     align-items: center;
     gap: 1rem;
+    max-width: initial;
 
     .feature-area {
       align-self: flex-start;
@@ -46,12 +52,14 @@
       display: flex;
       flex-flow: column;
       align-items: center;
+      justify-content: space-between;
       border: 1px solid $btn-bordercolor-outlined;
       border-radius: $subcomponent-borderradius-mb;
       padding: 0.5rem;
 
       p {
-        margin: 0.5rem 0;
+        margin: 0.25rem 0;
+        white-space: nowrap;
       }
 
       //price
@@ -65,17 +73,24 @@
       }
     }
   }
+  .btn-area {
+    width: 100%;
+  }
 }
 
 @media screen and (min-width: $tb-breakpoint) {
-  .premium-content {
-    gap: 1.5rem;
+  .premium-modal-wrapper {
+    max-width: 100%;
+    width: 100%;
+    .premium-content {
+      gap: 1.5rem;
 
-    .plans {
-      gap: 2rem;
+      .plans {
+        gap: 2rem;
 
-      p {
-        margin: 0.25rem;
+        p {
+          margin: 0.25rem;
+        }
       }
     }
   }

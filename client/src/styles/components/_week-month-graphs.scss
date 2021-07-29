@@ -44,6 +44,17 @@
     }
     .graph-height {
       height: 300px;
+      .unit-kcal,
+      .unit-min {
+        margin: 0;
+        text-align-last: left;
+      }
+      .unit-kcal {
+        padding-left: 1.5rem;
+      }
+      .unit-min {
+        padding-left: 2rem;
+      }
       .recharts-default-legend {
         display: flex;
         flex-flow: row wrap;
@@ -74,6 +85,19 @@
     .meal-month-graph {
       border-bottom-left-radius: $graph-bg-borderradius-pc;
       border-bottom-right-radius: $graph-bg-borderradius-pc;
+      .graph-height {
+        .unit-kcal,
+        .unit-min {
+          margin: 0;
+          text-align-last: left;
+        }
+        .unit-kcal {
+          padding-left: 1.2rem;
+        }
+        .unit-min {
+          padding-left: 1.8rem;
+        }
+      }
     }
   }
 }
