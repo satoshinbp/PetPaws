@@ -53,33 +53,37 @@ export default function petProfileForm(props) {
       </div>
       <div className="input-area">
         <label htmlFor="breed">Breed</label>
-        <select name="breed" value={props.breedName} onChange={(e) => props.changeBreed(e.target.value)} required>
-          <option value="">Select breed</option>
-          {props.isDog ? (
-            <>
-              {props.dogBreeds.map((breed) => (
-                <option value={breed.name} key={breed.name}>
-                  {breed.name}
-                </option>
-              ))}
-            </>
-          ) : (
-            <>
-              {props.catBreeds.map((breed) => (
-                <option value={breed.name} key={breed.name}>
-                  {breed.name}
-                </option>
-              ))}
-            </>
-          )}
-        </select>
+        <div class="select-wrapper">
+          <select name="breed" value={props.breedName} onChange={(e) => props.changeBreed(e.target.value)} required>
+            <option value="">Select breed</option>
+            {props.isDog ? (
+              <>
+                {props.dogBreeds.map((breed) => (
+                  <option value={breed.name} key={breed.name}>
+                    {breed.name}
+                  </option>
+                ))}
+              </>
+            ) : (
+              <>
+                {props.catBreeds.map((breed) => (
+                  <option value={breed.name} key={breed.name}>
+                    {breed.name}
+                  </option>
+                ))}
+              </>
+            )}
+          </select>
+        </div>
       </div>
       <div className="input-area">
         <label htmlFor="gender">Gender</label>
-        <select name="gender" id="gender" value={props.gender} onChange={(e) => props.changeGender(e.target.value)}>
-          <option value="male">Male</option>
-          <option value="female">Female</option>
-        </select>
+        <div class="select-wrapper">
+          <select name="gender" id="gender" value={props.gender} onChange={(e) => props.changeGender(e.target.value)}>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+          </select>
+        </div>
       </div>
       <div className="input-area">
         <label htmlFor="birthday">Birthday</label>
@@ -123,28 +127,32 @@ export default function petProfileForm(props) {
       </div>
       <div className="input-area">
         <label htmlFor="activityLevel">Activity Level</label>
-        <select
-          name="activityLevel"
-          value={props.activityLevel}
-          onChange={(e) => props.changeActivityLevel(e.target.value)}
-        >
-          <option value={0}>Inactive</option>
-          <option value={1}>Somewhat Active</option>
-          <option value={2}>Active</option>
-          <option value={3}>Very Active</option>
-        </select>
+        <div class="select-wrapper">
+          <select
+            name="activityLevel"
+            value={props.activityLevel}
+            onChange={(e) => props.changeActivityLevel(e.target.value)}
+          >
+            <option value={0}>Inactive</option>
+            <option value={1}>Somewhat Active</option>
+            <option value={2}>Active</option>
+            <option value={3}>Very Active</option>
+          </select>
+        </div>
       </div>
       <div className="input-area">
         <label htmlFor="bodyCondition">Body Condition</label>
-        <select
-          name="bodyCondition"
-          value={props.bodyCondition}
-          onChange={(e) => props.changeBodyCondition(e.target.value)}
-        >
-          <option value={0}>Underweight</option>
-          <option value={1}>Ideal</option>
-          <option value={2}>Overweight</option>
-        </select>
+        <div class="select-wrapper">
+          <select
+            name="bodyCondition"
+            value={props.bodyCondition}
+            onChange={(e) => props.changeBodyCondition(e.target.value)}
+          >
+            <option value={0}>Underweight</option>
+            <option value={1}>Ideal</option>
+            <option value={2}>Overweight</option>
+          </select>
+        </div>
       </div>
       <div className="radios-area">
         <label htmlFor="isSpayed">Spayed/Neutered</label>
