@@ -3,7 +3,8 @@ const { Storage } = require('@google-cloud/storage');
 
 const storage = new Storage({
   projectId: process.env.FIREBASE_PROJECT_ID,
-  keyFilename: process.env.CREDENTIAL_PATH,
+  keyFilename: process.env.CREDENTIAL_PATH ? process.env.CREDENTIAL_PATH : null,
+  credentials: process.env.CREDENTIAL ? JSON.parse(process.env.CREDENTIAL) : null,
 });
 
 const bucket = storage.bucket(process.env.FIREBASE_STORAGE_BUCKET);
