@@ -20,7 +20,8 @@
     }
   }
 
-  select {
+  .select-wrapper {
     align-self: center;
+    width: $input-width;
   }
 }

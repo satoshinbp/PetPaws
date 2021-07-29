@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import Axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
 import { makeStyles } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
@@ -8,22 +9,11 @@ import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
-// import Button from '@material-ui/core/Button';
-// import Dialog from '@material-ui/core/Dialog';
-// import ListItemText from '@material-ui/core/ListItemText';
-// import ListItem from '@material-ui/core/ListItem';
-// import List from '@material-ui/core/List';
-// import Divider from '@material-ui/core/Divider';
-// import AppBar from '@material-ui/core/AppBar';
-// import Toolbar from '@material-ui/core/Toolbar';
-// import IconButton from '@material-ui/core/IconButton';
-// import Typography from '@material-ui/core/Typography';
-// import CloseIcon from '@material-ui/icons/Close';
-// import Slide from '@material-ui/core/Slide';
 import Logo from '../images/header.svg';
 import Line from '../images/line.svg';
 import closeButton from '../images/close-button.svg';
 import MobileMenu from './HeaderMenu';
+import signinImg from '../images/pet-profile-default.jpg';
 
 const useStyles = makeStyles({
   customWidth: {
@@ -48,8 +38,13 @@ export default function Header() {
   const anchorRef = useRef(null);
   const history = useHistory();
   const { currentUser, logout } = useAuth();
+  const location = useLocation();
+  const currentLocation = location.pathname;
 
   const classes = useStyles();
+  const [petProfile, setPetProfile] = useState({
+    image: signinImg,
+  });
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -82,12 +77,33 @@ export default function Header() {
     prevOpen.current = open;
   }, [open]);
 
+  useEffect(() => {
+    if (currentUser) {
+      Axios.get(`http://localhost:3001/api/user/${currentUser.uid}`).then((res) => {
+        if (res.data.length > 0) {
+          const user_id = res.data[0].id;
+
+          Axios.get(`http://localhost:3001/api/pet?user_id=${user_id}`)
+            .then((res) => {
+              if (res.data.length === 0) return;
+
+              const fetchedPetProfile = res.data[0];
+              setPetProfile({ ...fetchedPetProfile, birthday: fetchedPetProfile.birthday.slice(0, 10) });
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      });
+    }
+  }, []);
+
   return (
     <header>
       <div className="header__wrapper">
         <nav>
           <ul>
-            <MobileMenu currentUser={currentUser} />
+            <MobileMenu currentUser={currentUser} currentLocation={currentLocation} />
             <div className="site-logo">
               <li>
                 <Link to="/">
@@ -100,33 +116,50 @@ export default function Header() {
               {currentUser && (
                 <>
                   <li className="header-list">
-                    <Link to="/mealsummary">Meals Tracker</Link>
+                    <Link to="/mealsummary" className={currentLocation == '/mealsummary' ? 'active' : ''}>
+                      Meals Tracker
+                    </Link>
                   </li>
                   <li className="header-list">
-                    <Link to="/walksummary">Walks Tracker</Link>
+                    <Link to="/walksummary" className={currentLocation == '/walksummary' ? 'active' : ''}>
+                      Walks Tracker
+                    </Link>
                   </li>
                 </>
               )}
               <li className="header-list">
-                <Link to={currentUser ? '/calorie' : '/calorieguest'}>Calorie Calculator</Link>
+                <Link
+                  to={currentUser ? '/calorie' : '/calorieguest'}
+                  className={`${currentLocation == '/calorieguest' ? 'active' : ''} ${
+                    currentLocation == '/calorie' ? 'active' : ''
+                  } `}
+                >
+                  Calorie Calculator
+                </Link>
               </li>
               <li className="header-list">
-                <Link to="/finding_stores">Stores and Vet</Link>
+                <Link to="/finding_stores" className={currentLocation == '/finding_stores' ? 'active' : ''}>
+                  Stores and Vet
+                </Link>
               </li>
               <li className="header-list">
-                <Link to="/contact">Contact</Link>
+                <Link to="/contact" className={currentLocation == '/contact' ? 'active' : ''}>
+                  Contact
+                </Link>
               </li>
               {currentUser ? (
                 <li className="icon-list">
-                  <button
-                    ref={anchorRef}
-                    aria-controls={open ? 'menu-list-grow' : undefined}
-                    aria-haspopup="true"
-                    onClick={handleToggle}
-                    className="profile-img"
-                  >
-                    Icon
-                  </button>
+                  {petProfile.image && (
+                    <img
+                      className={`${'pet-image'} ${'profile-img'}`}
+                      src={petProfile.image}
+                      ref={anchorRef}
+                      aria-controls={open ? 'menu-list-grow' : undefined}
+                      aria-haspopup="true"
+                      onClick={handleToggle}
+                    />
+                  )}
+
                   <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                     {({ TransitionProps, placement }) => (
                       <Grow
@@ -162,13 +195,14 @@ export default function Header() {
               ) : (
                 <>
                   <li className="header-list">
+                    <img src={Line} />
+                  </li>
+                  <li className="header-list">
                     <Link to="/signin">
                       <button className="btn-outlined--header ">Sign In</button>
                     </Link>
                   </li>
-                  <li className="header-list">
-                    <img src={Line} />
-                  </li>
+
                   <li className="header-list">
                     <Link to="/signup">
                       <button className="btn-contained--header ">Sign Up</button>

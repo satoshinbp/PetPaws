@@ -1,6 +1,7 @@
 .mobile-menu {
   z-index: 10;
   padding: 2rem 1.5rem;
+
   @media screen and (min-width: $tb-breakpoint) {
     padding: 4rem 3rem;
   }
@@ -16,6 +17,36 @@
 
 .btn-mobile-menu a {
   display: block;
+}
+
+.MuiAppBar-colorPrimary {
+  background-image: url(../images/bg-purple-fishbone-mb.png) !important;
+  background-color: $secondary-color !important;
+  background-position: center !important;
+}
+.MuiDialog-paperFullScreen {
+  background-image: url(../images/bg-purple-fishbone-mb.png) !important;
+  background-color: $secondary-color !important;
+  background-position: center !important;
+}
+
+.menu-btn-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 91px;
+}
+
+.menu-btn-wrapper {
+  padding: 2rem 1.5rem;
+  display: flex;
+  @media screen and (min-width: $tb-breakpoint) {
+    padding: 4rem 3rem;
+  }
+}
+
+.active-mobile {
+  background-color: white !important;
 }
 
 @media screen and (min-width: $pc-breakpoint) {

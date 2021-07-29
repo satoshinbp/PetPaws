@@ -19,7 +19,7 @@ export default function Features() {
           </div>
 
           <h3 className="feature__title pc-hidden">Meal and Walk Tracker</h3>
-          <div className="feature__img">
+          <div className="feature__img-area">
             <img src={activityTrackerIcon} alt="member portrait" />
           </div>
           <p className="feature__description pc-hidden">
@@ -32,18 +32,18 @@ export default function Features() {
           <div className="feature__text mb-hidden">
             <h3 className="feature__title">Calorie Calculator</h3>
             <p className="feature__description">
-              With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
-              healthy and happy
+              Calorie calculator will help you determine the ideal calorie intake for a pet based on its weight, height,
+              age, breed, activity level and body type!
             </p>
           </div>
 
           <h3 className="feature__title pc-hidden">Calorie Calculator</h3>
-          <div className="feature__img">
+          <div className="feature__img-area">
             <img src={calculatorIcon} alt="member portrait" />
           </div>
           <p className="feature__description pc-hidden">
-            With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be healthy
-            and happy
+            Calorie calculator will help you determine the ideal calorie intake for a pet based on its weight, height,
+            age, breed, activity level and body type!
           </p>
         </div>
 
@@ -51,13 +51,12 @@ export default function Features() {
           <div className="feature__text mb-hidden">
             <h3 className="feature__title">Pet Stores Finder</h3>
             <p className="feature__description">
-              With these 2 trackers you can monitor your pet’s health and know for sure that it gets enough to be
-              healthy and happy
+              We locate the best vets and pet shops based on your location for your convenience.
             </p>
           </div>
 
           <h3 className="feature__title pc-hidden">Pet Stores Finder</h3>
-          <div className="feature__img">
+          <div className="feature__img-area">
             <img src={finderIcon} alt="member portrait" />
           </div>
           <p className="feature__description pc-hidden">

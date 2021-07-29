@@ -22,7 +22,6 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <Header />
         <Switch>
           <PrivateRoute exact path="/calorie" component={Calorie} />
           <GuestRoute exact path="/" component={Home} />
