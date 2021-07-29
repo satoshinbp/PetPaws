@@ -2,7 +2,7 @@
   .feature {
     margin-bottom: 1.5rem;
 
-    &__img {
+    &__img-area {
       width: 122px;
       margin: 0 auto;
     }
@@ -21,8 +21,12 @@
         text-align: left;
       }
 
-      &__img {
+      &__img-area {
         flex-basis: 30%;
+        min-height: 240px;
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
         text-align: right;
       }
 

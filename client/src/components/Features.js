@@ -19,7 +19,7 @@ export default function Features() {
           </div>
 
           <h3 className="feature__title pc-hidden">Meal and Walk Tracker</h3>
-          <div className="feature__img">
+          <div className="feature__img-area">
             <img src={activityTrackerIcon} alt="member portrait" />
           </div>
           <p className="feature__description pc-hidden">
@@ -38,7 +38,7 @@ export default function Features() {
           </div>
 
           <h3 className="feature__title pc-hidden">Calorie Calculator</h3>
-          <div className="feature__img">
+          <div className="feature__img-area">
             <img src={calculatorIcon} alt="member portrait" />
           </div>
           <p className="feature__description pc-hidden">
@@ -56,7 +56,7 @@ export default function Features() {
           </div>
 
           <h3 className="feature__title pc-hidden">Pet Stores Finder</h3>
-          <div className="feature__img">
+          <div className="feature__img-area">
             <img src={finderIcon} alt="member portrait" />
           </div>
           <p className="feature__description pc-hidden">
