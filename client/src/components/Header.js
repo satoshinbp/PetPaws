@@ -79,11 +79,11 @@ export default function Header() {
 
   useEffect(() => {
     if (currentUser) {
-      Axios.get(`http://https://pet-paws-langara.herokuapp.com/api/user/${currentUser.uid}`).then((res) => {
+      Axios.get(`https://pet-paws-langara.herokuapp.com/api/user/${currentUser.uid}`).then((res) => {
         if (res.data.length > 0) {
           const user_id = res.data[0].id;
 
-          Axios.get(`http://https://pet-paws-langara.herokuapp.com/api/pet?user_id=${user_id}`)
+          Axios.get(`https://pet-paws-langara.herokuapp.com/api/pet?user_id=${user_id}`)
             .then((res) => {
               if (res.data.length === 0) return;
 
