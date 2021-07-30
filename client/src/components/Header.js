@@ -1,12 +1,36 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useHistory, useLocation } from 'react-router-dom';
+import Axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
+import { makeStyles } from '@material-ui/core';
 import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import Grow from '@material-ui/core/Grow';
 import Paper from '@material-ui/core/Paper';
 import Popper from '@material-ui/core/Popper';
 import MenuItem from '@material-ui/core/MenuItem';
 import MenuList from '@material-ui/core/MenuList';
+import Logo from '../images/header.svg';
+import Line from '../images/line.svg';
+import closeButton from '../images/close-button.svg';
+import MobileMenu from './HeaderMenu';
+import signinImg from '../images/pet-profile-default.jpg';
+
+const useStyles = makeStyles({
+  customWidth: {
+    display: 'block',
+    width: '350px',
+    background: '#CCABDA',
+  },
+  hover: {
+    display: 'block',
+    '&:hover': {
+      background: 'white',
+    },
+  },
+  close: {
+    textAlign: 'center',
+  },
+});
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -14,6 +38,13 @@ export default function Header() {
   const anchorRef = useRef(null);
   const history = useHistory();
   const { currentUser, logout } = useAuth();
+  const location = useLocation();
+  const currentLocation = location.pathname;
+
+  const classes = useStyles();
+  const [petProfile, setPetProfile] = useState({
+    image: signinImg,
+  });
 
   const handleToggle = () => {
     setOpen((prevOpen) => !prevOpen);
@@ -46,48 +77,89 @@ export default function Header() {
     prevOpen.current = open;
   }, [open]);
 
+  useEffect(() => {
+    if (currentUser) {
+      Axios.get(`http://https://pet-paws-langara.herokuapp.com/api/user/${currentUser.uid}`).then((res) => {
+        if (res.data.length > 0) {
+          const user_id = res.data[0].id;
+
+          Axios.get(`http://https://pet-paws-langara.herokuapp.com/api/pet?user_id=${user_id}`)
+            .then((res) => {
+              if (res.data.length === 0) return;
+
+              const fetchedPetProfile = res.data[0];
+              setPetProfile({ ...fetchedPetProfile, birthday: fetchedPetProfile.birthday.slice(0, 10) });
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+        }
+      });
+    }
+  }, []);
+
   return (
     <header>
       <div className="header__wrapper">
         <nav>
           <ul>
-            <div>
+            <MobileMenu currentUser={currentUser} currentLocation={currentLocation} />
+            <div className="site-logo">
               <li>
-                <Link to="/">Logo</Link>
+                <Link to="/">
+                  <img src={Logo} alt="site logo" />
+                </Link>
               </li>
             </div>
 
             <div className="header__menu">
               {currentUser && (
                 <>
-                  <li>
-                    <Link to="/mealsummary">Meals Tracker</Link>
+                  <li className="header-list">
+                    <Link to="/mealsummary" className={currentLocation == '/mealsummary' ? 'active' : ''}>
+                      Meals Tracker
+                    </Link>
                   </li>
-                  <li>
-                    <Link to="/walksummary">Walks Tracker</Link>
+                  <li className="header-list">
+                    <Link to="/walksummary" className={currentLocation == '/walksummary' ? 'active' : ''}>
+                      Walks Tracker
+                    </Link>
                   </li>
                 </>
               )}
-              <li>
-                <Link to={currentUser ? '/calorie' : '/calorieguest'}>Calorie Calculator</Link>
+              <li className="header-list">
+                <Link
+                  to={currentUser ? '/calorie' : '/calorieguest'}
+                  className={`${currentLocation == '/calorieguest' ? 'active' : ''} ${
+                    currentLocation == '/calorie' ? 'active' : ''
+                  } `}
+                >
+                  Calorie Calculator
+                </Link>
               </li>
-              <li>
-                <Link to="/finding_stores">Finding Pet Stores/Vets</Link>
+              <li className="header-list">
+                <Link to="/finding_stores" className={currentLocation == '/finding_stores' ? 'active' : ''}>
+                  Stores and Vet
+                </Link>
               </li>
-              <li>
-                <Link to="/contact">Contact Us</Link>
+              <li className="header-list">
+                <Link to="/contact" className={currentLocation == '/contact' ? 'active' : ''}>
+                  Contact
+                </Link>
               </li>
               {currentUser ? (
-                <li>
-                  <button
-                    ref={anchorRef}
-                    aria-controls={open ? 'menu-list-grow' : undefined}
-                    aria-haspopup="true"
-                    onClick={handleToggle}
-                    className="profile-img"
-                  >
-                    Icon
-                  </button>
+                <li className="icon-list">
+                  {petProfile.image && (
+                    <img
+                      className={`${'pet-image'} ${'profile-img'}`}
+                      src={petProfile.image}
+                      ref={anchorRef}
+                      aria-controls={open ? 'menu-list-grow' : undefined}
+                      aria-haspopup="true"
+                      onClick={handleToggle}
+                    />
+                  )}
+
                   <Popper open={open} anchorEl={anchorRef.current} role={undefined} transition disablePortal>
                     {({ TransitionProps, placement }) => (
                       <Grow
@@ -98,11 +170,21 @@ export default function Header() {
                       >
                         <Paper>
                           <ClickAwayListener onClickAway={handleClose}>
-                            <MenuList autoFocusItem={open} id="menu-list-grow" onKeyDown={handleListKeyDown}>
-                              <MenuItem onClick={handleClose}>
+                            <MenuList
+                              className={classes.customWidth}
+                              autoFocusItem={open}
+                              id="menu-list-grow"
+                              onKeyDown={handleListKeyDown}
+                            >
+                              <MenuItem className={`${classes.hover} ${classes.close}`} onClick={handleClose}>
+                                <img src={closeButton} />
+                              </MenuItem>
+                              <MenuItem className={classes.hover} onClick={handleClose}>
                                 <Link to="/pet_profile">Pet Profile</Link>
                               </MenuItem>
-                              <MenuItem onClick={handleLogout}>Logout</MenuItem>
+                              <MenuItem className={classes.hover} onClick={handleLogout}>
+                                Logout
+                              </MenuItem>
                             </MenuList>
                           </ClickAwayListener>
                         </Paper>
@@ -112,11 +194,19 @@ export default function Header() {
                 </li>
               ) : (
                 <>
-                  <li>
-                    <Link to="/signin">Sign In</Link>
+                  <li className="header-list">
+                    <img src={Line} />
                   </li>
-                  <li>
-                    <Link to="/signup">Sign Up</Link>
+                  <li className="header-list">
+                    <Link to="/signin">
+                      <button className="btn-outlined--header ">Sign In</button>
+                    </Link>
+                  </li>
+
+                  <li className="header-list">
+                    <Link to="/signup">
+                      <button className="btn-contained--header ">Sign Up</button>
+                    </Link>
                   </li>
                 </>
               )}

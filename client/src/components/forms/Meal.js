@@ -24,6 +24,7 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
         setTime('00:00');
         setAmount(0);
         setCalorie(0);
+        closeForm();
       })
       .catch((err) => {
         console.log(err);
@@ -31,92 +32,92 @@ export default function MealForm({ petProfile, setAllMeals, closeForm }) {
   };
 
   return (
-    <div className="meal-form wrapper">
+    <div className="modal meal-modal">
       <img src={closeModalIcon} alt="close form" onClick={closeForm} className="close-modal-icon" />
 
-      <div className="meal-form-content">
-        <h2>ADD NEW MEAL</h2>
-        {/* Styling to be removed */}
-        <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column' }}>
-          <div className="input-wrapper">
-            <div>
-              <label htmlFor="name">Meal Name</label>
-              <input
-                type="text"
-                name="name"
-                id="meal-name"
-                value={name}
-                required
-                onChange={(e) => setName(e.target.value)}
-              />
-            </div>
+      <div className="modal-content">
+        <h2>Add New Meal</h2>
 
-            <div>
-              <label htmlFor="type">Meal Type</label>
+        <form onSubmit={handleSubmit} className="meal-form">
+          <div className="input-area">
+            <label htmlFor="name">Meal Name</label>
+            <input
+              type="text"
+              name="name"
+              id="meal-name"
+              value={name}
+              required
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
+
+          <div className="input-area">
+            <label htmlFor="type">Meal Type</label>
+            <div class="select-wrapper">
               <select id="type" name="meal-type" value={type} onChange={(e) => setType(e.target.value)}>
                 <option value="Wet">Wet</option>
                 <option value="Dry">Dry</option>
                 <option value="Treat">Treat</option>
               </select>
             </div>
-
-            <div>
-              <label htmlFor="date">Date</label>
-              <input
-                type="date"
-                id="date"
-                name="meal-date"
-                value={date}
-                required
-                onChange={(e) => setDate(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="time">Time</label>
-              <input
-                type="time"
-                id="time"
-                name="meal-time"
-                value={time}
-                required
-                onChange={(e) => setTime(e.target.value)}
-              />
-            </div>
-
-            <div>
-              <label htmlFor="amount">Amount</label>
-              <input
-                type="number"
-                id="amount"
-                name="amount"
-                value={amount}
-                step="0.1"
-                min="0"
-                max="2000"
-                required
-                onChange={(e) => setAmount(e.target.value)}
-              />
-              <p className="input-unit">g</p>
-            </div>
-
-            <div>
-              <label htmlFor="calorie">Calories</label>
-              <input
-                type="number"
-                id="calorie"
-                name="calorie"
-                value={calorie}
-                min="0"
-                max="2000"
-                required
-                onChange={(e) => setCalorie(e.target.value)}
-              />
-              <p className="input-unit">kCal / 100g</p>
-            </div>
           </div>
 
-          <div className="button-wrapper">
+          <div className="input-area">
+            <label htmlFor="date">Date</label>
+            <input
+              type="date"
+              id="date"
+              name="meal-date"
+              value={date}
+              required
+              onChange={(e) => setDate(e.target.value)}
+            />
+          </div>
+
+          <div className="input-area">
+            <label htmlFor="time">Time</label>
+            <input
+              type="time"
+              id="time"
+              name="meal-time"
+              value={time}
+              required
+              onChange={(e) => setTime(e.target.value)}
+            />
+          </div>
+
+          <div className="input-area">
+            <label htmlFor="amount">Amount</label>
+            <input
+              type="number"
+              id="amount"
+              name="amount"
+              value={amount}
+              step="0.1"
+              min="0"
+              max="2000"
+              required
+              onChange={(e) => setAmount(e.target.value)}
+            />
+            <span className="end-adornment">g</span>
+          </div>
+
+          <div className="input-area">
+            <label htmlFor="calorie">Calories</label>
+            <input
+              type="number"
+              id="calorie"
+              name="calorie"
+              value={calorie}
+              min="0"
+              max="2000"
+              required
+              onChange={(e) => setCalorie(e.target.value)}
+            />
+            <span className="end-adornment">kcal / 100g</span>
+          </div>
+
+          <div className="btn-area">
             <button type="submit" className="btn-contained">
               Create
             </button>

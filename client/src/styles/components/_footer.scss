@@ -1,0 +1,25 @@
+.footer__wrapper {
+  width: 90%;
+  max-width: $lg-max-width;
+  margin: 0 auto;
+}
+
+.copy-right {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
+}
+
+.footer-btn {
+  z-index: 10;
+}
+
+@media screen and (max-width: $tb-breakpoint) {
+  footer nav ul {
+    display: block;
+  }
+  .footer-btn {
+    display: none;
+  }
+}

@@ -6,7 +6,7 @@ import { useHistory } from 'react-router-dom';
 import ProfileIntro from '../components/intros/Profile';
 import dogIcon from '../images/add-pet-dog.svg';
 import catIcon from '../images/add-pet-cat.svg';
-import { storage } from '../firebase/index';
+import Header from '../components/Header';
 
 export default function PetProfile({ petProfile }) {
   const { currentUser } = useAuth();
@@ -24,7 +24,9 @@ export default function PetProfile({ petProfile }) {
   const [isSpayed, setIsSpayed] = useState(petProfile.is_spayed); // 0: intact, 1: spayed/neutered
   const [activityLevel, setActivityLevel] = useState(petProfile.activity_level); // 0: inactive, 1: somewhat active, 2: active, 3: very active
   const [bodyCondition, setBodyCondition] = useState(petProfile.body_condition); // 0: underweight, 1: ideal, 2: overweight
+  const [errorMessage, setErrorMessage] = useState('');
   const history = useHistory();
+  const sizeLimit = 1024 * 1024 * 1;
 
   useEffect(() => {
     Axios.get('https://api.thedogapi.com/v1/breeds').then((res) => {
@@ -39,7 +41,6 @@ export default function PetProfile({ petProfile }) {
   }, []);
 
   useEffect(() => {
-    console.log(petProfile);
     setIsDog(petProfile.is_dog);
     setName(petProfile.name);
     setBreedName(petProfile.breed);
@@ -50,38 +51,27 @@ export default function PetProfile({ petProfile }) {
     setIsSpayed(petProfile.is_spayed);
     setActivityLevel(petProfile.activity_level);
     setBodyCondition(petProfile.body_condition);
+    setImageURL(petProfile.image);
   }, [petProfile]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (inputImage) {
-      unko();
-    } else {
-      savePetData(imageURL);
+    try {
+      if (inputImage) {
+        let formData = new FormData();
+        formData.append('file', inputImage);
+        // url will be replaced with .env static variable
+        Axios.post('https://pet-paws-langara.herokuapp.com/api/image', formData, {
+          headers: { 'Content-Type': 'multipart/form-data' },
+        }).then((res) => {
+          savePetData(res.data.fileLocation);
+        });
+      } else {
+        savePetData(imageURL);
+      }
+    } catch (error) {
+      console.log(error);
     }
-  };
-
-  const unko = async () => {
-    storage
-      .ref(`images/${inputImage.name}`)
-      .put(inputImage)
-      .on(
-        'state_changed',
-        (snapshot) => {},
-        (error) => {
-          console.log(error);
-        }
-      )
-      .then(() => {
-        storage
-          .ref('images')
-          .child(inputImage.name)
-          .getDownloadURL()
-          .then((url) => {
-            setImageURL(url);
-            savePetData(url);
-          });
-      });
   };
 
   const savePetData = (url) => {
@@ -134,6 +124,12 @@ export default function PetProfile({ petProfile }) {
   };
 
   const changeImage = (value) => {
+    if (errorMessage) {
+      setErrorMessage('');
+    }
+    if (value.size > sizeLimit) {
+      return setErrorMessage('File size should be lower than 1MB');
+    }
     let createObjectURL = (window.URL || window.webkitURL).createObjectURL || window.createObjectURL;
     let image_url = createObjectURL(value);
     setImageURL(image_url);
@@ -174,8 +170,8 @@ export default function PetProfile({ petProfile }) {
 
   return (
     <>
+      <Header />
       <ProfileIntro />
-
       <div className="body">
         <div className="profile bg-primary-meat">
           <div className="wrapper">
@@ -196,6 +192,7 @@ export default function PetProfile({ petProfile }) {
               isSpayed={isSpayed}
               activityLevel={activityLevel}
               bodyCondition={bodyCondition}
+              errorMessage={errorMessage}
               changePetType={changePetType}
               changeName={changeName}
               changeImage={changeImage}

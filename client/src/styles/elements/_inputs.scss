@@ -16,6 +16,24 @@ select {
   }
 }
 
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: '▼';
+  font-size: 1rem;
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 textarea {
   width: 100%;
   padding: 1rem;
@@ -45,4 +63,11 @@ label,
   margin-bottom: 0.25rem;
   color: $font-color;
   font-weight: $label-fontweight;
+}
+
+.end-adornment {
+  display: inline-block;
+  width: 160px;
+  margin-left: -200px;
+  text-align: right;
 }

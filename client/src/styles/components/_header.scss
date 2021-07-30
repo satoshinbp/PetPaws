@@ -10,6 +10,10 @@ header {
   align-items: center;
   font-size: $standard-fontsize-mb;
   background-color: $base-color;
+
+  a {
+    display: block;
+  }
 }
 
 .header__wrapper {
@@ -29,4 +33,28 @@ nav ul {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.icon-list {
+  padding: 2rem 1.5rem;
+  z-index: 10;
+}
+
+.active {
+  font-weight: $btn-fontweight;
+  border-bottom: 3px solid;
+  border-color: $intro-color;
+}
+
+@media screen and (max-width: $pc-breakpoint) {
+  .site-logo {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+
+  .header-list {
+    display: none;
+  }
 }

@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import { AuthProvider } from './contexts/AuthContext';
 import './styles/style.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import PrivateRoute from './components/PrivateRoute';
 import GuestRoute from './components/GuestRoute';
 import Home from './pages/Home';
@@ -21,7 +22,6 @@ function App() {
   return (
     <Router>
       <AuthProvider>
-        <Header />
         <Switch>
           <PrivateRoute exact path="/calorie" component={Calorie} />
           <GuestRoute exact path="/" component={Home} />
@@ -35,6 +35,7 @@ function App() {
           <PrivateRoute path="/mealsummary" component={MealSummary} />
           <PrivateRoute path="/walksummary" component={WalkSummary} />
         </Switch>
+        <Footer />
       </AuthProvider>
     </Router>
   );

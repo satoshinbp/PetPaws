@@ -4,7 +4,7 @@ export default function ContactIntro() {
       <div className="wrapper">
         <h2>How can we help?</h2>
 
-        <form className="basic-form bg-primary-light">
+        <form className="contact-form bg-primary-light">
           <div className="input-area">
             <label htmlFor="name">Your name</label>
             <input id="name" name="name" type="text" placeholder="Type your name" />

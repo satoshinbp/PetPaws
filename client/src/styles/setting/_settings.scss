@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 @font-face {
   font-family: 'To Japan';
   src: url('fonts/tojapan/to-japan.ttf') format('truetype');
@@ -18,7 +20,7 @@ $btn-bordercolor-outlined: #3b3054;
 
 // Font Family
 $header-fontfamily: 'To Japan', helvetica, arial, sans-serif;
-$paragraph-fontfamily: 'Content', helvetica, arial, sans-serif;
+$paragraph-fontfamily: 'Roboto', helvetica, arial, sans-serif;
 
 // Font Size
 $standard-fontsize-mb: 16px;
@@ -43,6 +45,8 @@ $btn-borderradius: 5px;
 $input-borderradius: 15px;
 $subcomponent-borderradius-mb: 25px;
 $subcomponent-borderradius-pc: 50px; // for sub component with light color background
+$graph-bg-borderradius-mb: 10px;
+$graph-bg-borderradius-pc: 20px;
 
 // Border Width
 $btn-borderwidth-outlined: 1px;
@@ -65,3 +69,6 @@ $input-width: 340px;
 $input-height-mb: 50px;
 $input-height-pc: 54px;
 $input-radio-size: 35px;
+$btn-week-month-toggle-mb: 42px;
+$btn-week-month-toggle-pc: 50px;
+$intro-icon-min-height: 300px;

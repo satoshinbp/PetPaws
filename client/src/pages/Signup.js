@@ -1,28 +1,33 @@
 import React, { useRef, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { useAuth } from '../contexts/AuthContext';
-import singupImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
+import Header from '../components/Header';
 
 export default function Signup() {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const nameRef = useRef();
-  const emailRef = useRef();
-  const passwordRef = useRef();
-  const passwordConfirmRef = useRef();
+  const [name, setName] = useState('');
+  const [email, setEmail] = useState('');
+  const [pass, setPass] = useState('');
+  const [passConfirm, setPassConfirm] = useState('');
   const history = useHistory();
   const { signup } = useAuth();
+
+  const handleNameChange = (e) => setName(e.target.value);
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePassChange = (e) => setPass(e.target.value);
+  const handlePassConfirmChange = (e) => setPassConfirm(e.target.value);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (passwordRef.current.value !== passwordConfirmRef.current.value) {
+    if (pass !== passConfirm) {
       return setError('passwords do not match');
     }
     try {
       setError('');
       setLoading(true);
-      await signup(emailRef.current.value, passwordRef.current.value, nameRef.current.value);
+      await signup(email, pass, name);
       history.push('/pet_profile');
     } catch {
       setError('Failed to sign in');
@@ -30,47 +35,89 @@ export default function Signup() {
     setLoading(false);
   };
 
-  return (
-    <div className="signup">
-      <div className="signup_description">
-        <h3>By creating your free account,</h3>
-        <p>　You will be able to :</p>
+  const showDescription = () => {
+    return (
+      <div className="discription-area">
+        <h1>By creating your account</h1>
         <ul>
-          <li>
-            ・
-            <div>
-              keep track of your pet's healthy routines, including their nutritional intake and physical activity levels
-            </div>
-          </li>
-          <li>
-            ・<div className="">Get the optimal amount of calories and activity level for your pet</div>
-          </li>
+          <li>You can calculate the optimal daily calorie intake for your pet</li>
+          <li>You can keep track of your pet's exercise with Activity Tracker</li>
+          <li>You can also track your pet's diet and calorie intake by Meal Tracker</li>
         </ul>
       </div>
-      <div className="signup_form">
-        <h2>Create your Account</h2>
-        {error && <div>{error}</div>}
+    );
+  };
 
-        <form onSubmit={handleSubmit}>
-          <label id="name">Name</label>
-          <input id="name" className="input-md" type="text" ref={nameRef} required />
-          <label id="email">Email</label>
-          <input type="email" className="input-md" ref={emailRef} required />
-          <label id="password">Password</label>
-          <input type="password" className="input-md" ref={passwordRef} required />
-          <label id="password-Confirmation">passwordConfirmation</label>
-          <input type="password" className="input-md" ref={passwordConfirmRef} required />
-          <button className="btn-contained" disabled={loading} type="submit">
-            Get Started
-          </button>
-        </form>
-        <div className="signin-link-area">
-          <p>Already have an account?</p>
-          <Link to="/signin" className="signin-link-area_link">
-            Sign In
-          </Link>
+  const showForm = () => {
+    return (
+      <div className="signup bg-primary-meat">
+        <div className="wrapper">
+          <h2>Sign Up</h2>
+
+          <form onSubmit={handleSubmit} className="basic-form">
+            <div className="input-area">
+              <label id="name">Name</label>
+              <input id="name" type="text" required onChange={handleNameChange} />
+            </div>
+            <div className="input-area">
+              <label id="email">Email</label>
+              <input type="email" required onChange={handleEmailChange} />
+            </div>
+            <div className="input-area">
+              <label id="password">Password</label>
+              <input type="password" required onChange={handlePassChange} />
+            </div>
+            <div className="input-area">
+              <label id="password-Confirmation">Password Confirmation</label>
+              <input type="password" required onChange={handlePassConfirmChange} />
+            </div>
+            <div className="btn-area">
+              <button className="btn-contained" disabled={loading} type="submit">
+                Get Started
+              </button>
+            </div>
+          </form>
+
+          {error && <div>{error}</div>}
+
+          <div className="divider" />
+
+          <div className="link-area">
+            <p>
+              Already have an account?
+              <br />
+              <Link to="/signin" className="link">
+                Sign In
+              </Link>
+            </p>
+          </div>
         </div>
       </div>
-    </div>
+    );
+  };
+
+  return (
+    <>
+      <Header />
+      <div className="signup-page">
+        <div className="pc-hidden">
+          <div className="intro">
+            <div className="wrapper">{showDescription()}</div>
+          </div>
+          <div className="body">{showForm()}</div>
+        </div>
+
+        <div className="mb-hidden">
+          <div className="bg-color-intro">
+            <div className="wrapper">
+              <div className="auth-container">
+                {showDescription()}
+                {showForm()}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   );
 }

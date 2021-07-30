@@ -127,9 +127,8 @@ const WalkWeekChart = ({ allActivities }) => {
       graphDataArray.forEach((activity) => {
         slicedDates.push({
           date: activity.date.slice(8, 10).split('-').join('/'),
-          minute: activity.minute,
-          distance: activity.distance,
-          'average minute': activity.avgMin,
+          Duration: activity.minute,
+          'Weekly Average': activity.avgMin,
         });
       });
     };
@@ -188,11 +187,6 @@ const WalkWeekChart = ({ allActivities }) => {
 
   return (
     <div className="walk-week-graph">
-      {/* MUST set height to display chart */}
-      {/* 確認用 */}
-      {/*graphData.map((meal) => (
-                <p key={meal.date}>{meal.date}, minute: {meal.minute}, distance: {meal.distance} avgMin: {meal.avgMin}</p>
-            ))*/}
       <div className="week-controller">
         <button
           onClick={() => {
@@ -204,7 +198,7 @@ const WalkWeekChart = ({ allActivities }) => {
         </button>
         {graphData.length > 0 ? (
           <p>
-            {week[6].split('-').join(' ')} to {week[0].split('-').join(' ')}
+            {week[6].split('-').join('/')} to {week[0].split('-').join('/')}
           </p>
         ) : (
           ''
@@ -218,20 +212,32 @@ const WalkWeekChart = ({ allActivities }) => {
         </button>
       </div>
       <div className="graph-height">
+        <p className="unit-min">min</p>
         <ResponsiveContainer>
           <ComposedChart data={graphData} margin={{ left: 0, right: 20 }}>
-            <XAxis dataKey="date" />
-            <YAxis />
+            <XAxis dataKey="date" stroke="#3b3054" />
+            <YAxis stroke="#3b3054" />
             <Tooltip />
             <Legend wrapperStyle={{ bottom: -25, left: 20 }} />
+            <Bar
+              barSize={15}
+              fillOpacity={1}
+              fill="#2250A2"
+              dataKey="Duration"
+              stackId="a"
+              barSize={15}
+              fillOpacity={0.75}
+              fill="rgba(59, 48, 84, 1)"
+              unit=" minutes"
+            />
             <Area
               type="monotone"
-              dataKey="average minute"
-              stroke="#00aced"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+              dataKey="Weekly Average"
+              stroke="rgba(252, 136, 123, 1)"
+              fillOpacity={0}
+              fill="rgba(204, 171, 218, 1))"
+              unit=" minutes"
             />
-            <Bar barSize={15} fillOpacity={1} fill="#2250A2" dataKey="minute" stackId="a" barSize={15} fill="#85d6c3" />
           </ComposedChart>
         </ResponsiveContainer>
         <br></br>

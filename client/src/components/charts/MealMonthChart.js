@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ResponsiveContainer, XAxis, YAxis, CartesianGrid, Tooltip, Legend, Area, AreaChart } from 'recharts';
 import eachDayOfInterval from 'date-fns/eachDayOfInterval';
+
 const MealMonthChart = ({ allMeals, MER }) => {
   const createWeekDates = (startDay, endDay) => {
     let tempWeek = [];
@@ -108,19 +109,19 @@ const MealMonthChart = ({ allMeals, MER }) => {
     meals.forEach((meal) =>
       graphDataArray.push({
         date: meal.date.slice(8, 10).split('-').join('/'), // e.g 2021-07-13 => 07/13
-        meal: meal.meal,
-        treat: meal.treat,
-        'average calorie': avgCal,
-        'ideal calorie': idealCal,
+        Meal: meal.meal,
+        Treat: meal.treat,
+        'Monthly Average': avgCal,
+        Ideal: idealCal,
       })
     );
     noDataDates.forEach((date) =>
       graphDataArray.push({
         date: date.slice(8, 10).split('-').join('/'),
-        meal: 0,
-        treat: 0,
-        'average calorie': avgCal,
-        'ideal calorie': idealCal,
+        Meal: 0,
+        Treat: 0,
+        'Monthly Average': avgCal,
+        Ideal: idealCal,
       })
     );
 
@@ -196,13 +197,6 @@ const MealMonthChart = ({ allMeals, MER }) => {
 
   return (
     <div className="meal-month-graph">
-      {/* MUST set height to display chart */}
-      {/* 確認用 */}
-      {/*graphData.map((meal) => (
-          <p key={meal.date}>
-            {meal.date}, meal: {meal.meal}, treat: {meal.treat} avgCal: {meal.avgCal}
-          </p>
-        ))*/}
       <div className="month-controller">
         <button
           onClick={() => {
@@ -214,7 +208,7 @@ const MealMonthChart = ({ allMeals, MER }) => {
         </button>
         {graphData.length > 0 ? (
           <p>
-            {month[0].split('-').join(' ')} to {month[month.length - 1].split('-').join(' ')}
+            {month[0].split('-').join('/')} to {month[month.length - 1].split('-').join('/')}
           </p>
         ) : (
           ''
@@ -228,36 +222,47 @@ const MealMonthChart = ({ allMeals, MER }) => {
         </button>
       </div>
       <div className="graph-height">
+        <p className="unit-kcal">kcal</p>
         <ResponsiveContainer>
           <AreaChart
             data={graphData}
             margin={{
-              top: 10,
+              top: 0,
               right: 20,
               left: 0,
               bottom: 0,
             }}
           >
-            <Legend wrapperStyle={{ bottom: -50, left: 20 }} />
-            <XAxis dataKey="date" />
-            <YAxis />
+            <Legend wrapperStyle={{ bottom: -25, left: 20 }} />
+            <XAxis dataKey="date" stroke="#3b3054" />
+            <YAxis stroke="#3b3054" />
             <Tooltip />
             <Area
               type="monotone"
-              dataKey="average calorie"
-              stroke="rgba(204, 171, 218, 1)"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+              dataKey="Meal"
+              stackId="1"
+              fillOpacity={0.8}
+              stroke="rgba(212, 185, 222)"
+              fill="rgba(212, 185, 222)"
+              unit=" kcal"
             />
             <Area
               type="monotone"
-              dataKey="ideal calorie"
-              stroke="rgba(252, 136, 123, 1)"
-              fillOpacity={0.3}
-              fill="rgba(0, 172, 237, 0)"
+              dataKey="Treat"
+              stackId="1"
+              fillOpacity={0.75}
+              stroke="rgba(59, 48, 84)"
+              fill="rgba(59, 48, 84)"
+              unit=" kcal"
             />
-            <Area type="monotone" dataKey="meal" stackId="1" stroke="#8884d8" fill="#8884d8" />
-            <Area type="monotone" dataKey="treat" stackId="1" stroke="#82ca9d" fill="#82ca9d" />
+            <Area
+              type="monotone"
+              dataKey="Monthly Average"
+              stroke="rgba(59, 48, 84, 0.6)"
+              fillOpacity={0}
+              unit=" kcal"
+            />
+            <Area type="monotone" dataKey="Ideal" stroke="rgba(252, 136, 123, 1)" fillOpacity={0} unit=" kcal" />
           </AreaChart>
         </ResponsiveContainer>
       </div>

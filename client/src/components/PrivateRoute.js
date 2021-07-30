@@ -4,7 +4,7 @@ import Axios from 'axios';
 import { useAuth } from '../contexts/AuthContext';
 import calculateAgeFromBirthday from '../functions/calculateAgeFromBirthday';
 import calculateRecommendedCalorie from '../functions/calculateRecommendedCalorie';
-import signinImg from '../images/dog-sample.jpg'; // dammy img, to be replaced
+import signinImg from '../images/pet-profile-default.jpg'; // dammy img, to be replaced
 
 export default function PrivateRoute({ component: Component, ...rest }) {
   const { currentUser } = useAuth();

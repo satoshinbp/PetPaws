@@ -2,15 +2,24 @@
   text-align: center;
   background-color: $intro-color;
 
-  .wrapper {
+  .intro-container {
     display: flex;
     flex-flow: nowrap column;
+  }
+
+  &__img-area.pc-hidden {
+    height: 180px;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
   }
 
   @media screen and (min-width: $tb-breakpoint) {
     text-align: left;
 
-    .wrapper {
+    .intro-container {
       display: flex;
       flex-flow: nowrap row;
       align-items: center;
@@ -25,8 +34,16 @@
       margin: 0;
     }
 
-    &__img-area {
-      flex: 1 0 auto;
+    &__img-area.mb-hidden {
+      flex: 0 0 30%;
+      min-height: $intro-icon-min-height;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+
+      img {
+        width: 100%;
+      }
     }
   }
 }

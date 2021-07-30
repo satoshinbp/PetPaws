@@ -2,22 +2,21 @@
   width: 100%;
   .week-month-toggle {
     background-color: $primary-color-light;
-    border-top-left-radius: 18px;
-    border-top-right-radius: 18px;
-    .button-background {
-      display: flex;
-      height: 35px;
-      flex-flow: row nowrap;
-      align-items: center;
-      justify-content: center;
-      padding: 0 1rem;
-      .button-no-accent {
-        background-color: transparent;
-      }
-      button {
-        font-size: $standard-fontsize-mb;
-        color: $font-color;
-      }
+    border-top-left-radius: $graph-bg-borderradius-mb;
+    border-top-right-radius: $graph-bg-borderradius-mb;
+    display: flex;
+    height: $btn-week-month-toggle-mb;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    padding: 0 1rem;
+    background-color: rgba($base-color, 0.46);
+    .button-no-accent {
+      background-color: transparent;
+    }
+    button {
+      font-size: $standard-fontsize-mb;
+      color: $font-color;
     }
   }
 
@@ -25,9 +24,9 @@
   .walk-month-graph,
   .meal-week-graph,
   .meal-month-graph {
-    background-color: $primary-color-light;
-    border-bottom-left-radius: $subcomponent-borderradius-mb;
-    border-bottom-right-radius: $subcomponent-borderradius-mb;
+    background-color: rgba($base-color, 0.46);
+    border-bottom-left-radius: $graph-bg-borderradius-mb;
+    border-bottom-right-radius: $graph-bg-borderradius-mb;
     padding-bottom: calc(1rem + 50px);
     .week-controller,
     .month-controller {
@@ -45,6 +44,17 @@
     }
     .graph-height {
       height: 300px;
+      .unit-kcal,
+      .unit-min {
+        margin: 0;
+        text-align-last: left;
+      }
+      .unit-kcal {
+        padding-left: 1.5rem;
+      }
+      .unit-min {
+        padding-left: 2rem;
+      }
       .recharts-default-legend {
         display: flex;
         flex-flow: row wrap;
@@ -57,18 +67,35 @@
 
 @media screen and (min-width: $tb-breakpoint) {
   .graphs {
-    padding-right: 1rem; // grid gap 1rem affects this padding
     .graph-title {
       display: none;
     }
     .week-month-toggle {
-      border-top-left-radius: $subcomponent-borderradius-mb + 5px; // adjust radius depending on button radius
-      border-top-right-radius: $subcomponent-borderradius-mb + 5px;
-      .button-background {
-        padding: 0 3rem;
-        height: 45px;
-        .btn-darkened.btn-toggle-tab {
-          border-radius: $subcomponent-borderradius-mb + 2px;
+      border-top-left-radius: $graph-bg-borderradius-pc; // adjust radius depending on button radius
+      border-top-right-radius: $graph-bg-borderradius-pc;
+      padding: 0 3rem;
+      height: $btn-week-month-toggle-pc;
+      .btn-darkened.btn-toggle-tab {
+        border-radius: $subcomponent-borderradius-mb + 2px;
+      }
+    }
+    .walk-week-graph,
+    .walk-month-graph,
+    .meal-week-graph,
+    .meal-month-graph {
+      border-bottom-left-radius: $graph-bg-borderradius-pc;
+      border-bottom-right-radius: $graph-bg-borderradius-pc;
+      .graph-height {
+        .unit-kcal,
+        .unit-min {
+          margin: 0;
+          text-align-last: left;
+        }
+        .unit-kcal {
+          padding-left: 1.2rem;
+        }
+        .unit-min {
+          padding-left: 1.8rem;
         }
       }
     }
