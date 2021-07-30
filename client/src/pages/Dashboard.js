@@ -47,11 +47,9 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
                 </div>
               </div>
             </div>
-          </div>
 
-          <div className="dashboard-summary bg-secondary-fish">
             <div className="wrapper summary-wrapper">
-              <div className="dashboard-meal-summary bg-secondary-light">
+              <div className="dashboard-meal-summary bg-primary-light">
                 <h3>Meal Summary</h3>
                 <div className="graphs">
                   <div className="week-month-toggle">
@@ -81,7 +79,7 @@ const Dashboard = ({ petProfile, allMeals, allActivities, MER, age }) => {
                 </Link>
               </div>
 
-              <div className="dashboard-walk-summary bg-secondary-light">
+              <div className="dashboard-walk-summary bg-primary-light">
                 <h3>Activity Summary</h3>
                 <div className="graphs">
                   <div className="week-month-toggle">

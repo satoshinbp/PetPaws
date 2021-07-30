@@ -212,10 +212,11 @@ const WalkWeekChart = ({ allActivities }) => {
         </button>
       </div>
       <div className="graph-height">
+        <p className="unit-min">min</p>
         <ResponsiveContainer>
           <ComposedChart data={graphData} margin={{ left: 0, right: 20 }}>
-            <XAxis dataKey="date" />
-            <YAxis />
+            <XAxis dataKey="date" stroke="#3b3054" />
+            <YAxis stroke="#3b3054" />
             <Tooltip />
             <Legend wrapperStyle={{ bottom: -25, left: 20 }} />
             <Bar

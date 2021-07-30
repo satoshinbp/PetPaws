@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @font-face {
   font-family: 'To Japan';
   src: url("fonts/tojapan/to-japan.ttf") format("truetype");
@@ -353,7 +354,7 @@ template {
 
 body {
   padding-top: 91px;
-  font-family: "Content", helvetica, arial, sans-serif;
+  font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #3b3054;
@@ -749,6 +750,10 @@ nav ul {
   }
 }
 
+.menu-btn-wrapper img:hover {
+  cursor: pointer;
+}
+
 .active-mobile {
   background-color: white !important;
 }
@@ -902,20 +907,25 @@ nav ul {
 
 /* 3.9. Premium Pop-up  ========= */
 .premium-modal-wrapper {
-  max-width: 480px;
-  margin: 0 auto;
   padding: 0 1rem;
+  overflow: hidden;
+  overflow-y: scroll;
 }
 
 .premium-content {
   display: flex;
   flex-flow: column nowrap;
+  align-items: center;
   gap: 1rem;
+}
+
+.premium-content h2 {
+  margin: 0;
 }
 
 .premium-content h2 span {
   text-transform: capitalize;
-  font-family: "Content", helvetica, arial, sans-serif;
+  font-family: "Roboto", helvetica, arial, sans-serif;
   display: block;
 }
 
@@ -924,6 +934,7 @@ nav ul {
   flex-flow: column nowrap;
   align-items: center;
   gap: 1rem;
+  max-width: initial;
 }
 
 .premium-content .features .feature-area {
@@ -951,13 +962,15 @@ nav ul {
   display: flex;
   flex-flow: column;
   align-items: center;
+  justify-content: space-between;
   border: 1px solid #3b3054;
   border-radius: 25px;
   padding: 0.5rem;
 }
 
 .premium-content .plans .plan-area p {
-  margin: 0.5rem 0;
+  margin: 0.25rem 0;
+  white-space: nowrap;
 }
 
 .premium-content .plans .plan-area p:nth-of-type(2) {
@@ -968,14 +981,22 @@ nav ul {
   background-color: #e4c8f0;
 }
 
+.premium-content .btn-area {
+  width: 100%;
+}
+
 @media screen and (min-width: 600px) {
-  .premium-content {
+  .premium-modal-wrapper {
+    max-width: 100%;
+    width: 100%;
+  }
+  .premium-modal-wrapper .premium-content {
     gap: 1.5rem;
   }
-  .premium-content .plans {
+  .premium-modal-wrapper .premium-content .plans {
     gap: 2rem;
   }
-  .premium-content .plans p {
+  .premium-modal-wrapper .premium-content .plans p {
     margin: 0.25rem;
   }
 }
@@ -1336,6 +1357,32 @@ nav ul {
   height: 300px;
 }
 
+.graphs .walk-week-graph .graph-height .unit-kcal,
+.graphs .walk-week-graph .graph-height .unit-min,
+.graphs .walk-month-graph .graph-height .unit-kcal,
+.graphs .walk-month-graph .graph-height .unit-min,
+.graphs .meal-week-graph .graph-height .unit-kcal,
+.graphs .meal-week-graph .graph-height .unit-min,
+.graphs .meal-month-graph .graph-height .unit-kcal,
+.graphs .meal-month-graph .graph-height .unit-min {
+  margin: 0;
+  text-align-last: left;
+}
+
+.graphs .walk-week-graph .graph-height .unit-kcal,
+.graphs .walk-month-graph .graph-height .unit-kcal,
+.graphs .meal-week-graph .graph-height .unit-kcal,
+.graphs .meal-month-graph .graph-height .unit-kcal {
+  padding-left: 1.5rem;
+}
+
+.graphs .walk-week-graph .graph-height .unit-min,
+.graphs .walk-month-graph .graph-height .unit-min,
+.graphs .meal-week-graph .graph-height .unit-min,
+.graphs .meal-month-graph .graph-height .unit-min {
+  padding-left: 2rem;
+}
+
 .graphs .walk-week-graph .graph-height .recharts-default-legend,
 .graphs .walk-month-graph .graph-height .recharts-default-legend,
 .graphs .meal-week-graph .graph-height .recharts-default-legend,
@@ -1365,6 +1412,29 @@ nav ul {
   .graphs .meal-month-graph {
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
+  }
+  .graphs .walk-week-graph .graph-height .unit-kcal,
+  .graphs .walk-week-graph .graph-height .unit-min,
+  .graphs .walk-month-graph .graph-height .unit-kcal,
+  .graphs .walk-month-graph .graph-height .unit-min,
+  .graphs .meal-week-graph .graph-height .unit-kcal,
+  .graphs .meal-week-graph .graph-height .unit-min,
+  .graphs .meal-month-graph .graph-height .unit-kcal,
+  .graphs .meal-month-graph .graph-height .unit-min {
+    margin: 0;
+    text-align-last: left;
+  }
+  .graphs .walk-week-graph .graph-height .unit-kcal,
+  .graphs .walk-month-graph .graph-height .unit-kcal,
+  .graphs .meal-week-graph .graph-height .unit-kcal,
+  .graphs .meal-month-graph .graph-height .unit-kcal {
+    padding-left: 1.2rem;
+  }
+  .graphs .walk-week-graph .graph-height .unit-min,
+  .graphs .walk-month-graph .graph-height .unit-min,
+  .graphs .meal-week-graph .graph-height .unit-min,
+  .graphs .meal-month-graph .graph-height .unit-min {
+    padding-left: 1.8rem;
   }
 }
 
@@ -1682,10 +1752,18 @@ header .profile-img {
   border-width: 4px;
 }
 
+header:hover {
+  cursor: pointer;
+}
+
 .profile-form .profile-img {
   width: 128px;
   height: 128px;
   border-width: 8px;
+}
+
+.profile-form .profile-img:hover {
+  cursor: pointer;
 }
 
 .profile-form .profile-img-input {

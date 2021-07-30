@@ -43,6 +43,9 @@
   @media screen and (min-width: $tb-breakpoint) {
     padding: 4rem 3rem;
   }
+  img:hover {
+    cursor: pointer;
+  }
 }
 
 .active-mobile {
