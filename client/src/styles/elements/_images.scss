@@ -15,6 +15,9 @@ header {
     height: 64px;
     border-width: 4px;
   }
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 .profile-form {
@@ -22,6 +25,9 @@ header {
     width: 128px;
     height: 128px;
     border-width: 8px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   .profile-img-input {

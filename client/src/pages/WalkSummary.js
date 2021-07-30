@@ -5,6 +5,7 @@ import WalkDayChart from '../components/charts/WalkDayChart';
 import WalkForm from '../components/forms/Walk';
 import WalkSummaryIntro from '../components/intros/WalkSummary';
 import defaultPetImg from '../images/pet-profile-default.jpg';
+import Header from '../components/Header';
 
 export default function WalkSummary({ petProfile, allActivities, setAllActivities }) {
   const [showForm, setShowForm] = useState(false);
@@ -12,6 +13,7 @@ export default function WalkSummary({ petProfile, allActivities, setAllActivitie
 
   return (
     <>
+      <Header />
       <WalkSummaryIntro />
 
       <div className="body">

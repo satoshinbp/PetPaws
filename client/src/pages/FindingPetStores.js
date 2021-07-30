@@ -4,6 +4,7 @@ import Map from '../components/GoogleMap';
 import finderCombinedIcon from '../images/finder-combined-icon.svg';
 import finderIconMobile from '../images/finder-icon-mobile.svg';
 import FinderIntro from '../components/intros/Finder';
+import Header from '../components/Header';
 
 export default function FindingPetStores() {
   const [shops, setShops] = useState([]);
@@ -34,6 +35,7 @@ export default function FindingPetStores() {
 
   return (
     <>
+      <Header />
       <FinderIntro />
 
       <div className="body">
@@ -49,11 +51,13 @@ export default function FindingPetStores() {
               </div>
               <form className="search-form-inner">
                 <label htmlFor="">Choose Pet Stores / Vets</label>
-                <select name="name" id="name" onChange={(e) => onChangeSelect(e)}>
-                  <option value={2}>Both</option>
-                  <option value={0}>Pet store</option>
-                  <option value={1}>Vet</option>
-                </select>
+                <div class="select-wrapper">
+                  <select name="name" id="name" onChange={(e) => onChangeSelect(e)}>
+                    <option value={2}>Both</option>
+                    <option value={0}>Pet store</option>
+                    <option value={1}>Vet</option>
+                  </select>
+                </div>
               </form>
               <Map shops={shops} />
             </div>

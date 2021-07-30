@@ -7,6 +7,15 @@
     flex-flow: nowrap column;
   }
 
+  &__img-area.pc-hidden {
+    height: 180px;
+
+    img {
+      height: 100%;
+      width: auto;
+    }
+  }
+
   @media screen and (min-width: $tb-breakpoint) {
     text-align: left;
 
@@ -26,11 +35,15 @@
     }
 
     &__img-area.mb-hidden {
-      flex: 1 0 auto;
+      flex: 0 0 30%;
       min-height: $intro-icon-min-height;
       display: flex;
-      justify-content: center;
+      justify-content: flex-end;
       align-items: center;
+
+      img {
+        width: 100%;
+      }
     }
   }
 }
