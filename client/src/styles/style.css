@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap");
 @font-face {
   font-family: 'To Japan';
   src: url("fonts/tojapan/to-japan.ttf") format("truetype");
@@ -353,7 +354,7 @@ template {
 
 body {
   padding-top: 91px;
-  font-family: "Content", helvetica, arial, sans-serif;
+  font-family: "Roboto", helvetica, arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   color: #3b3054;
@@ -749,6 +750,10 @@ nav ul {
   }
 }
 
+.menu-btn-wrapper img:hover {
+  cursor: pointer;
+}
+
 .active-mobile {
   background-color: white !important;
 }
@@ -920,7 +925,7 @@ nav ul {
 
 .premium-content h2 span {
   text-transform: capitalize;
-  font-family: "Content", helvetica, arial, sans-serif;
+  font-family: "Roboto", helvetica, arial, sans-serif;
   display: block;
 }
 
@@ -1747,10 +1752,18 @@ header .profile-img {
   border-width: 4px;
 }
 
+header:hover {
+  cursor: pointer;
+}
+
 .profile-form .profile-img {
   width: 128px;
   height: 128px;
   border-width: 8px;
+}
+
+.profile-form .profile-img:hover {
+  cursor: pointer;
 }
 
 .profile-form .profile-img-input {

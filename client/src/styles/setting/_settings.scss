@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 @font-face {
   font-family: 'To Japan';
   src: url('fonts/tojapan/to-japan.ttf') format('truetype');
@@ -18,7 +20,7 @@ $btn-bordercolor-outlined: #3b3054;
 
 // Font Family
 $header-fontfamily: 'To Japan', helvetica, arial, sans-serif;
-$paragraph-fontfamily: 'Content', helvetica, arial, sans-serif;
+$paragraph-fontfamily: 'Roboto', helvetica, arial, sans-serif;
 
 // Font Size
 $standard-fontsize-mb: 16px;
