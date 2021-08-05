@@ -7,7 +7,7 @@ export default function Home() {
       <div className="wrapper">
         <div className="intro-container">
           <div>
-            <h1 className="intro__title">Welcom to Pet Paws</h1>
+            <h1 className="intro__title">Welcome to Pet Paws</h1>
             <p>
               Try the best nutrition plan for your furry friend, monitor their daily routine, and locate the best vets
               and pet shops for your convenience.
