@@ -195,7 +195,7 @@ export default function Header() {
               ) : (
                 <>
                   <li className="header-list">
-                    <div className="header-divider"></div>
+                    <div className="header-divider" />
                   </li>
                   <li className="header-list">
                     <Link to="/signin">
