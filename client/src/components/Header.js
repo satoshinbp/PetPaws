@@ -195,11 +195,11 @@ export default function Header() {
               ) : (
                 <>
                   <li className="header-list">
-                    <img src={Line} />
+                    <div className="header-divider"></div>
                   </li>
                   <li className="header-list">
                     <Link to="/signin">
-                      <button className="btn-outlined--header ">Sign In</button>
+                      <button className="btn-outlined--header">Sign In</button>
                     </Link>
                   </li>
 
