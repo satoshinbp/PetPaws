@@ -51,7 +51,7 @@ export default function Signup() {
           <form onSubmit={handleSubmit} className="basic-form">
             <div className="input-area">
               <label>Email</label>
-              <input type="email" placeholder="Enter Your Email" required onChange={handleEmailChange} />
+              <input type="email" required onChange={handleEmailChange} />
             </div>
             <div className="input-area">
               <label>Password</label>

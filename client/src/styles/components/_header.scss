@@ -46,6 +46,11 @@ nav ul {
   border-color: $intro-color;
 }
 
+.header-divider {
+  border-right: 1px solid $font-color;
+  height: 40px;
+}
+
 @media screen and (max-width: $pc-breakpoint) {
   .site-logo {
     position: absolute;
