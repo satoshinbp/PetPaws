@@ -475,13 +475,13 @@ a {
   }
   .bg-primary-light,
   .bg-primary-light-mb-visible {
-    padding: 2rem 1.5rem;
+    padding: 4rem 3rem;
     border-radius: 50px;
     background-color: #dcf7f1;
   }
   .bg-secondary-light,
   .bg-secondary-light-mb-visible {
-    padding: 2rem 1.5rem;
+    padding: 4rem 3rem;
     border-radius: 50px;
     background-color: #e4c8f0;
   }
@@ -685,6 +685,11 @@ nav ul {
   border-color: #ffdd95;
 }
 
+.header-divider {
+  border-right: 1px solid #3b3054;
+  height: 40px;
+}
+
 @media screen and (max-width: 960px) {
   .site-logo {
     position: absolute;
@@ -857,7 +862,7 @@ nav ul {
     margin: auto;
   }
   .team__member {
-    flex: 240px 0 0;
+    flex: 200px 0 0;
   }
   .team__member-img {
     width: 180px;
