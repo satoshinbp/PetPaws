@@ -13,7 +13,7 @@
 <br>
 
 <p align="center">
-  <img width="32.5%" alt="スクリーンショット 2021-09-01 9 12 27" src="https://user-images.githubusercontent.com/50537610/131706447-e77d1f18-2323-4d0b-b326-31ba68b2644c.png"> <img width="32.5%" alt="スクリーンショット 2021-09-01 9 12 52" src="https://user-images.githubusercontent.com/50537610/131706437-762b1dc4-853c-43ee-823c-b9091becb35b.png"> <img width="32.5%" alt="スクリーンショット 2021-09-01 9 20 49" src="https://user-images.githubusercontent.com/50537610/131707442-6a7eb055-541a-4773-92d0-8b600241d3dc.png">
+  <img width="32.5%" alt="calculator" src="https://user-images.githubusercontent.com/50537610/131706447-e77d1f18-2323-4d0b-b326-31ba68b2644c.png"> <img width="32.5%" alt="finder" src="https://user-images.githubusercontent.com/50537610/131706437-762b1dc4-853c-43ee-823c-b9091becb35b.png"> <img width="32.5%" alt="meal tracker" src="https://user-images.githubusercontent.com/50537610/131707442-6a7eb055-541a-4773-92d0-8b600241d3dc.png">
 </p>
 
 ## Problem to Tackle
